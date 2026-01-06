@@ -4,9 +4,13 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4 scroll-reveal-left">
-    <h2><i class="fas fa-tachometer-alt"></i> {{ _('Authority Dashboard') }}</h2>
+    <h2>
+        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:widget-4-bold" data-width="22" data-height="22"></span>
+        {{ _('Authority Dashboard') }}
+    </h2>
     <a href="{{ url_for('view_reports') }}" class="btn btn-primary">
-        <i class="fas fa-list"></i> {{ _('View All Reports') }}
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:documents-bold" data-width="18" data-height="18"></span>
+        {{ _('View All Reports') }}
     </a>
 </div>
 
@@ -15,7 +19,7 @@
     <div class="col-md-3 mb-3">
         <div class="card stats-card text-center scroll-reveal scroll-reveal-delay-1">
             <div class="card-body">
-                <i class="fas fa-clipboard-list fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:clipboard-list-bold" data-width="26" data-height="26"></span>
                 <h3>{{ total_reports }}</h3>
                 <p class="mb-0">{{ _('Total Reports') }}</p>
             </div>
@@ -24,7 +28,7 @@
     <div class="col-md-3 mb-3">
         <div class="card bg-warning text-white text-center scroll-reveal scroll-reveal-delay-2">
             <div class="card-body">
-                <i class="fas fa-clock fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:clock-circle-bold" data-width="26" data-height="26"></span>
                 <h3>{{ pending_reports }}</h3>
                 <p class="mb-0">{{ _('Pending Action') }}</p>
             </div>
@@ -33,7 +37,7 @@
     <div class="col-md-3 mb-3">
         <div class="card bg-info text-white text-center scroll-reveal scroll-reveal-delay-3">
             <div class="card-body">
-                <i class="fas fa-cogs fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:settings-bold" data-width="26" data-height="26"></span>
                 <h3>{{ in_progress_reports }}</h3>
                 <p class="mb-0">{{ _('In Progress') }}</p>
             </div>
@@ -42,7 +46,7 @@
     <div class="col-md-3 mb-3">
         <div class="card bg-success text-white text-center scroll-reveal scroll-reveal-delay-4">
             <div class="card-body">
-                <i class="fas fa-check-circle fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-bold" data-width="26" data-height="26"></span>
                 <h3>{{ completed_reports }}</h3>
                 <p class="mb-0">{{ _('Completed') }}</p>
             </div>
@@ -55,18 +59,24 @@
     <div class="col-md-6">
         <div class="card dashboard-card scroll-reveal scroll-reveal-left">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-bolt"></i> {{ _('Quick Actions') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:bolt-outline" data-width="18" data-height="18"></span>
+                    {{ _('Quick Actions') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="d-grid gap-2">
                     <a href="{{ url_for('view_reports', status='reported') }}" class="btn btn-outline-warning">
-                        <i class="fas fa-exclamation-triangle"></i> {{ _('New Reports') }} ({{ pending_reports }})
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:danger-triangle-outline" data-width="18" data-height="18"></span>
+                        {{ _('New Reports') }} ({{ pending_reports }})
                     </a>
                     <a href="{{ url_for('view_reports', status='in_progress') }}" class="btn btn-outline-info">
-                        <i class="fas fa-cogs"></i> {{ _('In Progress Reports') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:settings-outline" data-width="18" data-height="18"></span>
+                        {{ _('In Progress Reports') }}
                     </a>
                     <a href="{{ url_for('view_reports', severity='high,critical') }}" class="btn btn-outline-danger">
-                        <i class="fas fa-exclamation-triangle"></i> {{ _('High Priority Reports') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:danger-triangle-outline" data-width="18" data-height="18"></span>
+                        {{ _('High Priority Reports') }}
                     </a>
                 </div>
             </div>
@@ -76,7 +86,10 @@
     <div class="col-md-6">
         <div class="card dashboard-card scroll-reveal scroll-reveal-right">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> {{ _('Recent Activity') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:chart-2-outline" data-width="18" data-height="18"></span>
+                    {{ _('Recent Activity') }}
+                </h5>
             </div>
             <div class="card-body">
                 <canvas id="categoryChart" width="400" height="200"></canvas>
@@ -88,7 +101,10 @@
 <!-- Recent Reports -->
 <div class="card scroll-reveal">
     <div class="card-header">
-        <h5 class="mb-0"><i class="fas fa-clock"></i> {{ _('Recent Reports') }}</h5>
+        <h5 class="mb-0">
+            <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:clock-circle-outline" data-width="18" data-height="18"></span>
+            {{ _('Recent Reports') }}
+        </h5>
     </div>
     <div class="card-body">
         {% if recent_reports %}
@@ -113,7 +129,7 @@
                             <td>
                                 <strong>{{ report.title }}</strong>
                                 {% if report.photo_path %}
-                                    <i class="fas fa-camera text-muted ms-1" title="{{ _('Has photo') }}"></i>
+                                    <span class="iconify inline-block align-[-0.125em] text-muted ms-1" data-icon="solar:camera-outline" data-width="16" data-height="16" title="{{ _('Has photo') }}"></span>
                                 {% endif %}
                             </td>
                             <td>
@@ -144,7 +160,8 @@
                             <td>{{ report.created_at.strftime('%m/%d/%Y') }}</td>
                             <td>
                                 <a href="{{ url_for('view_report_detail', report_id=report.id) }}" class="btn btn-sm btn-outline-primary">
-                                    <i class="fas fa-eye"></i> {{ _('View') }}
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span>
+                                    {{ _('View') }}
                                 </a>
                             </td>
                         </tr>
@@ -154,7 +171,7 @@
             </div>
         {% else %}
             <div class="text-center py-4">
-                <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                <span class="iconify inline-block align-[-0.125em] text-muted" data-icon="solar:clipboard-list-outline" data-width="34" data-height="34"></span>
                 <h5>{{ _('No reports available') }}</h5>
                 <p class="text-muted">{{ _('New reports will appear here as they are submitted by citizens.') }}</p>
             </div>
@@ -167,7 +184,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header bg-danger text-white">
-                <h6 class="mb-0"><i class="fas fa-exclamation-triangle"></i> {{ _('Critical Issues') }}</h6>
+                <h6 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:danger-triangle-outline" data-width="18" data-height="18"></span>
+                    {{ _('Critical Issues') }}
+                </h6>
             </div>
             <div class="card-body">
                 {% if critical_reports %}
@@ -192,7 +212,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header bg-primary text-white">
-                <h6 class="mb-0"><i class="fas fa-chart-line"></i> {{ _('Quick Stats') }}</h6>
+                <h6 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:chart-line-outline" data-width="18" data-height="18"></span>
+                    {{ _('Quick Stats') }}
+                </h6>
             </div>
             <div class="card-body">
                 <div class="row text-center">
@@ -223,7 +246,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('Reports Map') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:map-bold" data-width="18" data-height="18"></span>
+                    {{ _('Reports Map') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div id="authorityReportsMap" class="map-container" style="height: 400px;"></div>
@@ -231,6 +257,8 @@
         </div>
     </div>
 </div>
+
+<script type="application/json" id="recent-reports-data">{{ recent_reports_data|default([], true)|tojson }}</script>
 {% endblock %}
 
 {% block scripts %}
@@ -321,7 +349,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     
     // Category Chart - use serializable data
-    const recentReportsData = {{ recent_reports_data|tojson|safe }};
+    let recentReportsData = [];
+    const recentDataEl = document.getElementById('recent-reports-data');
+    if (recentDataEl && recentDataEl.textContent) {
+        try {
+            recentReportsData = JSON.parse(recentDataEl.textContent) || [];
+        } catch (e) {
+            console.warn('Failed to parse recent-reports-data JSON', e);
+        }
+    }
     const categories = {};
     
     recentReportsData.forEach(function(report) {

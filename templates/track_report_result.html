@@ -5,16 +5,23 @@
 {% block content %}
 <div class="container mt-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2><i class="fas fa-clipboard-check"></i> {{ _('Report') }} #{{ report.id }} {{ _('Status') }}</h2>
+        <h2>
+            <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:clipboard-check-bold" data-width="22" data-height="22"></span>
+            {{ _('Report') }} #{{ report.id }} {{ _('Status') }}
+        </h2>
         <a href="{{ url_for('track_report') }}" class="btn btn-outline-secondary">
-            <i class="fas fa-search"></i> {{ _('Track Another Report') }}
+            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
+            {{ _('Track Another Report') }}
         </a>
     </div>
 
     <!-- Report Details -->
     <div class="card mb-4">
         <div class="card-header">
-            <h5><i class="fas fa-info-circle"></i> {{ _('Report Details') }}</h5>
+            <h5>
+                <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:info-circle-outline" data-width="18" data-height="18"></span>
+                {{ _('Report Details') }}
+            </h5>
         </div>
         <div class="card-body">
             <div class="row">
@@ -58,10 +65,12 @@
                              class="img-fluid rounded" 
                              alt="Report photo"
                              style="cursor: pointer;"
-                             onclick="showImageModal('{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}', '{{ report.title }}')">
+                             data-image-preview
+                             data-full-src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                             data-title="{{ report.title|e }}">
                     {% else %}
                         <div class="text-center text-muted p-4 border rounded">
-                            <i class="fas fa-image-slash fa-3x mb-2"></i>
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="34" data-height="34"></span>
                             <p class="mb-0">{{ _('No image available') }}</p>
                         </div>
                     {% endif %}
@@ -73,7 +82,10 @@
     <!-- Status Updates Timeline -->
     <div class="card mb-4">
         <div class="card-header">
-            <h5><i class="fas fa-history"></i> {{ _('Status Updates Timeline') }}</h5>
+            <h5>
+                <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:history-outline" data-width="18" data-height="18"></span>
+                {{ _('Status Updates Timeline') }}
+            </h5>
         </div>
         <div class="card-body">
             {% if status_updates %}
@@ -108,11 +120,14 @@
                                                     <img src="{{ url_for('static', filename='uploads/' + update.image_path) }}" 
                                                          class="img-thumbnail" 
                                                          style="max-width: 100px; max-height: 100px; cursor: pointer;"
-                                                         onclick="showImageModal('{{ url_for('static', filename='uploads/' + update.image_path) }}', 'Status Update Image')"
+                                                         data-image-preview
+                                                         data-full-src="{{ url_for('static', filename='uploads/' + update.image_path) }}"
+                                                         data-title="Status Update Image"
                                                          title="Click to view full image"
                                                          onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
                                                     <div style="display: none;" class="text-muted small">
-                                                        <i class="fas fa-image-slash"></i> {{ _('Image not available') }}
+                                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span>
+                                                        {{ _('Image not available') }}
                                                     </div>
                                                 </div>
                                             {% endif %}
@@ -126,7 +141,7 @@
                 </div>
             {% else %}
                 <div class="text-center py-4">
-                    <i class="fas fa-clock fa-3x text-muted mb-3"></i>
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:clock-circle-outline" data-width="34" data-height="34"></span>
                     <h6>{{ _('No status updates yet') }}</h6>
                     <p class="text-muted">{{ _('Status updates will appear here as authorities review your report.') }}</p>
                 </div>
@@ -137,7 +152,10 @@
     <!-- Maintenance Tickets -->
     <div class="card mb-4">
         <div class="card-header">
-            <h5><i class="fas fa-wrench"></i> {{ _('Maintenance Tickets') }}</h5>
+            <h5>
+                <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:wrench-outline" data-width="18" data-height="18"></span>
+                {{ _('Maintenance Tickets') }}
+            </h5>
         </div>
         <div class="card-body">
             {% if maintenance_tickets %}
@@ -183,7 +201,7 @@
                 {% endfor %}
             {% else %}
                 <div class="text-center py-4">
-                    <i class="fas fa-tools fa-3x text-muted mb-3"></i>
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:tools-outline" data-width="34" data-height="34"></span>
                     <h6>{{ _('No maintenance tickets yet') }}</h6>
                     <p class="text-muted">{{ _('Maintenance tickets will be created once your report is verified by authorities.') }}</p>
                 </div>
@@ -194,10 +212,12 @@
     <!-- Action Buttons -->
     <div class="text-center mb-4">
         <a href="{{ url_for('public_reports') }}" class="btn btn-outline-primary me-2">
-            <i class="fas fa-list"></i> {{ _('View All Public Reports') }}
+            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-check-outline" data-width="18" data-height="18"></span>
+            {{ _('View All Public Reports') }}
         </a>
         <a href="{{ url_for('track_report') }}" class="btn btn-outline-secondary">
-            <i class="fas fa-search"></i> {{ _('Track Another Report') }}
+            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
+            {{ _('Track Another Report') }}
         </a>
     </div>
 </div>
@@ -226,5 +246,16 @@ function showImageModal(imageUrl, title) {
     document.getElementById('imageModalTitle').innerText = title;
     new bootstrap.Modal(document.getElementById('imageModal')).show();
 }
+
+document.addEventListener('click', function(e) {
+    const img = e.target.closest('[data-image-preview]');
+    if (!img) return;
+    const src = img.getAttribute('data-full-src');
+    const title = img.getAttribute('data-title') || '';
+    if (src) {
+        e.preventDefault();
+        showImageModal(src, title);
+    }
+});
 </script>
 {% endblock %}

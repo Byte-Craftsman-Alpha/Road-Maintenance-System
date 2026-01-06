@@ -4,9 +4,13 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2><i class="fas fa-chart-line"></i> {{ _('Analytics Dashboard')}}</h2>
+    <h2>
+        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:chart-line-outline" data-width="22" data-height="22"></span>
+        {{ _('Analytics Dashboard')}}
+    </h2>
     <a href="{{ url_for('authority_dashboard') }}" class="btn btn-outline-primary">
-        <i class="fas fa-arrow-left"></i> {{ _('Back to Dashboard') }}
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:alt-arrow-left-outline" data-width="18" data-height="18"></span>
+        {{ _('Back to Dashboard') }}
     </a>
 </div>
 
@@ -15,7 +19,7 @@
     <div class="col-md-3 mb-3">
         <div class="card stats-card text-center">
             <div class="card-body">
-                <i class="fas fa-clock fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:clock-circle-outline" data-width="26" data-height="26"></span>
                 <h3>{{ "%.1f"|format(avg_response_time) }}</h3>
                 <p class="mb-0">{{ _('Avg Response Days') }}</p>
             </div>
@@ -24,7 +28,7 @@
     <div class="col-md-3 mb-3">
         <div class="card bg-info text-white text-center">
             <div class="card-body">
-                <i class="fas fa-percentage fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:pie-chart-2-bold" data-width="26" data-height="26"></span>
                 <h3>{{ "%.1f"|format((status_stats|selectattr('status', 'equalto', 'completed')|map(attribute='count')|sum / status_stats|map(attribute='count')|sum * 100) if status_stats else 0) }}%</h3>
                 <p class="mb-0">{{ _('Completion Rate') }}</p>
             </div>
@@ -33,7 +37,7 @@
     <div class="col-md-3 mb-3">
         <div class="card bg-warning text-white text-center">
             <div class="card-body">
-                <i class="fas fa-exclamation-triangle fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:danger-triangle-outline" data-width="26" data-height="26"></span>
                 <h3>{{ severity_stats|selectattr('severity', 'in', ['high', 'critical'])|map(attribute='count')|sum or 0 }}</h3>
                 <p class="mb-0">{{ _('High Priority Reports') }}</p>
             </div>
@@ -42,7 +46,7 @@
     <div class="col-md-3 mb-3">
         <div class="card bg-success text-white text-center">
             <div class="card-body">
-                <i class="fas fa-calendar-month fa-2x mb-2"></i>
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:calendar-bold" data-width="26" data-height="26"></span>
                 <h3>{{ monthly_stats[-1].count if monthly_stats else 0 }}</h3>
                 <p class="mb-0">{{ _('This Month') }}</p>
             </div>
@@ -55,7 +59,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-chart-pie"></i> {{ _('Reports by Category') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:chart-pie-outline" data-width="18" data-height="18"></span>
+                    {{ _('Reports by Category') }}
+                </h5>
             </div>
             <div class="card-body">
                 <canvas id="categoryChart" height="300"></canvas>
@@ -66,7 +73,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-chart-doughnut"></i> {{ _('Status Distribution') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:chart-2-outline" data-width="18" data-height="18"></span>
+                    {{ _('Status Distribution') }}
+                </h5>
             </div>
             <div class="card-body">
                 <canvas id="statusChart" height="300"></canvas>
@@ -80,7 +90,10 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-chart-line"></i> {{ _('Monthly Report Trends') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:chart-line-outline" data-width="18" data-height="18"></span>
+                    {{ _('Monthly Report Trends') }}
+                </h5>
             </div>
             <div class="card-body">
                 <canvas id="monthlyChart" height="100"></canvas>
@@ -94,7 +107,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-table"></i> {{ _('Category Breakdown') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:table-outline" data-width="18" data-height="18"></span>
+                    {{ _('Category Breakdown') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -125,7 +141,10 @@
     <div class="col-md-6">
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-tasks"></i> {{ _('Status Breakdown') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:checklist-minimalistic-outline" data-width="18" data-height="18"></span>
+                    {{ _('Status Breakdown') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -153,6 +172,10 @@
         </div>
     </div>
 </div>
+
+<script type="application/json" id="category-stats-data">{{ category_stats|default([], true)|tojson }}</script>
+<script type="application/json" id="status-stats-data">{{ status_stats|default([], true)|tojson }}</script>
+<script type="application/json" id="monthly-stats-data">{{ monthly_stats|default([], true)|tojson }}</script>
 {% endblock %}
 
 {% block scripts %}
@@ -160,7 +183,15 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Category Chart
-    const categoryData = {{ category_stats|tojson }};
+    let categoryData = [];
+    const categoryEl = document.getElementById('category-stats-data');
+    if (categoryEl && categoryEl.textContent) {
+        try {
+            categoryData = JSON.parse(categoryEl.textContent) || [];
+        } catch (e) {
+            console.warn('Failed to parse category-stats-data JSON', e);
+        }
+    }
     const categoryLabels = categoryData.map(item => item.category.replace('_', ' '));
     const categoryCounts = categoryData.map(item => item.count);
     
@@ -190,7 +221,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Status Chart
-    const statusData = {{ status_stats|tojson }};
+    let statusData = [];
+    const statusEl = document.getElementById('status-stats-data');
+    if (statusEl && statusEl.textContent) {
+        try {
+            statusData = JSON.parse(statusEl.textContent) || [];
+        } catch (e) {
+            console.warn('Failed to parse status-stats-data JSON', e);
+        }
+    }
     const statusLabels = statusData.map(item => item.status.replace('_', ' '));
     const statusCounts = statusData.map(item => item.count);
     
@@ -219,7 +258,15 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Monthly Trends Chart
-    const monthlyData = {{ monthly_stats|tojson }};
+    let monthlyData = [];
+    const monthlyEl = document.getElementById('monthly-stats-data');
+    if (monthlyEl && monthlyEl.textContent) {
+        try {
+            monthlyData = JSON.parse(monthlyEl.textContent) || [];
+        } catch (e) {
+            console.warn('Failed to parse monthly-stats-data JSON', e);
+        }
+    }
     const monthlyLabels = monthlyData.map(item => item.month);
     const monthlyCounts = monthlyData.map(item => item.count);
     

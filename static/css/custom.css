@@ -30,7 +30,7 @@
     /* Success, Warning, Error */
     --success-500: #10b981;
     --warning-500: #f59e0b;
-    --error-500: #ef4444;
+    --error-500: #f43f5e;
 
     /* Shadows */
     --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -106,6 +106,22 @@
     color: var(--error-500);
 }
 
+.ds-badge,
+.ds-badge-primary,
+.ds-badge-success,
+.ds-badge-warning,
+.ds-badge-danger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    line-height: 1;
+    padding: 0.2rem 0.55rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: 999px;
+}
+
 .ds-badge {
     border: 1px solid var(--gray-200);
     background: var(--gray-50);
@@ -131,17 +147,13 @@
 }
 
 .ds-badge-danger {
-    border-color: rgba(239, 68, 68, 0.28);
-    background: rgba(239, 68, 68, 0.10);
-    color: #991b1b;
+    border-color: rgba(244, 63, 94, 0.28);
+    background: rgba(244, 63, 94, 0.10);
+    color: #be123c;
 }
 
-.ds-blob-primary {
-    background: rgba(99, 102, 241, 0.10);
-}
-
-.ds-blob-secondary {
-    background: rgba(79, 70, 229, 0.10);
+.minimal-input.minimal-input-auto {
+    width: auto;
 }
 
 body[data-theme="dark"] .ds-text {
@@ -495,27 +507,24 @@ main.container {
 
 /* Modern Badge Styles */
 .badge {
-    height: 24px;
-    min-width: 24px;
-    line-height: 1.5;
     cursor: default;
-    -webkit-box-align: center;
-    align-items: center;
     white-space: nowrap;
     display: inline-flex;
-    gap: calc(0.75* 8px);
-    -webkit-box-pack: center;
     justify-content: center;
-    padding: 0px calc(0.75* 8px);
+    align-items: center;
+    line-height: 1;
+    padding: 0.2rem 0.55rem;
     font-size: 0.75rem;
     font-weight: 700;
-    border-radius: 6px;
+    border-radius: 999px;
     box-shadow: none;
     transition: all 0.2s ease;
+    border: 1px solid var(--gray-200);
+    background: var(--gray-50);
+    color: var(--gray-700);
 }
 
 .badge:hover {
-    transform: scale(1.05);
     transition: all 0.2s ease;
 }
 
@@ -523,21 +532,25 @@ main.container {
 .severity-critical {
     background: var(--error-500) !important;
     color: white;
+    border-color: rgba(239, 68, 68, 0.45);
 }
 
 .severity-high {
-    background: #dc3545 !important;
+    background: rgba(239, 68, 68, 0.88) !important;
     color: white;
+    border-color: rgba(239, 68, 68, 0.35);
 }
 
 .severity-medium {
     background: var(--warning-500) !important;
     color: white;
+    border-color: rgba(245, 158, 11, 0.45);
 }
 
 .severity-low {
     background: var(--success-500) !important;
     color: white;
+    border-color: rgba(16, 185, 129, 0.45);
 }
 
 /* Modern Navigation with Glassmorphism */
@@ -907,18 +920,27 @@ body.modal-open {
 }
 
 .public-reports-page #imageModal .minimal-modal-panel {
-    width: min(860px, 100%);
+    width: min(760px, 100%);
+    max-width: calc(100vw - 2rem);
     max-height: 90vh;
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .public-reports-page #imageModal .minimal-modal-body {
     overflow: auto;
+    min-width: 0;
+    display: flex;
+    justify-content: center;
 }
 
-.public-reports-page #imageModal img {
-    max-height: 60vh;
+.public-reports-page #imageModal .public-reports-modal-img {
+    max-height: 52vh;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    display: block;
     object-fit: contain;
 }
 
@@ -962,21 +984,43 @@ body[data-theme="dark"] .minimal-modal-footer {
 }
 
 .splash-logo-img {
-    width: 242px;
+width: 242px;
 }
 
 .public-report-thumb {
-    max-width: 50px;
-    max-height: 50px;
-    cursor: pointer;
+max-width: 50px;
+max-height: 50px;
+cursor: pointer;
+}
+
+.public-reports-page .report-tile {
+background: rgba(255, 255, 255, 0.92);
+border-color: rgba(226, 232, 240, 0.95);
+box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04);
+}
+
+.public-reports-page .report-tile:hover {
+background: rgba(255, 255, 255, 0.96);
+box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
+}
+
+body[data-theme="dark"] .public-reports-page .report-tile {
+background: rgba(15, 22, 32, 0.55);
+border-color: rgba(27, 42, 59, 0.80);
+box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+body[data-theme="dark"] .public-reports-page .report-tile:hover {
+background: rgba(18, 28, 40, 0.60);
+box-shadow: 0 10px 28px rgba(0, 0, 0, 0.45);
 }
 
 .sortable-th {
-    cursor: pointer;
+cursor: pointer;
 }
 
 .is-hidden {
-    display: none !important;
+display: none !important;
 }
 
 .report-detail-map {

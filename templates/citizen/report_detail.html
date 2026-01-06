@@ -9,9 +9,13 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4 scroll-reveal-left">
-    <h2><i class="fas fa-file-alt"></i> {{ _('Report Details') }}</h2>
+    <h2>
+        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:file-text-bold" data-width="22" data-height="22"></span>
+        {{ _('Report Details') }}
+    </h2>
     <a href="{{ url_for('citizen_dashboard') }}" class="btn btn-secondary">
-        <i class="fas fa-arrow-left"></i> {{ _('Back to Dashboard') }}
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:alt-arrow-left-outline" data-width="18" data-height="18"></span>
+        {{ _('Back to Dashboard') }}
     </a>
 </div>
 
@@ -83,12 +87,13 @@
                             </small>
                             <br>
                             <a href="https://www.google.com/maps?q={{ report.latitude }},{{ report.longitude }}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
-                                <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:arrow-right-up-outline" data-width="16" data-height="16"></span>
+                                Open in Google Maps
                             </a>
                         </div>
                         {% else %}
                         <div class="report-detail-map-empty">
-                            <i class="fas fa-map-marker-slash text-muted mb-2 report-detail-map-empty-icon"></i>
+                            <span class="iconify inline-block align-[-0.125em] text-muted mb-2 report-detail-map-empty-icon" data-icon="solar:map-point-remove-outline" data-width="28" data-height="28"></span>
                             <p class="text-muted mb-0">{{ _('Coordinates Unavailable') }}</p>
                             <small class="text-muted">{{ _('Location data not provided') }}</small>
                         </div>
@@ -116,7 +121,10 @@
         {% if report.updates %}
         <div class="card mt-4 scroll-reveal scroll-reveal-delay-1">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-history"></i> {{ _('Status Updates') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:history-outline" data-width="18" data-height="18"></span>
+                    {{ _('Status Updates') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="timeline">
@@ -149,7 +157,10 @@
         {% if report.photo_path %}
         <div class="card scroll-reveal scroll-reveal-delay-2">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-camera"></i> {{ _('Photo') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:camera-outline" data-width="18" data-height="18"></span>
+                    {{ _('Photo') }}
+                </h5>
             </div>
             <div class="card-body text-center">
                 <img src="/{{ report.photo_path }}" class="img-fluid rounded report-detail-photo" alt="Report photo">
@@ -159,7 +170,10 @@
         
         <div class="card mt-4 scroll-reveal scroll-reveal-delay-3">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ _('Location') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:map-point-outline" data-width="18" data-height="18"></span>
+                    {{ _('Location') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div id="map" class="report-detail-map"></div>
@@ -174,7 +188,8 @@
                     <br>
                     {% if report.latitude and report.longitude %}
                         <a href="https://www.google.com/maps?q={{ report.latitude }},{{ report.longitude }}" target="_blank" class="btn btn-sm btn-outline-primary mt-2">
-                            <i class="fas fa-external-link-alt"></i> Open in Google Maps
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:arrow-right-up-outline" data-width="16" data-height="16"></span>
+                            Open in Google Maps
                         </a>
                     {% endif %}
                 </div>
@@ -184,7 +199,10 @@
         {% if report.ticket %}
         <div class="card mt-4 scroll-reveal scroll-reveal-delay-4">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-ticket-alt"></i> {{ _('Maintenance Ticket') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:ticket-outline" data-width="18" data-height="18"></span>
+                    {{ _('Maintenance Ticket') }}
+                </h5>
             </div>
             <div class="card-body">
                 <p><strong>{{ _('Ticket #') }}:</strong> {{ report.ticket.ticket_number }}</p>
@@ -236,7 +254,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Custom marker icon (optional - using a red marker)
     var redIcon = L.divIcon({
         className: 'custom-div-icon',
-        html: '<i class="fas fa-map-marker-alt text-danger report-marker-icon"></i>',
+        html: '<span class="iconify report-marker-icon" data-icon="solar:map-point-bold" data-width="24" data-height="24"></span>',
         iconSize: [24, 24],
         iconAnchor: [12, 24]
     });
