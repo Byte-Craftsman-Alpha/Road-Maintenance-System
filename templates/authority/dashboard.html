@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Authority Dashboard') }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 scroll-reveal-left">
+    <h2><i class="fas fa-tachometer-alt"></i> {{ _('Authority Dashboard') }}</h2>
+    <a href="{{ url_for('view_reports') }}" class="btn btn-primary">
+        <i class="fas fa-list"></i> {{ _('View All Reports') }}
+    </a>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card text-center scroll-reveal scroll-reveal-delay-1">
+            <div class="card-body">
+                <i class="fas fa-clipboard-list fa-2x mb-2"></i>
+                <h3>{{ total_reports }}</h3>
+                <p class="mb-0">{{ _('Total Reports') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white text-center scroll-reveal scroll-reveal-delay-2">
+            <div class="card-body">
+                <i class="fas fa-clock fa-2x mb-2"></i>
+                <h3>{{ pending_reports }}</h3>
+                <p class="mb-0">{{ _('Pending Action') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white text-center scroll-reveal scroll-reveal-delay-3">
+            <div class="card-body">
+                <i class="fas fa-cogs fa-2x mb-2"></i>
+                <h3>{{ in_progress_reports }}</h3>
+                <p class="mb-0">{{ _('In Progress') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white text-center scroll-reveal scroll-reveal-delay-4">
+            <div class="card-body">
+                <i class="fas fa-check-circle fa-2x mb-2"></i>
+                <h3>{{ completed_reports }}</h3>
+                <p class="mb-0">{{ _('Completed') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card dashboard-card scroll-reveal scroll-reveal-left">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-bolt"></i> {{ _('Quick Actions') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{{ url_for('view_reports', status='reported') }}" class="btn btn-outline-warning">
+                        <i class="fas fa-exclamation-triangle"></i> {{ _('New Reports') }} ({{ pending_reports }})
+                    </a>
+                    <a href="{{ url_for('view_reports', status='in_progress') }}" class="btn btn-outline-info">
+                        <i class="fas fa-cogs"></i> {{ _('In Progress Reports') }}
+                    </a>
+                    <a href="{{ url_for('view_reports', severity='high,critical') }}" class="btn btn-outline-danger">
+                        <i class="fas fa-exclamation-triangle"></i> {{ _('High Priority Reports') }}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card dashboard-card scroll-reveal scroll-reveal-right">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-bar"></i> {{ _('Recent Activity') }}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="categoryChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Reports -->
+<div class="card scroll-reveal">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="fas fa-clock"></i> {{ _('Recent Reports') }}</h5>
+    </div>
+    <div class="card-body">
+        {% if recent_reports %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{ _('ID') }}</th>
+                            <th>{{ _('Title') }}</th>
+                            <th>{{ _('Category') }}</th>
+                            <th>{{ _('Severity') }}</th>
+                            <th>{{ _('Status') }}</th>
+                            <th>{{ _('Reporter') }}</th>
+                            <th>{{ _('Date') }}</th>
+                            <th>{{ _('Actions') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in recent_reports %}
+                        <tr>
+                            <td><strong>#{{ report.id }}</strong></td>
+                            <td>
+                                <strong>{{ report.title }}</strong>
+                                {% if report.photo_path %}
+                                    <i class="fas fa-camera text-muted ms-1" title="{{ _('Has photo') }}"></i>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
+                            </td>
+                            <td>
+                                <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                            </td>
+                            <td>
+                                {% set status_colors = {
+                                    'reported': 'secondary',
+                                    'verified': 'info',
+                                    'in_progress': 'warning',
+                                    'completed': 'success',
+                                    'rejected': 'danger'
+                                } %}
+                                <span class="badge bg-{{ status_colors[report.status] }}">
+                                    {{ report.status.replace('_', ' ').title() }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if report.is_anonymous %}
+                                    <span class="text-muted">{{ _('Anonymous') }}</span>
+                                {% else %}
+                                    {{ report.reporter.username }}
+                                {% endif %}
+                            </td>
+                            <td>{{ report.created_at.strftime('%m/%d/%Y') }}</td>
+                            <td>
+                                <a href="{{ url_for('view_report_detail', report_id=report.id) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye"></i> {{ _('View') }}
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-4">
+                <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                <h5>{{ _('No reports available') }}</h5>
+                <p class="text-muted">{{ _('New reports will appear here as they are submitted by citizens.') }}</p>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Priority Reports -->
+<div class="row mt-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-danger text-white">
+                <h6 class="mb-0"><i class="fas fa-exclamation-triangle"></i> {{ _('Critical Issues') }}</h6>
+            </div>
+            <div class="card-body">
+                {% if critical_reports %}
+                    {% for report in critical_reports %}
+                    <div class="d-flex justify-content-between align-items-center mb-2 p-2 border rounded">
+                        <div>
+                            <strong>{{ report.title }}</strong><br>
+                            <small class="text-muted">{{ _('Reported') }}: {{ report.created_at.strftime('%m/%d/%Y') }}</small>
+                        </div>
+                        <a href="{{ url_for('view_report_detail', report_id=report.id) }}" class="btn btn-sm btn-outline-danger">
+                            {{ _('Review') }}
+                        </a>
+                    </div>
+                    {% endfor %}
+                {% else %}
+                    <p class="text-muted text-center">{{ _('No critical issues at the moment') }}</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h6 class="mb-0"><i class="fas fa-chart-line"></i> {{ _('Quick Stats') }}</h6>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-6 mb-3">
+                        <h4 class="text-primary">{{ reports_this_week }}</h4>
+                        <small>{{ _('This Week') }}</small>
+                    </div>
+                    <div class="col-6 mb-3">
+                        <h4 class="text-success">{{ resolved_this_week }}</h4>
+                        <small>{{ _('Resolved This Week') }}</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-info">{{ avg_response_time }}</h4>
+                        <small>{{ _('Avg Response Time (hrs)') }}</small>
+                    </div>
+                    <div class="col-6">
+                        <h4 class="text-warning">{{ citizen_satisfaction }}</h4>
+                        <small>{{ _('Satisfaction Rate') }}</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reports Map -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('Reports Map') }}</h5>
+            </div>
+            <div class="card-body">
+                <div id="authorityReportsMap" class="map-container" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize priority map with proper touch controls
+    var map = L.map('authorityReportsMap', {
+        // Enable touch interactions
+        touchZoom: true,
+        doubleClickZoom: true,
+        scrollWheelZoom: true,
+        boxZoom: true,
+        keyboard: true,
+        dragging: true,
+        // Disable single-finger zoom to require two fingers
+        tap: true,
+        tapTolerance: 15,
+        // Enable proper mobile gestures
+        zoomControl: true,
+        attributionControl: true
+    }).setView([28.6139, 77.2090], 10);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: ' OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Load high priority and critical reports
+    fetch('/api/reports/map')
+        .then(response => {
+            console.log('Authority map - API response status:', response.status);
+            return response.text();
+        })
+        .then(text => {
+            console.log('Authority map - Raw response text:', text);
+            try {
+                const reports = JSON.parse(text);
+                console.log('Authority map - loaded reports:', reports.length);
+                
+                const priorityReports = reports.filter(r => 
+                    r.severity === 'high' || r.severity === 'critical' || r.severity === 'medium'
+                );
+                
+                console.log('Priority reports found:', priorityReports.length);
+                
+                const markers = [];
+                
+                priorityReports.forEach(report => {
+                    console.log('Processing report:', report.id, 'Lat:', report.latitude, 'Lng:', report.longitude);
+                    
+                    if (report.latitude && report.longitude) {
+                        var color = getMarkerColor(report.severity);
+                        var marker = L.circleMarker([report.latitude, report.longitude], {
+                            color: color,
+                            fillColor: color,
+                            fillOpacity: 0.8,
+                            radius: report.severity === 'critical' ? 12 : 10,
+                            weight: 3
+                        }).addTo(map);
+                        
+                        marker.bindPopup(`
+                            <div class="text-center">
+                                <strong>${report.title}</strong><br>
+                                <span class="badge bg-${report.severity === 'critical' ? 'dark' : report.severity === 'high' ? 'danger' : 'warning'}">${report.severity}</span><br>
+                                Status: ${report.status}<br>
+                                <small>${new Date(report.created_at).toLocaleDateString()}</small><br>
+                                <a href="/authority/report/${report.id}" class="btn btn-sm btn-primary mt-1">View Details</a>
+                            </div>
+                        `);
+                        
+                        markers.push(marker);
+                    }
+                });
+                
+                console.log('Authority map - markers added:', markers.length);
+                
+                if (markers.length > 0) {
+                    const group = new L.featureGroup(markers);
+                    map.fitBounds(group.getBounds().pad(0.1));
+                }
+            } catch (parseError) {
+                console.error('Authority map - JSON parse error:', parseError);
+                console.error('Authority map - Failed to parse text:', text);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading reports for map:', error);
+        });
+    
+    // Category Chart - use serializable data
+    const recentReportsData = {{ recent_reports_data|tojson|safe }};
+    const categories = {};
+    
+    recentReportsData.forEach(function(report) {
+        const cat = report.category;
+        categories[cat] = (categories[cat] || 0) + 1;
+    });
+    
+    const ctx = document.getElementById('categoryChart').getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: Object.keys(categories).map(cat => cat.replace('_', ' ')),
+            datasets: [{
+                data: Object.values(categories),
+                backgroundColor: [
+                    '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', 
+                    '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+});
+
+function getMarkerColor(severity) {
+    switch(severity) {
+        case 'critical': return '#721c24';
+        case 'high': return '#dc3545';
+        case 'medium': return '#fd7e14';
+        case 'low': return '#198754';
+        default: return '#6c757d';
+    }
+}
+
+function quickStatusUpdate(reportId, status) {
+    if (confirm(`Mark report #${reportId} as ${status}?`)) {
+        fetch(`/authority/update_status/${reportId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                status: status,
+                comment: `Quick update to ${status}`
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                location.reload();
+            } else {
+                alert('Error updating status: ' + data.error);
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Error updating status');
+        });
+    }
+}
+</script>
+{% endblock %}

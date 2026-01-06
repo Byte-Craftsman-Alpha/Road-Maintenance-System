@@ -1,0 +1,22 @@
+# Email Notification Module Dependencies
+# 
+# Core Python libraries for email functionality
+# Most of these are built-in to Python standard library
+# 
+# For enhanced functionality, you may want to add:
+# - jinja2>=3.1.0  # For advanced template rendering
+# - python-dotenv>=1.0.0  # For .env file support
+# - cryptography>=41.0.0  # For enhanced security features
+# - pillow>=10.0.0  # For image processing in emails
+# - markdown>=3.5.0  # For markdown to HTML conversion
+
+# Optional dependencies for enhanced features
+jinja2>=3.1.0
+python-dotenv>=1.0.0
+cryptography>=41.0.0
+
+# Development and testing dependencies (optional)
+# pytest>=7.4.0
+# pytest-cov>=4.1.0
+# black>=23.0.0
+# flake8>=6.0.0

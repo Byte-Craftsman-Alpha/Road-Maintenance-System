@@ -1,0 +1,230 @@
+{% extends "base.html" %}
+
+{% block title %}Report #{{ report.id }} Status - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2><i class="fas fa-clipboard-check"></i> {{ _('Report') }} #{{ report.id }} {{ _('Status') }}</h2>
+        <a href="{{ url_for('track_report') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-search"></i> {{ _('Track Another Report') }}
+        </a>
+    </div>
+
+    <!-- Report Details -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5><i class="fas fa-info-circle"></i> {{ _('Report Details') }}</h5>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-8">
+                    <h6><strong>{{ report.title }}</strong></h6>
+                    <p class="mb-2"><strong>{{ _('Description') }}:</strong> {{ report.description }}</p>
+                    <p class="mb-2"><strong>{{ _('Category') }}:</strong> 
+                        <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
+                    </p>
+                    <p class="mb-2"><strong>{{ _('Severity') }}:</strong> 
+                        <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                    </p>
+                    <p class="mb-2"><strong>{{ _('Current Status') }}:</strong> 
+                        {% set status_colors = {
+                            'reported': 'secondary',
+                            'verified': 'info',
+                            'in_progress': 'warning',
+                            'completed': 'success',
+                            'rejected': 'danger'
+                        } %}
+                        <span class="badge bg-{{ status_colors[report.status] }}">
+                            {{ report.status.replace('_', ' ').title() }}
+                        </span>
+                    </p>
+                    <p class="mb-2"><strong>{{ _('Location') }}:</strong> {{ report.address or 'Location coordinates provided' }}</p>
+                    <p class="mb-2"><strong>{{ _('Reported On') }}:</strong> {{ report.created_at.strftime('%B %d, %Y at %I:%M %p') }}</p>
+                    <p class="mb-2"><strong>{{ _('Reported by') }}:</strong> 
+                        {% if report.is_anonymous %}
+                            <span class="text-muted">{{ _('Anonymous') }}</span>
+                        {% else %}
+                            {{ report.reporter.username }}
+                        {% endif %}
+                    </p>
+                    <p class="mb-0"><strong>{{ _('Community Votes') }}:</strong> 
+                        <span class="badge bg-primary">{{ vote_count }} votes</span>
+                    </p>
+                </div>
+                <div class="col-md-4">
+                    {% if report.photo_path %}
+                        <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}" 
+                             class="img-fluid rounded" 
+                             alt="Report photo"
+                             style="cursor: pointer;"
+                             onclick="showImageModal('{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}', '{{ report.title }}')">
+                    {% else %}
+                        <div class="text-center text-muted p-4 border rounded">
+                            <i class="fas fa-image-slash fa-3x mb-2"></i>
+                            <p class="mb-0">{{ _('No image available') }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status Updates Timeline -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5><i class="fas fa-history"></i> {{ _('Status Updates Timeline') }}</h5>
+        </div>
+        <div class="card-body">
+            {% if status_updates %}
+                <div class="timeline">
+                    {% for update in status_updates %}
+                    <div class="timeline-item mb-4">
+                        <div class="row">
+                            <div class="col-md-2 text-center">
+                                <div class="timeline-date">
+                                    <small class="text-muted">{{ update.created_at.strftime('%b %d, %Y') }}</small><br>
+                                    <small class="text-muted">{{ update.created_at.strftime('%I:%M %p') }}</small>
+                                </div>
+                            </div>
+                            <div class="col-md-10">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <div class="d-flex justify-content-between align-items-start">
+                                            <div>
+                                                <h6 class="mb-1">
+                                                    {{ _('Status changed to') }}: 
+                                                    <span class="badge bg-{{ status_colors[update.status] }}">
+                                                        {{ update.status.replace('_', ' ').title() }}
+                                                    </span>
+                                                </h6>
+                                                {% if update.comment %}
+                                                    <p class="mb-2">{{ update.comment }}</p>
+                                                {% endif %}
+                                                <small class="text-muted">{{ _('Updated by') }}: {{ update.updated_by.username }}</small>
+                                            </div>
+                                            {% if update.image_path %}
+                                                <div class="ms-3">
+                                                    <img src="{{ url_for('static', filename='uploads/' + update.image_path) }}" 
+                                                         class="img-thumbnail" 
+                                                         style="max-width: 100px; max-height: 100px; cursor: pointer;"
+                                                         onclick="showImageModal('{{ url_for('static', filename='uploads/' + update.image_path) }}', 'Status Update Image')"
+                                                         title="Click to view full image"
+                                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                                    <div style="display: none;" class="text-muted small">
+                                                        <i class="fas fa-image-slash"></i> {{ _('Image not available') }}
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-clock fa-3x text-muted mb-3"></i>
+                    <h6>{{ _('No status updates yet') }}</h6>
+                    <p class="text-muted">{{ _('Status updates will appear here as authorities review your report.') }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Maintenance Tickets -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5><i class="fas fa-wrench"></i> {{ _('Maintenance Tickets') }}</h5>
+        </div>
+        <div class="card-body">
+            {% if maintenance_tickets %}
+                {% for ticket in maintenance_tickets %}
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6><strong>Ticket #{{ ticket.ticket_number }}</strong></h6>
+                                <p class="mb-1"><strong>{{ _('Priority') }}:</strong> 
+                                    <span class="badge bg-{{ 'danger' if ticket.priority == 'urgent' else 'warning' if ticket.priority == 'high' else 'info' if ticket.priority == 'medium' else 'secondary' }}">
+                                        {{ ticket.priority.title() }}
+                                    </span>
+                                </p>
+                                {% if ticket.assigned_to %}
+                                    <p class="mb-1"><strong>{{ _('Assigned to') }}:</strong> {{ ticket.assigned_to.username }}</p>
+                                {% endif %}
+                                {% if ticket.estimated_cost %}
+                                    <p class="mb-1"><strong>{{ _('Estimated Cost') }}:</strong> Rs. {{ "%.2f"|format(ticket.estimated_cost) }}</p>
+                                {% endif %}
+                            </div>
+                            <div class="col-md-6">
+                                {% if ticket.estimated_completion %}
+                                    <p class="mb-1"><strong>{{ _('Estimated Completion') }}:</strong> {{ ticket.estimated_completion.strftime('%B %d, %Y') }}</p>
+                                {% endif %}
+                                {% if ticket.actual_completion %}
+                                    <p class="mb-1"><strong>{{ _('Completed On') }}:</strong> {{ ticket.actual_completion.strftime('%B %d, %Y') }}</p>
+                                {% endif %}
+                                <p class="mb-1"><strong>{{ _('Created') }}:</strong> {{ ticket.created_at.strftime('%B %d, %Y') }}</p>
+                            </div>
+                        </div>
+                        {% if ticket.work_description %}
+                            <hr>
+                            <p class="mb-1"><strong>{{ _('Work Description') }}:</strong></p>
+                            <p class="mb-2">{{ ticket.work_description }}</p>
+                        {% endif %}
+                        {% if ticket.materials_used %}
+                            <p class="mb-1"><strong>{{ _('Materials Used') }}:</strong></p>
+                            <p class="mb-0">{{ ticket.materials_used }}</p>
+                        {% endif %}
+                    </div>
+                </div>
+                {% endfor %}
+            {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-tools fa-3x text-muted mb-3"></i>
+                    <h6>{{ _('No maintenance tickets yet') }}</h6>
+                    <p class="text-muted">{{ _('Maintenance tickets will be created once your report is verified by authorities.') }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Action Buttons -->
+    <div class="text-center mb-4">
+        <a href="{{ url_for('public_reports') }}" class="btn btn-outline-primary me-2">
+            <i class="fas fa-list"></i> {{ _('View All Public Reports') }}
+        </a>
+        <a href="{{ url_for('track_report') }}" class="btn btn-outline-secondary">
+            <i class="fas fa-search"></i> {{ _('Track Another Report') }}
+        </a>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="imageModalBody">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function showImageModal(imageUrl, title) {
+    var modalBody = document.getElementById('imageModalBody');
+    modalBody.innerHTML = '<img src="' + imageUrl + '" class="img-fluid" alt="' + title + '">';
+    document.getElementById('imageModalTitle').innerText = title;
+    new bootstrap.Modal(document.getElementById('imageModal')).show();
+}
+</script>
+{% endblock %}

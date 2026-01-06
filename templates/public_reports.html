@@ -1,0 +1,517 @@
+{% extends "base.html" %}
+
+{% block title %}Public Reports - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <h2 class="mb-4"><i class="fas fa-eye"></i>{{ _('Public Reports') }}</h2>
+    
+    <!-- Statistics Cards -->
+    <div class="row mb-4">
+        <div class="col-md-4 mb-3">
+            <div class="card bg-primary text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-clipboard-list fa-2x mb-2"></i>
+                    <h3>{{ total_reports }}</h3>
+                    <p class="mb-0">{{ _('Total Reports') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card bg-success text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-check-circle fa-2x mb-2"></i>
+                    <h3>{{ completed_reports }}</h3>
+                    <p class="mb-0">{{ _('Completed') }}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 mb-3">
+            <div class="card bg-info text-white text-center">
+                <div class="card-body">
+                    <i class="fas fa-percentage fa-2x mb-2"></i>
+                    <h3>{{ "%.1f"|format(completion_rate) }}%</h3>
+                    <p class="mb-0">{{ _('Completion Rate') }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reports Table -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <div class="row align-items-center">
+                <div class="col-md-6">
+                    <h5 class="mb-0"><i class="fas fa-table"></i>{{ _('All Reports') }}</h5>
+                </div>
+                <div class="col-md-6">
+                    <div class="row">
+                        <div class="col-md-8">
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search reports...">
+                        </div>
+                        <div class="col-md-4">
+                            <button class="btn btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#filtersCollapse">
+                                <i class="fas fa-filter"></i> {{ _('Filters') }}
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Filters Collapse -->
+            <div class="collapse mt-3" id="filtersCollapse">
+                <div class="row">
+                    <div class="col-md-3">
+                        <select id="categoryFilter" class="form-select">
+                            <option value="">{{ _('All Categories') }}</option>
+                            <option value="infrastructure_roads">{{ _('Infrastructure & Roads') }}</option>
+                            <option value="sanitation_waste">{{ _('Sanitation & Waste') }}</option>
+                            <option value="water_supply_drainage">{{ _('Water Supply & Drainage') }}</option>
+                            <option value="electricity_lighting">{{ _('Electricity & Lighting') }}</option>
+                            <option value="public_safety_security">{{ _('Public Safety') }}</option>
+                            <option value="environment_pollution">{{ _('Environment') }}</option>
+                            <option value="transportation_traffic">{{ _('Transportation') }}</option>
+                            <option value="healthcare_public_health">{{ _('Healthcare') }}</option>
+                            <option value="digital_egovernance">{{ _('Digital Services') }}</option>
+                            <option value="education_public_spaces">{{ _('Education') }}</option>
+                            <option value="emergency_disaster">{{ _('Emergency') }}</option>
+                            <option value="citizen_rights_governance">{{ _('Citizen Rights') }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="statusFilter" class="form-select">
+                            <option value="">{{ _('All Status') }}</option>
+                            <option value="reported">{{ _('Reported') }}</option>
+                            <option value="verified">{{ _('Verified') }}</option>
+                            <option value="in_progress">{{ _('In Progress') }}</option>
+                            <option value="completed">{{ _('Completed') }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select id="severityFilter" class="form-select">
+                            <option value="">{{ _('All Severity') }}</option>
+                            <option value="low">{{ _('Low') }}</option>
+                            <option value="medium">{{ _('Medium') }}</option>
+                            <option value="high">{{ _('High') }}</option>
+                            <option value="critical">{{ _('Critical') }}</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <button class="btn btn-outline-danger" onclick="clearFilters()">
+                            <i class="fas fa-times"></i> {{ _('Clear Filters') }}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            {% if reports %}
+                <div class="table-responsive">
+                    <table class="table table-hover" id="reportsTable">
+                        <thead class="table-dark">
+                            <tr>
+                                <th onclick="sortTable(0)" style="cursor: pointer;">{{ _('ID') }} <i class="fas fa-sort"></i></th>
+                                <th onclick="sortTable(1)" style="cursor: pointer;">{{ _('Title') }} <i class="fas fa-sort"></i></th>
+                                <th onclick="sortTable(2)" style="cursor: pointer;">{{ _('Category') }} <i class="fas fa-sort"></i></th>
+                                <th onclick="sortTable(3)" style="cursor: pointer;">{{ _('Status') }} <i class="fas fa-sort"></i></th>
+                                <th onclick="sortTable(4)" style="cursor: pointer;">{{ _('Severity') }} <i class="fas fa-sort"></i></th>
+                                <th>{{ _('Photo') }}</th>
+                                <th>{{ _('Location') }}</th>
+                                <th>{{ _('PIN Code') }}</th>
+                                <th>{{ _('Reported by') }}</th>
+                                <th onclick="sortTable(9)" style="cursor: pointer;">{{ _('Date') }} <i class="fas fa-sort"></i></th>
+                                <th onclick="sortTable(10)" style="cursor: pointer;">{{ _('Votes') }} <i class="fas fa-sort"></i></th>
+                                <th>{{ _('Actions') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for report in reports %}
+                            <tr data-status="{{ report.status }}" data-category="{{ report.category }}" data-severity="{{ report.severity }}">
+                                <td>#{{ report.id }}</td>
+                                <td>
+                                    <strong>{{ report.title }}</strong>
+                                    {% if report.photo_path %}
+                                        <i class="fas fa-camera text-muted ms-1" title="Has photo"></i>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
+                                </td>
+                                <td>
+                                    {% set status_colors = {
+                                        'reported': 'secondary',
+                                        'verified': 'info',
+                                        'in_progress': 'warning',
+                                        'completed': 'success',
+                                        'rejected': 'danger'
+                                    } %}
+                                    <span class="badge bg-{{ status_colors[report.status] }}">
+                                        {{ report.status.replace('_', ' ').title() }}
+                                    </span>
+                                </td>
+                                <td>
+                                    <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                                </td>
+                                <td>
+                                    {% if report.photo_path %}
+                                        <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}" 
+                                             class="img-thumbnail" 
+                                             style="max-width: 50px; max-height: 50px; cursor: pointer;" 
+                                             onclick="showImageModal('{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}', '{{ report.title }}')"
+                                             title="Click to view full image">
+                                    {% else %}
+                                        <span class="text-muted small">
+                                            <i class="fas fa-image-slash"></i> No image
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <small>{{ report.address[:30] + '...' if report.address and report.address|length > 30 else (report.address or 'Location provided') }}</small>
+                                </td>
+                                <td>
+                                    <span class="badge bg-info">{{ report.postal_code or 'N/A' }}</span>
+                                </td>
+                                <td>
+                                    {{ report.reporter_name }}
+                                </td>
+                                <td>
+                                    <small>
+                                        {{ report.created_at.strftime('%d %b %Y') }}<br>
+                                        <span class="text-muted">{{ report.created_at.strftime('%I:%M %p') }}</span>
+                                    </small>
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <span class="badge bg-primary me-2" id="vote-count-{{ report.id }}">{{ vote_counts[report.id] }}</span>
+                                        {% if current_user.is_authenticated and current_user.role == 'citizen' %}
+                                            <button class="btn btn-sm btn-outline-primary vote-btn" 
+                                                    data-report-id="{{ report.id }}"
+                                                    {% if report.id in user_votes %}data-voted="true"{% endif %}>
+                                                <i class="fas fa-thumbs-up"></i>
+                                                {% if report.id in user_votes %}Voted{% else %}Vote{% endif %}
+                                            </button>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                                <td>
+                                    <a href="{{ url_for('track_report_status', report_id=report.id) }}" class="btn btn-sm btn-outline-info">
+                                        <i class="fas fa-eye"></i> {{ _('Track') }}
+                                    </a>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            {% else %}
+                <div class="text-center py-4">
+                    <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                    <h5>{{ _('No reports available') }}</h5>
+                    <p class="text-muted">{{ _('Reports will appear here as they are submitted by citizens.') }}</p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Interactive Map -->
+    <div class="card mb-4">
+        <div class="card-header">
+            <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('All Reports Map') }}</h5>
+        </div>
+        <div class="card-body">
+            <div id="publicReportsMap" class="map-container"></div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="imageModalBody">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.severity-low { background-color: #28a745; color: white; }
+.severity-medium { background-color: #ffc107; color: black; }
+.severity-high { background-color: #fd7e14; color: white; }
+.severity-critical { background-color: #dc3545; color: white; }
+
+.map-container {
+    height: 400px;
+    border-radius: 0.375rem;
+}
+
+th[onclick] {
+    user-select: none;
+}
+
+th[onclick]:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+</style>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+let sortDirection = {};
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Search functionality
+    document.getElementById('searchInput').addEventListener('input', filterTable);
+    
+    // Filter functionality
+    document.getElementById('categoryFilter').addEventListener('change', filterTable);
+    document.getElementById('statusFilter').addEventListener('change', filterTable);
+    document.getElementById('severityFilter').addEventListener('change', filterTable);
+    
+    // Vote button functionality
+    document.addEventListener('click', function(e) {
+        if (e.target.closest('.vote-btn')) {
+            const button = e.target.closest('.vote-btn');
+            const reportId = button.getAttribute('data-report-id');
+            voteForReport(reportId, button);
+        }
+    });
+
+    // Initialize map after DOM and Leaflet are loaded
+    initializeMap();
+});
+
+function initializeMap() {
+    // Check if Leaflet is loaded
+    if (typeof L === 'undefined') {
+        console.error('Leaflet library not loaded');
+        return;
+    }
+
+    // Initialize map with proper touch controls
+    var map = L.map('publicReportsMap', {
+        // Enable touch interactions
+        touchZoom: true,
+        doubleClickZoom: true,
+        scrollWheelZoom: true,
+        boxZoom: true,
+        keyboard: true,
+        dragging: true,
+        // Disable single-finger zoom to require two fingers
+        tap: true,
+        tapTolerance: 15,
+        // Enable proper mobile gestures
+        zoomControl: true,
+        attributionControl: true
+    }).setView([28.6139, 77.2090], 10);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: ' OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Load all reports
+    fetch('/api/public-reports')
+        .then(response => response.json())
+        .then(reports => {
+            let markersAdded = 0;
+            reports.forEach(report => {
+                if (report.latitude && report.longitude) {
+                    var color = getMarkerColor(report.severity);
+                    var marker = L.circleMarker([report.latitude, report.longitude], {
+                        color: color,
+                        fillColor: color,
+                        fillOpacity: 0.7,
+                        radius: 8
+                    }).addTo(map);
+                    
+                    marker.bindPopup(`
+                        <div class="text-center">
+                            <strong>${report.title}</strong><br>
+                            <small class="text-muted">${report.category.replace('_', ' ')}</small><br>
+                            <span class="badge bg-${getStatusColor(report.status)}">${report.status.replace('_', ' ')}</span><br>
+                            <span class="badge severity-${report.severity}">${report.severity}</span><br>
+                            <small class="text-muted">ID: #${report.id}</small>
+                        </div>
+                    `);
+                    markersAdded++;
+                }
+            });
+            
+            // Show message if no reports with coordinates
+            if (markersAdded === 0) {
+                L.popup()
+                    .setLatLng([28.6139, 77.2090])
+                    .setContent('<div class="text-center"><i class="fas fa-info-circle"></i><br>No reports with coordinates available</div>')
+                    .openOn(map);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading reports:', error);
+            L.popup()
+                .setLatLng([28.6139, 77.2090])
+                .setContent('<div class="text-center text-danger"><i class="fas fa-exclamation-triangle"></i><br>Error loading map data</div>')
+                .openOn(map);
+        });
+}
+
+function filterTable() {
+    const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+    const categoryFilter = document.getElementById('categoryFilter').value;
+    const statusFilter = document.getElementById('statusFilter').value;
+    const severityFilter = document.getElementById('severityFilter').value;
+    
+    const table = document.getElementById('reportsTable');
+    const rows = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr');
+    
+    for (let i = 0; i < rows.length; i++) {
+        const row = rows[i];
+        const title = row.cells[1].textContent.toLowerCase();
+        const category = row.getAttribute('data-category');
+        const status = row.getAttribute('data-status');
+        const severity = row.getAttribute('data-severity');
+        
+        let showRow = true;
+        
+        // Search filter
+        if (searchTerm && !title.includes(searchTerm)) {
+            showRow = false;
+        }
+        
+        // Category filter
+        if (categoryFilter && category !== categoryFilter) {
+            showRow = false;
+        }
+        
+        // Status filter
+        if (statusFilter && status !== statusFilter) {
+            showRow = false;
+        }
+        
+        // Severity filter
+        if (severityFilter && severity !== severityFilter) {
+            showRow = false;
+        }
+        
+        row.style.display = showRow ? '' : 'none';
+    }
+}
+
+function clearFilters() {
+    document.getElementById('searchInput').value = '';
+    document.getElementById('categoryFilter').value = '';
+    document.getElementById('statusFilter').value = '';
+    document.getElementById('severityFilter').value = '';
+    filterTable();
+}
+
+function sortTable(columnIndex) {
+    const table = document.getElementById('reportsTable');
+    const tbody = table.getElementsByTagName('tbody')[0];
+    const rows = Array.from(tbody.getElementsByTagName('tr'));
+    
+    // Determine sort direction
+    const currentDirection = sortDirection[columnIndex] || 'asc';
+    const newDirection = currentDirection === 'asc' ? 'desc' : 'asc';
+    sortDirection[columnIndex] = newDirection;
+    
+    // Sort rows
+    rows.sort((a, b) => {
+        let aValue = a.cells[columnIndex].textContent.trim();
+        let bValue = b.cells[columnIndex].textContent.trim();
+        
+        // Handle numeric values (ID, Votes)
+        if (columnIndex === 0 || columnIndex === 10) {
+            aValue = parseInt(aValue.replace(/[^0-9]/g, '')) || 0;
+            bValue = parseInt(bValue.replace(/[^0-9]/g, '')) || 0;
+        }
+        
+        if (aValue < bValue) return newDirection === 'asc' ? -1 : 1;
+        if (aValue > bValue) return newDirection === 'asc' ? 1 : -1;
+        return 0;
+    });
+    
+    // Reorder rows in table
+    rows.forEach(row => tbody.appendChild(row));
+    
+    // Update sort indicators
+    const headers = table.getElementsByTagName('th');
+    for (let i = 0; i < headers.length; i++) {
+        const icon = headers[i].querySelector('i');
+        if (icon) {
+            if (i === columnIndex) {
+                icon.className = `fas fa-sort-${newDirection === 'asc' ? 'up' : 'down'}`;
+            } else {
+                icon.className = 'fas fa-sort';
+            }
+        }
+    }
+}
+
+function voteForReport(reportId, button) {
+    if (button.getAttribute('data-voted') === 'true') {
+        return; // Already voted
+    }
+    
+    fetch('/api/vote', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({report_id: parseInt(reportId)})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            button.innerHTML = '<i class="fas fa-thumbs-up"></i> Voted';
+            button.setAttribute('data-voted', 'true');
+            button.classList.remove('btn-outline-primary');
+            button.classList.add('btn-success');
+            
+            // Update vote count
+            const voteCountElement = document.getElementById(`vote-count-${reportId}`);
+            const currentCount = parseInt(voteCountElement.textContent);
+            voteCountElement.textContent = currentCount + 1;
+        } else {
+            alert('Error voting: ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error voting. Please try again.');
+    });
+}
+
+function showImageModal(imageUrl, title) {
+    document.getElementById('imageModalBody').innerHTML = `<img src="${imageUrl}" class="img-fluid" alt="${title}">`;
+    document.getElementById('imageModalTitle').textContent = title;
+    new bootstrap.Modal(document.getElementById('imageModal')).show();
+}
+
+function getMarkerColor(severity) {
+    switch(severity) {
+        case 'low': return '#28a745';
+        case 'medium': return '#ffc107';
+        case 'high': return '#fd7e14';
+        case 'critical': return '#dc3545';
+        default: return '#6c757d';
+    }
+}
+
+function getStatusColor(status) {
+    switch(status) {
+        case 'reported': return 'secondary';
+        case 'verified': return 'info';
+        case 'in_progress': return 'warning';
+        case 'completed': return 'success';
+        case 'rejected': return 'danger';
+        default: return 'secondary';
+    }
+}
+</script>
+{% endblock %}

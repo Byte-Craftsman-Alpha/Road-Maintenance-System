@@ -1,0 +1,645 @@
+{% extends "base.html" %}
+
+{% block title %}All Reports - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-list"></i> {{ _('All Reports') }}</h2>
+    <a href="{{ url_for('authority_dashboard') }}" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> {{ _('Back to Dashboard') }}
+    </a>
+</div>
+
+<!-- Enhanced Filters and Search -->
+<div class="card mb-4">
+    <div class="card-header">
+        <div class="row align-items-center">
+            <div class="col-md-6">
+                <h6 class="mb-0"><i class="fas fa-filter"></i> {{ _('Filters & Search') }}</h6>
+            </div>
+            <div class="col-md-6 text-end">
+                <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedFilters">
+                    <i class="fas fa-cog"></i> {{ _('Advanced Options') }}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <!-- Basic Filters -->
+        <form method="GET" class="row g-3 mb-3">
+            <div class="col-md-3">
+                <label class="form-label">{{ _('Status Filter') }}</label>
+                <select name="status" class="form-select" onchange="this.form.submit()">
+                    <option value="all" {{ 'selected' if status_filter == 'all' }}>{{ _('All Status') }}</option>
+                    <option value="reported" {{ 'selected' if status_filter == 'reported' }}>{{ _('Reported') }}</option>
+                    <option value="verified" {{ 'selected' if status_filter == 'verified' }}>{{ _('Verified') }}</option>
+                    <option value="in_progress" {{ 'selected' if status_filter == 'in_progress' }}>{{ _('In Progress') }}</option>
+                    <option value="completed" {{ 'selected' if status_filter == 'completed' }}>{{ _('Completed') }}</option>
+                    <option value="rejected" {{ 'selected' if status_filter == 'rejected' }}>{{ _('Rejected') }}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{{ _('Category Filter') }}</label>
+                <select name="category" class="form-select" onchange="this.form.submit()">
+                    <option value="all" {{ 'selected' if category_filter == 'all' }}>{{ _('All Categories') }}</option>
+                    <option value="infrastructure_roads" {{ 'selected' if category_filter == 'infrastructure_roads' }}>{{ _('Infrastructure & Roads') }}</option>
+                    <option value="sanitation_waste" {{ 'selected' if category_filter == 'sanitation_waste' }}>{{ _('Sanitation & Waste') }}</option>
+                    <option value="water_supply_drainage" {{ 'selected' if category_filter == 'water_supply_drainage' }}>{{ _('Water Supply & Drainage') }}</option>
+                    <option value="electricity_lighting" {{ 'selected' if category_filter == 'electricity_lighting' }}>{{ _('Electricity & Lighting') }}</option>
+                    <option value="public_safety_security" {{ 'selected' if category_filter == 'public_safety_security' }}>{{ _('Public Safety') }}</option>
+                    <option value="environment_pollution" {{ 'selected' if category_filter == 'environment_pollution' }}>{{ _('Environment') }}</option>
+                    <option value="transportation_traffic" {{ 'selected' if category_filter == 'transportation_traffic' }}>{{ _('Transportation') }}</option>
+                    <option value="healthcare_public_health" {{ 'selected' if category_filter == 'healthcare_public_health' }}>{{ _('Healthcare') }}</option>
+                    <option value="digital_egovernance" {{ 'selected' if category_filter == 'digital_egovernance' }}>{{ _('Digital Services') }}</option>
+                    <option value="education_public_spaces" {{ 'selected' if category_filter == 'education_public_spaces' }}>{{ _('Education') }}</option>
+                    <option value="emergency_disaster" {{ 'selected' if category_filter == 'emergency_disaster' }}>{{ _('Emergency') }}</option>
+                    <option value="citizen_rights_governance" {{ 'selected' if category_filter == 'citizen_rights_governance' }}>{{ _('Citizen Rights') }}</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">{{ _('Severity Filter') }}</label>
+                <select name="severity" class="form-select" onchange="this.form.submit()">
+                    <option value="all" {{ 'selected' if severity_filter == 'all' }}>{{ _('All Severity') }}</option>
+                    <option value="low" {{ 'selected' if severity_filter == 'low' }}>{{ _('Low') }}</option>
+                    <option value="medium" {{ 'selected' if severity_filter == 'medium' }}>{{ _('Medium') }}</option>
+                    <option value="high" {{ 'selected' if severity_filter == 'high' }}>{{ _('High') }}</option>
+                    <option value="critical" {{ 'selected' if severity_filter == 'critical' }}>Critical</option>
+                </select>
+            </div>
+            <div class="col-md-3">
+                <label class="form-label">&nbsp;</label>
+                <div class="d-grid">
+                    <a href="{{ url_for('view_reports') }}" class="btn btn-outline-secondary">
+                        <i class="fas fa-times"></i> {{ _('Clear Filters') }}
+                    </a>
+                </div>
+            </div>
+        </form>
+
+        <!-- Advanced Search -->
+        <div class="collapse" id="advancedFilters">
+            <hr>
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label class="form-label">{{ _('Search in Column') }}</label>
+                    <select id="searchColumn" class="form-select">
+                        <option value="all">{{ _('All Columns') }}</option>
+                        <option value="id">{{ _('ID') }}</option>
+                        <option value="title">{{ _('Title') }}</option>
+                        <option value="category">{{ _('Category') }}</option>
+                        <option value="severity">{{ _('Severity') }}</option>
+                        <option value="status">{{ _('Status') }}</option>
+                        <option value="reporter">{{ _('Reporter') }}</option>
+                        <option value="postal">{{ _('PIN/Postal Code') }}</option>
+                        <option value="location">{{ _('Address') }}</option>
+                    </select>
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label">{{ _('Search Term') }}</label>
+                    <input type="text" id="searchInput" class="form-control" placeholder="{{ _('Enter search term...') }}">
+                </div>
+                <div class="col-md-2">
+                    <label class="form-label">&nbsp;</label>
+                    <button class="btn btn-primary d-block w-100" onclick="performSearch()">
+                        <i class="fas fa-search"></i> {{ _('Search') }}
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Column Visibility Controls -->
+            <hr>
+            <div class="row">
+                <div class="col-12">
+                    <label class="form-label"><i class="fas fa-columns"></i> {{ _('Show/Hide Columns') }}</label>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-id" checked data-column="1">
+                                <label class="form-check-label" for="col-id">{{ _('ID') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-title" checked data-column="2">
+                                <label class="form-check-label" for="col-title">{{ _('Title') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-category" checked data-column="3">
+                                <label class="form-check-label" for="col-category">{{ _('Category') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-severity" checked data-column="4">
+                                <label class="form-check-label" for="col-severity">{{ _('Severity') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-status" checked data-column="5">
+                                <label class="form-check-label" for="col-status">{{ _('Status') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-votes" checked data-column="6">
+                                <label class="form-check-label" for="col-votes">{{ _('Votes') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-reporter" checked data-column="7">
+                                <label class="form-check-label" for="col-reporter">{{ _('Reporter') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-postal" checked data-column="8">
+                                <label class="form-check-label" for="col-postal">{{ _('PIN Code') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-address" data-column="9">
+                                <label class="form-check-label" for="col-address">{{ _('Address') }}</label>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-check">
+                                <input class="form-check-input column-toggle" type="checkbox" id="col-date" checked data-column="10">
+                                <label class="form-check-label" for="col-date">{{ _('Date') }}</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Reports Table -->
+<div class="card">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">
+            <i class="fas fa-table"></i> {{ _('Reports') }} 
+            <span class="badge bg-primary" id="reportCount">{{ reports|length }}</span>
+            <span class="badge bg-info" id="filteredCount" style="display: none;"></span>
+        </h5>
+        <div class="btn-group btn-group-sm">
+            <button class="btn btn-outline-success" onclick="bulkAction('verified')">
+                <i class="fas fa-check"></i> {{ _('Bulk Verify') }}
+            </button>
+            <button class="btn btn-outline-info" onclick="bulkAction('in_progress')">
+                <i class="fas fa-tools"></i> {{ _('Bulk Start Work') }}
+            </button>
+        </div>
+    </div>
+    <div class="card-body">
+        {% if reports %}
+            <div class="table-responsive">
+                <table class="table table-hover" id="reportsTable">
+                    <thead>
+                        <tr>
+                            <th>
+                                <input type="checkbox" id="selectAll" onchange="toggleAllCheckboxes()">
+                            </th>
+                            <th onclick="sortTable(1)" style="cursor: pointer;" data-column="1">
+                                {{ _('ID') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(2)" style="cursor: pointer;" data-column="2">
+                                {{ _('Title') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(3)" style="cursor: pointer;" data-column="3">
+                                {{ _('Category') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(4)" style="cursor: pointer;" data-column="4">
+                                {{ _('Severity') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(5)" style="cursor: pointer;" data-column="5">
+                                {{ _('Status') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(6)" style="cursor: pointer;" data-column="6">
+                                {{ _('Votes') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(7)" style="cursor: pointer;" data-column="7">
+                                {{ _('Reporter') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(8)" style="cursor: pointer;" data-column="8">
+                                {{ _('PIN/Postal Code') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(9)" style="cursor: pointer;" data-column="9">
+                                {{ _('Address') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th onclick="sortTable(10)" style="cursor: pointer;" data-column="10">
+                                {{ _('Date') }} <i class="fas fa-sort"></i>
+                            </th>
+                            <th>{{ _('Actions') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in reports %}
+                        <tr data-id="{{ report.id }}" data-title="{{ report.title|lower }}" data-category="{{ report.category|lower }}" data-severity="{{ report.severity|lower }}" data-status="{{ report.status|lower }}" data-reporter="{{ report.reporter.username|lower }}" data-postal="{{ report.postal_code|lower }}" data-location="{{ (report.address or '')|lower }}">
+                            <td>
+                                <input type="checkbox" class="report-checkbox" value="{{ report.id }}">
+                            </td>
+                            <td data-column="1">#{{ report.id }}</td>
+                            <td data-column="2">
+                                <strong>{{ report.title }}</strong>
+                                {% if report.photo_path %}
+                                    <i class="fas fa-camera text-muted ms-1" title="Has photo"></i>
+                                {% endif %}
+                                {% if report.ticket %}
+                                    <br><small class="text-muted">Ticket: {{ report.ticket.ticket_number }}</small>
+                                {% endif %}
+                            </td>
+                            <td data-column="3">
+                                <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
+                            </td>
+                            <td data-column="4">
+                                <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                            </td>
+                            <td data-column="5">
+                                {% set status_colors = {
+                                    'reported': 'secondary',
+                                    'verified': 'info',
+                                    'in_progress': 'warning',
+                                    'completed': 'success',
+                                    'rejected': 'danger'
+                                } %}
+                                <span class="badge bg-{{ status_colors[report.status] }}">
+                                    {{ report.status.replace('_', ' ').title() }}
+                                </span>
+                            </td>
+                            <td data-column="6">
+                                <span class="badge bg-primary">
+                                    <i class="fas fa-thumbs-up"></i> {{ report.votes|length }}
+                                </span>
+                            </td>
+                            <td data-column="7">
+                                {{ report.reporter.username }}<br>
+                                <small class="text-muted">{{ report.reporter.email }}</small>
+                            </td>
+                            <td data-column="8">
+                                <span class="badge bg-info">{{ report.postal_code or 'N/A' }}</span>
+                            </td>
+                            <td data-column="9">
+                                <small>{{ report.address[:30] + '...' if report.address and report.address|length > 30 else (report.address or 'No address') }}</small>
+                            </td>
+                            <td data-column="10">{{ report.created_at.strftime('%Y-%m-%d<br>%H:%M')|safe }}</td>
+                            <td>
+                                <div class="btn-group btn-group-sm">
+                                    <a href="{{ url_for('view_report_detail', report_id=report.id) }}" 
+                                       class="btn btn-outline-primary" title="View Details">
+                                        <i class="fas fa-eye"></i>
+                                    </a>
+                                    <button class="btn btn-outline-success" 
+                                            onclick="quickStatusUpdate({{ report.id }}, getNextStatus('{{ report.status }}'))"
+                                            title="Quick Update"
+                                            id="update-btn-{{ report.id }}">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                    <button class="btn btn-outline-info" 
+                                            {% if report.latitude and report.longitude %}
+                                            onclick="showLocationOnMap({{ report.latitude }}, {{ report.longitude }}, '{{ report.title }}')"
+                                            {% else %}
+                                            onclick="alert('Location not available for this report')" disabled
+                                            {% endif %}
+                                            title="View on Map">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-4">
+                <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                <h5>{{ _('No reports found') }}</h5>
+                <p class="text-muted">
+                    {% if status_filter != 'all' or category_filter != 'all' %}
+                        {{ _('No reports match the current filters.') }}
+                    {% else %}
+                        {{ _('No reports have been submitted yet.') }}
+                    {% endif %}
+                </p>
+                {% if status_filter != 'all' or category_filter != 'all' %}
+                    <a href="{{ url_for('view_reports') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-times"></i> {{ _('Clear Filters') }}
+                    </a>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Map Modal -->
+<div class="modal fade" id="mapModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('Report Location') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="locationMap" class="map-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let locationMap;
+
+function toggleAllCheckboxes() {
+    const selectAll = document.getElementById('selectAll');
+    const checkboxes = document.querySelectorAll('.report-checkbox');
+    
+    checkboxes.forEach(checkbox => {
+        checkbox.checked = selectAll.checked;
+    });
+}
+
+function getSelectedReports() {
+    const checkboxes = document.querySelectorAll('.report-checkbox:checked');
+    return Array.from(checkboxes).map(cb => cb.value);
+}
+
+function bulkAction(status) {
+    const selectedReports = getSelectedReports();
+    
+    if (selectedReports.length === 0) {
+        alert('Please select at least one report.');
+        return;
+    }
+    
+    if (confirm(`Update ${selectedReports.length} reports to "${status.replace('_', ' ')}"?`)) {
+        // Disable bulk action buttons and show loading
+        const bulkButtons = document.querySelectorAll('.btn-group .btn');
+        bulkButtons.forEach(btn => {
+            btn.disabled = true;
+            if (btn.textContent.includes(status.replace('_', ' '))) {
+                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+            }
+        });
+        
+        const promises = selectedReports.map(reportId => 
+            fetch(`/authority/update_status/${reportId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    status: status,
+                    comment: `Bulk update to ${status}`
+                })
+            })
+        );
+        
+        Promise.all(promises)
+            .then(responses => Promise.all(responses.map(r => r.json())))
+            .then(results => {
+                const successful = results.filter(r => r.success).length;
+                
+                // Show success feedback
+                bulkButtons.forEach(btn => {
+                    if (btn.textContent.includes('Processing')) {
+                        btn.innerHTML = '<i class="fas fa-check"></i> Complete';
+                    }
+                });
+                
+                setTimeout(() => {
+                    alert(`Successfully updated ${successful} out of ${selectedReports.length} reports.`);
+                    location.reload();
+                }, 500);
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error performing bulk update');
+                
+                // Re-enable buttons on error
+                bulkButtons.forEach(btn => {
+                    btn.disabled = false;
+                    if (btn.textContent.includes('Processing')) {
+                        btn.innerHTML = btn.getAttribute('data-original-text') || btn.textContent;
+                    }
+                });
+            });
+    }
+}
+
+function getNextStatus(currentStatus) {
+    const statusFlow = {
+        'reported': 'verified',
+        'verified': 'in_progress',
+        'in_progress': 'completed',
+        'completed': 'completed',
+        'rejected': 'verified'
+    };
+    return statusFlow[currentStatus] || 'verified';
+}
+
+function quickStatusUpdate(reportId, status) {
+    if (confirm(`Update report #${reportId} to "${status.replace('_', ' ')}"?`)) {
+        // Get the specific update button
+        const updateBtn = document.getElementById(`update-btn-${reportId}`);
+        const originalContent = updateBtn.innerHTML;
+        
+        // Show loading state immediately
+        updateBtn.disabled = true;
+        updateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+        updateBtn.classList.remove('btn-outline-success');
+        updateBtn.classList.add('btn-warning');
+        
+        console.log('Starting status update for report:', reportId);
+        
+        fetch(`/authority/update_status/${reportId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                status: status,
+                comment: `Quick update to ${status}`
+            })
+        })
+        .then(response => {
+            console.log('Update response received:', response.status);
+            return response.json();
+        })
+        .then(data => {
+            console.log('Update result:', data);
+            if (data.success) {
+                // Show success state
+                updateBtn.innerHTML = '<i class="fas fa-check"></i> Updated!';
+                updateBtn.classList.remove('btn-warning');
+                updateBtn.classList.add('btn-success');
+                
+                // Reload after showing success
+                setTimeout(() => {
+                    console.log('Reloading page...');
+                    location.reload();
+                }, 1000);
+            } else {
+                alert('Error updating status: ' + data.error);
+                // Reset button on error
+                updateBtn.disabled = false;
+                updateBtn.innerHTML = originalContent;
+                updateBtn.classList.remove('btn-warning');
+                updateBtn.classList.add('btn-outline-success');
+            }
+        })
+        .catch(error => {
+            console.error('Error updating status:', error);
+            alert('Error updating status');
+            // Reset button on error
+            updateBtn.disabled = false;
+            updateBtn.innerHTML = originalContent;
+            updateBtn.classList.remove('btn-warning');
+            updateBtn.classList.add('btn-outline-success');
+        });
+    }
+}
+
+function showLocationOnMap(lat, lng, title) {
+    const modal = new bootstrap.Modal(document.getElementById('mapModal'));
+    modal.show();
+    
+    // Initialize map when modal is shown
+    document.getElementById('mapModal').addEventListener('shown.bs.modal', function() {
+        if (!locationMap) {
+            // Initialize map with proper touch controls
+            locationMap = L.map('locationMap', {
+                // Enable touch interactions
+                touchZoom: true,
+                doubleClickZoom: true,
+                scrollWheelZoom: true,
+                boxZoom: true,
+                keyboard: true,
+                dragging: true,
+                // Disable single-finger zoom to require two fingers
+                tap: true,
+                tapTolerance: 15,
+                // Enable proper mobile gestures
+                zoomControl: true,
+                attributionControl: true
+            }).setView([lat, lng], 15);
+            
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery &copy; <a href="https://www.mapbox.com/">Mapbox</a>',
+                maxZoom: 18,
+                id: 'mapbox/streets-v11',
+                tileSize: 512,
+                zoomOffset: -1,
+                accessToken: 'YOUR_MAPBOX_ACCESS_TOKEN'
+            }).addTo(locationMap);
+        } else {
+            locationMap.setView([lat, lng], 15);
+        }
+        
+        // Clear existing markers and add new one
+        locationMap.eachLayer(layer => {
+            if (layer instanceof L.Marker) {
+                locationMap.removeLayer(layer);
+            }
+        });
+        
+        L.marker([lat, lng])
+            .addTo(locationMap)
+            .bindPopup(title)
+            .openPopup();
+            
+        // Refresh map size
+        setTimeout(() => locationMap.invalidateSize(), 100);
+    });
+}
+
+function performSearch() {
+    const searchColumn = document.getElementById('searchColumn').value;
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    
+    const tableRows = document.querySelectorAll('#reportsTable tbody tr');
+    const filteredCount = document.getElementById('filteredCount');
+    
+    let count = 0;
+    
+    tableRows.forEach(row => {
+        const columns = row.dataset;
+        let match = false;
+        
+        if (searchColumn === 'all') {
+            Object.values(columns).forEach(value => {
+                if (value.includes(searchInput)) {
+                    match = true;
+                }
+            });
+        } else {
+            if (columns[searchColumn] && columns[searchColumn].includes(searchInput)) {
+                match = true;
+            }
+        }
+        
+        if (match) {
+            row.style.display = '';
+            count++;
+        } else {
+            row.style.display = 'none';
+        }
+    });
+    
+    if (count > 0) {
+        filteredCount.style.display = 'inline-block';
+        filteredCount.textContent = `Filtered: ${count}`;
+    } else {
+        filteredCount.style.display = 'none';
+    }
+}
+
+function sortTable(column) {
+    const table = document.getElementById('reportsTable');
+    const tbody = table.tBodies[0];
+    const rows = Array.from(tbody.rows);
+    
+    rows.sort((a, b) => {
+        const aValue = a.cells[column].textContent;
+        const bValue = b.cells[column].textContent;
+        
+        if (aValue < bValue) {
+            return -1;
+        } else if (aValue > bValue) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+    
+    tbody.append(...rows);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    const columnToggles = document.querySelectorAll('.column-toggle');
+    
+    columnToggles.forEach(toggle => {
+        toggle.addEventListener('change', function() {
+            const column = this.dataset.column;
+            const bodyCells = document.querySelectorAll(`td[data-column="${column}"]`);
+            const headerCells = document.querySelectorAll(`th[data-column="${column}"]`);
+            
+            if (this.checked) {
+                bodyCells.forEach(cell => cell.style.display = '');
+                headerCells.forEach(cell => cell.style.display = '');
+            } else {
+                bodyCells.forEach(cell => cell.style.display = 'none');
+                headerCells.forEach(cell => cell.style.display = 'none');
+            }
+        });
+    });
+});
+</script>
+{% endblock %}

@@ -1,0 +1,572 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Report Issue') }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="container-fluid py-4">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0"><i class="fas fa-plus-circle"></i> {{ _('Report New Issue') }}</h4>
+                </div>
+                <div class="card-body">
+                    <!-- Form Wizard Steps -->
+                    <div class="wizard-steps mb-4">
+                        <div class="row">
+                            <div class="col-4">
+                                <div class="step active" id="step-1-indicator">
+                                    <div class="step-number">1</div>
+                                    <div class="step-title">{{ _('Basic Info') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="step" id="step-2-indicator">
+                                    <div class="step-number">2</div>
+                                    <div class="step-title">{{ _('Check Duplicates') }}</div>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="step" id="step-3-indicator">
+                                    <div class="step-number">3</div>
+                                    <div class="step-title">{{ _('Complete Report') }}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Basic Information -->
+                    <div id="step-1" class="wizard-step active">
+                        <h5 class="mb-3">{{ _('Step 1: Basic Information') }}</h5>
+                        <form id="basic-info-form">
+                            <div class="mb-3">
+                                <label for="category" class="form-label">{{ _('Issue Category') }} <span class="text-danger">*</span></label>
+                                <select class="form-select" id="category" name="category" required>
+                                    <option value="">{{ _('Select Category') }}</option>
+                                    <option value="infrastructure_roads">{{ _('Infrastructure & Roads') }}</option>
+                                    <option value="sanitation_waste">{{ _('Sanitation & Waste Management') }}</option>
+                                    <option value="water_supply_drainage">{{ _('Water Supply & Drainage') }}</option>
+                                    <option value="electricity_lighting">{{ _('Electricity & Street Lighting') }}</option>
+                                    <option value="public_safety_security">{{ _('Public Safety & Security') }}</option>
+                                    <option value="environment_pollution">{{ _('Environment & Pollution') }}</option>
+                                    <option value="transportation_traffic">{{ _('Transportation & Traffic') }}</option>
+                                    <option value="healthcare_public_health">{{ _('Healthcare & Public Health') }}</option>
+                                    <option value="digital_egovernance">{{ _('Digital Services & E-Governance') }}</option>
+                                    <option value="education_public_spaces">{{ _('Education & Public Spaces') }}</option>
+                                    <option value="emergency_disaster">{{ _('Emergency & Disaster Management') }}</option>
+                                    <option value="citizen_rights_governance">{{ _('Citizen Rights & Governance') }}</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="title" class="form-label">{{ _('Issue Title') }} <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="title" name="title" maxlength="200" required>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="description" class="form-label">{{ _('Description') }} <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="postal_code" class="form-label">{{ _('PIN/Postal/Zip Code') }} <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="postal_code" name="postal_code" placeholder="{{ _('e.g., 110001, 90210, M5V 3L9') }}" required>
+                                <small class="form-text text-danger"><strong>{{ _('PIN/Postal/Zip code is required') }}</strong></small>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="address" class="form-label">{{ _('Address') }}</label>
+                                <input type="text" class="form-control" id="address" name="address" maxlength="300">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">{{ _('Location (Optional)') }}</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-outline-primary w-100 mb-2" id="get-location-btn">
+                                            <i class="fas fa-location-arrow"></i> {{ _('Get Current Location') }}
+                                        </button>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <button type="button" class="btn btn-outline-secondary w-100 mb-2" id="choose-map-btn">
+                                            <i class="fas fa-map-marker-alt"></i> {{ _('Choose on Map') }}
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="location-info" class="mt-2 text-muted" style="display: none;">
+                                    <small>{{ _('Location:') }} <span id="location-display"></span></small>
+                                </div>
+                                <input type="hidden" id="latitude" name="latitude">
+                                <input type="hidden" id="longitude" name="longitude">
+                            </div>
+
+                            <div class="d-flex justify-content-end">
+                                <button type="button" class="btn btn-primary" id="check-duplicates-btn">
+                                    {{ _('Check for Similar Issues') }} <i class="fas fa-arrow-right"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 2: Duplicate Check Results -->
+                    <div id="step-2" class="wizard-step" style="display: none;">
+                        <h5 class="mb-3">{{ _('Step 2: Similar Issues Found') }}</h5>
+                        <div id="duplicate-results">
+                            <!-- Duplicate reports will be loaded here -->
+                        </div>
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-secondary" id="back-to-step1">
+                                <i class="fas fa-arrow-left"></i> {{ _('Back') }}
+                            </button>
+                            <button type="button" class="btn btn-success" id="proceed-to-final">
+                                {{ _('Continue with New Report') }} <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Complete Report -->
+                    <div id="step-3" class="wizard-step" style="display: none;">
+                        <h5 class="mb-3">{{ _('Step 3: Complete Your Report') }}</h5>
+                        <form id="final-report-form" method="POST" enctype="multipart/form-data">
+                            {{ form.hidden_tag() }}
+                            
+                            <!-- Hidden fields populated from step 1 -->
+                            <input type="hidden" name="category" id="final-category">
+                            <input type="hidden" name="title" id="final-title">
+                            <input type="hidden" name="description" id="final-description">
+                            <input type="hidden" name="postal_code" id="final-postal-code">
+                            <input type="hidden" name="address" id="final-address">
+                            <input type="hidden" name="latitude" id="final-latitude">
+                            <input type="hidden" name="longitude" id="final-longitude">
+
+                            <div class="mb-3">
+                                <label for="severity" class="form-label">{{ _('Severity') }} <span class="text-danger">*</span></label>
+                                <select class="form-select" name="severity" required>
+                                    <option value="">{{ _('Select Severity') }}</option>
+                                    <option value="low">{{ _('Low') }}</option>
+                                    <option value="medium" selected>{{ _('Medium') }}</option>
+                                    <option value="high">{{ _('High') }}</option>
+                                    <option value="critical">{{ _('Critical') }}</option>
+                                </select>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="photo" class="form-label">{{ _('Photo') }} <span class="text-danger">*</span></label>
+                                <input type="file" class="form-control" name="photo" accept="image/*" required>
+                                <small class="form-text text-danger"><strong>{{ _('Photo is mandatory for all reports') }}</strong></small>
+                            </div>
+
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="is_anonymous" id="is_anonymous">
+                                    <label class="form-check-label" for="is_anonymous">
+                                        {{ _('Report Anonymously (Hide my identity in public views)') }}
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex justify-content-between">
+                                <button type="button" class="btn btn-secondary" id="back-to-step2">
+                                    <i class="fas fa-arrow-left"></i> {{ _('Back') }}
+                                </button>
+                                <button type="submit" class="btn btn-success">
+                                    <i class="fas fa-paper-plane"></i> {{ _('Submit Report') }}
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Duplicate Report Modal -->
+<div class="modal fade" id="duplicateModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('Similar Issue Details') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="duplicate-modal-body">
+                <!-- Report details will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Map Modal -->
+<div class="modal fade" id="mapModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('Choose Location on Map') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div id="map" style="height: 400px;"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ _('Cancel') }}</button>
+                <button type="button" class="btn btn-primary" id="confirm-location">{{ _('Confirm Location') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.wizard-steps {
+    border-bottom: 1px solid #dee2e6;
+    padding-bottom: 1rem;
+}
+
+.step {
+    text-align: center;
+    position: relative;
+}
+
+.step-number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    color: #6c757d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 0.5rem;
+    font-weight: bold;
+}
+
+.step.active .step-number {
+    background-color: #0d6efd;
+    color: white;
+}
+
+.step.completed .step-number {
+    background-color: #198754;
+    color: white;
+}
+
+.step-title {
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+.step.active .step-title {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+.wizard-step {
+    min-height: 400px;
+}
+
+.duplicate-card {
+    border: 1px solid #dee2e6;
+    border-radius: 0.375rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: #f8f9fa;
+}
+
+.duplicate-card:hover {
+    border-color: #0d6efd;
+    background-color: #e7f1ff;
+}
+</style>
+
+<script>
+let selectedLocation = null;
+let map = null;
+let marker = null;
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Step navigation
+    document.getElementById('check-duplicates-btn').addEventListener('click', checkDuplicates);
+    document.getElementById('back-to-step1').addEventListener('click', () => showStep(1));
+    document.getElementById('back-to-step2').addEventListener('click', () => showStep(2));
+    document.getElementById('proceed-to-final').addEventListener('click', () => showStep(3));
+    
+    // Location functionality
+    document.getElementById('get-location-btn').addEventListener('click', getCurrentLocation);
+    document.getElementById('choose-map-btn').addEventListener('click', showMapModal);
+    document.getElementById('confirm-location').addEventListener('click', confirmMapLocation);
+    
+    // Form submission
+    document.getElementById('final-report-form').addEventListener('submit', submitReport);
+});
+
+function showStep(stepNumber) {
+    // Hide all steps
+    document.querySelectorAll('.wizard-step').forEach(step => {
+        step.style.display = 'none';
+    });
+    
+    // Remove active class from all step indicators
+    document.querySelectorAll('.step').forEach(step => {
+        step.classList.remove('active', 'completed');
+    });
+    
+    // Show current step
+    document.getElementById(`step-${stepNumber}`).style.display = 'block';
+    document.getElementById(`step-${stepNumber}-indicator`).classList.add('active');
+    
+    // Mark previous steps as completed
+    for (let i = 1; i < stepNumber; i++) {
+        document.getElementById(`step-${i}-indicator`).classList.add('completed');
+    }
+    
+    // If moving to step 3, populate the hidden fields
+    if (stepNumber === 3) {
+        populateFinalForm();
+    }
+}
+
+function checkDuplicates() {
+    const form = document.getElementById('basic-info-form');
+    const formData = new FormData(form);
+    
+    // Validate required fields
+    if (!formData.get('category') || !formData.get('title') || !formData.get('description') || !formData.get('postal_code')) {
+        alert('{{ _('Please fill in all required fields before checking for duplicates.') }}');
+        return;
+    }
+    
+    const data = {
+        category: formData.get('category'),
+        postal_code: formData.get('postal_code')
+    };
+    
+    fetch('/api/check_duplicates', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            displayDuplicateResults(data.reports);
+            showStep(2);
+        } else {
+            alert('{{ _('Error checking for duplicates:') }} ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('{{ _('Error checking for duplicates. Please try again.') }}');
+    });
+}
+
+function displayDuplicateResults(reports) {
+    const container = document.getElementById('duplicate-results');
+    
+    if (reports.length === 0) {
+        container.innerHTML = `
+            <div class="alert alert-success">
+                <i class="fas fa-check-circle"></i> {{ _('No similar issues found in your area. You can proceed with creating a new report.') }}
+            </div>
+        `;
+        return;
+    }
+    
+    let html = `
+        <div class="alert alert-warning">
+            <i class="fas fa-exclamation-triangle"></i> {{ _('Found') }} ${reports.length} {{ _('similar issue(s) in your area. Please review them and consider voting instead of creating a duplicate report.') }}
+        </div>
+    `;
+    
+    reports.forEach(report => {
+        html += `
+            <div class="duplicate-card">
+                <div class="row">
+                    <div class="col-md-8">
+                        <h6 class="mb-2">${report.title}</h6>
+                        <p class="text-muted small mb-2">${report.description.substring(0, 100)}${report.description.length > 100 ? '...' : ''}</p>
+                        <div class="mb-2">
+                            <span class="badge bg-secondary">${report.severity}</span>
+                            <span class="badge bg-info">${report.status}</span>
+                            <small class="text-muted ms-2">{{ _('Reported by:') }} ${report.reporter_name}</small>
+                        </div>
+                        <small class="text-muted">${report.created_at}</small>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="mb-2">
+                            <span class="badge bg-primary">${report.vote_count} {{ _('votes') }}</span>
+                        </div>
+                        <button class="btn btn-sm btn-outline-primary mb-2" onclick="viewReportDetails(${report.id})">
+                            <i class="fas fa-eye"></i> {{ _('View Details') }}
+                        </button>
+                        <br>
+                        <button class="btn btn-sm ${report.user_voted ? 'btn-success' : 'btn-primary'}" 
+                                onclick="voteReport(${report.id}, this)" 
+                                ${report.user_voted ? 'disabled' : ''}>
+                            <i class="fas fa-thumbs-up"></i> ${report.user_voted ? '{{ _('Voted') }}' : '{{ _('Vote') }}'}
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+    });
+    
+    container.innerHTML = html;
+}
+
+function viewReportDetails(reportId) {
+    // Fetch and display report details in modal
+    fetch(`/api/reports/${reportId}`)
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            const report = data.report;
+            const modalBody = document.getElementById('duplicate-modal-body');
+            modalBody.innerHTML = `
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>${report.title}</h6>
+                        <p>${report.description}</p>
+                        <p><strong>{{ _('Address:') }}</strong> ${report.address || '{{ _('Not provided') }}'}</p>
+                        <p><strong>{{ _('Severity:') }}</strong> <span class="badge bg-secondary">${report.severity}</span></p>
+                        <p><strong>{{ _('Status:') }}</strong> <span class="badge bg-info">${report.status}</span></p>
+                        <p><strong>{{ _('Reported by:') }}</strong> ${report.reporter_name}</p>
+                        <p><strong>{{ _('Date:') }}</strong> ${report.created_at}</p>
+                    </div>
+                    <div class="col-md-6">
+                        ${report.photo_path ? `<img src="/${report.photo_path}" class="img-fluid rounded" alt="{{ _('Report Photo') }}">` : '<p class="text-muted">{{ _('No photo available') }}</p>'}
+                    </div>
+                </div>
+            `;
+            new bootstrap.Modal(document.getElementById('duplicateModal')).show();
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('{{ _('Error loading report details.') }}');
+    });
+}
+
+function voteReport(reportId, button) {
+    fetch('/api/vote', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({report_id: reportId})
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            button.innerHTML = '<i class="fas fa-thumbs-up"></i> {{ _('Voted') }}';
+            button.classList.remove('btn-primary');
+            button.classList.add('btn-success');
+            button.disabled = true;
+            
+            // Update vote count
+            const voteCountElement = button.closest('.duplicate-card').querySelector('.badge.bg-primary');
+            if (voteCountElement) {
+                const currentCount = parseInt(voteCountElement.textContent);
+                voteCountElement.textContent = `${currentCount + 1} {{ _('votes') }}`;
+            }
+        } else {
+            alert('{{ _('Error voting:') }} ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('{{ _('Error voting. Please try again.') }}');
+    });
+}
+
+function populateFinalForm() {
+    const basicForm = document.getElementById('basic-info-form');
+    const formData = new FormData(basicForm);
+    
+    document.getElementById('final-category').value = formData.get('category');
+    document.getElementById('final-title').value = formData.get('title');
+    document.getElementById('final-description').value = formData.get('description');
+    document.getElementById('final-postal-code').value = formData.get('postal_code');
+    document.getElementById('final-address').value = formData.get('address') || '';
+    document.getElementById('final-latitude').value = formData.get('latitude') || '';
+    document.getElementById('final-longitude').value = formData.get('longitude') || '';
+}
+
+function getCurrentLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+            const lat = position.coords.latitude;
+            const lng = position.coords.longitude;
+            
+            document.getElementById('latitude').value = lat;
+            document.getElementById('longitude').value = lng;
+            document.getElementById('location-display').textContent = `${lat.toFixed(6)}, ${lng.toFixed(6)}`;
+            document.getElementById('location-info').style.display = 'block';
+        }, function(error) {
+            alert('{{ _('Error getting location:') }} ' + error.message);
+        });
+    } else {
+        alert('{{ _('Geolocation is not supported by this browser.') }}');
+    }
+}
+
+function showMapModal() {
+    const modal = new bootstrap.Modal(document.getElementById('mapModal'));
+    modal.show();
+    
+    // Initialize map when modal is shown
+    setTimeout(() => {
+        if (!map) {
+            map = L.map('map').setView([28.6139, 77.2090], 10); // Default to Delhi
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map);
+            
+            map.on('click', function(e) {
+                if (marker) {
+                    map.removeLayer(marker);
+                }
+                marker = L.marker(e.latlng).addTo(map);
+                selectedLocation = e.latlng;
+            });
+        }
+    }, 300);
+}
+
+function confirmMapLocation() {
+    if (selectedLocation) {
+        document.getElementById('latitude').value = selectedLocation.lat;
+        document.getElementById('longitude').value = selectedLocation.lng;
+        document.getElementById('location-display').textContent = `${selectedLocation.lat.toFixed(6)}, ${selectedLocation.lng.toFixed(6)}`;
+        document.getElementById('location-info').style.display = 'block';
+        
+        bootstrap.Modal.getInstance(document.getElementById('mapModal')).hide();
+    } else {
+        alert('{{ _('Please select a location on the map.') }}');
+    }
+}
+
+function submitReport(e) {
+    e.preventDefault();
+    
+    const formData = new FormData(e.target);
+    
+    fetch('/citizen/report', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('{{ _('Report submitted successfully!') }}');
+            window.location.href = '/citizen/dashboard';
+        } else {
+            alert('{{ _('Error submitting report:') }} ' + data.message);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('{{ _('Error submitting report. Please try again.') }}');
+    });
+}
+</script>
+{% endblock %}

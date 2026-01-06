@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Citizen Leaderboard') }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h2><i class="fas fa-trophy"></i> {{ _('Citizen Leaderboard') }}</h2>
+            <a href="{{ url_for('citizen_dashboard') }}" class="btn btn-secondary">
+                <i class="fas fa-arrow-left"></i> {{ _('Back to Dashboard') }}
+            </a>
+        </div>
+        
+        <!-- User's Current Rank -->
+        {% if current_user.points_record %}
+        <div class="card mb-4 border-primary">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0"><i class="fas fa-user"></i> {{ _('Your Ranking') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <h3 class="text-primary">{{ user_rank or 'N/A' }}</h3>
+                        <p class="mb-0">{{ _('Current Rank') }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-success">{{ current_user.points_record.points }}</h3>
+                        <p class="mb-0">{{ _('Total Points') }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-info">{{ current_user.points_record.reports_submitted }}</h3>
+                        <p class="mb-0">{{ _('Reports Submitted') }}</p>
+                    </div>
+                    <div class="col-md-3">
+                        <h3 class="text-warning">{{ current_user.points_record.votes_cast }}</h3>
+                        <p class="mb-0">{{ _('Votes Cast') }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Top Citizens -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-medal"></i> {{ _('Top Citizens') }}</h5>
+            </div>
+            <div class="card-body">
+                {% if top_citizens %}
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>{{ _('Rank') }}</th>
+                                    <th>{{ _('Citizen') }}</th>
+                                    <th>{{ _('Points') }}</th>
+                                    <th>{{ _('Reports') }}</th>
+                                    <th>{{ _('Votes') }}</th>
+                                    <th>{{ _('Badge') }}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for points_record, user in top_citizens %}
+                                <tr class="{% if user.id == current_user.id %}table-primary{% endif %}">
+                                    <td>
+                                        <span class="rank-badge rank-{{ loop.index }}">
+                                            {% if loop.index == 1 %}
+                                                <i class="fas fa-crown text-warning"></i>
+                                            {% elif loop.index == 2 %}
+                                                <i class="fas fa-medal text-secondary"></i>
+                                            {% elif loop.index == 3 %}
+                                                <i class="fas fa-medal text-warning"></i>
+                                            {% else %}
+                                                {{ loop.index }}
+                                            {% endif %}
+                                        </span>
+                                    </td>
+                                    <td>
+                                        <strong>{{ user.username }}</strong>
+                                        {% if user.id == current_user.id %}
+                                            <span class="badge bg-primary ms-2">{{ _('You') }}</span>
+                                        {% endif %}
+                                    </td>
+                                    <td><span class="badge bg-success">{{ points_record.points }}</span></td>
+                                    <td>{{ points_record.reports_submitted }}</td>
+                                    <td>{{ points_record.votes_cast }}</td>
+                                    <td>
+                                        {% if points_record.points >= 1000 %}
+                                            <span class="badge bg-warning"><i class="fas fa-star"></i> {{ _('Champion') }}</span>
+                                        {% elif points_record.points >= 500 %}
+                                            <span class="badge bg-info"><i class="fas fa-thumbs-up"></i> {{ _('Expert') }}</span>
+                                        {% elif points_record.points >= 100 %}
+                                            <span class="badge bg-primary"><i class="fas fa-user-check"></i> {{ _('Active') }}</span>
+                                        {% else %}
+                                            <span class="badge bg-secondary"><i class="fas fa-seedling"></i> {{ _('Beginner') }}</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="text-center py-4">
+                        <i class="fas fa-trophy fa-3x text-muted mb-3"></i>
+                        <h5>{{ _('No leaderboard data available') }}</h5>
+                        <p class="text-muted">{{ _('Start reporting issues to earn points and appear on the leaderboard!') }}</p>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+        
+        <!-- Points System Info -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-info-circle"></i> {{ _('How Points Work') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>{{ _('Earn Points By:') }}</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="fas fa-plus text-success"></i> {{ _('Submitting a report: +10 points') }}</li>
+                            <li><i class="fas fa-plus text-success"></i> {{ _('Voting on issues: +2 points') }}</li>
+                            <li><i class="fas fa-plus text-success"></i> {{ _('Report gets resolved: +5 bonus points') }}</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>{{ _('Badge Levels:') }}</h6>
+                        <ul class="list-unstyled">
+                            <li><span class="badge bg-secondary me-2"><i class="fas fa-seedling"></i> {{ _('Beginner') }}</span> 0-99 {{ _('points') }}</li>
+                            <li><span class="badge bg-primary me-2"><i class="fas fa-user-check"></i> {{ _('Active') }}</span> 100-499 {{ _('points') }}</li>
+                            <li><span class="badge bg-info me-2"><i class="fas fa-thumbs-up"></i> {{ _('Expert') }}</span> 500-999 {{ _('points') }}</li>
+                            <li><span class="badge bg-warning me-2"><i class="fas fa-star"></i> {{ _('Champion') }}</span> 1000+ {{ _('points') }}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Achievement Badges -->
+        {% if current_user.points_record %}
+        <div class="card mt-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-award"></i> {{ _('Your Achievements') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    {% if current_user.points_record.reports_submitted >= 1 %}
+                    <div class="col-md-2 mb-3">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-flag fa-2x text-primary"></i>
+                            <p class="small mt-1">{{ _('First Report') }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if current_user.points_record.reports_submitted >= 5 %}
+                    <div class="col-md-2 mb-3">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-clipboard-list fa-2x text-success"></i>
+                            <p class="small mt-1">{{ _('Reporter') }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if current_user.points_record.votes_cast >= 10 %}
+                    <div class="col-md-2 mb-3">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-thumbs-up fa-2x text-info"></i>
+                            <p class="small mt-1">{{ _('Voter') }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if current_user.points_record.reports_verified >= 3 %}
+                    <div class="col-md-2 mb-3">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-check-circle fa-2x text-warning"></i>
+                            <p class="small mt-1">{{ _('Verified') }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if current_user.points_record.points >= 100 %}
+                    <div class="col-md-2 mb-3">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-star fa-2x text-warning"></i>
+                            <p class="small mt-1">{{ _('Century') }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                    
+                    {% if user_rank and user_rank <= 10 %}
+                    <div class="col-md-2 mb-3">
+                        <div class="achievement-badge earned">
+                            <i class="fas fa-crown fa-2x text-warning"></i>
+                            <p class="small mt-1">{{ _('Top 10') }}</p>
+                        </div>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<style>
+.avatar-circle {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #007bff, #0056b3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.rank-badge {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.achievement-badge {
+    padding: 15px;
+    border-radius: 10px;
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    transition: all 0.3s;
+}
+
+.achievement-badge.earned {
+    background: linear-gradient(45deg, #28a745, #20c997);
+    border-color: #28a745;
+    color: white;
+    transform: scale(1.05);
+}
+
+.achievement-badge.earned i {
+    color: white !important;
+}
+
+.table-primary {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.rank-1 { color: #ffd700; }
+.rank-2 { color: #c0c0c0; }
+.rank-3 { color: #cd7f32; }
+</style>
+{% endblock %}

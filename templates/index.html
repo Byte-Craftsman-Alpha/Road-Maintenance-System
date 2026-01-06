@@ -1,0 +1,350 @@
+{% extends "base.html" %}
+
+{% block title %}Home - CivicSetu{% endblock %}
+
+{% block content %}
+<!-- Modern Hero Section -->
+<div class="hero-section py-5 mb-5 scroll-reveal" style="background: linear-gradient(135deg, #1e3a8a00 0%, #a1b9ff80 100%); border-radius: var(--radius-2xl); margin: -1rem -15px 0 -15px; padding: 4rem 15px;">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="scroll-reveal-left">
+                    <h1 class="display-4 fw-bold mb-4" style="color: var(--gray-900);">
+                        <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu Logo">
+                        <!-- <i class="fas fa-road" style="color: var(--primary-600);"></i>  -->
+                        {{ _('CivicSetu') }}
+                    </h1>
+                    <code>{{ _('Civic System for Empowering Transparency & Upliftment') }}</code>
+                    <p class="lead mb-4" style="color: var(--gray-700);">
+                        {{ _('Empowering citizens to report different issues and enabling authorities to respond faster. 
+                        Together, we build better infrastructure for everyone.') }}
+
+                    </p>
+                    
+                    {% if not current_user.is_authenticated %}
+                        <div class="d-flex gap-3 flex-wrap">
+                            <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
+                                <i class="fas fa-user-plus"></i> {{ _('Get Started') }}
+                            </a>
+                            <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg">
+                                <i class="fas fa-sign-in-alt"></i> {{ _('Login') }}
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="text-center scroll-reveal-right">
+                    <div style="background: white; border-radius: var(--radius-2xl); padding: 2rem; box-shadow: var(--shadow-lg); transform: rotate(2deg);">
+                        <i class="fas fa-mobile-alt fa-4x" style="color: var(--primary-500);"></i>
+                        <h5 class="mt-3 abc">{{ _('Report Issues Instantly') }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modern Feature Cards -->
+<div class="row g-4 mb-5">
+    <div class="col-md-4">
+        <div class="card h-100 text-center border-0 scroll-reveal scroll-reveal-delay-1">
+            <div class="card-body p-4">
+                <div class="mb-4">
+                    <div style="width: 80px; height: 80px; background: var(--primary-50); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-mobile-alt fa-2x" style="color: var(--primary-600);"></i>
+                    </div>
+                </div>
+                <h5 class="card-title fw-bold mb-3">{{ _('Easy Reporting') }}</h5>
+                <p class="card-text text-muted">
+                    {{ _('Report issues instantly using your mobile device with GPS location and photo upload.') }}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100 text-center border-0 scroll-reveal scroll-reveal-delay-2">
+            <div class="card-body p-4">
+                <div class="mb-4">
+                    <div style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-clock fa-2x" style="color: var(--success-500);"></i>
+                    </div>
+                </div>
+                <h5 class="card-title fw-bold mb-3">{{ _('Fast Response') }}</h5>
+                <p class="card-text text-muted">
+                    {{ _('Automated ticketing system ensures quick response times and efficient resource allocation.') }}
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4">
+        <div class="card h-100 text-center border-0 scroll-reveal scroll-reveal-delay-3">
+            <div class="card-body p-4">
+                <div class="mb-4">
+                    <div style="width: 80px; height: 80px; background: rgba(245, 158, 11, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
+                        <i class="fas fa-chart-line fa-2x" style="color: var(--warning-500);"></i>
+                    </div>
+                </div>
+                <h5 class="card-title fw-bold mb-3">{{ _('Transparency') }}</h5>
+                <p class="card-text text-muted">
+                    {{ _('Track progress in real-time and access analytics for long-term infrastructure improvement.') }}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- How It Works Section -->
+<div class="how-it-works-section py-5 mb-5 scroll-reveal" style="border-radius: var(--radius-2xl); color: white; position: relative; overflow: hidden;">
+    <!-- Background Pattern -->
+    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 20px 20px; opacity: 0.3;"></div>
+    
+    <div class="container position-relative">
+        <div class="text-center mb-5 scroll-reveal-scale">
+            <h2 class="display-5 fw-bold mb-3">{{ _('How It Works') }}</h2>
+            <p class="lead" style="color: var(--gray-300); max-width: 600px; margin: 0 auto;">
+                {{ _('Simple steps to report issues and track their resolution') }}
+            </p>
+        </div>
+        
+        <div class="row g-4">
+            <!-- Step 1 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center scroll-reveal scroll-reveal-delay-1">
+                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
+                        1
+                    </div>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-map-marker-alt fa-2x" style="color: var(--primary-400);"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">{{ _('Spot the Issue') }}</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem;">
+                        {{ _('Notice any issues like potholes, broken streetlight, or damaged road? Take a photo and note the location.') }}
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 2 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center scroll-reveal scroll-reveal-delay-2">
+                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
+                        2
+                    </div>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-edit fa-2x" style="color: var(--primary-400);"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">{{ _('Submit Report') }}</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem;">
+                        {{ _('Fill out a quick form with details, upload the photo, and submit your report instantly.') }}
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 3 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center scroll-reveal scroll-reveal-delay-3">
+                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
+                        3
+                    </div>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-cogs fa-2x" style="color: var(--primary-400);"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">{{ _('Automatic Processing') }}</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem;">
+                        {{ _('Our system creates a maintenance ticket and assigns it to the relevant authority team.') }}
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Step 4 -->
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center scroll-reveal scroll-reveal-delay-4">
+                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--success-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
+                        4
+                    </div>
+                    <div class="step-icon mb-3">
+                        <i class="fas fa-check-circle fa-2x" style="color: var(--success-500);"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">{{ _('Track Progress') }}</h5>
+                    <p style="color: var(--gray-400); font-size: 0.9rem;">
+                        {{ _('Get real-time updates on your report status and see when the issue is resolved.') }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Call to Action -->
+        <div class="text-center mt-5 scroll-reveal-scale">
+            <div class="d-flex justify-content-center gap-3 flex-wrap">
+                {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i> {{ _('Start Reporting') }}
+                    </a>
+                    <a href="{{ url_for('public_reports') }}" class="btn btn-outline-secondary btn-lg">
+                        <i class="fas fa-eye"></i> {{ _('View Public Reports') }}
+                    </a>
+                {% else %}
+                    <a href="{{ url_for('create_report') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-plus-circle"></i> {{ _('Report New Issue') }}
+                    </a>
+                    <a href="{{ url_for('citizen_dashboard') if current_user.role == 'citizen' else url_for('authority_dashboard') }}" class="btn btn-outline-light btn-lg">
+                        <i class="fas fa-tachometer-alt"></i> {{ _('Go to Dashboard') }}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-lg-10 mx-auto">
+        <div class="card scroll-reveal">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('Recent Reports Map') }}</h5>
+            </div>
+            <div class="card-body">
+                <div id="reportsMap" class="map-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize map with proper touch controls
+    var map = L.map('reportsMap', {
+        // Enable touch interactions
+        touchZoom: true,
+        doubleClickZoom: true,
+        scrollWheelZoom: true,
+        boxZoom: true,
+        keyboard: true,
+        dragging: true,
+        // Disable single-finger zoom to require two fingers
+        tap: true,
+        tapTolerance: 15,
+        // Enable proper mobile gestures
+        zoomControl: true,
+        attributionControl: true
+    }).setView([28.6139, 77.2090], 10); // Default to Delhi
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: 'OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Load reports data
+    fetch('/api/reports/map')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(reports => {
+            if (!Array.isArray(reports)) {
+                console.error('Expected array of reports, got:', typeof reports);
+                return;
+            }
+            
+            let validReports = 0;
+            let invalidReports = 0;
+            
+            reports.forEach((report, index) => {
+                // Validate that report has required properties and valid coordinates
+                if (!report || typeof report !== 'object') {
+                    console.warn(`Invalid report at index ${index}:`, report);
+                    invalidReports++;
+                    return;
+                }
+                
+                // Check for valid latitude and longitude
+                const lat = parseFloat(report.latitude);
+                const lng = parseFloat(report.longitude);
+                
+                if (isNaN(lat) || isNaN(lng) || 
+                    lat < -90 || lat > 90 || 
+                    lng < -180 || lng > 180 ||
+                    report.latitude === null || report.latitude === undefined ||
+                    report.longitude === null || report.longitude === undefined) {
+                    console.warn(`Invalid coordinates for report ${report.id || index}: lat=${report.latitude}, lng=${report.longitude}`);
+                    invalidReports++;
+                    return;
+                }
+                
+                try {
+                    var color = getMarkerColor(report.severity);
+                    var marker = L.circleMarker([lat, lng], {
+                        color: color,
+                        fillColor: color,
+                        fillOpacity: 0.7,
+                        radius: 8
+                    }).addTo(map);
+                    
+                    // Create popup content with safe string handling
+                    const title = report.title || 'Untitled Report';
+                    const category = report.category || 'Unknown';
+                    const severity = report.severity || 'Unknown';
+                    const status = report.status || 'Unknown';
+                    const createdAt = report.created_at ? new Date(report.created_at).toLocaleDateString() : 'Unknown';
+                    
+                    marker.bindPopup(`
+                        <strong>${title}</strong><br>
+                        Category: ${category}<br>
+                        Severity: ${severity}<br>
+                        Status: ${status}<br>
+                        <small>Reported: ${createdAt}</small>
+                    `);
+                    
+                    validReports++;
+                } catch (markerError) {
+                    console.error(`Error creating marker for report ${report.id || index}:`, markerError);
+                    invalidReports++;
+                }
+            });
+            
+            console.log(`Map loaded: ${validReports} valid reports, ${invalidReports} invalid reports`);
+            
+            // If we have valid reports, adjust map view to fit all markers
+            if (validReports > 0) {
+                // Get all markers and fit bounds if there are multiple
+                const group = new L.featureGroup(map._layers);
+                if (Object.keys(map._layers).length > 1) { // More than just the tile layer
+                    try {
+                        map.fitBounds(group.getBounds().pad(0.1));
+                    } catch (boundsError) {
+                        console.warn('Could not fit bounds:', boundsError);
+                    }
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error loading reports:', error);
+            // Show user-friendly error message
+            const mapContainer = document.getElementById('reportsMap');
+            if (mapContainer) {
+                mapContainer.innerHTML = `
+                    <div class="alert alert-warning text-center p-4">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        <h6>Unable to load reports map</h6>
+                        <small>Please try refreshing the page. If the problem persists, contact support.</small>
+                    </div>
+                `;
+            }
+        });
+    
+    function getMarkerColor(severity) {
+        switch(severity) {
+            case 'critical': return '#721c24';
+            case 'high': return '#dc3545';
+            case 'medium': return '#fd7e14';
+            case 'low': return '#198754';
+            default: return '#6c757d';
+        }
+    }
+});
+</script>
+{% endblock %}

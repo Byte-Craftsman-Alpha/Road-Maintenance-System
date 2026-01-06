@@ -1,0 +1,1676 @@
+# Tamil translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-19 21:38+0530\n"
+"PO-Revision-Date: 2025-09-19 12:05+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ta\n"
+"Language-Team: ta <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:62 templates/base.html:71
+#: templates/index.html:15
+msgid "CivicSetu"
+msgstr "சிவிக்சேது"
+
+#: templates/base.html:86 templates/base.html:102
+msgid "Dashboard"
+msgstr "டாஷ்போர்டு"
+
+#: templates/base.html:91 templates/citizen/dashboard.html:124
+#: templates/citizen/report.html:3
+msgid "Report Issue"
+msgstr "பிரச்சினையை தெரிவிக்கவும்"
+
+#: templates/base.html:96
+msgid "Leaderboard"
+msgstr "முன்னணி பட்டியல்"
+
+#: templates/authority/reports.html:7 templates/base.html:107
+#: templates/public_reports.html:45
+msgid "All Reports"
+msgstr "அனைத்து புகார்கள்"
+
+#: templates/base.html:112
+msgid "Analytics"
+msgstr "பகுப்பாய்வு"
+
+#: templates/base.html:119 templates/public_reports.html:7
+#, fuzzy
+msgid "Public Reports"
+msgstr "அனைத்து புகார்கள்"
+
+#: templates/base.html:124 templates/track_report.html:24
+msgid "Track Report"
+msgstr "புகாரை கண்காணிக்கவும்"
+
+#: templates/base.html:138
+msgid "Indian Languages"
+msgstr "இந்திய மொழிகள்"
+
+#: templates/base.html:180
+msgid "Logout"
+msgstr "வெளியேறு"
+
+#: templates/auth/login.html:10 templates/base.html:187 templates/index.html:30
+msgid "Login"
+msgstr "உள்நுழைக"
+
+#: templates/auth/register.html:10 templates/base.html:192
+msgid "Register"
+msgstr "பதிவு செய்க"
+
+#: templates/index.html:17
+msgid "Civic System for Empowering Transparency & Upliftment"
+msgstr ""
+
+#: templates/index.html:19
+msgid ""
+"Empowering citizens to report different issues and enabling authorities "
+"to respond faster. \n"
+"                        Together, we build better infrastructure for "
+"everyone."
+msgstr ""
+
+#: templates/index.html:27
+msgid "Get Started"
+msgstr ""
+
+#: templates/index.html:40
+msgid "Report Issues Instantly"
+msgstr ""
+
+#: templates/index.html:58
+msgid "Easy Reporting"
+msgstr ""
+
+#: templates/index.html:60
+msgid ""
+"Report issues instantly using your mobile device with GPS location and "
+"photo upload."
+msgstr ""
+
+#: templates/index.html:74
+msgid "Fast Response"
+msgstr ""
+
+#: templates/index.html:76
+msgid ""
+"Automated ticketing system ensures quick response times and efficient "
+"resource allocation."
+msgstr ""
+
+#: templates/index.html:90
+msgid "Transparency"
+msgstr ""
+
+#: templates/index.html:92
+msgid ""
+"Track progress in real-time and access analytics for long-term "
+"infrastructure improvement."
+msgstr ""
+
+#: templates/index.html:106
+msgid "How It Works"
+msgstr ""
+
+#: templates/index.html:108
+msgid "Simple steps to report issues and track their resolution"
+msgstr ""
+
+#: templates/index.html:122
+msgid "Spot the Issue"
+msgstr ""
+
+#: templates/index.html:124
+msgid ""
+"Notice any issues like potholes, broken streetlight, or damaged road? "
+"Take a photo and note the location."
+msgstr ""
+
+#: templates/citizen/report.html:173 templates/index.html:138
+msgid "Submit Report"
+msgstr ""
+
+#: templates/index.html:140
+msgid ""
+"Fill out a quick form with details, upload the photo, and submit your "
+"report instantly."
+msgstr ""
+
+#: templates/index.html:154
+msgid "Automatic Processing"
+msgstr ""
+
+#: templates/index.html:156
+msgid ""
+"Our system creates a maintenance ticket and assigns it to the relevant "
+"authority team."
+msgstr ""
+
+#: templates/index.html:170
+msgid "Track Progress"
+msgstr ""
+
+#: templates/index.html:172
+msgid ""
+"Get real-time updates on your report status and see when the issue is "
+"resolved."
+msgstr ""
+
+#: templates/index.html:183
+msgid "Start Reporting"
+msgstr ""
+
+#: templates/index.html:186
+msgid "View Public Reports"
+msgstr ""
+
+#: templates/citizen/dashboard.html:9 templates/citizen/report.html:11
+#: templates/index.html:190
+msgid "Report New Issue"
+msgstr ""
+
+#: templates/index.html:193
+msgid "Go to Dashboard"
+msgstr ""
+
+#: templates/index.html:205
+msgid "Recent Reports Map"
+msgstr ""
+
+#: templates/authority/dashboard.html:20 templates/citizen/dashboard.html:18
+#: templates/public_reports.html:16
+msgid "Total Reports"
+msgstr ""
+
+#: templates/authority/dashboard.html:47
+#: templates/authority/report_detail.html:117
+#: templates/authority/reports.html:37 templates/citizen/dashboard.html:42
+#: templates/public_reports.html:25 templates/public_reports.html:87
+msgid "Completed"
+msgstr ""
+
+#: templates/authority/analytics.html:29 templates/public_reports.html:34
+msgid "Completion Rate"
+msgstr ""
+
+#: templates/public_reports.html:54
+msgid "Filters"
+msgstr ""
+
+#: templates/authority/reports.html:44 templates/public_reports.html:66
+msgid "All Categories"
+msgstr ""
+
+#: templates/authority/reports.html:45 templates/citizen/report.html:46
+#: templates/public_reports.html:67
+msgid "Infrastructure & Roads"
+msgstr ""
+
+#: templates/authority/reports.html:46 templates/public_reports.html:68
+msgid "Sanitation & Waste"
+msgstr ""
+
+#: templates/authority/reports.html:47 templates/citizen/report.html:48
+#: templates/public_reports.html:69
+msgid "Water Supply & Drainage"
+msgstr ""
+
+#: templates/authority/reports.html:48 templates/public_reports.html:70
+msgid "Electricity & Lighting"
+msgstr ""
+
+#: templates/authority/reports.html:49 templates/public_reports.html:71
+msgid "Public Safety"
+msgstr ""
+
+#: templates/authority/reports.html:50 templates/public_reports.html:72
+msgid "Environment"
+msgstr ""
+
+#: templates/authority/reports.html:51 templates/public_reports.html:73
+msgid "Transportation"
+msgstr ""
+
+#: templates/authority/reports.html:52 templates/public_reports.html:74
+msgid "Healthcare"
+msgstr ""
+
+#: templates/authority/reports.html:53 templates/public_reports.html:75
+msgid "Digital Services"
+msgstr ""
+
+#: templates/authority/reports.html:54 templates/public_reports.html:76
+msgid "Education"
+msgstr ""
+
+#: templates/authority/reports.html:55 templates/public_reports.html:77
+msgid "Emergency"
+msgstr ""
+
+#: templates/authority/reports.html:56 templates/public_reports.html:78
+msgid "Citizen Rights"
+msgstr ""
+
+#: templates/authority/reports.html:33 templates/public_reports.html:83
+msgid "All Status"
+msgstr ""
+
+#: templates/authority/dashboard.html:178 templates/authority/reports.html:34
+#: templates/citizen/dashboard.html:352
+#: templates/citizen/report_detail.html:107 templates/public_reports.html:84
+msgid "Reported"
+msgstr ""
+
+#: templates/authority/report_detail.html:111
+#: templates/authority/reports.html:35 templates/citizen/leaderboard.html:181
+#: templates/public_reports.html:85
+msgid "Verified"
+msgstr ""
+
+#: templates/authority/dashboard.html:38
+#: templates/authority/report_detail.html:114
+#: templates/authority/reports.html:36 templates/citizen/dashboard.html:34
+#: templates/public_reports.html:86
+msgid "In Progress"
+msgstr ""
+
+#: templates/authority/reports.html:62 templates/public_reports.html:92
+msgid "All Severity"
+msgstr ""
+
+#: templates/authority/report_detail.html:318
+#: templates/authority/reports.html:63 templates/citizen/report.html:146
+#: templates/public_reports.html:93
+msgid "Low"
+msgstr ""
+
+#: templates/authority/report_detail.html:319
+#: templates/authority/reports.html:64 templates/citizen/report.html:147
+#: templates/public_reports.html:94
+msgid "Medium"
+msgstr ""
+
+#: templates/authority/report_detail.html:320
+#: templates/authority/reports.html:65 templates/citizen/report.html:148
+#: templates/public_reports.html:95
+msgid "High"
+msgstr ""
+
+#: templates/citizen/report.html:149 templates/public_reports.html:96
+msgid "Critical"
+msgstr ""
+
+#: templates/authority/reports.html:73 templates/authority/reports.html:332
+#: templates/public_reports.html:101
+msgid "Clear Filters"
+msgstr ""
+
+#: templates/authority/dashboard.html:99 templates/authority/reports.html:87
+#: templates/authority/reports.html:118 templates/authority/reports.html:209
+#: templates/public_reports.html:113
+msgid "ID"
+msgstr ""
+
+#: templates/authority/dashboard.html:100 templates/authority/reports.html:88
+#: templates/authority/reports.html:124 templates/authority/reports.html:212
+#: templates/citizen/dashboard.html:58 templates/citizen/dashboard.html:346
+#: templates/public_reports.html:114
+msgid "Title"
+msgstr ""
+
+#: templates/authority/analytics.html:104
+#: templates/authority/dashboard.html:101
+#: templates/authority/report_detail.html:27
+#: templates/authority/reports.html:89 templates/authority/reports.html:130
+#: templates/authority/reports.html:215 templates/citizen/dashboard.html:59
+#: templates/citizen/dashboard.html:348 templates/citizen/report_detail.html:27
+#: templates/public_reports.html:115 templates/track_report_result.html:24
+msgid "Category"
+msgstr "வகை"
+
+#: templates/authority/analytics.html:135
+#: templates/authority/dashboard.html:103 templates/authority/reports.html:91
+#: templates/authority/reports.html:142 templates/authority/reports.html:221
+#: templates/citizen/dashboard.html:61 templates/citizen/dashboard.html:351
+#: templates/citizen/report_detail.html:38 templates/public_reports.html:116
+#: templates/track_report_result.html:8
+msgid "Status"
+msgstr "நிலை"
+
+#: templates/authority/dashboard.html:102
+#: templates/authority/report_detail.html:32
+#: templates/authority/reports.html:90 templates/authority/reports.html:136
+#: templates/authority/reports.html:218 templates/citizen/dashboard.html:60
+#: templates/citizen/dashboard.html:349 templates/citizen/report.html:143
+#: templates/citizen/report_detail.html:31 templates/public_reports.html:117
+#: templates/track_report_result.html:27
+msgid "Severity"
+msgstr "தீவிரம்"
+
+#: templates/citizen/report.html:154 templates/citizen/report_detail.html:152
+#: templates/public_reports.html:118
+msgid "Photo"
+msgstr "புகைப்படம்"
+
+#: templates/authority/report_detail.html:192
+#: templates/citizen/report_detail.html:61
+#: templates/citizen/report_detail.html:162 templates/public_reports.html:119
+#: templates/track_report_result.html:42
+msgid "Location"
+msgstr "இடம்"
+
+#: templates/authority/reports.html:160 templates/public_reports.html:120
+msgid "PIN Code"
+msgstr ""
+
+#: templates/authority/report_detail.html:68 templates/public_reports.html:121
+#: templates/track_report_result.html:44
+msgid "Reported by"
+msgstr ""
+
+#: templates/authority/dashboard.html:105 templates/authority/reports.html:172
+#: templates/authority/reports.html:236 templates/public_reports.html:122
+msgid "Date"
+msgstr "தேதி"
+
+#: templates/authority/reports.html:148 templates/authority/reports.html:224
+#: templates/citizen/leaderboard.html:59 templates/public_reports.html:123
+msgid "Votes"
+msgstr ""
+
+#: templates/authority/dashboard.html:106 templates/authority/reports.html:238
+#: templates/citizen/dashboard.html:64 templates/public_reports.html:124
+msgid "Actions"
+msgstr ""
+
+#: templates/public_reports.html:198
+msgid "Track"
+msgstr ""
+
+#: templates/authority/dashboard.html:158 templates/public_reports.html:209
+msgid "No reports available"
+msgstr ""
+
+#: templates/public_reports.html:210
+msgid "Reports will appear here as they are submitted by citizens."
+msgstr ""
+
+#: templates/public_reports.html:219
+msgid "All Reports Map"
+msgstr ""
+
+#: templates/track_report.html:11
+msgid "Track Your Report"
+msgstr ""
+
+#: templates/track_report.html:12
+msgid "Enter your report ID to track its status"
+msgstr ""
+
+#: templates/citizen/report_detail.html:51 templates/track_report.html:17
+msgid "Report ID"
+msgstr ""
+
+#: templates/track_report.html:19
+msgid "Enter Report ID (e.g., 123)"
+msgstr ""
+
+#: templates/track_report.html:20
+msgid "You can find your report ID in the confirmation email or dashboard."
+msgstr ""
+
+#: templates/track_report.html:33
+msgid "How to Track"
+msgstr ""
+
+#: templates/track_report.html:37
+msgid "Enter your report ID in the field above"
+msgstr ""
+
+#: templates/track_report.html:38
+msgid "Click \"Track Report\" to view the current status"
+msgstr ""
+
+#: templates/track_report.html:39
+msgid "See all status updates and maintenance tickets"
+msgstr ""
+
+#: templates/track_report.html:40
+msgid "No login required - completely public"
+msgstr ""
+
+#: templates/authority/report_detail.html:7
+#: templates/track_report_result.html:8
+msgid "Report"
+msgstr ""
+
+#: templates/track_report_result.html:10 templates/track_report_result.html:200
+msgid "Track Another Report"
+msgstr ""
+
+#: templates/authority/report_detail.html:18
+#: templates/citizen/dashboard.html:150 templates/citizen/report_detail.html:3
+#: templates/citizen/report_detail.html:12
+#: templates/track_report_result.html:17
+msgid "Report Details"
+msgstr ""
+
+#: templates/citizen/dashboard.html:347 templates/citizen/report.html:67
+#: templates/citizen/report_detail.html:56
+#: templates/track_report_result.html:23
+msgid "Description"
+msgstr "விளக்கம்"
+
+#: templates/track_report_result.html:30
+msgid "Current Status"
+msgstr ""
+
+#: templates/track_report_result.html:43
+msgid "Reported On"
+msgstr ""
+
+#: templates/authority/dashboard.html:139 templates/track_report_result.html:46
+msgid "Anonymous"
+msgstr ""
+
+#: templates/track_report_result.html:51
+msgid "Community Votes"
+msgstr ""
+
+#: templates/citizen/dashboard.html:103 templates/track_report_result.html:65
+msgid "No image available"
+msgstr ""
+
+#: templates/track_report_result.html:76
+msgid "Status Updates Timeline"
+msgstr ""
+
+#: templates/track_report_result.html:96
+msgid "Status changed to"
+msgstr ""
+
+#: templates/citizen/report_detail.html:137
+#: templates/track_report_result.html:104
+msgid "Updated by"
+msgstr ""
+
+#: templates/track_report_result.html:115
+msgid "Image not available"
+msgstr ""
+
+#: templates/track_report_result.html:130
+msgid "No status updates yet"
+msgstr ""
+
+#: templates/track_report_result.html:131
+msgid "Status updates will appear here as authorities review your report."
+msgstr ""
+
+#: templates/track_report_result.html:140
+msgid "Maintenance Tickets"
+msgstr ""
+
+#: templates/authority/report_detail.html:224
+#: templates/authority/report_detail.html:316
+#: templates/citizen/report_detail.html:191
+#: templates/track_report_result.html:150
+msgid "Priority"
+msgstr "முன்னுரிமை"
+
+#: templates/authority/report_detail.html:232
+#: templates/track_report_result.html:156
+msgid "Assigned to"
+msgstr ""
+
+#: templates/authority/report_detail.html:238
+#: templates/authority/report_detail.html:327
+#: templates/track_report_result.html:159
+msgid "Estimated Cost"
+msgstr ""
+
+#: templates/authority/report_detail.html:244
+#: templates/authority/report_detail.html:331
+#: templates/citizen/report_detail.html:195
+#: templates/track_report_result.html:164
+msgid "Estimated Completion"
+msgstr ""
+
+#: templates/track_report_result.html:167
+msgid "Completed On"
+msgstr ""
+
+#: templates/track_report_result.html:169
+msgid "Created"
+msgstr ""
+
+#: templates/authority/report_detail.html:336
+#: templates/citizen/report_detail.html:201
+#: templates/track_report_result.html:174
+msgid "Work Description"
+msgstr ""
+
+#: templates/authority/report_detail.html:340
+#: templates/track_report_result.html:178
+msgid "Materials Used"
+msgstr ""
+
+#: templates/track_report_result.html:187
+msgid "No maintenance tickets yet"
+msgstr ""
+
+#: templates/track_report_result.html:188
+msgid ""
+"Maintenance tickets will be created once your report is verified by "
+"authorities."
+msgstr ""
+
+#: templates/track_report_result.html:197
+msgid "View All Public Reports"
+msgstr ""
+
+#: templates/auth/forgot_password.html:10
+msgid "Forgot Password"
+msgstr ""
+
+#: templates/auth/forgot_password.html:38
+msgid "Enter your email address and we'll send you a reset code."
+msgstr ""
+
+#: templates/auth/forgot_password.html:39
+msgid "Make sure to check your spam folder if you don't see the email."
+msgstr ""
+
+#: templates/auth/forgot_password.html:64
+msgid "Remember your password?"
+msgstr ""
+
+#: templates/auth/forgot_password.html:64
+msgid "Back to Login"
+msgstr ""
+
+#: templates/auth/forgot_password.html:72 templates/auth/verify_otp.html:88
+msgid "Security Note:"
+msgstr ""
+
+#: templates/auth/forgot_password.html:72
+msgid "The reset code will be valid for 10 minutes only."
+msgstr ""
+
+#: templates/auth/forgot_password.html:73
+msgid "If you don't receive the email, please check your spam folder."
+msgstr ""
+
+#: templates/auth/login.html:47
+msgid "Forgot your password?"
+msgstr ""
+
+#: templates/auth/login.html:53
+msgid "Don't have an account?"
+msgstr ""
+
+#: templates/auth/login.html:53
+msgid "Register here"
+msgstr ""
+
+#: templates/auth/login.html:58
+msgid "Demo Accounts:"
+msgstr ""
+
+#: templates/auth/login.html:61
+msgid "Register as citizen or authority for full experience"
+msgstr ""
+
+#: templates/auth/register.html:83
+msgid "Required for authority users"
+msgstr ""
+
+#: templates/auth/register.html:96
+msgid "Special password required for authority registration"
+msgstr ""
+
+#: templates/auth/register.html:113
+msgid "Already have an account?"
+msgstr ""
+
+#: templates/auth/register.html:113
+msgid "Login here"
+msgstr ""
+
+#: templates/auth/verify_otp.html:3 templates/auth/verify_otp.html:10
+msgid "Verify OTP"
+msgstr ""
+
+#: templates/auth/verify_otp.html:43
+msgid "We've sent a 6-digit verification code to:"
+msgstr ""
+
+#: templates/auth/verify_otp.html:45
+msgid "Please check your email and enter the code below"
+msgstr ""
+
+#: templates/auth/verify_otp.html:53
+msgid "Enter 6-digit OTP"
+msgstr ""
+
+#: templates/auth/verify_otp.html:69
+msgid "Didn't receive the code?"
+msgstr ""
+
+#: templates/auth/verify_otp.html:71 templates/auth/verify_otp.html:142
+#: templates/auth/verify_otp.html:148 templates/auth/verify_otp.html:170
+msgid "Resend OTP"
+msgstr ""
+
+#: templates/auth/verify_otp.html:74
+msgid "Resend available in"
+msgstr ""
+
+#: templates/auth/verify_otp.html:74
+msgid "seconds"
+msgstr ""
+
+#: templates/auth/verify_otp.html:80
+msgid "Want to use a different email?"
+msgstr ""
+
+#: templates/auth/verify_otp.html:80
+msgid "Register again"
+msgstr ""
+
+#: templates/auth/verify_otp.html:88
+msgid "The OTP is valid for 10 minutes only."
+msgstr ""
+
+#: templates/auth/verify_otp.html:89
+msgid "Don't share this code with anyone."
+msgstr ""
+
+#: templates/auth/verify_otp.html:108
+msgid "Sending..."
+msgstr ""
+
+#: templates/authority/analytics.html:7
+#, fuzzy
+msgid "Analytics Dashboard"
+msgstr "டாஷ்போர்டு"
+
+#: templates/authority/analytics.html:9 templates/authority/reports.html:9
+#: templates/citizen/leaderboard.html:11
+#: templates/citizen/report_detail.html:14
+msgid "Back to Dashboard"
+msgstr ""
+
+#: templates/authority/analytics.html:20
+msgid "Avg Response Days"
+msgstr ""
+
+#: templates/authority/analytics.html:38 templates/authority/dashboard.html:69
+msgid "High Priority Reports"
+msgstr ""
+
+#: templates/authority/analytics.html:47
+msgid "This Month"
+msgstr ""
+
+#: templates/authority/analytics.html:58
+msgid "Reports by Category"
+msgstr ""
+
+#: templates/authority/analytics.html:69
+msgid "Status Distribution"
+msgstr ""
+
+#: templates/authority/analytics.html:83
+msgid "Monthly Report Trends"
+msgstr ""
+
+#: templates/authority/analytics.html:97
+#, fuzzy
+msgid "Category Breakdown"
+msgstr "வகை"
+
+#: templates/authority/analytics.html:105
+#: templates/authority/analytics.html:136
+msgid "Count"
+msgstr "எண்ணிக்கை"
+
+#: templates/authority/analytics.html:106
+#: templates/authority/analytics.html:137
+msgid "Percentage"
+msgstr ""
+
+#: templates/authority/analytics.html:128
+msgid "Status Breakdown"
+msgstr ""
+
+#: templates/authority/dashboard.html:3 templates/authority/dashboard.html:7
+msgid "Authority Dashboard"
+msgstr ""
+
+#: templates/authority/dashboard.html:9
+msgid "View All Reports"
+msgstr ""
+
+#: templates/authority/dashboard.html:29
+msgid "Pending Action"
+msgstr ""
+
+#: templates/authority/dashboard.html:58
+#: templates/authority/report_detail.html:266
+msgid "Quick Actions"
+msgstr ""
+
+#: templates/authority/dashboard.html:63
+msgid "New Reports"
+msgstr ""
+
+#: templates/authority/dashboard.html:66
+msgid "In Progress Reports"
+msgstr ""
+
+#: templates/authority/dashboard.html:79
+msgid "Recent Activity"
+msgstr ""
+
+#: templates/authority/dashboard.html:91
+msgid "Recent Reports"
+msgstr ""
+
+#: templates/authority/dashboard.html:104 templates/authority/reports.html:92
+#: templates/authority/reports.html:154 templates/authority/reports.html:227
+#: templates/citizen/leaderboard.html:163
+msgid "Reporter"
+msgstr ""
+
+#: templates/authority/dashboard.html:116 templates/citizen/dashboard.html:73
+msgid "Has photo"
+msgstr ""
+
+#: templates/authority/dashboard.html:147 templates/citizen/dashboard.html:110
+msgid "View"
+msgstr "பார்க்கவும்"
+
+#: templates/authority/dashboard.html:159
+msgid "New reports will appear here as they are submitted by citizens."
+msgstr ""
+
+#: templates/authority/dashboard.html:170
+msgid "Critical Issues"
+msgstr ""
+
+#: templates/authority/dashboard.html:181
+msgid "Review"
+msgstr ""
+
+#: templates/authority/dashboard.html:186
+msgid "No critical issues at the moment"
+msgstr ""
+
+#: templates/authority/dashboard.html:195
+msgid "Quick Stats"
+msgstr ""
+
+#: templates/authority/dashboard.html:201
+msgid "This Week"
+msgstr ""
+
+#: templates/authority/dashboard.html:205
+msgid "Resolved This Week"
+msgstr ""
+
+#: templates/authority/dashboard.html:209
+msgid "Avg Response Time (hrs)"
+msgstr ""
+
+#: templates/authority/dashboard.html:213
+msgid "Satisfaction Rate"
+msgstr ""
+
+#: templates/authority/dashboard.html:226
+msgid "Reports Map"
+msgstr ""
+
+#: templates/authority/report_detail.html:9
+#, fuzzy
+msgid "Back to Reports"
+msgstr "புகாரை கண்காணிக்கவும்"
+
+#: templates/authority/report_detail.html:51
+#: templates/authority/reports.html:94 templates/authority/reports.html:166
+#: templates/authority/reports.html:233 templates/citizen/dashboard.html:350
+#: templates/citizen/report.html:78 templates/citizen/report_detail.html:99
+msgid "Address"
+msgstr "முகவரி"
+
+#: templates/authority/report_detail.html:55
+#: templates/authority/reports.html:93 templates/authority/reports.html:230
+#: templates/citizen/report_detail.html:102
+#, fuzzy
+msgid "PIN/Postal Code"
+msgstr "பின்கோடு"
+
+#: templates/authority/report_detail.html:59
+#: templates/citizen/report_detail.html:82
+#: templates/citizen/report_detail.html:169
+msgid "Coordinates"
+msgstr ""
+
+#: templates/authority/report_detail.html:72
+#: templates/citizen/dashboard.html:63
+msgid "Date Reported"
+msgstr ""
+
+#: templates/authority/report_detail.html:77
+#: templates/citizen/dashboard.html:354
+#: templates/citizen/report_detail.html:110
+msgid "Last Updated"
+msgstr ""
+
+#: templates/authority/report_detail.html:90
+#: templates/citizen/dashboard.html:326
+msgid "No photo uploaded"
+msgstr ""
+
+#: templates/authority/report_detail.html:101
+#: templates/authority/report_detail.html:141
+#, fuzzy
+msgid "Update Status"
+msgstr "புதுப்பிக்கவும்"
+
+#: templates/authority/report_detail.html:107
+#, fuzzy
+msgid "New Status"
+msgstr "நிலை"
+
+#: templates/authority/report_detail.html:112
+#: templates/authority/report_detail.html:115
+#: templates/authority/reports.html:38
+msgid "Rejected"
+msgstr ""
+
+#: templates/authority/report_detail.html:122
+#, fuzzy
+msgid "Current status"
+msgstr "நிலை"
+
+#: templates/authority/report_detail.html:125
+msgid "Status Update Image"
+msgstr ""
+
+#: templates/authority/report_detail.html:129
+msgid "Image is required for completed status"
+msgstr ""
+
+#: templates/authority/report_detail.html:131
+msgid "Optional: Upload image to document the status update"
+msgstr ""
+
+#: templates/authority/report_detail.html:136
+msgid "Comment (Optional)"
+msgstr ""
+
+#: templates/authority/report_detail.html:137
+msgid "Add a comment about this status update..."
+msgstr ""
+
+#: templates/authority/report_detail.html:152
+#, fuzzy
+msgid "Status History"
+msgstr "நிலை"
+
+#: templates/authority/report_detail.html:199
+msgid "Location coordinates not available"
+msgstr ""
+
+#: templates/authority/report_detail.html:205
+msgid "Open in Google Maps"
+msgstr ""
+
+#: templates/authority/report_detail.html:215
+#: templates/citizen/report_detail.html:187
+msgid "Maintenance Ticket"
+msgstr ""
+
+#: templates/authority/report_detail.html:219
+msgid "Ticket Number"
+msgstr ""
+
+#: templates/authority/report_detail.html:250
+msgid "Completed on"
+msgstr ""
+
+#: templates/authority/report_detail.html:256
+msgid "Edit Ticket Details"
+msgstr ""
+
+#: templates/authority/report_detail.html:272
+#, fuzzy
+msgid "Verify Report"
+msgstr "புகாரை கண்காணிக்கவும்"
+
+#: templates/authority/report_detail.html:276
+msgid "Start Work"
+msgstr ""
+
+#: templates/authority/report_detail.html:280
+msgid "Mark Complete"
+msgstr ""
+
+#: templates/authority/report_detail.html:286
+#, fuzzy
+msgid "Reject Report"
+msgstr "புகாரை கண்காணிக்கவும்"
+
+#: templates/authority/report_detail.html:300
+msgid "Edit Maintenance Ticket"
+msgstr ""
+
+#: templates/authority/report_detail.html:307
+#: templates/citizen/report_detail.html:198
+msgid "Assigned To"
+msgstr ""
+
+#: templates/authority/report_detail.html:309
+msgid "Unassigned"
+msgstr ""
+
+#: templates/authority/report_detail.html:321
+msgid "Urgent"
+msgstr ""
+
+#: templates/authority/report_detail.html:346 templates/citizen/report.html:211
+msgid "Cancel"
+msgstr "ரத்து செய்"
+
+#: templates/authority/report_detail.html:347
+msgid "Save Changes"
+msgstr ""
+
+#: templates/authority/reports.html:18
+msgid "Filters & Search"
+msgstr ""
+
+#: templates/authority/reports.html:22
+msgid "Advanced Options"
+msgstr ""
+
+#: templates/authority/reports.html:31
+#, fuzzy
+msgid "Status Filter"
+msgstr "நிலை"
+
+#: templates/authority/reports.html:42
+#, fuzzy
+msgid "Category Filter"
+msgstr "வகை"
+
+#: templates/authority/reports.html:60
+#, fuzzy
+msgid "Severity Filter"
+msgstr "தீவிரம்"
+
+#: templates/authority/reports.html:84
+msgid "Search in Column"
+msgstr ""
+
+#: templates/authority/reports.html:86
+msgid "All Columns"
+msgstr ""
+
+#: templates/authority/reports.html:98
+#, fuzzy
+msgid "Search Term"
+msgstr "தேடவும்"
+
+#: templates/authority/reports.html:99
+msgid "Enter search term..."
+msgstr ""
+
+#: templates/authority/reports.html:104
+msgid "Search"
+msgstr "தேடவும்"
+
+#: templates/authority/reports.html:113
+msgid "Show/Hide Columns"
+msgstr ""
+
+#: templates/authority/reports.html:186 templates/citizen/leaderboard.html:58
+msgid "Reports"
+msgstr "புகார்கள்"
+
+#: templates/authority/reports.html:192
+msgid "Bulk Verify"
+msgstr ""
+
+#: templates/authority/reports.html:195
+msgid "Bulk Start Work"
+msgstr ""
+
+#: templates/authority/reports.html:322
+#, fuzzy
+msgid "No reports found"
+msgstr "புகார்கள்"
+
+#: templates/authority/reports.html:325
+msgid "No reports match the current filters."
+msgstr ""
+
+#: templates/authority/reports.html:327
+msgid "No reports have been submitted yet."
+msgstr ""
+
+#: templates/authority/reports.html:345
+#, fuzzy
+msgid "Report Location"
+msgstr "இடம்"
+
+#: templates/citizen/dashboard.html:3
+msgid "Citizen Dashboard"
+msgstr ""
+
+#: templates/citizen/dashboard.html:7
+msgid "My Dashboard"
+msgstr ""
+
+#: templates/citizen/dashboard.html:26
+msgid "Pending"
+msgstr ""
+
+#: templates/citizen/dashboard.html:50
+msgid "My Reports"
+msgstr ""
+
+#: templates/citizen/dashboard.html:62
+msgid "Image"
+msgstr ""
+
+#: templates/citizen/dashboard.html:100
+msgid "Click to view full image"
+msgstr ""
+
+#: templates/citizen/dashboard.html:121
+msgid "No reports yet"
+msgstr ""
+
+#: templates/citizen/dashboard.html:122
+msgid "Start by reporting your first road issue!"
+msgstr ""
+
+#: templates/citizen/dashboard.html:136
+msgid "My Reports Map"
+msgstr ""
+
+#: templates/citizen/dashboard.html:266 templates/citizen/report.html:401
+msgid "View Details"
+msgstr ""
+
+#: templates/citizen/dashboard.html:330
+#: templates/citizen/report_detail.html:119
+msgid "Status Updates"
+msgstr ""
+
+#: templates/citizen/dashboard.html:350 templates/citizen/report.html:431
+msgid "Not provided"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:3 templates/citizen/leaderboard.html:9
+msgid "Citizen Leaderboard"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:19
+msgid "Your Ranking"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:25
+msgid "Current Rank"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:29
+msgid "Total Points"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:33
+msgid "Reports Submitted"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:37
+msgid "Votes Cast"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:47
+msgid "Top Citizens"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:55
+msgid "Rank"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:56
+msgid "Citizen"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:57
+msgid "Points"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:60
+msgid "Badge"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:82
+msgid "You"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:90 templates/citizen/leaderboard.html:135
+msgid "Champion"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:92 templates/citizen/leaderboard.html:134
+msgid "Expert"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:94 templates/citizen/leaderboard.html:133
+msgid "Active"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:96 templates/citizen/leaderboard.html:132
+msgid "Beginner"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:107
+msgid "No leaderboard data available"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:108
+msgid "Start reporting issues to earn points and appear on the leaderboard!"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:117
+msgid "How Points Work"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:122
+msgid "Earn Points By:"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:124
+msgid "Submitting a report: +10 points"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:125
+msgid "Voting on issues: +2 points"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:126
+msgid "Report gets resolved: +5 bonus points"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:130
+msgid "Badge Levels:"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:132
+#: templates/citizen/leaderboard.html:133
+#: templates/citizen/leaderboard.html:134
+#: templates/citizen/leaderboard.html:135
+msgid "points"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:146
+msgid "Your Achievements"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:154
+msgid "First Report"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:172
+msgid "Voter"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:190
+msgid "Century"
+msgstr ""
+
+#: templates/citizen/leaderboard.html:199
+msgid "Top 10"
+msgstr ""
+
+#: templates/citizen/report.html:20
+msgid "Basic Info"
+msgstr ""
+
+#: templates/citizen/report.html:26
+msgid "Check Duplicates"
+msgstr ""
+
+#: templates/citizen/report.html:32
+msgid "Complete Report"
+msgstr ""
+
+#: templates/citizen/report.html:40
+msgid "Step 1: Basic Information"
+msgstr ""
+
+#: templates/citizen/report.html:43
+msgid "Issue Category"
+msgstr ""
+
+#: templates/citizen/report.html:45
+msgid "Select Category"
+msgstr ""
+
+#: templates/citizen/report.html:47
+msgid "Sanitation & Waste Management"
+msgstr ""
+
+#: templates/citizen/report.html:49
+msgid "Electricity & Street Lighting"
+msgstr ""
+
+#: templates/citizen/report.html:50
+msgid "Public Safety & Security"
+msgstr ""
+
+#: templates/citizen/report.html:51
+msgid "Environment & Pollution"
+msgstr ""
+
+#: templates/citizen/report.html:52
+msgid "Transportation & Traffic"
+msgstr ""
+
+#: templates/citizen/report.html:53
+msgid "Healthcare & Public Health"
+msgstr ""
+
+#: templates/citizen/report.html:54
+msgid "Digital Services & E-Governance"
+msgstr ""
+
+#: templates/citizen/report.html:55
+msgid "Education & Public Spaces"
+msgstr ""
+
+#: templates/citizen/report.html:56
+msgid "Emergency & Disaster Management"
+msgstr ""
+
+#: templates/citizen/report.html:57
+msgid "Citizen Rights & Governance"
+msgstr ""
+
+#: templates/citizen/report.html:62
+msgid "Issue Title"
+msgstr ""
+
+#: templates/citizen/report.html:72
+msgid "PIN/Postal/Zip Code"
+msgstr ""
+
+#: templates/citizen/report.html:73
+msgid "e.g., 110001, 90210, M5V 3L9"
+msgstr ""
+
+#: templates/citizen/report.html:74
+msgid "PIN/Postal/Zip code is required"
+msgstr ""
+
+#: templates/citizen/report.html:83
+msgid "Location (Optional)"
+msgstr ""
+
+#: templates/citizen/report.html:87
+msgid "Get Current Location"
+msgstr ""
+
+#: templates/citizen/report.html:92
+msgid "Choose on Map"
+msgstr ""
+
+#: templates/citizen/report.html:97
+msgid "Location:"
+msgstr ""
+
+#: templates/citizen/report.html:105
+msgid "Check for Similar Issues"
+msgstr ""
+
+#: templates/citizen/report.html:113
+msgid "Step 2: Similar Issues Found"
+msgstr ""
+
+#: templates/citizen/report.html:119 templates/citizen/report.html:170
+msgid "Back"
+msgstr "பின்னால்"
+
+#: templates/citizen/report.html:122
+msgid "Continue with New Report"
+msgstr ""
+
+#: templates/citizen/report.html:129
+msgid "Step 3: Complete Your Report"
+msgstr ""
+
+#: templates/citizen/report.html:145
+msgid "Select Severity"
+msgstr ""
+
+#: templates/citizen/report.html:156
+msgid "Photo is mandatory for all reports"
+msgstr ""
+
+#: templates/citizen/report.html:163
+msgid "Report Anonymously (Hide my identity in public views)"
+msgstr ""
+
+#: templates/citizen/report.html:189
+msgid "Similar Issue Details"
+msgstr ""
+
+#: templates/citizen/report.html:204
+msgid "Choose Location on Map"
+msgstr ""
+
+#: templates/citizen/report.html:212
+msgid "Confirm Location"
+msgstr ""
+
+#: templates/citizen/report.html:333
+msgid "Please fill in all required fields before checking for duplicates."
+msgstr ""
+
+#: templates/citizen/report.html:355
+msgid "Error checking for duplicates:"
+msgstr ""
+
+#: templates/citizen/report.html:360
+msgid "Error checking for duplicates. Please try again."
+msgstr ""
+
+#: templates/citizen/report.html:370
+msgid ""
+"No similar issues found in your area. You can proceed with creating a new"
+" report."
+msgstr ""
+
+#: templates/citizen/report.html:378
+msgid "Found"
+msgstr ""
+
+#: templates/citizen/report.html:378
+msgid ""
+"similar issue(s) in your area. Please review them and consider voting "
+"instead of creating a duplicate report."
+msgstr ""
+
+#: templates/citizen/report.html:392 templates/citizen/report.html:434
+msgid "Reported by:"
+msgstr ""
+
+#: templates/citizen/report.html:398 templates/citizen/report.html:471
+msgid "votes"
+msgstr ""
+
+#: templates/citizen/report.html:407 templates/citizen/report.html:462
+msgid "Voted"
+msgstr ""
+
+#: templates/citizen/report.html:407
+msgid "Vote"
+msgstr ""
+
+#: templates/citizen/report.html:431
+msgid "Address:"
+msgstr ""
+
+#: templates/citizen/report.html:432
+msgid "Severity:"
+msgstr ""
+
+#: templates/citizen/report.html:433
+msgid "Status:"
+msgstr ""
+
+#: templates/citizen/report.html:435
+msgid "Date:"
+msgstr ""
+
+#: templates/citizen/report.html:438
+msgid "Report Photo"
+msgstr ""
+
+#: templates/citizen/report.html:438
+msgid "No photo available"
+msgstr ""
+
+#: templates/citizen/report.html:447
+msgid "Error loading report details."
+msgstr ""
+
+#: templates/citizen/report.html:474
+msgid "Error voting:"
+msgstr ""
+
+#: templates/citizen/report.html:479
+msgid "Error voting. Please try again."
+msgstr ""
+
+#: templates/citizen/report.html:507
+msgid "Error getting location:"
+msgstr ""
+
+#: templates/citizen/report.html:510
+msgid "Geolocation is not supported by this browser."
+msgstr ""
+
+#: templates/citizen/report.html:544
+msgid "Please select a location on the map."
+msgstr ""
+
+#: templates/citizen/report.html:560
+msgid "Report submitted successfully!"
+msgstr ""
+
+#: templates/citizen/report.html:563
+msgid "Error submitting report:"
+msgstr ""
+
+#: templates/citizen/report.html:568
+msgid "Error submitting report. Please try again."
+msgstr ""
+
+#: templates/citizen/report_detail.html:69
+#: templates/citizen/report_detail.html:171
+msgid "Location not provided"
+msgstr ""
+
+#: templates/citizen/report_detail.html:92
+msgid "Coordinates Unavailable"
+msgstr ""
+
+#: templates/citizen/report_detail.html:93
+msgid "Location data not provided"
+msgstr ""
+
+#: templates/citizen/report_detail.html:190
+msgid "Ticket #"
+msgstr ""
+
+#~ msgid "Profile"
+#~ msgstr "சுயவிவரம்"
+
+#~ msgid "Welcome"
+#~ msgstr "வரவேற்கிறோம்"
+
+#~ msgid "Submit"
+#~ msgstr "சமர்ப்பிக்கவும்"
+
+#~ msgid "Save"
+#~ msgstr "சேமிக்கவும்"
+
+#~ msgid "Delete"
+#~ msgstr "நீக்கவும்"
+
+#~ msgid "Edit"
+#~ msgstr "திருத்தவும்"
+
+#~ msgid "Filter"
+#~ msgstr "வடிகட்டவும்"
+
+#~ msgid "Sort"
+#~ msgstr "வரிசைப்படுத்தவும்"
+
+#~ msgid "Time"
+#~ msgstr "நேரம்"
+
+#~ msgid "Upload"
+#~ msgstr "பதிவேற்றவும்"
+
+#~ msgid "Download"
+#~ msgstr "பதிவிறக்கவும்"
+
+#~ msgid "Share"
+#~ msgstr "பகிரவும்"
+
+#~ msgid "Print"
+#~ msgstr "அச்சிடவும்"
+
+#~ msgid "Help"
+#~ msgstr "உதவி"
+
+#~ msgid "About"
+#~ msgstr "பற்றி"
+
+#~ msgid "Contact"
+#~ msgstr "தொடர்பு"
+
+#~ msgid "Settings"
+#~ msgstr "அமைப்புகள்"
+
+#~ msgid "Notifications"
+#~ msgstr "அறிவிப்புகள்"
+
+#~ msgid "Messages"
+#~ msgstr "செய்திகள்"
+
+#~ msgid "Users"
+#~ msgstr "பயனர்கள்"
+
+#~ msgid "Statistics"
+#~ msgstr "புள்ளிவிவரங்கள்"
+
+#~ msgid "Export"
+#~ msgstr "ஏற்றுமதி"
+
+#~ msgid "Import"
+#~ msgstr "இறக்குமதி"
+
+#~ msgid "Backup"
+#~ msgstr "காப்புப்பிரதி"
+
+#~ msgid "Restore"
+#~ msgstr "மீட்டமை"
+
+#~ msgid "Refresh"
+#~ msgstr "புதுப்பிக்கவும்"
+
+#~ msgid "Loading"
+#~ msgstr "ஏற்றுகிறது"
+
+#~ msgid "Please wait"
+#~ msgstr "தயவுசெய்து காத்திருக்கவும்"
+
+#~ msgid "Success"
+#~ msgstr "வெற்றி"
+
+#~ msgid "Error"
+#~ msgstr "பிழை"
+
+#~ msgid "Warning"
+#~ msgstr "எச்சரிக்கை"
+
+#~ msgid "Information"
+#~ msgstr "தகவல்"
+
+#~ msgid "Confirmation"
+#~ msgstr "உறுதிப்படுத்தல்"
+
+#~ msgid "Yes"
+#~ msgstr "ஆம்"
+
+#~ msgid "No"
+#~ msgstr "இல்லை"
+
+#~ msgid "OK"
+#~ msgstr "சரி"
+
+#~ msgid "Close"
+#~ msgstr "மூடவும்"
+
+#~ msgid "Next"
+#~ msgstr "அடுத்து"
+
+#~ msgid "Previous"
+#~ msgstr "முந்தைய"
+
+#~ msgid "First"
+#~ msgstr "முதல்"
+
+#~ msgid "Last"
+#~ msgstr "கடைசி"
+
+#~ msgid "Home"
+#~ msgstr "முகப்பு"
+
+#~ msgid "Page"
+#~ msgstr "பக்கம்"
+
+#~ msgid "Total"
+#~ msgstr "மொத்தம்"
+
+#~ msgid "Name"
+#~ msgstr "பெயர்"
+
+#~ msgid "Email"
+#~ msgstr "மின்னஞ்சல்"
+
+#~ msgid "Phone"
+#~ msgstr "தொலைபேசி"
+
+#~ msgid "City"
+#~ msgstr "நகரம்"
+
+#~ msgid "State"
+#~ msgstr "மாநிலம்"
+
+#~ msgid "Country"
+#~ msgstr "நாடு"
+
+#~ msgid ""
+#~ "Report road issues instantly using your"
+#~ " mobile device with GPS location and"
+#~ " photo upload."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Notice any issue like potholes, broken"
+#~ " streetlight, or damaged road? Take a"
+#~ " photo and note the location."
+#~ msgstr ""
+
+#~ msgid "Report photo"
+#~ msgstr ""
+

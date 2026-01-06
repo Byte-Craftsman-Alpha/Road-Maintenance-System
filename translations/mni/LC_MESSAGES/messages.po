@@ -1,0 +1,1524 @@
+# Manipuri translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-19 21:38+0530\n"
+"PO-Revision-Date: 2025-09-19 12:05+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: mni\n"
+"Language-Team: mni <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:62 templates/base.html:71
+#: templates/index.html:15
+msgid "CivicSetu"
+msgstr "ꯁꯤꯚꯤꯛ ꯁꯦꯇꯨ"
+
+#: templates/base.html:86 templates/base.html:102
+msgid "Dashboard"
+msgstr "ꯗꯥꯁꯕꯣꯔꯗ"
+
+#: templates/base.html:91 templates/citizen/dashboard.html:124
+#: templates/citizen/report.html:3
+msgid "Report Issue"
+msgstr "ꯁꯃꯁ꯭ꯌꯥ ꯈꯪꯗꯣꯀꯄꯥ"
+
+#: templates/base.html:96
+msgid "Leaderboard"
+msgstr "ꯃꯥꯏꯄꯥꯀꯄꯒꯤ ꯊꯥꯛ"
+
+#: templates/authority/reports.html:7 templates/base.html:107
+#: templates/public_reports.html:45
+msgid "All Reports"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯄꯨꯝꯅꯃꯛ"
+
+#: templates/base.html:112
+msgid "Analytics"
+msgstr "ꯑꯦꯅꯥꯂꯥꯏꯇꯤꯛꯁ"
+
+#: templates/base.html:119 templates/public_reports.html:7
+msgid "Public Reports"
+msgstr "ꯃꯤꯌꯥꯃꯒꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/base.html:124 templates/track_report.html:24
+msgid "Track Report"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯌꯦꯡꯕꯥ"
+
+#: templates/base.html:138
+msgid "Indian Languages"
+msgstr "ꯚꯥꯔꯇꯀꯤ ꯂꯣꯟꯁꯤꯡ"
+
+#: templates/base.html:180
+msgid "Logout"
+msgstr "ꯊꯣꯀꯄꯥ"
+
+#: templates/auth/login.html:10 templates/base.html:187 templates/index.html:30
+msgid "Login"
+msgstr "ꯆꯪꯁꯤꯅꯕꯥ"
+
+#: templates/auth/register.html:10 templates/base.html:192
+msgid "Register"
+msgstr "ꯃꯤꯡ ꯆꯅꯕꯥ"
+
+#: templates/index.html:17
+msgid "Civic System for Empowering Transparency & Upliftment"
+msgstr "ꯇ꯭ꯔꯥꯟꯁꯄꯥꯔꯦꯟꯁꯤ ꯑꯃꯁꯨꯡ ꯆꯥꯎꯈꯠꯍꯅꯕꯒꯤ ꯁꯤꯚꯤꯛ ꯁꯤꯁ꯭ꯇꯦꯝ"
+
+#: templates/index.html:19
+msgid ""
+"Empowering citizens to report different issues and enabling authorities "
+"to respond faster. \n"
+"                        Together, we build better infrastructure for "
+"everyone."
+msgstr ""
+"ꯅꯥꯒꯔꯤꯀꯁꯤꯡꯅꯥ ꯇꯣꯉꯥꯟ ꯇꯣꯉꯥꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥꯁꯤꯡ ꯈꯪꯗꯣꯛꯅꯕꯥ ꯑꯃꯁꯨꯡ ꯑꯣꯊꯣꯔꯤꯇꯤꯁꯤꯡꯅꯥ ꯊꯨꯅꯥ "
+"ꯄꯥꯎꯈꯨꯝ ꯄꯤꯅꯕꯥ ꯉꯝꯍꯅꯕꯥ꯫ \n"
+"                        ꯄꯨꯟꯅꯥ ꯑꯩꯈꯣꯏꯅꯥ ꯃꯤꯄꯨꯝ ꯈꯨꯗꯤꯡꯃꯛꯀꯤꯗꯃꯛ ꯍꯦꯟꯅꯥ ꯐꯕꯥ "
+"ꯏꯅꯐ꯭ꯔꯥꯁ꯭ꯇ꯭ꯔꯀꯆꯔ ꯁꯥꯔꯤ꯫"
+
+#: templates/index.html:27
+msgid "Get Started"
+msgstr "ꯍꯧꯕꯥ"
+
+#: templates/index.html:40
+msgid "Report Issues Instantly"
+msgstr "ꯈꯨꯗꯛꯇꯥ ꯁꯃꯁ꯭ꯌꯥ ꯈꯪꯗꯣꯀꯄꯥ"
+
+#: templates/index.html:58
+msgid "Easy Reporting"
+msgstr "ꯂꯥꯏꯅꯥ ꯔꯤꯄꯣꯔꯠ ꯇꯧꯕꯥ"
+
+#: templates/index.html:60
+msgid ""
+"Report issues instantly using your mobile device with GPS location and "
+"photo upload."
+msgstr ""
+"ꯅꯍꯥꯛꯀꯤ ꯃꯣꯕꯥꯏꯜ ꯗꯤꯚꯥꯏꯁ ꯁꯤꯖꯤꯟꯅꯗꯨꯅꯥ GPS ꯂꯣꯀꯦꯁꯟ ꯑꯃꯁꯨꯡ ꯐꯣꯇꯣ ꯊꯥꯗꯨꯅꯥ ꯈꯨꯗꯛꯇꯥ "
+"ꯁꯃꯁ꯭ꯌꯥ ꯈꯪꯗꯣꯀꯄꯥ꯫"
+
+#: templates/index.html:74
+msgid "Fast Response"
+msgstr "ꯊꯨꯅꯥ ꯄꯥꯎꯈꯨꯝ"
+
+#: templates/index.html:76
+msgid ""
+"Automated ticketing system ensures quick response times and efficient "
+"resource allocation."
+msgstr ""
+"ꯑꯣꯇꯣꯃꯦꯇꯦꯗ ꯇꯤꯀꯦꯇꯤꯡ ꯁꯤꯁ꯭ꯇꯦꯝꯅꯥ ꯊꯨꯅꯥ ꯄꯥꯎꯈꯨꯝ ꯑꯃꯁꯨꯡ ꯏꯐꯤꯁꯤꯌꯦꯟꯇ ꯔꯤꯁꯣꯔꯁ ꯌꯦꯅꯕꯥ "
+"ꯁꯣꯏꯗꯅꯥ ꯐꯪꯍꯜꯂꯤ꯫"
+
+#: templates/index.html:90
+msgid "Transparency"
+msgstr "ꯇ꯭ꯔꯥꯟꯁꯄꯥꯔꯦꯟꯁꯤ"
+
+#: templates/index.html:92
+msgid ""
+"Track progress in real-time and access analytics for long-term "
+"infrastructure improvement."
+msgstr ""
+"ꯔꯤꯌꯦꯜ-ꯇꯥꯏꯃꯗꯥ ꯄ꯭ꯔꯣꯒ꯭ꯔꯦꯁ ꯌꯦꯡꯕꯥ ꯑꯃꯁꯨꯡ ꯂꯣꯡ-ꯇꯔꯝ ꯏꯅꯐ꯭ꯔꯥꯁ꯭ꯇ꯭ꯔꯀꯆꯔ ꯐꯒꯠꯍꯅꯕꯒꯤꯗꯃꯛ "
+"ꯑꯦꯅꯥꯂꯥꯏꯇꯤꯛꯁ ꯐꯪꯕꯥ꯫"
+
+#: templates/index.html:106
+msgid "How It Works"
+msgstr "ꯀꯔꯝꯅꯥ ꯊꯕꯛ ꯇꯧꯕꯒꯦ"
+
+#: templates/index.html:108
+msgid "Simple steps to report issues and track their resolution"
+msgstr "ꯁꯃꯁ꯭ꯌꯥ ꯈꯪꯗꯣꯛꯅꯕꯥ ꯑꯃꯁꯨꯡ ꯁꯣꯂꯨꯁꯟ ꯌꯦꯡꯅꯕꯒꯤ ꯂꯥꯏꯕꯥ ꯈꯣꯡꯊꯥꯡꯁꯤꯡ"
+
+#: templates/index.html:122
+msgid "Spot the Issue"
+msgstr "ꯁꯃꯁ꯭ꯌꯥ ꯎꯕꯥ"
+
+#: templates/index.html:124
+msgid ""
+"Notice any issues like potholes, broken streetlight, or damaged road? "
+"Take a photo and note the location."
+msgstr ""
+"ꯂꯝꯕꯤꯗꯥ ꯀꯣꯝꯅꯥ ꯂꯩꯕꯥ, ꯁꯣꯀꯄꯥ ꯂꯥꯏꯠ, ꯅꯠꯔꯒꯥ ꯁꯣꯀꯄꯥ ꯂꯝꯕꯤ ꯑꯁꯤꯒꯨꯝꯕꯥ ꯁꯃꯁ꯭ꯌꯥ ꯎꯕ꯭ꯔꯥ? "
+"ꯐꯣꯇꯣ ꯂꯧ ꯑꯃꯁꯨꯡ ꯃꯐꯝ ꯑꯗꯨ ꯏꯁꯤꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report.html:173 templates/index.html:138
+msgid "Submit Report"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯊꯥꯕꯥ"
+
+#: templates/index.html:140
+msgid ""
+"Fill out a quick form with details, upload the photo, and submit your "
+"report instantly."
+msgstr ""
+"ꯑꯀꯨꯞꯄꯥ ꯃꯔꯣꯂꯁꯤꯡꯒꯥ ꯂꯣꯌꯅꯅꯥ ꯐꯣꯔꯝ ꯑꯃꯥ ꯊꯨꯅꯥ ꯃꯦꯟꯁꯤꯜꯂꯨ, ꯐꯣꯇꯣ ꯑꯄꯂꯣꯗ ꯇꯧ, ꯑꯃꯁꯨꯡ "
+"ꯈꯨꯗꯛꯇꯥ ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯊꯥꯕꯤꯌꯨ꯫"
+
+#: templates/index.html:154
+msgid "Automatic Processing"
+msgstr "ꯑꯣꯇꯣꯃꯦꯇꯤꯛ ꯄ꯭ꯔꯣꯁꯦꯁꯤꯡ"
+
+#: templates/index.html:156
+msgid ""
+"Our system creates a maintenance ticket and assigns it to the relevant "
+"authority team."
+msgstr ""
+"ꯑꯩꯈꯣꯏꯒꯤ ꯁꯤꯁ꯭ꯇꯦꯝꯅꯥ ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠ ꯑꯃꯥ ꯁꯦꯝꯃꯤ ꯑꯃꯁꯨꯡ ꯃꯔꯤ ꯂꯩꯅꯕꯥ ꯑꯣꯊꯣꯔꯤꯇꯤ "
+"ꯇꯤꯃꯗꯥ ꯑꯦꯁꯥꯏꯟ ꯇꯧꯏ꯫"
+
+#: templates/index.html:170
+msgid "Track Progress"
+msgstr "ꯄ꯭ꯔꯣꯒ꯭ꯔꯦꯁ ꯌꯦꯡꯕꯥ"
+
+#: templates/index.html:172
+msgid ""
+"Get real-time updates on your report status and see when the issue is "
+"resolved."
+msgstr ""
+"ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠꯀꯤ ꯁ꯭ꯇꯦꯇꯁꯀꯤ ꯔꯤꯌꯦꯜ-ꯇꯥꯏꯝ ꯑꯄꯗꯦꯠꯁꯤꯡ ꯐꯪꯕꯥ ꯑꯃꯁꯨꯡ ꯁꯃꯁ꯭ꯌꯥ ꯑꯗꯨ ꯀꯗꯥꯏꯗꯥ"
+" ꯂꯣꯏꯁꯤꯅꯈꯤꯕꯒꯦ ꯍꯥꯌꯕꯗꯨ ꯌꯦꯡꯕꯥ꯫"
+
+#: templates/index.html:183
+msgid "Start Reporting"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯇꯧꯕꯥ ꯍꯧꯕꯥ"
+
+#: templates/index.html:186
+msgid "View Public Reports"
+msgstr "ꯃꯤꯌꯥꯃꯒꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ ꯌꯦꯡꯕꯥ"
+
+#: templates/citizen/dashboard.html:9 templates/citizen/report.html:11
+#: templates/index.html:190
+msgid "Report New Issue"
+msgstr "ꯑꯅꯧꯕꯥ ꯁꯃꯁ꯭ꯌꯥ ꯈꯪꯗꯣꯀꯄꯥ"
+
+#: templates/index.html:193
+msgid "Go to Dashboard"
+msgstr "ꯗꯥꯁꯕꯣꯔꯗꯇꯥ ꯆꯠꯄꯥ"
+
+#: templates/index.html:205
+msgid "Recent Reports Map"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡꯒꯤ ꯃꯦꯞ"
+
+#: templates/authority/dashboard.html:20 templates/citizen/dashboard.html:18
+#: templates/public_reports.html:16
+msgid "Total Reports"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯑꯄꯨꯅꯕꯥ"
+
+#: templates/authority/dashboard.html:47
+#: templates/authority/report_detail.html:117
+#: templates/authority/reports.html:37 templates/citizen/dashboard.html:42
+#: templates/public_reports.html:25 templates/public_reports.html:87
+msgid "Completed"
+msgstr "ꯂꯣꯏꯁꯤꯅꯈ꯭ꯔꯦ"
+
+#: templates/authority/analytics.html:29 templates/public_reports.html:34
+msgid "Completion Rate"
+msgstr "ꯂꯣꯏꯁꯤꯅꯕꯒꯤ ꯆꯥꯡ"
+
+#: templates/public_reports.html:54
+msgid "Filters"
+msgstr "ꯐꯤꯂꯇꯔꯁꯤꯡ"
+
+#: templates/authority/reports.html:44 templates/public_reports.html:66
+msgid "All Categories"
+msgstr "ꯀꯦꯇꯦꯒꯣꯔꯤ ꯄꯨꯝꯅꯃꯛ"
+
+#: templates/authority/reports.html:45 templates/citizen/report.html:46
+#: templates/public_reports.html:67
+msgid "Infrastructure & Roads"
+msgstr "ꯏꯅꯐ꯭ꯔꯥꯁ꯭ꯇ꯭ꯔꯀꯆꯔ ꯑꯃꯁꯨꯡ ꯂꯝꯕꯤꯁꯤꯡ"
+
+#: templates/authority/reports.html:46 templates/public_reports.html:68
+msgid "Sanitation & Waste"
+msgstr "ꯁꯦꯅꯤꯇꯦꯁꯟ ꯑꯃꯁꯨꯡ ꯑꯃꯣꯠꯄꯥ"
+
+#: templates/authority/reports.html:47 templates/citizen/report.html:48
+#: templates/public_reports.html:69
+msgid "Water Supply & Drainage"
+msgstr "ꯏꯁꯤꯡ ꯁꯞꯂꯥꯏ ꯑꯃꯁꯨꯡ ꯗ꯭ꯔꯦꯅꯦꯖ"
+
+#: templates/authority/reports.html:48 templates/public_reports.html:70
+msgid "Electricity & Lighting"
+msgstr "ꯃꯩ ꯑꯃꯁꯨꯡ ꯃꯉꯥꯜ"
+
+#: templates/authority/reports.html:49 templates/public_reports.html:71
+msgid "Public Safety"
+msgstr "ꯃꯤꯌꯥꯃꯒꯤ ꯁꯦꯐꯇꯤ"
+
+#: templates/authority/reports.html:50 templates/public_reports.html:72
+msgid "Environment"
+msgstr "ꯑꯀꯣꯏꯕꯥ"
+
+#: templates/authority/reports.html:51 templates/public_reports.html:73
+msgid "Transportation"
+msgstr "ꯇ꯭ꯔꯥꯟꯁꯄꯣꯔꯇꯦꯁꯟ"
+
+#: templates/authority/reports.html:52 templates/public_reports.html:74
+msgid "Healthcare"
+msgstr "ꯍꯦꯜꯊꯀꯦꯌꯔ"
+
+#: templates/authority/reports.html:53 templates/public_reports.html:75
+msgid "Digital Services"
+msgstr "ꯗꯤꯖꯤꯇꯦꯜ ꯁꯔꯚꯤꯁꯁꯤꯡ"
+
+#: templates/authority/reports.html:54 templates/public_reports.html:76
+msgid "Education"
+msgstr "ꯑꯦꯖꯨꯀꯦꯁꯟ"
+
+#: templates/authority/reports.html:55 templates/public_reports.html:77
+msgid "Emergency"
+msgstr "ꯏꯃꯔꯖꯦꯟꯁꯤ"
+
+#: templates/authority/reports.html:56 templates/public_reports.html:78
+msgid "Citizen Rights"
+msgstr "ꯅꯥꯒꯔꯤꯀꯒꯤ ꯍꯛꯁꯤꯡ"
+
+#: templates/authority/reports.html:33 templates/public_reports.html:83
+msgid "All Status"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯄꯨꯝꯅꯃꯛ"
+
+#: templates/authority/dashboard.html:178 templates/authority/reports.html:34
+#: templates/citizen/dashboard.html:352
+#: templates/citizen/report_detail.html:107 templates/public_reports.html:84
+msgid "Reported"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯇꯧꯈ꯭ꯔꯦ"
+
+#: templates/authority/report_detail.html:111
+#: templates/authority/reports.html:35 templates/citizen/leaderboard.html:181
+#: templates/public_reports.html:85
+msgid "Verified"
+msgstr "ꯚꯦꯔꯤꯐꯥꯏ ꯇꯧꯈ꯭ꯔꯦ"
+
+#: templates/authority/dashboard.html:38
+#: templates/authority/report_detail.html:114
+#: templates/authority/reports.html:36 templates/citizen/dashboard.html:34
+#: templates/public_reports.html:86
+msgid "In Progress"
+msgstr "ꯊꯕꯛ ꯇꯧꯔꯤ"
+
+#: templates/authority/reports.html:62 templates/public_reports.html:92
+msgid "All Severity"
+msgstr "ꯁꯦꯚꯦꯔꯤꯇꯤ ꯄꯨꯝꯅꯃꯛ"
+
+#: templates/authority/report_detail.html:318
+#: templates/authority/reports.html:63 templates/citizen/report.html:146
+#: templates/public_reports.html:93
+msgid "Low"
+msgstr "ꯅꯦꯝꯕꯥ"
+
+#: templates/authority/report_detail.html:319
+#: templates/authority/reports.html:64 templates/citizen/report.html:147
+#: templates/public_reports.html:94
+msgid "Medium"
+msgstr "ꯃꯌꯥꯏ ꯑꯣꯏꯕꯥ"
+
+#: templates/authority/report_detail.html:320
+#: templates/authority/reports.html:65 templates/citizen/report.html:148
+#: templates/public_reports.html:95
+msgid "High"
+msgstr "ꯋꯥꯡꯕꯥ"
+
+#: templates/citizen/report.html:149 templates/public_reports.html:96
+msgid "Critical"
+msgstr "ꯌꯥꯝꯅꯥ ꯃꯔꯨꯑꯣꯏꯕꯥ"
+
+#: templates/authority/reports.html:73 templates/authority/reports.html:332
+#: templates/public_reports.html:101
+msgid "Clear Filters"
+msgstr "ꯐꯤꯂꯇꯔꯁꯤꯡ ꯁꯦꯡꯗꯣꯀꯄꯥ"
+
+#: templates/authority/dashboard.html:99 templates/authority/reports.html:87
+#: templates/authority/reports.html:118 templates/authority/reports.html:209
+#: templates/public_reports.html:113
+msgid "ID"
+msgstr "ꯑꯥꯏ.ꯗꯤ."
+
+#: templates/authority/dashboard.html:100 templates/authority/reports.html:88
+#: templates/authority/reports.html:124 templates/authority/reports.html:212
+#: templates/citizen/dashboard.html:58 templates/citizen/dashboard.html:346
+#: templates/public_reports.html:114
+msgid "Title"
+msgstr "ꯃꯃꯤꯡ"
+
+#: templates/authority/analytics.html:104
+#: templates/authority/dashboard.html:101
+#: templates/authority/report_detail.html:27
+#: templates/authority/reports.html:89 templates/authority/reports.html:130
+#: templates/authority/reports.html:215 templates/citizen/dashboard.html:59
+#: templates/citizen/dashboard.html:348 templates/citizen/report_detail.html:27
+#: templates/public_reports.html:115 templates/track_report_result.html:24
+msgid "Category"
+msgstr "ꯀꯦꯇꯦꯒꯣꯔꯤ"
+
+#: templates/authority/analytics.html:135
+#: templates/authority/dashboard.html:103 templates/authority/reports.html:91
+#: templates/authority/reports.html:142 templates/authority/reports.html:221
+#: templates/citizen/dashboard.html:61 templates/citizen/dashboard.html:351
+#: templates/citizen/report_detail.html:38 templates/public_reports.html:116
+#: templates/track_report_result.html:8
+msgid "Status"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ"
+
+#: templates/authority/dashboard.html:102
+#: templates/authority/report_detail.html:32
+#: templates/authority/reports.html:90 templates/authority/reports.html:136
+#: templates/authority/reports.html:218 templates/citizen/dashboard.html:60
+#: templates/citizen/dashboard.html:349 templates/citizen/report.html:143
+#: templates/citizen/report_detail.html:31 templates/public_reports.html:117
+#: templates/track_report_result.html:27
+msgid "Severity"
+msgstr "ꯁꯦꯚꯦꯔꯤꯇꯤ"
+
+#: templates/citizen/report.html:154 templates/citizen/report_detail.html:152
+#: templates/public_reports.html:118
+msgid "Photo"
+msgstr "ꯐꯣꯇꯣ"
+
+#: templates/authority/report_detail.html:192
+#: templates/citizen/report_detail.html:61
+#: templates/citizen/report_detail.html:162 templates/public_reports.html:119
+#: templates/track_report_result.html:42
+msgid "Location"
+msgstr "ꯃꯐꯝ"
+
+#: templates/authority/reports.html:160 templates/public_reports.html:120
+msgid "PIN Code"
+msgstr "ꯄꯤꯟ ꯀꯣꯗ"
+
+#: templates/authority/report_detail.html:68 templates/public_reports.html:121
+#: templates/track_report_result.html:44
+msgid "Reported by"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯇꯧꯔꯤꯕꯥ ꯃꯤꯑꯣꯏ"
+
+#: templates/authority/dashboard.html:105 templates/authority/reports.html:172
+#: templates/authority/reports.html:236 templates/public_reports.html:122
+msgid "Date"
+msgstr "ꯇꯥꯡ"
+
+#: templates/authority/reports.html:148 templates/authority/reports.html:224
+#: templates/citizen/leaderboard.html:59 templates/public_reports.html:123
+msgid "Votes"
+msgstr "ꯚꯣꯠꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:106 templates/authority/reports.html:238
+#: templates/citizen/dashboard.html:64 templates/public_reports.html:124
+msgid "Actions"
+msgstr "ꯊꯕꯛꯁꯤꯡ"
+
+#: templates/public_reports.html:198
+msgid "Track"
+msgstr "ꯌꯦꯡꯕꯥ"
+
+#: templates/authority/dashboard.html:158 templates/public_reports.html:209
+msgid "No reports available"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯑꯃꯠꯇꯥ ꯂꯩꯇꯦ"
+
+#: templates/public_reports.html:210
+msgid "Reports will appear here as they are submitted by citizens."
+msgstr "ꯅꯥꯒꯔꯤꯀꯁꯤꯡꯅꯥ ꯔꯤꯄꯣꯔꯠ ꯊꯥꯔꯀꯄꯥ ꯃꯇꯃꯗꯥ ꯃꯐꯝ ꯑꯁꯤꯗꯥ ꯎꯒꯅꯤ꯫"
+
+#: templates/public_reports.html:219
+msgid "All Reports Map"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯄꯨꯝꯅꯃꯛꯀꯤ ꯃꯦꯞ"
+
+#: templates/track_report.html:11
+msgid "Track Your Report"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯌꯦꯡꯕꯤꯌꯨ"
+
+#: templates/track_report.html:12
+msgid "Enter your report ID to track its status"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯌꯦꯡꯅꯕꯒꯤꯗꯃꯛ ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯑꯥꯏ.ꯗꯤ. ꯏꯁꯤꯅꯕꯤꯌꯨ"
+
+#: templates/citizen/report_detail.html:51 templates/track_report.html:17
+msgid "Report ID"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯑꯥꯏ.ꯗꯤ."
+
+#: templates/track_report.html:19
+msgid "Enter Report ID (e.g., 123)"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯑꯥꯏ.ꯗꯤ. ꯏꯁꯤꯅꯕꯤꯌꯨ (ꯈꯨꯗꯝ: ꯱꯲꯳)"
+
+#: templates/track_report.html:20
+msgid "You can find your report ID in the confirmation email or dashboard."
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯑꯥꯏ.ꯗꯤ. ꯑꯗꯨ ꯀꯅꯐꯔꯃꯦꯁꯟ ꯏꯃꯦꯏꯜ ꯅꯠꯔꯒꯥ ꯗꯥꯁꯕꯣꯔꯗꯇꯥ ꯐꯪꯒꯅꯤ꯫"
+
+#: templates/track_report.html:33
+msgid "How to Track"
+msgstr "ꯀꯔꯝꯅꯥ ꯌꯦꯡꯒꯗꯒꯦ"
+
+#: templates/track_report.html:37
+msgid "Enter your report ID in the field above"
+msgstr "ꯃꯊꯛꯇꯥ ꯂꯩꯕꯥ ꯐꯤꯜꯗ ꯑꯗꯨꯗꯥ ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯑꯥꯏ.ꯗꯤ. ꯏꯁꯤꯅꯕꯤꯌꯨ"
+
+#: templates/track_report.html:38
+msgid "Click \"Track Report\" to view the current status"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯁ꯭ꯇꯦꯇꯁ ꯌꯦꯡꯅꯕꯥ \"ꯔꯤꯄꯣꯔꯠ ꯌꯦꯡꯕꯥ\" ꯗꯥ ꯀ꯭ꯂꯤꯛ ꯇꯧꯕꯤꯌꯨ"
+
+#: templates/track_report.html:39
+msgid "See all status updates and maintenance tickets"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠꯁꯤꯡ ꯄꯨꯝꯅꯃꯛ ꯌꯦꯡꯕꯤꯌꯨ"
+
+#: templates/track_report.html:40
+msgid "No login required - completely public"
+msgstr "ꯂꯣꯒꯏꯟ ꯇꯧꯕꯥ ꯃꯊꯧ ꯇꯥꯗꯦ - ꯃꯄꯨꯡ ꯐꯥꯅꯥ ꯄꯕ꯭ꯂꯤꯛ"
+
+#: templates/authority/report_detail.html:7
+#: templates/track_report_result.html:8
+msgid "Report"
+msgstr "ꯔꯤꯄꯣꯔꯠ"
+
+#: templates/track_report_result.html:10 templates/track_report_result.html:200
+msgid "Track Another Report"
+msgstr "ꯑꯇꯣꯞꯄꯥ ꯔꯤꯄꯣꯔꯠ ꯑꯃꯥ ꯌꯦꯡꯕꯥ"
+
+#: templates/authority/report_detail.html:18
+#: templates/citizen/dashboard.html:150 templates/citizen/report_detail.html:3
+#: templates/citizen/report_detail.html:12
+#: templates/track_report_result.html:17
+msgid "Report Details"
+msgstr "ꯔꯤꯄꯣꯔꯠꯀꯤ ꯑꯀꯨꯞꯄꯥ ꯃꯔꯣꯜ"
+
+#: templates/citizen/dashboard.html:347 templates/citizen/report.html:67
+#: templates/citizen/report_detail.html:56
+#: templates/track_report_result.html:23
+msgid "Description"
+msgstr "ꯃꯁꯛ ꯇꯥꯀꯄꯥ"
+
+#: templates/track_report_result.html:30
+msgid "Current Status"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯁ꯭ꯇꯦꯇꯁ"
+
+#: templates/track_report_result.html:43
+msgid "Reported On"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯇꯧꯈꯤꯕꯥ ꯇꯥꯡ"
+
+#: templates/authority/dashboard.html:139 templates/track_report_result.html:46
+msgid "Anonymous"
+msgstr "ꯃꯤꯡ ꯊꯣꯅꯗꯅꯥ"
+
+#: templates/track_report_result.html:51
+msgid "Community Votes"
+msgstr "ꯀꯝꯌꯨꯅꯤꯇꯤ ꯚꯣꯠꯁꯤꯡ"
+
+#: templates/citizen/dashboard.html:103 templates/track_report_result.html:65
+msgid "No image available"
+msgstr "ꯏꯃꯦꯖ ꯂꯩꯇꯦ"
+
+#: templates/track_report_result.html:76
+msgid "Status Updates Timeline"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠꯁꯤꯡꯒꯤ ꯃꯇꯝ ꯂꯥꯏꯟ"
+
+#: templates/track_report_result.html:96
+msgid "Status changed to"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯍꯣꯡꯗꯣꯛꯂꯦ"
+
+#: templates/citizen/report_detail.html:137
+#: templates/track_report_result.html:104
+msgid "Updated by"
+msgstr "ꯑꯄꯗꯦꯠ ꯇꯧꯔꯤꯕꯥ ꯃꯤꯑꯣꯏ"
+
+#: templates/track_report_result.html:115
+msgid "Image not available"
+msgstr "ꯏꯃꯦꯖ ꯐꯪꯗꯦ"
+
+#: templates/track_report_result.html:130
+msgid "No status updates yet"
+msgstr "ꯍꯧꯖꯤꯛ ꯐꯥꯑꯣꯕꯥ ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠ ꯂꯩꯇꯦ"
+
+#: templates/track_report_result.html:131
+msgid "Status updates will appear here as authorities review your report."
+msgstr ""
+"ꯑꯣꯊꯣꯔꯤꯇꯤꯁꯤꯡꯅꯥ ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯔꯤꯚꯤꯌꯨ ꯇꯧꯔꯀꯄꯥ ꯃꯇꯃꯗꯥ ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠꯁꯤꯡ ꯃꯐꯝ ꯑꯁꯤꯗꯥ"
+" ꯎꯒꯅꯤ꯫"
+
+#: templates/track_report_result.html:140
+msgid "Maintenance Tickets"
+msgstr "ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠꯁꯤꯡ"
+
+#: templates/authority/report_detail.html:224
+#: templates/authority/report_detail.html:316
+#: templates/citizen/report_detail.html:191
+#: templates/track_report_result.html:150
+msgid "Priority"
+msgstr "ꯃꯔꯨꯑꯣꯏꯕꯥ"
+
+#: templates/authority/report_detail.html:232
+#: templates/track_report_result.html:156
+msgid "Assigned to"
+msgstr "ꯊꯕꯛ ꯄꯤꯈꯤꯕꯥ ꯃꯤꯑꯣꯏ"
+
+#: templates/authority/report_detail.html:238
+#: templates/authority/report_detail.html:327
+#: templates/track_report_result.html:159
+msgid "Estimated Cost"
+msgstr "ꯆꯥꯎꯔꯥꯛꯅꯥ ꯂꯦꯞꯄꯥ ꯃꯃꯜ"
+
+#: templates/authority/report_detail.html:244
+#: templates/authority/report_detail.html:331
+#: templates/citizen/report_detail.html:195
+#: templates/track_report_result.html:164
+msgid "Estimated Completion"
+msgstr "ꯂꯣꯏꯁꯤꯅꯒꯗꯕꯥ ꯃꯇꯝ"
+
+#: templates/track_report_result.html:167
+msgid "Completed On"
+msgstr "ꯂꯣꯏꯁꯤꯅꯈꯤꯕꯥ ꯇꯥꯡ"
+
+#: templates/track_report_result.html:169
+msgid "Created"
+msgstr "ꯁꯦꯃꯈꯤꯕꯥ"
+
+#: templates/authority/report_detail.html:336
+#: templates/citizen/report_detail.html:201
+#: templates/track_report_result.html:174
+msgid "Work Description"
+msgstr "ꯊꯕꯛꯀꯤ ꯃꯇꯥꯡꯗꯥ"
+
+#: templates/authority/report_detail.html:340
+#: templates/track_report_result.html:178
+msgid "Materials Used"
+msgstr "ꯁꯤꯖꯤꯟꯅꯈꯤꯕꯥ ꯃꯆꯥꯀꯁꯤꯡ"
+
+#: templates/track_report_result.html:187
+msgid "No maintenance tickets yet"
+msgstr "ꯍꯧꯖꯤꯛ ꯐꯥꯑꯣꯕꯥ ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠ ꯂꯩꯇꯦ"
+
+#: templates/track_report_result.html:188
+msgid ""
+"Maintenance tickets will be created once your report is verified by "
+"authorities."
+msgstr ""
+"ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯑꯗꯨ ꯑꯣꯊꯣꯔꯤꯇꯤꯁꯤꯡꯅꯥ ꯚꯦꯔꯤꯐꯥꯏ ꯇꯧꯔꯕꯥ ꯃꯇꯨꯡꯗꯥ ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠꯁꯤꯡ "
+"ꯁꯦꯃꯒꯅꯤ꯫"
+
+#: templates/track_report_result.html:197
+msgid "View All Public Reports"
+msgstr "ꯃꯤꯌꯥꯃꯒꯤ ꯔꯤꯄꯣꯔꯠ ꯄꯨꯝꯅꯃꯛ ꯌꯦꯡꯕꯥ"
+
+#: templates/auth/forgot_password.html:10
+msgid "Forgot Password"
+msgstr "ꯄꯥꯁꯋꯥꯔꯗ ꯀꯥꯑꯣꯈꯤꯕ꯭ꯔꯥ"
+
+#: templates/auth/forgot_password.html:38
+msgid "Enter your email address and we'll send you a reset code."
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯏꯃꯦꯏꯜ ꯑꯦꯗ꯭ꯔꯦꯁ ꯏꯁꯤꯅꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯑꯩꯈꯣꯏꯅꯥ ꯔꯤꯁꯦꯠ ꯀꯣꯗ ꯑꯃꯥ ꯊꯥꯒꯅꯤ꯫"
+
+#: templates/auth/forgot_password.html:39
+msgid "Make sure to check your spam folder if you don't see the email."
+msgstr "ꯏꯃꯦꯏꯜ ꯑꯗꯨ ꯎꯗ꯭ꯔꯕꯗꯤ ꯅꯍꯥꯛꯀꯤ ꯁ꯭ꯄꯥꯝ ꯐꯣꯜꯗꯔ ꯑꯗꯨ ꯁꯣꯏꯗꯅꯥ ꯌꯦꯡꯕꯤꯌꯨ꯫"
+
+#: templates/auth/forgot_password.html:64
+msgid "Remember your password?"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯄꯥꯁꯋꯥꯔꯗ ꯅꯤꯡꯁꯤꯡꯂꯤꯕ꯭ꯔꯥ?"
+
+#: templates/auth/forgot_password.html:64
+msgid "Back to Login"
+msgstr "ꯂꯣꯒꯏꯟꯗꯥ ꯍꯜꯂꯀꯄꯥ"
+
+#: templates/auth/forgot_password.html:72 templates/auth/verify_otp.html:88
+msgid "Security Note:"
+msgstr "ꯁꯦꯛꯌꯨꯔꯤꯇꯤ ꯅꯣꯠ:"
+
+#: templates/auth/forgot_password.html:72
+msgid "The reset code will be valid for 10 minutes only."
+msgstr "ꯔꯤꯁꯦꯠ ꯀꯣꯗ ꯑꯁꯤ ꯃꯤꯅꯤꯠ ꯱꯰ ꯈꯛꯇꯃꯛ ꯆꯥꯅꯕꯥ ꯑꯣꯏꯒꯅꯤ꯫"
+
+#: templates/auth/forgot_password.html:73
+msgid "If you don't receive the email, please check your spam folder."
+msgstr "ꯏꯃꯦꯏꯜ ꯑꯗꯨ ꯐꯪꯗ꯭ꯔꯕꯗꯤ, ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯅꯍꯥꯛꯀꯤ ꯁ꯭ꯄꯥꯝ ꯐꯣꯜꯗꯔ ꯌꯦꯡꯕꯤꯌꯨ꯫"
+
+#: templates/auth/login.html:47
+msgid "Forgot your password?"
+msgstr "ꯄꯥꯁꯋꯥꯔꯗ ꯀꯥꯑꯣꯈꯤꯕ꯭ꯔꯥ?"
+
+#: templates/auth/login.html:53
+msgid "Don't have an account?"
+msgstr "ꯑꯦꯀꯥꯎꯟꯇ ꯂꯩꯇ꯭ꯔꯥ?"
+
+#: templates/auth/login.html:53
+msgid "Register here"
+msgstr "ꯃꯐꯝ ꯑꯁꯤꯗꯥ ꯔꯦꯖꯤꯁ꯭ꯇꯔ ꯇꯧꯕꯤꯌꯨ"
+
+#: templates/auth/login.html:58
+msgid "Demo Accounts:"
+msgstr "ꯗꯦꯃꯣ ꯑꯦꯀꯥꯎꯟꯇꯁꯤꯡ:"
+
+#: templates/auth/login.html:61
+msgid "Register as citizen or authority for full experience"
+msgstr "ꯃꯄꯨꯡ ꯐꯥꯕꯥ ꯑꯦꯛꯁꯄꯤꯔꯤꯌꯦꯟꯁꯀꯤꯗꯃꯛ ꯅꯥꯒꯔꯤꯛ ꯅꯠꯔꯒꯥ ꯑꯣꯊꯣꯔꯤꯇꯤ ꯑꯣꯏꯅꯥ ꯔꯦꯖꯤꯁ꯭ꯇꯔ ꯇꯧꯕꯤꯌꯨ"
+
+#: templates/auth/register.html:83
+msgid "Required for authority users"
+msgstr "ꯑꯣꯊꯣꯔꯤꯇꯤ ꯌꯨꯖꯔꯁꯤꯡꯒꯤꯗꯃꯛ ꯃꯊꯧ ꯇꯥꯏ"
+
+#: templates/auth/register.html:96
+msgid "Special password required for authority registration"
+msgstr "ꯑꯣꯊꯣꯔꯤꯇꯤ ꯔꯦꯖꯤꯁ꯭ꯇ꯭ꯔꯦꯁꯅꯒꯤꯗꯃꯛ ꯑꯈꯟꯅꯕꯥ ꯄꯥꯁꯋꯥꯔꯗ ꯃꯊꯧ ꯇꯥꯏ"
+
+#: templates/auth/register.html:113
+msgid "Already have an account?"
+msgstr "ꯍꯥꯟꯅꯗꯒꯤ ꯑꯦꯀꯥꯎꯟꯇ ꯂꯩꯔꯤꯕ꯭ꯔꯥ?"
+
+#: templates/auth/register.html:113
+msgid "Login here"
+msgstr "ꯃꯐꯝ ꯑꯁꯤꯗꯥ ꯂꯣꯒꯏꯟ ꯇꯧꯕꯤꯌꯨ"
+
+#: templates/auth/verify_otp.html:3 templates/auth/verify_otp.html:10
+msgid "Verify OTP"
+msgstr "OTP ꯚꯦꯔꯤꯐꯥꯏ ꯇꯧꯕꯥ"
+
+#: templates/auth/verify_otp.html:43
+msgid "We've sent a 6-digit verification code to:"
+msgstr "ꯑꯩꯈꯣꯏꯅꯥ ꯶-ꯗꯤꯖꯤꯠꯀꯤ ꯚꯦꯔꯤꯐꯤꯀꯦꯁꯟ ꯀꯣꯗ ꯑꯃꯥ ꯊꯥꯔꯦ:"
+
+#: templates/auth/verify_otp.html:45
+msgid "Please check your email and enter the code below"
+msgstr "ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯅꯍꯥꯛꯀꯤ ꯏꯃꯦꯏꯜ ꯌꯦꯡꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ ꯃꯈꯥꯗꯥ ꯀꯣꯗ ꯑꯗꯨ ꯏꯁꯤꯅꯕꯤꯌꯨ"
+
+#: templates/auth/verify_otp.html:53
+msgid "Enter 6-digit OTP"
+msgstr "꯶-ꯗꯤꯖꯤꯠꯀꯤ OTP ꯏꯁꯤꯅꯕꯤꯌꯨ"
+
+#: templates/auth/verify_otp.html:69
+msgid "Didn't receive the code?"
+msgstr "ꯀꯣꯗ ꯑꯗꯨ ꯐꯪꯗ꯭ꯔꯤꯕ꯭ꯔꯥ?"
+
+#: templates/auth/verify_otp.html:71 templates/auth/verify_otp.html:142
+#: templates/auth/verify_otp.html:148 templates/auth/verify_otp.html:170
+msgid "Resend OTP"
+msgstr "OTP ꯑꯃꯨꯛ ꯊꯥꯕꯥ"
+
+#: templates/auth/verify_otp.html:74
+msgid "Resend available in"
+msgstr "ꯑꯃꯨꯛ ꯊꯥꯕꯥ ꯌꯥꯒꯅꯤ"
+
+#: templates/auth/verify_otp.html:74
+msgid "seconds"
+msgstr "ꯁꯦꯀꯦꯟꯗꯁꯤꯡꯗꯥ"
+
+#: templates/auth/verify_otp.html:80
+msgid "Want to use a different email?"
+msgstr "ꯑꯇꯣꯞꯄꯥ ꯏꯃꯦꯏꯜ ꯑꯃꯥ ꯁꯤꯖꯤꯟꯅꯕꯥ ꯄꯥꯝꯕꯤꯕ꯭ꯔꯥ?"
+
+#: templates/auth/verify_otp.html:80
+msgid "Register again"
+msgstr "ꯑꯃꯨꯛ ꯔꯦꯖꯤꯁ꯭ꯇꯔ ꯇꯧꯕꯥ"
+
+#: templates/auth/verify_otp.html:88
+msgid "The OTP is valid for 10 minutes only."
+msgstr "OTP ꯑꯁꯤ ꯃꯤꯅꯤꯠ ꯱꯰ ꯈꯛꯇꯃꯛ ꯆꯥꯅꯕꯥ ꯑꯣꯏꯒꯅꯤ꯫"
+
+#: templates/auth/verify_otp.html:89
+msgid "Don't share this code with anyone."
+msgstr "ꯀꯣꯗ ꯑꯁꯤ ꯀꯅꯥꯒꯨꯝꯕꯗꯥ ꯁꯦꯌꯔ ꯇꯧꯔꯣꯏꯗꯕꯅꯤ꯫"
+
+#: templates/auth/verify_otp.html:108
+msgid "Sending..."
+msgstr "ꯊꯥꯔꯤ..."
+
+#: templates/authority/analytics.html:7
+msgid "Analytics Dashboard"
+msgstr "ꯑꯦꯅꯥꯂꯥꯏꯇꯤꯛꯁ ꯗꯥꯁꯕꯣꯔꯗ"
+
+#: templates/authority/analytics.html:9 templates/authority/reports.html:9
+#: templates/citizen/leaderboard.html:11
+#: templates/citizen/report_detail.html:14
+msgid "Back to Dashboard"
+msgstr "ꯗꯥꯁꯕꯣꯔꯗꯇꯥ ꯍꯜꯂꯀꯄꯥ"
+
+#: templates/authority/analytics.html:20
+msgid "Avg Response Days"
+msgstr "ꯆꯥꯡꯆꯠꯇꯥ ꯔꯦꯁ꯭ꯄꯣꯟꯁ ꯅꯨꯃꯤꯠ"
+
+#: templates/authority/analytics.html:38 templates/authority/dashboard.html:69
+msgid "High Priority Reports"
+msgstr "ꯌꯥꯝꯅꯥ ꯃꯔꯨꯑꯣꯏꯕꯥ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/authority/analytics.html:47
+msgid "This Month"
+msgstr "ꯊꯥ ꯑꯁꯤꯗꯥ"
+
+#: templates/authority/analytics.html:58
+msgid "Reports by Category"
+msgstr "ꯀꯦꯇꯦꯒꯣꯔꯤ ꯑꯣꯏꯅꯥ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/authority/analytics.html:69
+msgid "Status Distribution"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯗꯤꯁ꯭ꯇ꯭ꯔꯤꯕ꯭ꯌꯨꯁꯟ"
+
+#: templates/authority/analytics.html:83
+msgid "Monthly Report Trends"
+msgstr "ꯊꯥꯒꯤ ꯑꯣꯏꯅꯥ ꯔꯤꯄꯣꯔꯠ ꯇ꯭ꯔꯦꯟꯗꯁꯤꯡ"
+
+#: templates/authority/analytics.html:97
+msgid "Category Breakdown"
+msgstr "ꯀꯦꯇꯦꯒꯣꯔꯤ ꯕ꯭ꯔꯦꯀꯗꯥꯎꯟ"
+
+#: templates/authority/analytics.html:105
+#: templates/authority/analytics.html:136
+msgid "Count"
+msgstr "ꯃꯁꯤꯡ"
+
+#: templates/authority/analytics.html:106
+#: templates/authority/analytics.html:137
+msgid "Percentage"
+msgstr "ꯆꯥꯗꯥ"
+
+#: templates/authority/analytics.html:128
+msgid "Status Breakdown"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯕ꯭ꯔꯦꯀꯗꯥꯎꯟ"
+
+#: templates/authority/dashboard.html:3 templates/authority/dashboard.html:7
+msgid "Authority Dashboard"
+msgstr "ꯑꯣꯊꯣꯔꯤꯇꯤ ꯗꯥꯁꯕꯣꯔꯗ"
+
+#: templates/authority/dashboard.html:9
+msgid "View All Reports"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯄꯨꯝꯅꯃꯛ ꯌꯦꯡꯕꯥ"
+
+#: templates/authority/dashboard.html:29
+msgid "Pending Action"
+msgstr "ꯊꯕꯛ ꯇꯧꯒꯗꯕꯥ"
+
+#: templates/authority/dashboard.html:58
+#: templates/authority/report_detail.html:266
+msgid "Quick Actions"
+msgstr "ꯊꯨꯅꯥ ꯊꯕꯛ ꯇꯧꯕꯥ"
+
+#: templates/authority/dashboard.html:63
+msgid "New Reports"
+msgstr "ꯑꯅꯧꯕꯥ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:66
+msgid "In Progress Reports"
+msgstr "ꯊꯕꯛ ꯇꯧꯔꯤꯕꯥ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:79
+msgid "Recent Activity"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯊꯕꯛꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:91
+msgid "Recent Reports"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:104 templates/authority/reports.html:92
+#: templates/authority/reports.html:154 templates/authority/reports.html:227
+#: templates/citizen/leaderboard.html:163
+msgid "Reporter"
+msgstr "ꯔꯤꯄꯣꯔꯇꯔ"
+
+#: templates/authority/dashboard.html:116 templates/citizen/dashboard.html:73
+msgid "Has photo"
+msgstr "ꯐꯣꯇꯣ ꯂꯩ"
+
+#: templates/authority/dashboard.html:147 templates/citizen/dashboard.html:110
+msgid "View"
+msgstr "ꯌꯦꯡꯕꯥ"
+
+#: templates/authority/dashboard.html:159
+msgid "New reports will appear here as they are submitted by citizens."
+msgstr "ꯅꯥꯒꯔꯤꯀꯁꯤꯡꯅꯥ ꯊꯥꯔꯀꯄꯥ ꯃꯇꯃꯗꯥ ꯑꯅꯧꯕꯥ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ ꯃꯐꯝ ꯑꯁꯤꯗꯥ ꯎꯒꯅꯤ꯫"
+
+#: templates/authority/dashboard.html:170
+msgid "Critical Issues"
+msgstr "ꯌꯥꯝꯅꯥ ꯃꯔꯨꯑꯣꯏꯕꯥ ꯁꯃꯁ꯭ꯌꯥꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:181
+msgid "Review"
+msgstr "ꯔꯤꯚꯤꯌꯨ ꯇꯧꯕꯥ"
+
+#: templates/authority/dashboard.html:186
+msgid "No critical issues at the moment"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯑꯣꯏꯅꯥ ꯌꯥꯝꯅꯥ ꯃꯔꯨꯑꯣꯏꯕꯥ ꯁꯃꯁ꯭ꯌꯥ ꯂꯩꯇꯦ"
+
+#: templates/authority/dashboard.html:195
+msgid "Quick Stats"
+msgstr "ꯊꯨꯅꯥ ꯁ꯭ꯇꯦꯇꯁꯤꯡ"
+
+#: templates/authority/dashboard.html:201
+msgid "This Week"
+msgstr "ꯅꯨꯃꯤꯠ ꯑꯁꯤꯗꯥ"
+
+#: templates/authority/dashboard.html:205
+msgid "Resolved This Week"
+msgstr "ꯅꯨꯃꯤꯠ ꯑꯁꯤꯗꯥ ꯂꯣꯏꯁꯤꯅꯈꯤꯕꯥ"
+
+#: templates/authority/dashboard.html:209
+msgid "Avg Response Time (hrs)"
+msgstr "ꯆꯥꯡꯆꯠꯇꯥ ꯔꯦꯁ꯭ꯄꯣꯟꯁ ꯃꯇꯝ (ꯄꯨꯡ)"
+
+#: templates/authority/dashboard.html:213
+msgid "Satisfaction Rate"
+msgstr "ꯅꯨꯡꯉꯥꯏꯕꯒꯤ ꯆꯥꯡ"
+
+#: templates/authority/dashboard.html:226
+msgid "Reports Map"
+msgstr "ꯔꯤꯄꯣꯔꯠꯁꯤꯡꯒꯤ ꯃꯦꯞ"
+
+#: templates/authority/report_detail.html:9
+msgid "Back to Reports"
+msgstr "ꯔꯤꯄꯣꯔꯠꯁꯤꯡꯗꯥ ꯍꯜꯂꯀꯄꯥ"
+
+#: templates/authority/report_detail.html:51
+#: templates/authority/reports.html:94 templates/authority/reports.html:166
+#: templates/authority/reports.html:233 templates/citizen/dashboard.html:350
+#: templates/citizen/report.html:78 templates/citizen/report_detail.html:99
+msgid "Address"
+msgstr "ꯑꯦꯗ꯭ꯔꯦꯁ"
+
+#: templates/authority/report_detail.html:55
+#: templates/authority/reports.html:93 templates/authority/reports.html:230
+#: templates/citizen/report_detail.html:102
+msgid "PIN/Postal Code"
+msgstr "ꯄꯤꯟ/ꯄꯣꯁ꯭ꯇꯦꯜ ꯀꯣꯗ"
+
+#: templates/authority/report_detail.html:59
+#: templates/citizen/report_detail.html:82
+#: templates/citizen/report_detail.html:169
+msgid "Coordinates"
+msgstr "ꯀꯣꯑꯣꯔꯗꯤꯅꯦꯠꯁꯤꯡ"
+
+#: templates/authority/report_detail.html:72
+#: templates/citizen/dashboard.html:63
+msgid "Date Reported"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯇꯧꯈꯤꯕꯥ ꯇꯥꯡ"
+
+#: templates/authority/report_detail.html:77
+#: templates/citizen/dashboard.html:354
+#: templates/citizen/report_detail.html:110
+msgid "Last Updated"
+msgstr "ꯑꯔꯣꯏꯕꯥ ꯑꯄꯗꯦꯠ"
+
+#: templates/authority/report_detail.html:90
+#: templates/citizen/dashboard.html:326
+msgid "No photo uploaded"
+msgstr "ꯐꯣꯇꯣ ꯑꯄꯂꯣꯗ ꯇꯧꯈꯤꯗꯦ"
+
+#: templates/authority/report_detail.html:101
+#: templates/authority/report_detail.html:141
+msgid "Update Status"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠ ꯇꯧꯕꯥ"
+
+#: templates/authority/report_detail.html:107
+msgid "New Status"
+msgstr "ꯑꯅꯧꯕꯥ ꯁ꯭ꯇꯦꯇꯁ"
+
+#: templates/authority/report_detail.html:112
+#: templates/authority/report_detail.html:115
+#: templates/authority/reports.html:38
+msgid "Rejected"
+msgstr "ꯌꯥꯗꯦ"
+
+#: templates/authority/report_detail.html:122
+msgid "Current status"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯁ꯭ꯇꯦꯇꯁ"
+
+#: templates/authority/report_detail.html:125
+msgid "Status Update Image"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠꯀꯤ ꯏꯃꯦꯖ"
+
+#: templates/authority/report_detail.html:129
+msgid "Image is required for completed status"
+msgstr "ꯂꯣꯏꯁꯤꯅꯈꯤꯕꯥ ꯁ꯭ꯇꯦꯇꯁꯀꯤꯗꯃꯛ ꯏꯃꯦꯖ ꯃꯊꯧ ꯇꯥꯏ"
+
+#: templates/authority/report_detail.html:131
+msgid "Optional: Upload image to document the status update"
+msgstr "ꯑꯣꯄꯁꯅꯦꯜ: ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠ ꯗꯣꯛꯌꯨꯃꯦꯟꯇ ꯇꯧꯅꯕꯥ ꯏꯃꯦꯖ ꯑꯄꯂꯣꯗ ꯇꯧꯕꯥ"
+
+#: templates/authority/report_detail.html:136
+msgid "Comment (Optional)"
+msgstr "ꯀꯃꯦꯟꯇ (ꯑꯣꯄꯁꯅꯦꯜ)"
+
+#: templates/authority/report_detail.html:137
+msgid "Add a comment about this status update..."
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠ ꯑꯁꯤꯒꯤ ꯃꯇꯥꯡꯗꯥ ꯀꯃꯦꯟꯇ ꯑꯃꯥ ꯍꯥꯄꯆꯤꯅꯕꯤꯌꯨ..."
+
+#: templates/authority/report_detail.html:152
+msgid "Status History"
+msgstr "ꯁ꯭ꯇꯦꯇꯁꯀꯤ ꯄꯨꯋꯥꯔꯤ"
+
+#: templates/authority/report_detail.html:199
+msgid "Location coordinates not available"
+msgstr "ꯃꯐꯃꯒꯤ ꯀꯣꯑꯣꯔꯗꯤꯅꯦꯠꯁꯤꯡ ꯂꯩꯇꯦ"
+
+#: templates/authority/report_detail.html:205
+msgid "Open in Google Maps"
+msgstr "ꯒꯨꯒꯜ ꯃꯦꯄꯁꯇꯥ ꯍꯥꯡꯗꯣꯀꯄꯥ"
+
+#: templates/authority/report_detail.html:215
+#: templates/citizen/report_detail.html:187
+msgid "Maintenance Ticket"
+msgstr "ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠ"
+
+#: templates/authority/report_detail.html:219
+msgid "Ticket Number"
+msgstr "ꯇꯤꯀꯦꯠ ꯅꯝꯕꯔ"
+
+#: templates/authority/report_detail.html:250
+msgid "Completed on"
+msgstr "ꯂꯣꯏꯁꯤꯅꯈꯤꯕꯥ ꯅꯨꯃꯤꯠ"
+
+#: templates/authority/report_detail.html:256
+msgid "Edit Ticket Details"
+msgstr "ꯇꯤꯀꯦꯠꯀꯤ ꯑꯀꯨꯞꯄꯥ ꯃꯔꯣꯜ ꯁꯦꯃꯗꯣꯀꯄꯥ"
+
+#: templates/authority/report_detail.html:272
+msgid "Verify Report"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯚꯦꯔꯤꯐꯥꯏ ꯇꯧꯕꯥ"
+
+#: templates/authority/report_detail.html:276
+msgid "Start Work"
+msgstr "ꯊꯕꯛ ꯍꯧꯕꯥ"
+
+#: templates/authority/report_detail.html:280
+msgid "Mark Complete"
+msgstr "ꯂꯣꯏꯁꯤꯟꯂꯦ ꯍꯥꯌꯅꯥ ꯊꯝꯕꯥ"
+
+#: templates/authority/report_detail.html:286
+msgid "Reject Report"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯌꯥꯗꯕꯥ"
+
+#: templates/authority/report_detail.html:300
+msgid "Edit Maintenance Ticket"
+msgstr "ꯃꯦꯟꯇꯦꯅꯦꯟꯁ ꯇꯤꯀꯦꯠ ꯁꯦꯃꯗꯣꯀꯄꯥ"
+
+#: templates/authority/report_detail.html:307
+#: templates/citizen/report_detail.html:198
+msgid "Assigned To"
+msgstr "ꯊꯕꯛ ꯄꯤꯈꯤꯕꯥ ꯃꯤꯑꯣꯏ"
+
+#: templates/authority/report_detail.html:309
+msgid "Unassigned"
+msgstr "ꯊꯕꯛ ꯄꯤꯈꯤꯗꯕꯥ"
+
+#: templates/authority/report_detail.html:321
+msgid "Urgent"
+msgstr "ꯈꯨꯗꯛꯇꯥ ꯇꯧꯒꯗꯕꯥ"
+
+#: templates/authority/report_detail.html:346 templates/citizen/report.html:211
+msgid "Cancel"
+msgstr "ꯀꯦꯟꯁꯦꯜ ꯇꯧꯕꯥ"
+
+#: templates/authority/report_detail.html:347
+msgid "Save Changes"
+msgstr "ꯑꯍꯣꯡꯕꯁꯤꯡ ꯁꯦꯚ ꯇꯧꯕꯥ"
+
+#: templates/authority/reports.html:18
+msgid "Filters & Search"
+msgstr "ꯐꯤꯂꯇꯔ ꯑꯃꯁꯨꯡ ꯊꯤꯕꯥ"
+
+#: templates/authority/reports.html:22
+msgid "Advanced Options"
+msgstr "ꯑꯦꯗꯚꯥꯟꯁ ꯑꯣꯄꯁꯅꯁꯤꯡ"
+
+#: templates/authority/reports.html:31
+msgid "Status Filter"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯐꯤꯂꯇꯔ"
+
+#: templates/authority/reports.html:42
+msgid "Category Filter"
+msgstr "ꯀꯦꯇꯦꯒꯣꯔꯤ ꯐꯤꯂꯇꯔ"
+
+#: templates/authority/reports.html:60
+msgid "Severity Filter"
+msgstr "ꯁꯦꯚꯦꯔꯤꯇꯤ ꯐꯤꯂꯇꯔ"
+
+#: templates/authority/reports.html:84
+msgid "Search in Column"
+msgstr "ꯀꯣꯂꯃꯗꯥ ꯊꯤꯕꯥ"
+
+#: templates/authority/reports.html:86
+msgid "All Columns"
+msgstr "ꯀꯣꯂꯝ ꯄꯨꯝꯅꯃꯛ"
+
+#: templates/authority/reports.html:98
+msgid "Search Term"
+msgstr "ꯊꯤꯅꯕꯥ ꯋꯥꯍꯩ"
+
+#: templates/authority/reports.html:99
+msgid "Enter search term..."
+msgstr "ꯊꯤꯅꯕꯥ ꯋꯥꯍꯩ ꯏꯁꯤꯅꯕꯤꯌꯨ..."
+
+#: templates/authority/reports.html:104
+msgid "Search"
+msgstr "ꯊꯤꯕꯥ"
+
+#: templates/authority/reports.html:113
+msgid "Show/Hide Columns"
+msgstr "ꯀꯣꯂꯃꯁꯤꯡ ꯎꯠꯄꯥ/ꯂꯣꯠꯄꯥ"
+
+#: templates/authority/reports.html:186 templates/citizen/leaderboard.html:58
+msgid "Reports"
+msgstr "ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/authority/reports.html:192
+msgid "Bulk Verify"
+msgstr "ꯃꯌꯥꯝ ꯑꯃꯒꯥ ꯚꯦꯔꯤꯐꯥꯏ ꯇꯧꯕꯥ"
+
+#: templates/authority/reports.html:195
+msgid "Bulk Start Work"
+msgstr "ꯃꯌꯥꯝ ꯑꯃꯒꯥ ꯊꯕꯛ ꯍꯧꯕꯥ"
+
+#: templates/authority/reports.html:322
+msgid "No reports found"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯐꯪꯗꯦ"
+
+#: templates/authority/reports.html:325
+msgid "No reports match the current filters."
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯐꯤꯂꯇꯔꯁꯤꯡꯒꯥ ꯆꯥꯟꯅꯕꯥ ꯔꯤꯄꯣꯔꯠ ꯂꯩꯇꯦ꯫"
+
+#: templates/authority/reports.html:327
+msgid "No reports have been submitted yet."
+msgstr "ꯍꯧꯖꯤꯛ ꯐꯥꯑꯣꯕꯥ ꯔꯤꯄꯣꯔꯠ ꯑꯃꯠꯇꯥ ꯊꯥꯈꯤꯗꯦ꯫"
+
+#: templates/authority/reports.html:345
+msgid "Report Location"
+msgstr "ꯔꯤꯄꯣꯔꯠꯀꯤ ꯃꯐꯝ"
+
+#: templates/citizen/dashboard.html:3
+msgid "Citizen Dashboard"
+msgstr "ꯅꯥꯒꯔꯤꯛ ꯗꯥꯁꯕꯣꯔꯗ"
+
+#: templates/citizen/dashboard.html:7
+msgid "My Dashboard"
+msgstr "ꯑꯩꯒꯤ ꯗꯥꯁꯕꯣꯔꯗ"
+
+#: templates/citizen/dashboard.html:26
+msgid "Pending"
+msgstr "ꯊꯦꯡꯅꯔꯤꯕꯥ"
+
+#: templates/citizen/dashboard.html:50
+msgid "My Reports"
+msgstr "ꯑꯩꯒꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/citizen/dashboard.html:62
+msgid "Image"
+msgstr "ꯏꯃꯦꯖ"
+
+#: templates/citizen/dashboard.html:100
+msgid "Click to view full image"
+msgstr "ꯃꯄꯨꯡ ꯐꯥꯕꯥ ꯏꯃꯦꯖ ꯌꯦꯡꯅꯕꯥ ꯀ꯭ꯂꯤꯛ ꯇꯧꯕꯤꯌꯨ"
+
+#: templates/citizen/dashboard.html:121
+msgid "No reports yet"
+msgstr "ꯍꯧꯖꯤꯛ ꯐꯥꯑꯣꯕꯥ ꯔꯤꯄꯣꯔꯠ ꯂꯩꯇꯦ"
+
+#: templates/citizen/dashboard.html:122
+msgid "Start by reporting your first road issue!"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯑꯍꯥꯅꯕꯥ ꯂꯝꯕꯤꯒꯤ ꯁꯃꯁ꯭ꯌꯥ ꯔꯤꯄꯣꯔꯠ ꯇꯧꯗꯨꯅꯥ ꯍꯧꯒꯗꯕꯅꯤ!"
+
+#: templates/citizen/dashboard.html:136
+msgid "My Reports Map"
+msgstr "ꯑꯩꯒꯤ ꯔꯤꯄꯣꯔꯠꯁꯤꯡꯒꯤ ꯃꯦꯞ"
+
+#: templates/citizen/dashboard.html:266 templates/citizen/report.html:401
+msgid "View Details"
+msgstr "ꯑꯀꯨꯞꯄꯥ ꯃꯔꯣꯜ ꯌꯦꯡꯕꯥ"
+
+#: templates/citizen/dashboard.html:330
+#: templates/citizen/report_detail.html:119
+msgid "Status Updates"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ ꯑꯄꯗꯦꯠꯁꯤꯡ"
+
+#: templates/citizen/dashboard.html:350 templates/citizen/report.html:431
+msgid "Not provided"
+msgstr "ꯄꯤꯈꯤꯗꯦ"
+
+#: templates/citizen/leaderboard.html:3 templates/citizen/leaderboard.html:9
+msgid "Citizen Leaderboard"
+msgstr "ꯅꯥꯒꯔꯤꯛ ꯂꯤꯗꯔꯕꯣꯔꯗ"
+
+#: templates/citizen/leaderboard.html:19
+msgid "Your Ranking"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯔꯦꯉ꯭ꯀꯤꯡ"
+
+#: templates/citizen/leaderboard.html:25
+msgid "Current Rank"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯔꯦꯉ꯭ꯛ"
+
+#: templates/citizen/leaderboard.html:29
+msgid "Total Points"
+msgstr "ꯄꯣꯏꯟꯇ ꯑꯄꯨꯅꯕꯥ"
+
+#: templates/citizen/leaderboard.html:33
+msgid "Reports Submitted"
+msgstr "ꯊꯥꯈꯤꯕꯥ ꯔꯤꯄꯣꯔꯠꯁꯤꯡ"
+
+#: templates/citizen/leaderboard.html:37
+msgid "Votes Cast"
+msgstr "ꯄꯤꯈꯤꯕꯥ ꯚꯣꯠꯁꯤꯡ"
+
+#: templates/citizen/leaderboard.html:47
+msgid "Top Citizens"
+msgstr "ꯃꯀꯣꯛꯅꯥ ꯆꯥꯎꯕꯥ ꯅꯥꯒꯔꯤꯀꯁꯤꯡ"
+
+#: templates/citizen/leaderboard.html:55
+msgid "Rank"
+msgstr "ꯔꯦꯉ꯭ꯛ"
+
+#: templates/citizen/leaderboard.html:56
+msgid "Citizen"
+msgstr "ꯅꯥꯒꯔꯤꯛ"
+
+#: templates/citizen/leaderboard.html:57
+msgid "Points"
+msgstr "ꯄꯣꯏꯟꯇꯁꯤꯡ"
+
+#: templates/citizen/leaderboard.html:60
+msgid "Badge"
+msgstr "ꯕꯦꯖ"
+
+#: templates/citizen/leaderboard.html:82
+msgid "You"
+msgstr "ꯅꯍꯥꯛ"
+
+#: templates/citizen/leaderboard.html:90 templates/citizen/leaderboard.html:135
+msgid "Champion"
+msgstr "ꯆꯦꯝꯄꯤꯌꯟ"
+
+#: templates/citizen/leaderboard.html:92 templates/citizen/leaderboard.html:134
+msgid "Expert"
+msgstr "ꯑꯦꯛꯁꯄꯔꯠ"
+
+#: templates/citizen/leaderboard.html:94 templates/citizen/leaderboard.html:133
+msgid "Active"
+msgstr "ꯑꯦꯛꯇꯤꯚ"
+
+#: templates/citizen/leaderboard.html:96 templates/citizen/leaderboard.html:132
+msgid "Beginner"
+msgstr "ꯍꯧꯔꯀꯄꯥ"
+
+#: templates/citizen/leaderboard.html:107
+msgid "No leaderboard data available"
+msgstr "ꯂꯤꯗꯔꯕꯣꯔꯗ ꯗꯦꯇꯥ ꯂꯩꯇꯦ"
+
+#: templates/citizen/leaderboard.html:108
+msgid "Start reporting issues to earn points and appear on the leaderboard!"
+msgstr "ꯄꯣꯏꯟꯇ ꯐꯪꯅꯕꯥ ꯑꯃꯁꯨꯡ ꯂꯤꯗꯔꯕꯣꯔꯗꯇꯥ ꯎꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥꯁꯤꯡ ꯔꯤꯄꯣꯔꯠ ꯇꯧꯕꯥ ꯍꯧꯕꯤꯌꯨ!"
+
+#: templates/citizen/leaderboard.html:117
+msgid "How Points Work"
+msgstr "ꯄꯣꯏꯟꯇꯁꯤꯡ ꯀꯔꯝꯅꯥ ꯊꯕꯛ ꯇꯧꯕꯒꯦ"
+
+#: templates/citizen/leaderboard.html:122
+msgid "Earn Points By:"
+msgstr "ꯄꯣꯏꯟꯇ ꯐꯪꯅꯕꯥ:"
+
+#: templates/citizen/leaderboard.html:124
+msgid "Submitting a report: +10 points"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯊꯥꯕꯥ: +꯱꯰ ꯄꯣꯏꯟꯇ"
+
+#: templates/citizen/leaderboard.html:125
+msgid "Voting on issues: +2 points"
+msgstr "ꯁꯃꯁ꯭ꯌꯥꯁꯤꯡꯗꯥ ꯚꯣꯠ ꯊꯥꯗꯕꯥ: +꯲ ꯄꯣꯏꯟꯇ"
+
+#: templates/citizen/leaderboard.html:126
+msgid "Report gets resolved: +5 bonus points"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯂꯣꯏꯁꯤꯅꯈꯤꯕꯥ: +꯵ ꯕꯣꯅꯁ ꯄꯣꯏꯟꯇ"
+
+#: templates/citizen/leaderboard.html:130
+msgid "Badge Levels:"
+msgstr "ꯕꯦꯖ ꯂꯦꯚꯦꯂꯁꯤꯡ:"
+
+#: templates/citizen/leaderboard.html:132
+#: templates/citizen/leaderboard.html:133
+#: templates/citizen/leaderboard.html:134
+#: templates/citizen/leaderboard.html:135
+msgid "points"
+msgstr "ꯄꯣꯏꯟꯇꯁꯤꯡ"
+
+#: templates/citizen/leaderboard.html:146
+msgid "Your Achievements"
+msgstr "ꯅꯍꯥꯛꯀꯤ ꯃꯥꯏꯄꯥꯀꯄꯁꯤꯡ"
+
+#: templates/citizen/leaderboard.html:154
+msgid "First Report"
+msgstr "ꯑꯍꯥꯅꯕꯥ ꯔꯤꯄꯣꯔꯠ"
+
+#: templates/citizen/leaderboard.html:172
+msgid "Voter"
+msgstr "ꯚꯣꯇꯔ"
+
+#: templates/citizen/leaderboard.html:190
+msgid "Century"
+msgstr "ꯁꯦꯟꯆꯨꯔꯤ"
+
+#: templates/citizen/leaderboard.html:199
+msgid "Top 10"
+msgstr "ꯇꯣꯞ ꯱꯰"
+
+#: templates/citizen/report.html:20
+msgid "Basic Info"
+msgstr "ꯃꯔꯨꯑꯣꯏꯕꯥ ꯏꯅꯐꯣꯔꯃꯦꯁꯟ"
+
+#: templates/citizen/report.html:26
+msgid "Check Duplicates"
+msgstr "ꯃꯥꯟꯅꯕꯥ ꯌꯦꯡꯕꯥ"
+
+#: templates/citizen/report.html:32
+msgid "Complete Report"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯃꯄꯨꯡ ꯐꯥꯍꯅꯕꯥ"
+
+#: templates/citizen/report.html:40
+msgid "Step 1: Basic Information"
+msgstr "ꯈꯣꯡꯊꯥꯡ ꯱: ꯃꯔꯨꯑꯣꯏꯕꯥ ꯏꯅꯐꯣꯔꯃꯦꯁꯟ"
+
+#: templates/citizen/report.html:43
+msgid "Issue Category"
+msgstr "ꯁꯃꯁ꯭ꯌꯥꯒꯤ ꯀꯦꯇꯦꯒꯣꯔꯤ"
+
+#: templates/citizen/report.html:45
+msgid "Select Category"
+msgstr "ꯀꯦꯇꯦꯒꯣꯔꯤ ꯈꯅꯕꯤꯌꯨ"
+
+#: templates/citizen/report.html:47
+msgid "Sanitation & Waste Management"
+msgstr "ꯁꯦꯅꯤꯇꯦꯁꯟ ꯑꯃꯁꯨꯡ ꯑꯃꯣꯠꯄꯥ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ"
+
+#: templates/citizen/report.html:49
+msgid "Electricity & Street Lighting"
+msgstr "ꯃꯩ ꯑꯃꯁꯨꯡ ꯂꯝꯕꯤꯒꯤ ꯃꯉꯥꯜ"
+
+#: templates/citizen/report.html:50
+msgid "Public Safety & Security"
+msgstr "ꯃꯤꯌꯥꯃꯒꯤ ꯁꯦꯐꯇꯤ ꯑꯃꯁꯨꯡ ꯁꯦꯛꯌꯨꯔꯤꯇꯤ"
+
+#: templates/citizen/report.html:51
+msgid "Environment & Pollution"
+msgstr "ꯑꯀꯣꯏꯕꯥ ꯑꯃꯁꯨꯡ ꯄꯣꯂꯨꯁꯟ"
+
+#: templates/citizen/report.html:52
+msgid "Transportation & Traffic"
+msgstr "ꯇ꯭ꯔꯥꯟꯁꯄꯣꯔꯇꯦꯁꯟ ꯑꯃꯁꯨꯡ ꯇ꯭ꯔꯥꯐꯤꯛ"
+
+#: templates/citizen/report.html:53
+msgid "Healthcare & Public Health"
+msgstr "ꯍꯦꯜꯊꯀꯦꯌꯔ ꯑꯃꯁꯨꯡ ꯃꯤꯌꯥꯃꯒꯤ ꯍꯀꯁꯦꯜ"
+
+#: templates/citizen/report.html:54
+msgid "Digital Services & E-Governance"
+msgstr "ꯗꯤꯖꯤꯇꯦꯜ ꯁꯔꯚꯤꯁꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯏ-ꯒꯚꯔꯅꯦꯟꯁ"
+
+#: templates/citizen/report.html:55
+msgid "Education & Public Spaces"
+msgstr "ꯑꯦꯖꯨꯀꯦꯁꯟ ꯑꯃꯁꯨꯡ ꯃꯤꯌꯥꯃꯒꯤ ꯃꯐꯃꯁꯤꯡ"
+
+#: templates/citizen/report.html:56
+msgid "Emergency & Disaster Management"
+msgstr "ꯏꯃꯔꯖꯦꯟꯁꯤ ꯑꯃꯁꯨꯡ ꯗꯤꯖꯥꯁ꯭ꯇꯔ ꯃꯦꯅꯦꯖꯃꯦꯟꯇ"
+
+#: templates/citizen/report.html:57
+msgid "Citizen Rights & Governance"
+msgstr "ꯅꯥꯒꯔꯤꯀꯒꯤ ꯍꯛꯁꯤꯡ ꯑꯃꯁꯨꯡ ꯒꯚꯔꯅꯦꯟꯁ"
+
+#: templates/citizen/report.html:62
+msgid "Issue Title"
+msgstr "ꯁꯃꯁ꯭ꯌꯥꯒꯤ ꯃꯃꯤꯡ"
+
+#: templates/citizen/report.html:72
+msgid "PIN/Postal/Zip Code"
+msgstr "ꯄꯤꯟ/ꯄꯣꯁ꯭ꯇꯦꯜ/ꯖꯤꯞ ꯀꯣꯗ"
+
+#: templates/citizen/report.html:73
+msgid "e.g., 110001, 90210, M5V 3L9"
+msgstr "ꯈꯨꯗꯝ: ꯱꯱꯰꯰꯰꯱, ꯹꯰꯲꯱꯰, M5V 3L9"
+
+#: templates/citizen/report.html:74
+msgid "PIN/Postal/Zip code is required"
+msgstr "ꯄꯤꯟ/ꯄꯣꯁ꯭ꯇꯦꯜ/ꯖꯤꯞ ꯀꯣꯗ ꯃꯊꯧ ꯇꯥꯏ"
+
+#: templates/citizen/report.html:83
+msgid "Location (Optional)"
+msgstr "ꯃꯐꯝ (ꯑꯣꯄꯁꯅꯦꯜ)"
+
+#: templates/citizen/report.html:87
+msgid "Get Current Location"
+msgstr "ꯍꯧꯖꯤꯛꯀꯤ ꯃꯐꯝ ꯂꯧꯕꯥ"
+
+#: templates/citizen/report.html:92
+msgid "Choose on Map"
+msgstr "ꯃꯦꯞꯇꯥ ꯈꯅꯕꯥ"
+
+#: templates/citizen/report.html:97
+msgid "Location:"
+msgstr "ꯃꯐꯝ:"
+
+#: templates/citizen/report.html:105
+msgid "Check for Similar Issues"
+msgstr "ꯃꯥꯟꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥꯁꯤꯡ ꯌꯦꯡꯕꯥ"
+
+#: templates/citizen/report.html:113
+msgid "Step 2: Similar Issues Found"
+msgstr "ꯈꯣꯡꯊꯥꯡ ꯲: ꯃꯥꯟꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥꯁꯤꯡ ꯐꯪꯂꯦ"
+
+#: templates/citizen/report.html:119 templates/citizen/report.html:170
+msgid "Back"
+msgstr "ꯍꯜꯂꯀꯄꯥ"
+
+#: templates/citizen/report.html:122
+msgid "Continue with New Report"
+msgstr "ꯑꯅꯧꯕꯥ ꯔꯤꯄꯣꯔꯠꯀꯥ ꯂꯣꯌꯅꯅꯥ ꯃꯈꯥ ꯆꯠꯊꯕꯥ"
+
+#: templates/citizen/report.html:129
+msgid "Step 3: Complete Your Report"
+msgstr "ꯈꯣꯡꯊꯥꯡ ꯳: ꯅꯍꯥꯛꯀꯤ ꯔꯤꯄꯣꯔꯠ ꯃꯄꯨꯡ ꯐꯥꯍꯅꯕꯥ"
+
+#: templates/citizen/report.html:145
+msgid "Select Severity"
+msgstr "ꯁꯦꯚꯦꯔꯤꯇꯤ ꯈꯅꯕꯤꯌꯨ"
+
+#: templates/citizen/report.html:156
+msgid "Photo is mandatory for all reports"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯄꯨꯝꯅꯃꯛꯇꯥ ꯐꯣꯇꯣ ꯃꯊꯧ ꯇꯥꯏ"
+
+#: templates/citizen/report.html:163
+msgid "Report Anonymously (Hide my identity in public views)"
+msgstr "ꯃꯤꯡ ꯊꯣꯅꯗꯅꯥ ꯔꯤꯄꯣꯔꯠ ꯇꯧꯕꯥ (ꯄꯕ꯭ꯂꯤꯛ ꯚꯤꯌꯨꯗꯥ ꯑꯩꯒꯤ ꯑꯥꯏꯗꯦꯟꯇꯤꯇꯤ ꯂꯣꯠꯄꯥ)"
+
+#: templates/citizen/report.html:189
+msgid "Similar Issue Details"
+msgstr "ꯃꯥꯟꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥꯒꯤ ꯑꯀꯨꯞꯄꯥ ꯃꯔꯣꯜ"
+
+#: templates/citizen/report.html:204
+msgid "Choose Location on Map"
+msgstr "ꯃꯦꯞꯇꯥ ꯃꯐꯝ ꯈꯅꯕꯤꯌꯨ"
+
+#: templates/citizen/report.html:212
+msgid "Confirm Location"
+msgstr "ꯃꯐꯝ ꯀꯅꯐꯔꯝ ꯇꯧꯕꯥ"
+
+#: templates/citizen/report.html:333
+msgid "Please fill in all required fields before checking for duplicates."
+msgstr "ꯃꯥꯟꯅꯕꯥ ꯌꯦꯡꯗ꯭ꯔꯤꯉꯩꯗꯥ ꯃꯊꯧ ꯇꯥꯕꯥ ꯐꯤꯜꯗ ꯄꯨꯝꯅꯃꯛ ꯃꯦꯟꯁꯤꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report.html:355
+msgid "Error checking for duplicates:"
+msgstr "ꯃꯥꯟꯅꯕꯥ ꯌꯦꯡꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ:"
+
+#: templates/citizen/report.html:360
+msgid "Error checking for duplicates. Please try again."
+msgstr "ꯃꯥꯟꯅꯕꯥ ꯌꯦꯡꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ ꯊꯣꯀꯈꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report.html:370
+msgid ""
+"No similar issues found in your area. You can proceed with creating a new"
+" report."
+msgstr ""
+"ꯅꯍꯥꯛꯀꯤ ꯃꯐꯝ ꯑꯗꯨꯗꯥ ꯃꯥꯟꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥ ꯐꯪꯗꯦ꯫ ꯅꯍꯥꯛꯅꯥ ꯑꯅꯧꯕꯥ ꯔꯤꯄꯣꯔꯠ ꯑꯃꯥ ꯁꯦꯝꯕꯥ ꯃꯈꯥ "
+"ꯆꯠꯊꯕꯥ ꯌꯥꯏ꯫"
+
+#: templates/citizen/report.html:378
+msgid "Found"
+msgstr "ꯐꯪꯂꯦ"
+
+#: templates/citizen/report.html:378
+msgid ""
+"similar issue(s) in your area. Please review them and consider voting "
+"instead of creating a duplicate report."
+msgstr ""
+"ꯅꯍꯥꯛꯀꯤ ꯃꯐꯝ ꯑꯗꯨꯗꯥ ꯃꯥꯟꯅꯕꯥ ꯁꯃꯁ꯭ꯌꯥ(ꯁꯤꯡ)꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯃꯈꯣꯌ ꯑꯗꯨ ꯌꯦꯡꯕꯤꯌꯨ ꯑꯃꯁꯨꯡ "
+"ꯃꯥꯟꯅꯕꯥ ꯔꯤꯄꯣꯔꯠ ꯁꯦꯝꯕꯒꯤ ꯃꯍꯨꯠꯇꯥ ꯚꯣꯠ ꯊꯥꯗꯕꯥ ꯈꯟꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report.html:392 templates/citizen/report.html:434
+msgid "Reported by:"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯇꯧꯔꯤꯕꯥ:"
+
+#: templates/citizen/report.html:398 templates/citizen/report.html:471
+msgid "votes"
+msgstr "ꯚꯣꯠꯁꯤꯡ"
+
+#: templates/citizen/report.html:407 templates/citizen/report.html:462
+msgid "Voted"
+msgstr "ꯚꯣꯠ ꯊꯥꯗꯈ꯭ꯔꯦ"
+
+#: templates/citizen/report.html:407
+msgid "Vote"
+msgstr "ꯚꯣꯠ ꯊꯥꯗꯕꯥ"
+
+#: templates/citizen/report.html:431
+msgid "Address:"
+msgstr "ꯑꯦꯗ꯭ꯔꯦꯁ:"
+
+#: templates/citizen/report.html:432
+msgid "Severity:"
+msgstr "ꯁꯦꯚꯦꯔꯤꯇꯤ:"
+
+#: templates/citizen/report.html:433
+msgid "Status:"
+msgstr "ꯁ꯭ꯇꯦꯇꯁ:"
+
+#: templates/citizen/report.html:435
+msgid "Date:"
+msgstr "ꯇꯥꯡ:"
+
+#: templates/citizen/report.html:438
+msgid "Report Photo"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯐꯣꯇꯣ"
+
+#: templates/citizen/report.html:438
+msgid "No photo available"
+msgstr "ꯐꯣꯇꯣ ꯂꯩꯇꯦ"
+
+#: templates/citizen/report.html:447
+msgid "Error loading report details."
+msgstr "ꯔꯤꯄꯣꯔꯠꯀꯤ ꯑꯀꯨꯞꯄꯥ ꯃꯔꯣꯜ ꯂꯣꯗ ꯇꯧꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ꯫"
+
+#: templates/citizen/report.html:474
+msgid "Error voting:"
+msgstr "ꯚꯣꯠ ꯊꯥꯗꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ:"
+
+#: templates/citizen/report.html:479
+msgid "Error voting. Please try again."
+msgstr "ꯚꯣꯠ ꯊꯥꯗꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ ꯊꯣꯀꯈꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report.html:507
+msgid "Error getting location:"
+msgstr "ꯃꯐꯝ ꯂꯧꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ:"
+
+#: templates/citizen/report.html:510
+msgid "Geolocation is not supported by this browser."
+msgstr "ꯕ꯭ꯔꯥꯎꯖꯔ ꯑꯁꯤꯅꯥ ꯖꯤꯑꯣꯂꯣꯀꯦꯁꯟ ꯁꯄꯣꯔꯠ ꯇꯧꯗꯦ꯫"
+
+#: templates/citizen/report.html:544
+msgid "Please select a location on the map."
+msgstr "ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯃꯦꯞꯇꯥ ꯃꯐꯝ ꯑꯃꯥ ꯈꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report.html:560
+msgid "Report submitted successfully!"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯃꯥꯌ ꯄꯥꯛꯅꯥ ꯊꯥꯈ꯭ꯔꯦ!"
+
+#: templates/citizen/report.html:563
+msgid "Error submitting report:"
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯊꯥꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ:"
+
+#: templates/citizen/report.html:568
+msgid "Error submitting report. Please try again."
+msgstr "ꯔꯤꯄꯣꯔꯠ ꯊꯥꯕꯗꯥ ꯑꯁꯣꯏꯕꯥ ꯊꯣꯀꯈꯤ꯫ ꯆꯥꯅꯕꯤꯗꯨꯅꯥ ꯑꯃꯨꯛ ꯍꯟꯅꯥ ꯍꯣꯠꯅꯕꯤꯌꯨ꯫"
+
+#: templates/citizen/report_detail.html:69
+#: templates/citizen/report_detail.html:171
+#, fuzzy
+msgid "Location not provided"
+msgstr "ꯄꯤꯈꯤꯗꯦ"
+
+#: templates/citizen/report_detail.html:92
+#, fuzzy
+msgid "Coordinates Unavailable"
+msgstr "ꯃꯐꯃꯒꯤ ꯀꯣꯑꯣꯔꯗꯤꯅꯦꯠꯁꯤꯡ ꯂꯩꯇꯦ"
+
+#: templates/citizen/report_detail.html:93
+#, fuzzy
+msgid "Location data not provided"
+msgstr "ꯃꯐꯃꯒꯤ ꯀꯣꯑꯣꯔꯗꯤꯅꯦꯠꯁꯤꯡ ꯂꯩꯇꯦ"
+
+#: templates/citizen/report_detail.html:190
+#, fuzzy
+msgid "Ticket #"
+msgstr "ꯇꯤꯀꯦꯠ ꯅꯝꯕꯔ"
+

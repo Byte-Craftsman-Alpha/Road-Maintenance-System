@@ -1,0 +1,1528 @@
+# Bangla translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-19 21:38+0530\n"
+"PO-Revision-Date: 2025-09-19 12:05+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: bn\n"
+"Language-Team: bn <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:62 templates/base.html:71
+#: templates/index.html:15
+msgid "CivicSetu"
+msgstr "সিভিকসেতু"
+
+#: templates/base.html:86 templates/base.html:102
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+#: templates/base.html:91 templates/citizen/dashboard.html:124
+#: templates/citizen/report.html:3
+msgid "Report Issue"
+msgstr "সমস্যা জানান"
+
+#: templates/base.html:96
+msgid "Leaderboard"
+msgstr "লিডারবোর্ড"
+
+#: templates/authority/reports.html:7 templates/base.html:107
+#: templates/public_reports.html:45
+msgid "All Reports"
+msgstr "সব রিপোর্ট"
+
+#: templates/base.html:112
+msgid "Analytics"
+msgstr "অ্যানালিটিক্স"
+
+#: templates/base.html:119 templates/public_reports.html:7
+msgid "Public Reports"
+msgstr "পাবলিক রিপোর্ট"
+
+#: templates/base.html:124 templates/track_report.html:24
+msgid "Track Report"
+msgstr "রিপোর্ট ট্র্যাক করুন"
+
+#: templates/base.html:138
+msgid "Indian Languages"
+msgstr "ভারতীয় ভাষা"
+
+#: templates/base.html:180
+msgid "Logout"
+msgstr "লগআউট"
+
+#: templates/auth/login.html:10 templates/base.html:187 templates/index.html:30
+msgid "Login"
+msgstr "লগইন করুন"
+
+#: templates/auth/register.html:10 templates/base.html:192
+msgid "Register"
+msgstr "নিবন্ধন করুন"
+
+#: templates/index.html:17
+msgid "Civic System for Empowering Transparency & Upliftment"
+msgstr "স্বচ্ছতা ও উন্নতির জন্য নাগরিকদের ক্ষমতায়নের সিভিক সিস্টেম"
+
+#: templates/index.html:19
+msgid ""
+"Empowering citizens to report different issues and enabling authorities "
+"to respond faster. \n"
+"                        Together, we build better infrastructure for "
+"everyone."
+msgstr ""
+"নাগরিকদের বিভিন্ন সমস্যা জানানোর ক্ষমতা দেওয়া এবং কর্তৃপক্ষকে দ্রুত "
+"সাড়া দিতে সক্ষম করা।\n"
+"আসুন একসাথে সবার জন্য আরও ভালো পরিকাঠামো তৈরি করি।"
+
+#: templates/index.html:27
+msgid "Get Started"
+msgstr "শুরু করুন"
+
+#: templates/index.html:40
+msgid "Report Issues Instantly"
+msgstr "সঙ্গে সঙ্গে সমস্যা জানান"
+
+#: templates/index.html:58
+msgid "Easy Reporting"
+msgstr "সহজ রিপোর্টিং"
+
+#: templates/index.html:60
+msgid ""
+"Report issues instantly using your mobile device with GPS location and "
+"photo upload."
+msgstr ""
+"আপনার মোবাইল ডিভাইস ব্যবহার করে জিপিএস লোকেশন এবং ছবি আপলোড সহ "
+"তাত্ক্ষণিকভাবে সমস্যার রিপোর্ট করুন।"
+
+#: templates/index.html:74
+msgid "Fast Response"
+msgstr "দ্রুত প্রতিক্রিয়া"
+
+#: templates/index.html:76
+msgid ""
+"Automated ticketing system ensures quick response times and efficient "
+"resource allocation."
+msgstr ""
+"স্বয়ংক্রিয় টিকেটিং সিস্টেম দ্রুত প্রতিক্রিয়ার সময় এবং দক্ষ সম্পদ "
+"বন্টন নিশ্চিত করে।"
+
+#: templates/index.html:90
+msgid "Transparency"
+msgstr "স্বচ্ছতা"
+
+#: templates/index.html:92
+msgid ""
+"Track progress in real-time and access analytics for long-term "
+"infrastructure improvement."
+msgstr ""
+"রিয়েল-টাইমে অগ্রগতি ট্র্যাক করুন এবং দীর্ঘমেয়াদী পরিকাঠামো উন্নয়নের "
+"জন্য অ্যানালিটিক্স অ্যাক্সেস করুন।"
+
+#: templates/index.html:106
+msgid "How It Works"
+msgstr "এটি কিভাবে কাজ করে"
+
+#: templates/index.html:108
+msgid "Simple steps to report issues and track their resolution"
+msgstr "সমস্যার রিপোর্ট করার এবং তার সমাধান ট্র্যাক করার সহজ ধাপ"
+
+#: templates/index.html:122
+msgid "Spot the Issue"
+msgstr "সমস্যাটি চিহ্নিত করুন"
+
+#: templates/index.html:124
+msgid ""
+"Notice any issues like potholes, broken streetlight, or damaged road? "
+"Take a photo and note the location."
+msgstr ""
+"রাস্তার গর্ত, ভাঙা স্ট্রিটলাইট বা ক্ষতিগ্রস্ত রাস্তার মতো কোনো সমস্যা "
+"লক্ষ্য করেছেন? একটি ছবি তুলুন এবং অবস্থানটি নোট করুন।"
+
+#: templates/citizen/report.html:173 templates/index.html:138
+msgid "Submit Report"
+msgstr "রিপোর্ট জমা দিন"
+
+#: templates/index.html:140
+msgid ""
+"Fill out a quick form with details, upload the photo, and submit your "
+"report instantly."
+msgstr ""
+"বিস্তারিত সহ একটি দ্রুত ফর্ম পূরণ করুন, ফটো আপলোড করুন এবং তাত্ক্ষণিকভাবে"
+" আপনার রিপোর্ট জমা দিন।"
+
+#: templates/index.html:154
+msgid "Automatic Processing"
+msgstr "স্বয়ংক্রিয় প্রসেসিং"
+
+#: templates/index.html:156
+msgid ""
+"Our system creates a maintenance ticket and assigns it to the relevant "
+"authority team."
+msgstr ""
+"আমাদের সিস্টেম একটি রক্ষণাবেক্ষণ টিকেট তৈরি করে এবং এটি সংশ্লিষ্ট "
+"কর্তৃপক্ষ দলকে অর্পণ করে।"
+
+#: templates/index.html:170
+msgid "Track Progress"
+msgstr "অগ্রগতি ট্র্যাক করুন"
+
+#: templates/index.html:172
+msgid ""
+"Get real-time updates on your report status and see when the issue is "
+"resolved."
+msgstr ""
+"আপনার রিপোর্টের স্থিতির রিয়েল-টাইম আপডেট পান এবং সমস্যাটি কখন সমাধান করা"
+" হয়েছে তা দেখুন।"
+
+#: templates/index.html:183
+msgid "Start Reporting"
+msgstr "রিপোর্ট করা শুরু করুন"
+
+#: templates/index.html:186
+msgid "View Public Reports"
+msgstr "পাবলিক রিপোর্ট দেখুন"
+
+#: templates/citizen/dashboard.html:9 templates/citizen/report.html:11
+#: templates/index.html:190
+msgid "Report New Issue"
+msgstr "নতুন সমস্যার রিপোর্ট করুন"
+
+#: templates/index.html:193
+msgid "Go to Dashboard"
+msgstr "ড্যাশবোর্ডে যান"
+
+#: templates/index.html:205
+msgid "Recent Reports Map"
+msgstr "সাম্প্রতিক রিপোর্টের মানচিত্র"
+
+#: templates/authority/dashboard.html:20 templates/citizen/dashboard.html:18
+#: templates/public_reports.html:16
+msgid "Total Reports"
+msgstr "মোট রিপোর্ট"
+
+#: templates/authority/dashboard.html:47
+#: templates/authority/report_detail.html:117
+#: templates/authority/reports.html:37 templates/citizen/dashboard.html:42
+#: templates/public_reports.html:25 templates/public_reports.html:87
+msgid "Completed"
+msgstr "সম্পন্ন"
+
+#: templates/authority/analytics.html:29 templates/public_reports.html:34
+msgid "Completion Rate"
+msgstr "সম্পন্নের হার"
+
+#: templates/public_reports.html:54
+msgid "Filters"
+msgstr "ফিল্টার"
+
+#: templates/authority/reports.html:44 templates/public_reports.html:66
+msgid "All Categories"
+msgstr "সব বিভাগ"
+
+#: templates/authority/reports.html:45 templates/citizen/report.html:46
+#: templates/public_reports.html:67
+msgid "Infrastructure & Roads"
+msgstr "পরিকাঠামো ও রাস্তাঘাট"
+
+#: templates/authority/reports.html:46 templates/public_reports.html:68
+msgid "Sanitation & Waste"
+msgstr "স্যানিটেশন ও বর্জ্য"
+
+#: templates/authority/reports.html:47 templates/citizen/report.html:48
+#: templates/public_reports.html:69
+msgid "Water Supply & Drainage"
+msgstr "জল সরবরাহ ও নিকাশি"
+
+#: templates/authority/reports.html:48 templates/public_reports.html:70
+msgid "Electricity & Lighting"
+msgstr "বিদ্যুৎ ও আলো"
+
+#: templates/authority/reports.html:49 templates/public_reports.html:71
+msgid "Public Safety"
+msgstr "জননিরাপত্তা"
+
+#: templates/authority/reports.html:50 templates/public_reports.html:72
+msgid "Environment"
+msgstr "পরিবেশ"
+
+#: templates/authority/reports.html:51 templates/public_reports.html:73
+msgid "Transportation"
+msgstr "পরিবহন"
+
+#: templates/authority/reports.html:52 templates/public_reports.html:74
+msgid "Healthcare"
+msgstr "স্বাস্থ্যসেবা"
+
+#: templates/authority/reports.html:53 templates/public_reports.html:75
+msgid "Digital Services"
+msgstr "ডিজিটাল পরিষেবা"
+
+#: templates/authority/reports.html:54 templates/public_reports.html:76
+msgid "Education"
+msgstr "শিক্ষা"
+
+#: templates/authority/reports.html:55 templates/public_reports.html:77
+msgid "Emergency"
+msgstr "জরুরী অবস্থা"
+
+#: templates/authority/reports.html:56 templates/public_reports.html:78
+msgid "Citizen Rights"
+msgstr "নাগরিক অধিকার"
+
+#: templates/authority/reports.html:33 templates/public_reports.html:83
+msgid "All Status"
+msgstr "সব অবস্থা"
+
+#: templates/authority/dashboard.html:178 templates/authority/reports.html:34
+#: templates/citizen/dashboard.html:352
+#: templates/citizen/report_detail.html:107 templates/public_reports.html:84
+msgid "Reported"
+msgstr "রিপোর্ট করা হয়েছে"
+
+#: templates/authority/report_detail.html:111
+#: templates/authority/reports.html:35 templates/citizen/leaderboard.html:181
+#: templates/public_reports.html:85
+msgid "Verified"
+msgstr "যাচাইকৃত"
+
+#: templates/authority/dashboard.html:38
+#: templates/authority/report_detail.html:114
+#: templates/authority/reports.html:36 templates/citizen/dashboard.html:34
+#: templates/public_reports.html:86
+msgid "In Progress"
+msgstr "প্রক্রিয়াধীন"
+
+#: templates/authority/reports.html:62 templates/public_reports.html:92
+msgid "All Severity"
+msgstr "সব গুরুত্ব"
+
+#: templates/authority/report_detail.html:318
+#: templates/authority/reports.html:63 templates/citizen/report.html:146
+#: templates/public_reports.html:93
+msgid "Low"
+msgstr "নিম্ন"
+
+#: templates/authority/report_detail.html:319
+#: templates/authority/reports.html:64 templates/citizen/report.html:147
+#: templates/public_reports.html:94
+msgid "Medium"
+msgstr "মাঝারি"
+
+#: templates/authority/report_detail.html:320
+#: templates/authority/reports.html:65 templates/citizen/report.html:148
+#: templates/public_reports.html:95
+msgid "High"
+msgstr "উচ্চ"
+
+#: templates/citizen/report.html:149 templates/public_reports.html:96
+msgid "Critical"
+msgstr "সংকটপূর্ণ"
+
+#: templates/authority/reports.html:73 templates/authority/reports.html:332
+#: templates/public_reports.html:101
+msgid "Clear Filters"
+msgstr "ফিল্টার সাফ করুন"
+
+#: templates/authority/dashboard.html:99 templates/authority/reports.html:87
+#: templates/authority/reports.html:118 templates/authority/reports.html:209
+#: templates/public_reports.html:113
+msgid "ID"
+msgstr "আইডি"
+
+#: templates/authority/dashboard.html:100 templates/authority/reports.html:88
+#: templates/authority/reports.html:124 templates/authority/reports.html:212
+#: templates/citizen/dashboard.html:58 templates/citizen/dashboard.html:346
+#: templates/public_reports.html:114
+msgid "Title"
+msgstr "শিরোনাম"
+
+#: templates/authority/analytics.html:104
+#: templates/authority/dashboard.html:101
+#: templates/authority/report_detail.html:27
+#: templates/authority/reports.html:89 templates/authority/reports.html:130
+#: templates/authority/reports.html:215 templates/citizen/dashboard.html:59
+#: templates/citizen/dashboard.html:348 templates/citizen/report_detail.html:27
+#: templates/public_reports.html:115 templates/track_report_result.html:24
+msgid "Category"
+msgstr "ক্যাটেগরি"
+
+#: templates/authority/analytics.html:135
+#: templates/authority/dashboard.html:103 templates/authority/reports.html:91
+#: templates/authority/reports.html:142 templates/authority/reports.html:221
+#: templates/citizen/dashboard.html:61 templates/citizen/dashboard.html:351
+#: templates/citizen/report_detail.html:38 templates/public_reports.html:116
+#: templates/track_report_result.html:8
+msgid "Status"
+msgstr "অবস্থা"
+
+#: templates/authority/dashboard.html:102
+#: templates/authority/report_detail.html:32
+#: templates/authority/reports.html:90 templates/authority/reports.html:136
+#: templates/authority/reports.html:218 templates/citizen/dashboard.html:60
+#: templates/citizen/dashboard.html:349 templates/citizen/report.html:143
+#: templates/citizen/report_detail.html:31 templates/public_reports.html:117
+#: templates/track_report_result.html:27
+msgid "Severity"
+msgstr "গুরুত্ব"
+
+#: templates/citizen/report.html:154 templates/citizen/report_detail.html:152
+#: templates/public_reports.html:118
+msgid "Photo"
+msgstr "ছবি"
+
+#: templates/authority/report_detail.html:192
+#: templates/citizen/report_detail.html:61
+#: templates/citizen/report_detail.html:162 templates/public_reports.html:119
+#: templates/track_report_result.html:42
+msgid "Location"
+msgstr "স্থান"
+
+#: templates/authority/reports.html:160 templates/public_reports.html:120
+msgid "PIN Code"
+msgstr "পিন কোড"
+
+#: templates/authority/report_detail.html:68 templates/public_reports.html:121
+#: templates/track_report_result.html:44
+msgid "Reported by"
+msgstr "রিপোর্ট করেছেন"
+
+#: templates/authority/dashboard.html:105 templates/authority/reports.html:172
+#: templates/authority/reports.html:236 templates/public_reports.html:122
+msgid "Date"
+msgstr "তারিখ"
+
+#: templates/authority/reports.html:148 templates/authority/reports.html:224
+#: templates/citizen/leaderboard.html:59 templates/public_reports.html:123
+msgid "Votes"
+msgstr "ভোট"
+
+#: templates/authority/dashboard.html:106 templates/authority/reports.html:238
+#: templates/citizen/dashboard.html:64 templates/public_reports.html:124
+msgid "Actions"
+msgstr "পদক্ষেপ"
+
+#: templates/public_reports.html:198
+msgid "Track"
+msgstr "ট্র্যাক করুন"
+
+#: templates/authority/dashboard.html:158 templates/public_reports.html:209
+msgid "No reports available"
+msgstr "কোনো রিপোর্ট উপলব্ধ নেই"
+
+#: templates/public_reports.html:210
+msgid "Reports will appear here as they are submitted by citizens."
+msgstr "নাগরিকদের জমা দেওয়া রিপোর্টগুলো এখানে প্রদর্শিত হবে।"
+
+#: templates/public_reports.html:219
+msgid "All Reports Map"
+msgstr "সব রিপোর্টের মানচিত্র"
+
+#: templates/track_report.html:11
+msgid "Track Your Report"
+msgstr "আপনার রিপোর্ট ট্র্যাক করুন"
+
+#: templates/track_report.html:12
+msgid "Enter your report ID to track its status"
+msgstr "স্ট্যাটাস ট্র্যাক করতে আপনার রিপোর্ট আইডি লিখুন"
+
+#: templates/citizen/report_detail.html:51 templates/track_report.html:17
+msgid "Report ID"
+msgstr "রিপোর্ট আইডি"
+
+#: templates/track_report.html:19
+msgid "Enter Report ID (e.g., 123)"
+msgstr "রিপোর্ট আইডি লিখুন (যেমন, ১২৩)"
+
+#: templates/track_report.html:20
+msgid "You can find your report ID in the confirmation email or dashboard."
+msgstr "আপনি নিশ্চিতকরণ ইমেল বা ড্যাশবোর্ডে আপনার রিপোর্ট আইডি পেতে পারেন।"
+
+#: templates/track_report.html:33
+msgid "How to Track"
+msgstr "কিভাবে ট্র্যাক করবেন"
+
+#: templates/track_report.html:37
+msgid "Enter your report ID in the field above"
+msgstr "উপরের ঘরে আপনার রিপোর্ট আইডি লিখুন"
+
+#: templates/track_report.html:38
+msgid "Click \"Track Report\" to view the current status"
+msgstr "বর্তমান স্ট্যাটাস দেখতে \"রিপোর্ট ট্র্যাক করুন\"-এ ক্লিক করুন"
+
+#: templates/track_report.html:39
+msgid "See all status updates and maintenance tickets"
+msgstr "সব স্ট্যাটাস আপডেট এবং রক্ষণাবেক্ষণ টিকেট দেখুন"
+
+#: templates/track_report.html:40
+msgid "No login required - completely public"
+msgstr "লগইন করার প্রয়োজন নেই - সম্পূর্ণ সর্বজনীন"
+
+#: templates/authority/report_detail.html:7
+#: templates/track_report_result.html:8
+msgid "Report"
+msgstr "রিপোর্ট"
+
+#: templates/track_report_result.html:10 templates/track_report_result.html:200
+msgid "Track Another Report"
+msgstr "অন্য রিপোর্ট ট্র্যাক করুন"
+
+#: templates/authority/report_detail.html:18
+#: templates/citizen/dashboard.html:150 templates/citizen/report_detail.html:3
+#: templates/citizen/report_detail.html:12
+#: templates/track_report_result.html:17
+msgid "Report Details"
+msgstr "রিপোর্টের বিবরণ"
+
+#: templates/citizen/dashboard.html:347 templates/citizen/report.html:67
+#: templates/citizen/report_detail.html:56
+#: templates/track_report_result.html:23
+msgid "Description"
+msgstr "বিবরণ"
+
+#: templates/track_report_result.html:30
+msgid "Current Status"
+msgstr "বর্তমান অবস্থা"
+
+#: templates/track_report_result.html:43
+msgid "Reported On"
+msgstr "রিপোর্ট করার তারিখ"
+
+#: templates/authority/dashboard.html:139 templates/track_report_result.html:46
+msgid "Anonymous"
+msgstr "বেনামী"
+
+#: templates/track_report_result.html:51
+msgid "Community Votes"
+msgstr "কমিউনিটি ভোট"
+
+#: templates/citizen/dashboard.html:103 templates/track_report_result.html:65
+msgid "No image available"
+msgstr "কোনো ছবি উপলব্ধ নেই"
+
+#: templates/track_report_result.html:76
+msgid "Status Updates Timeline"
+msgstr "স্ট্যাটাস আপডেটের সময়রেখা"
+
+#: templates/track_report_result.html:96
+msgid "Status changed to"
+msgstr "স্ট্যাটাস পরিবর্তন করা হয়েছে:"
+
+#: templates/citizen/report_detail.html:137
+#: templates/track_report_result.html:104
+msgid "Updated by"
+msgstr "আপডেট করেছেন"
+
+#: templates/track_report_result.html:115
+msgid "Image not available"
+msgstr "ছবি উপলব্ধ নেই"
+
+#: templates/track_report_result.html:130
+msgid "No status updates yet"
+msgstr "এখনো কোনো স্ট্যাটাস আপডেট নেই"
+
+#: templates/track_report_result.html:131
+msgid "Status updates will appear here as authorities review your report."
+msgstr ""
+"কর্তৃপক্ষ আপনার রিপোর্ট পর্যালোচনা করলে স্ট্যাটাস আপডেট এখানে প্রদর্শিত "
+"হবে।"
+
+#: templates/track_report_result.html:140
+msgid "Maintenance Tickets"
+msgstr "রক্ষণাবেক্ষণ টিকেট"
+
+#: templates/authority/report_detail.html:224
+#: templates/authority/report_detail.html:316
+#: templates/citizen/report_detail.html:191
+#: templates/track_report_result.html:150
+msgid "Priority"
+msgstr "অগ্রাধিকার"
+
+#: templates/authority/report_detail.html:232
+#: templates/track_report_result.html:156
+msgid "Assigned to"
+msgstr "দায়িত্বপ্রাপ্ত"
+
+#: templates/authority/report_detail.html:238
+#: templates/authority/report_detail.html:327
+#: templates/track_report_result.html:159
+msgid "Estimated Cost"
+msgstr "আনুমানিক খরচ"
+
+#: templates/authority/report_detail.html:244
+#: templates/authority/report_detail.html:331
+#: templates/citizen/report_detail.html:195
+#: templates/track_report_result.html:164
+msgid "Estimated Completion"
+msgstr "আনুমানিক সমাপ্তি"
+
+#: templates/track_report_result.html:167
+msgid "Completed On"
+msgstr "সম্পন্ন হয়েছে"
+
+#: templates/track_report_result.html:169
+msgid "Created"
+msgstr "তৈরি হয়েছে"
+
+#: templates/authority/report_detail.html:336
+#: templates/citizen/report_detail.html:201
+#: templates/track_report_result.html:174
+msgid "Work Description"
+msgstr "কাজের বিবরণ"
+
+#: templates/authority/report_detail.html:340
+#: templates/track_report_result.html:178
+msgid "Materials Used"
+msgstr "ব্যবহৃত সামগ্রী"
+
+#: templates/track_report_result.html:187
+msgid "No maintenance tickets yet"
+msgstr "এখনো কোনো রক্ষণাবেক্ষণ টিকেট নেই"
+
+#: templates/track_report_result.html:188
+msgid ""
+"Maintenance tickets will be created once your report is verified by "
+"authorities."
+msgstr ""
+"কর্তৃপক্ষ দ্বারা আপনার রিপোর্ট যাচাই করার পরে রক্ষণাবেক্ষণ টিকেট তৈরি করা"
+" হবে।"
+
+#: templates/track_report_result.html:197
+msgid "View All Public Reports"
+msgstr "সব পাবলিক রিপোর্ট দেখুন"
+
+#: templates/auth/forgot_password.html:10
+msgid "Forgot Password"
+msgstr "পাসওয়ার্ড ভুলে গেছেন"
+
+#: templates/auth/forgot_password.html:38
+msgid "Enter your email address and we'll send you a reset code."
+msgstr "আপনার ইমেল ঠিকানা লিখুন এবং আমরা আপনাকে একটি রিসেট কোড পাঠাব।"
+
+#: templates/auth/forgot_password.html:39
+msgid "Make sure to check your spam folder if you don't see the email."
+msgstr "ইমেলটি দেখতে না পেলে আপনার স্প্যাম ফোল্ডার চেক করতে ভুলবেন না।"
+
+#: templates/auth/forgot_password.html:64
+msgid "Remember your password?"
+msgstr "পাসওয়ার্ড মনে আছে?"
+
+#: templates/auth/forgot_password.html:64
+msgid "Back to Login"
+msgstr "লগইন-এ ফিরে যান"
+
+#: templates/auth/forgot_password.html:72 templates/auth/verify_otp.html:88
+msgid "Security Note:"
+msgstr "নিরাপত্তা নোট:"
+
+#: templates/auth/forgot_password.html:72
+msgid "The reset code will be valid for 10 minutes only."
+msgstr "রিসেট কোডটি শুধুমাত্র ১০ মিনিটের জন্য বৈধ থাকবে।"
+
+#: templates/auth/forgot_password.html:73
+msgid "If you don't receive the email, please check your spam folder."
+msgstr "আপনি ইমেল না পেলে, অনুগ্রহ করে আপনার স্প্যাম ফোল্ডার চেক করুন।"
+
+#: templates/auth/login.html:47
+msgid "Forgot your password?"
+msgstr "পাসওয়ার্ড ভুলে গেছেন?"
+
+#: templates/auth/login.html:53
+msgid "Don't have an account?"
+msgstr "অ্যাকাউন্ট নেই?"
+
+#: templates/auth/login.html:53
+msgid "Register here"
+msgstr "এখানে নিবন্ধন করুন"
+
+#: templates/auth/login.html:58
+msgid "Demo Accounts:"
+msgstr "ডেমো অ্যাকাউন্ট:"
+
+#: templates/auth/login.html:61
+msgid "Register as citizen or authority for full experience"
+msgstr "সম্পূর্ণ অভিজ্ঞতার জন্য নাগরিক বা কর্তৃপক্ষ হিসেবে নিবন্ধন করুন।"
+
+#: templates/auth/register.html:83
+msgid "Required for authority users"
+msgstr "কর্তৃপক্ষ ব্যবহারকারীদের জন্য আবশ্যক"
+
+#: templates/auth/register.html:96
+msgid "Special password required for authority registration"
+msgstr "কর্তৃপক্ষ নিবন্ধনের জন্য বিশেষ পাসওয়ার্ড প্রয়োজন।"
+
+#: templates/auth/register.html:113
+msgid "Already have an account?"
+msgstr "ইতিমধ্যে একটি অ্যাকাউন্ট আছে?"
+
+#: templates/auth/register.html:113
+msgid "Login here"
+msgstr "এখানে লগইন করুন"
+
+#: templates/auth/verify_otp.html:3 templates/auth/verify_otp.html:10
+msgid "Verify OTP"
+msgstr "ওটিপি যাচাই করুন"
+
+#: templates/auth/verify_otp.html:43
+msgid "We've sent a 6-digit verification code to:"
+msgstr "আমরা এখানে ৬-সংখ্যার একটি যাচাইকরণ কোড পাঠিয়েছি:"
+
+#: templates/auth/verify_otp.html:45
+msgid "Please check your email and enter the code below"
+msgstr "অনুগ্রহ করে আপনার ইমেল চেক করুন এবং নীচের কোডটি লিখুন।"
+
+#: templates/auth/verify_otp.html:53
+msgid "Enter 6-digit OTP"
+msgstr "৬-সংখ্যার ওটিপি লিখুন"
+
+#: templates/auth/verify_otp.html:69
+msgid "Didn't receive the code?"
+msgstr "কোড পাননি?"
+
+#: templates/auth/verify_otp.html:71 templates/auth/verify_otp.html:142
+#: templates/auth/verify_otp.html:148 templates/auth/verify_otp.html:170
+msgid "Resend OTP"
+msgstr "ওটিপি পুনরায় পাঠান"
+
+#: templates/auth/verify_otp.html:74
+msgid "Resend available in"
+msgstr "পুনরায় পাঠানো যাবে:"
+
+#: templates/auth/verify_otp.html:74
+msgid "seconds"
+msgstr "সেকেন্ডে"
+
+#: templates/auth/verify_otp.html:80
+msgid "Want to use a different email?"
+msgstr "ভিন্ন ইমেল ব্যবহার করতে চান?"
+
+#: templates/auth/verify_otp.html:80
+msgid "Register again"
+msgstr "আবার নিবন্ধন করুন"
+
+#: templates/auth/verify_otp.html:88
+msgid "The OTP is valid for 10 minutes only."
+msgstr "ওটিপি শুধুমাত্র ১০ মিনিটের জন্য বৈধ।"
+
+#: templates/auth/verify_otp.html:89
+msgid "Don't share this code with anyone."
+msgstr "এই কোড কারো সাথে শেয়ার করবেন না।"
+
+#: templates/auth/verify_otp.html:108
+msgid "Sending..."
+msgstr "পাঠানো হচ্ছে..."
+
+#: templates/authority/analytics.html:7
+msgid "Analytics Dashboard"
+msgstr "অ্যানালিটিক্স ড্যাশবোর্ড"
+
+#: templates/authority/analytics.html:9 templates/authority/reports.html:9
+#: templates/citizen/leaderboard.html:11
+#: templates/citizen/report_detail.html:14
+msgid "Back to Dashboard"
+msgstr "ড্যাশবোর্ডে ফিরে যান"
+
+#: templates/authority/analytics.html:20
+msgid "Avg Response Days"
+msgstr "গড় প্রতিক্রিয়ার দিন"
+
+#: templates/authority/analytics.html:38 templates/authority/dashboard.html:69
+msgid "High Priority Reports"
+msgstr "উচ্চ অগ্রাধিকারের রিপোর্ট"
+
+#: templates/authority/analytics.html:47
+msgid "This Month"
+msgstr "এই মাস"
+
+#: templates/authority/analytics.html:58
+msgid "Reports by Category"
+msgstr "বিভাগ অনুযায়ী রিপোর্ট"
+
+#: templates/authority/analytics.html:69
+msgid "Status Distribution"
+msgstr "স্থিতির বন্টন"
+
+#: templates/authority/analytics.html:83
+msgid "Monthly Report Trends"
+msgstr "মাসিক রিপোর্টের প্রবণতা"
+
+#: templates/authority/analytics.html:97
+msgid "Category Breakdown"
+msgstr "বিভাগভিত্তিক বিবরণ"
+
+#: templates/authority/analytics.html:105
+#: templates/authority/analytics.html:136
+msgid "Count"
+msgstr "সংখ্যা"
+
+#: templates/authority/analytics.html:106
+#: templates/authority/analytics.html:137
+msgid "Percentage"
+msgstr "শতাংশ"
+
+#: templates/authority/analytics.html:128
+msgid "Status Breakdown"
+msgstr "স্থিতির ভাঙ্গন"
+
+#: templates/authority/dashboard.html:3 templates/authority/dashboard.html:7
+msgid "Authority Dashboard"
+msgstr "কর্তৃপক্ষের ড্যাশবোর্ড"
+
+#: templates/authority/dashboard.html:9
+msgid "View All Reports"
+msgstr "সব রিপোর্ট দেখুন"
+
+#: templates/authority/dashboard.html:29
+msgid "Pending Action"
+msgstr "মুলতুবি কাজ"
+
+#: templates/authority/dashboard.html:58
+#: templates/authority/report_detail.html:266
+msgid "Quick Actions"
+msgstr "দ্রুত পদক্ষেপ"
+
+#: templates/authority/dashboard.html:63
+msgid "New Reports"
+msgstr "নতুন রিপোর্ট"
+
+#: templates/authority/dashboard.html:66
+msgid "In Progress Reports"
+msgstr "প্রক্রিয়াধীন রিপোর্ট"
+
+#: templates/authority/dashboard.html:79
+msgid "Recent Activity"
+msgstr "সাম্প্রতিক কার্যকলাপ"
+
+#: templates/authority/dashboard.html:91
+msgid "Recent Reports"
+msgstr "সাম্প্রতিক রিপোর্ট"
+
+#: templates/authority/dashboard.html:104 templates/authority/reports.html:92
+#: templates/authority/reports.html:154 templates/authority/reports.html:227
+#: templates/citizen/leaderboard.html:163
+msgid "Reporter"
+msgstr "রিপোর্টার"
+
+#: templates/authority/dashboard.html:116 templates/citizen/dashboard.html:73
+msgid "Has photo"
+msgstr "ছবি আছে"
+
+#: templates/authority/dashboard.html:147 templates/citizen/dashboard.html:110
+msgid "View"
+msgstr "দেখুন"
+
+#: templates/authority/dashboard.html:159
+msgid "New reports will appear here as they are submitted by citizens."
+msgstr "নাগরিকদের জমা দেওয়া নতুন রিপোর্টগুলো এখানে প্রদর্শিত হবে।"
+
+#: templates/authority/dashboard.html:170
+msgid "Critical Issues"
+msgstr "সংকটপূর্ণ সমস্যা"
+
+#: templates/authority/dashboard.html:181
+msgid "Review"
+msgstr "পর্যালোচনা করুন"
+
+#: templates/authority/dashboard.html:186
+msgid "No critical issues at the moment"
+msgstr "এই মুহূর্তে কোনো সংকটপূর্ণ সমস্যা নেই"
+
+#: templates/authority/dashboard.html:195
+msgid "Quick Stats"
+msgstr "দ্রুত পরিসংখ্যান"
+
+#: templates/authority/dashboard.html:201
+msgid "This Week"
+msgstr "এই সপ্তাহ"
+
+#: templates/authority/dashboard.html:205
+msgid "Resolved This Week"
+msgstr "এই সপ্তাহে সমাধান হয়েছে"
+
+#: templates/authority/dashboard.html:209
+msgid "Avg Response Time (hrs)"
+msgstr "গড় প্রতিক্রিয়ার সময় (ঘন্টা)"
+
+#: templates/authority/dashboard.html:213
+msgid "Satisfaction Rate"
+msgstr "সন্তুষ্টির হার"
+
+#: templates/authority/dashboard.html:226
+msgid "Reports Map"
+msgstr "রিপোর্টের মানচিত্র"
+
+#: templates/authority/report_detail.html:9
+msgid "Back to Reports"
+msgstr "রিপোর্টে ফিরে যান"
+
+#: templates/authority/report_detail.html:51
+#: templates/authority/reports.html:94 templates/authority/reports.html:166
+#: templates/authority/reports.html:233 templates/citizen/dashboard.html:350
+#: templates/citizen/report.html:78 templates/citizen/report_detail.html:99
+msgid "Address"
+msgstr "ঠিকানা"
+
+#: templates/authority/report_detail.html:55
+#: templates/authority/reports.html:93 templates/authority/reports.html:230
+#: templates/citizen/report_detail.html:102
+msgid "PIN/Postal Code"
+msgstr "পিন/পোস্টাল কোড"
+
+#: templates/authority/report_detail.html:59
+#: templates/citizen/report_detail.html:82
+#: templates/citizen/report_detail.html:169
+msgid "Coordinates"
+msgstr "স্থানাঙ্ক"
+
+#: templates/authority/report_detail.html:72
+#: templates/citizen/dashboard.html:63
+msgid "Date Reported"
+msgstr "রিপোর্টের তারিখ"
+
+#: templates/authority/report_detail.html:77
+#: templates/citizen/dashboard.html:354
+#: templates/citizen/report_detail.html:110
+msgid "Last Updated"
+msgstr "সর্বশেষ আপডেট"
+
+#: templates/authority/report_detail.html:90
+#: templates/citizen/dashboard.html:326
+msgid "No photo uploaded"
+msgstr "কোনো ছবি আপলোড করা হয়নি"
+
+#: templates/authority/report_detail.html:101
+#: templates/authority/report_detail.html:141
+msgid "Update Status"
+msgstr "স্ট্যাটাস আপডেট করুন"
+
+#: templates/authority/report_detail.html:107
+msgid "New Status"
+msgstr "নতুন স্ট্যাটাস"
+
+#: templates/authority/report_detail.html:112
+#: templates/authority/report_detail.html:115
+#: templates/authority/reports.html:38
+msgid "Rejected"
+msgstr "প্রত্যাখ্যাত"
+
+#: templates/authority/report_detail.html:122
+msgid "Current status"
+msgstr "বর্তমান স্ট্যাটাস"
+
+#: templates/authority/report_detail.html:125
+msgid "Status Update Image"
+msgstr "স্ট্যাটাস আপডেটের ছবি"
+
+#: templates/authority/report_detail.html:129
+msgid "Image is required for completed status"
+msgstr "সম্পন্ন স্ট্যাটাসের জন্য ছবি আবশ্যক।"
+
+#: templates/authority/report_detail.html:131
+msgid "Optional: Upload image to document the status update"
+msgstr "ঐচ্ছিক: স্ট্যাটাস আপডেট নথিভুক্ত করতে ছবি আপলোড করুন।"
+
+#: templates/authority/report_detail.html:136
+msgid "Comment (Optional)"
+msgstr "মন্তব্য (ঐচ্ছিক)"
+
+#: templates/authority/report_detail.html:137
+msgid "Add a comment about this status update..."
+msgstr "এই স্ট্যাটাস আপডেট সম্পর্কে একটি মন্তব্য যোগ করুন..."
+
+#: templates/authority/report_detail.html:152
+msgid "Status History"
+msgstr "স্ট্যাটাস ইতিহাস"
+
+#: templates/authority/report_detail.html:199
+msgid "Location coordinates not available"
+msgstr "অবস্থানের স্থানাঙ্ক উপলব্ধ নেই"
+
+#: templates/authority/report_detail.html:205
+msgid "Open in Google Maps"
+msgstr "গুগল ম্যাপে খুলুন"
+
+#: templates/authority/report_detail.html:215
+#: templates/citizen/report_detail.html:187
+msgid "Maintenance Ticket"
+msgstr "রক্ষণাবেক্ষণ টিকেট"
+
+#: templates/authority/report_detail.html:219
+msgid "Ticket Number"
+msgstr "টিকেট নম্বর"
+
+#: templates/authority/report_detail.html:250
+msgid "Completed on"
+msgstr "সম্পন্ন হয়েছে"
+
+#: templates/authority/report_detail.html:256
+msgid "Edit Ticket Details"
+msgstr "টিকেটের বিবরণ সম্পাদনা করুন"
+
+#: templates/authority/report_detail.html:272
+msgid "Verify Report"
+msgstr "রিপোর্ট যাচাই করুন"
+
+#: templates/authority/report_detail.html:276
+msgid "Start Work"
+msgstr "কাজ শুরু করুন"
+
+#: templates/authority/report_detail.html:280
+msgid "Mark Complete"
+msgstr "সম্পন্ন হিসাবে চিহ্নিত করুন"
+
+#: templates/authority/report_detail.html:286
+msgid "Reject Report"
+msgstr "রিপোর্ট প্রত্যাখ্যান করুন"
+
+#: templates/authority/report_detail.html:300
+msgid "Edit Maintenance Ticket"
+msgstr "রক্ষণাবেক্ষণ টিকেট সম্পাদনা করুন"
+
+#: templates/authority/report_detail.html:307
+#: templates/citizen/report_detail.html:198
+msgid "Assigned To"
+msgstr "দায়িত্বপ্রাপ্ত"
+
+#: templates/authority/report_detail.html:309
+msgid "Unassigned"
+msgstr "অনির্ধারিত"
+
+#: templates/authority/report_detail.html:321
+msgid "Urgent"
+msgstr "জরুরী"
+
+#: templates/authority/report_detail.html:346 templates/citizen/report.html:211
+msgid "Cancel"
+msgstr "বাতিল"
+
+#: templates/authority/report_detail.html:347
+msgid "Save Changes"
+msgstr "পরিবর্তন সেভ করুন"
+
+#: templates/authority/reports.html:18
+msgid "Filters & Search"
+msgstr "ফিল্টার ও অনুসন্ধান"
+
+#: templates/authority/reports.html:22
+msgid "Advanced Options"
+msgstr "উন্নত বিকল্প"
+
+#: templates/authority/reports.html:31
+msgid "Status Filter"
+msgstr "স্ট্যাটাস ফিল্টার"
+
+#: templates/authority/reports.html:42
+msgid "Category Filter"
+msgstr "বিভাগ ফিল্টার"
+
+#: templates/authority/reports.html:60
+msgid "Severity Filter"
+msgstr "গুরুত্ব ফিল্টার"
+
+#: templates/authority/reports.html:84
+msgid "Search in Column"
+msgstr "কলামে অনুসন্ধান করুন"
+
+#: templates/authority/reports.html:86
+msgid "All Columns"
+msgstr "সব কলাম"
+
+#: templates/authority/reports.html:98
+msgid "Search Term"
+msgstr "অনুসন্ধানের শব্দ"
+
+#: templates/authority/reports.html:99
+msgid "Enter search term..."
+msgstr "অনুসন্ধানের শব্দ লিখুন..."
+
+#: templates/authority/reports.html:104
+msgid "Search"
+msgstr "খুঁজুন"
+
+#: templates/authority/reports.html:113
+msgid "Show/Hide Columns"
+msgstr "কলাম দেখান/লুকান"
+
+#: templates/authority/reports.html:186 templates/citizen/leaderboard.html:58
+msgid "Reports"
+msgstr "রিপোর্ট"
+
+#: templates/authority/reports.html:192
+msgid "Bulk Verify"
+msgstr "বাল্ক যাচাই"
+
+#: templates/authority/reports.html:195
+msgid "Bulk Start Work"
+msgstr "একসাথে কাজ শুরু করুন"
+
+#: templates/authority/reports.html:322
+msgid "No reports found"
+msgstr "কোনো রিপোর্ট পাওয়া যায়নি"
+
+#: templates/authority/reports.html:325
+msgid "No reports match the current filters."
+msgstr "বর্তমান ফিল্টারের সাথে কোনো রিপোর্ট মেলে না।"
+
+#: templates/authority/reports.html:327
+msgid "No reports have been submitted yet."
+msgstr "এখনো কোনো রিপোর্ট জমা দেওয়া হয়নি।"
+
+#: templates/authority/reports.html:345
+msgid "Report Location"
+msgstr "রিপোর্টের অবস্থান"
+
+#: templates/citizen/dashboard.html:3
+msgid "Citizen Dashboard"
+msgstr "নাগরিক ড্যাশবোর্ড"
+
+#: templates/citizen/dashboard.html:7
+msgid "My Dashboard"
+msgstr "আমার ড্যাশবোর্ড"
+
+#: templates/citizen/dashboard.html:26
+msgid "Pending"
+msgstr "মুলতুবি"
+
+#: templates/citizen/dashboard.html:50
+msgid "My Reports"
+msgstr "আমার রিপোর্ট"
+
+#: templates/citizen/dashboard.html:62
+msgid "Image"
+msgstr "ছবি"
+
+#: templates/citizen/dashboard.html:100
+msgid "Click to view full image"
+msgstr "পুরো ছবি দেখতে ক্লিক করুন"
+
+#: templates/citizen/dashboard.html:121
+msgid "No reports yet"
+msgstr "এখনো কোনো রিপোর্ট নেই"
+
+#: templates/citizen/dashboard.html:122
+msgid "Start by reporting your first road issue!"
+msgstr "আপনার প্রথম রাস্তার সমস্যার রিপোর্ট করে শুরু করুন!"
+
+#: templates/citizen/dashboard.html:136
+msgid "My Reports Map"
+msgstr "আমার রিপোর্টের মানচিত্র"
+
+#: templates/citizen/dashboard.html:266 templates/citizen/report.html:401
+msgid "View Details"
+msgstr "বিস্তারিত দেখুন"
+
+#: templates/citizen/dashboard.html:330
+#: templates/citizen/report_detail.html:119
+msgid "Status Updates"
+msgstr "স্ট্যাটাস আপডেট"
+
+#: templates/citizen/dashboard.html:350 templates/citizen/report.html:431
+msgid "Not provided"
+msgstr "প্রদত্ত নয়"
+
+#: templates/citizen/leaderboard.html:3 templates/citizen/leaderboard.html:9
+msgid "Citizen Leaderboard"
+msgstr "নাগরিক লিডারবোর্ড"
+
+#: templates/citizen/leaderboard.html:19
+msgid "Your Ranking"
+msgstr "আপনার র‍্যাঙ্কিং"
+
+#: templates/citizen/leaderboard.html:25
+msgid "Current Rank"
+msgstr "বর্তমান র‍্যাঙ্ক"
+
+#: templates/citizen/leaderboard.html:29
+msgid "Total Points"
+msgstr "মোট পয়েন্ট"
+
+#: templates/citizen/leaderboard.html:33
+msgid "Reports Submitted"
+msgstr "রিপোর্ট জমা দেওয়া হয়েছে"
+
+#: templates/citizen/leaderboard.html:37
+msgid "Votes Cast"
+msgstr "ভোট দেওয়া হয়েছে"
+
+#: templates/citizen/leaderboard.html:47
+msgid "Top Citizens"
+msgstr "সেরা নাগরিক"
+
+#: templates/citizen/leaderboard.html:55
+msgid "Rank"
+msgstr "র‍্যাঙ্ক"
+
+#: templates/citizen/leaderboard.html:56
+msgid "Citizen"
+msgstr "নাগরিক"
+
+#: templates/citizen/leaderboard.html:57
+msgid "Points"
+msgstr "পয়েন্ট"
+
+#: templates/citizen/leaderboard.html:60
+msgid "Badge"
+msgstr "ব্যাজ"
+
+#: templates/citizen/leaderboard.html:82
+msgid "You"
+msgstr "আপনি"
+
+#: templates/citizen/leaderboard.html:90 templates/citizen/leaderboard.html:135
+msgid "Champion"
+msgstr "চ্যাম্পিয়ন"
+
+#: templates/citizen/leaderboard.html:92 templates/citizen/leaderboard.html:134
+msgid "Expert"
+msgstr "বিশেষজ্ঞ"
+
+#: templates/citizen/leaderboard.html:94 templates/citizen/leaderboard.html:133
+msgid "Active"
+msgstr "সক্রিয়"
+
+#: templates/citizen/leaderboard.html:96 templates/citizen/leaderboard.html:132
+msgid "Beginner"
+msgstr "নতুন"
+
+#: templates/citizen/leaderboard.html:107
+msgid "No leaderboard data available"
+msgstr "লিডারবোর্ডের কোনো ডেটা উপলব্ধ নেই।"
+
+#: templates/citizen/leaderboard.html:108
+msgid "Start reporting issues to earn points and appear on the leaderboard!"
+msgstr ""
+"পয়েন্ট অর্জন করতে এবং লিডারবোর্ডে উপস্থিত হতে সমস্যার রিপোর্ট করা শুরু "
+"করুন!"
+
+#: templates/citizen/leaderboard.html:117
+msgid "How Points Work"
+msgstr "পয়েন্ট কিভাবে কাজ করে"
+
+#: templates/citizen/leaderboard.html:122
+msgid "Earn Points By:"
+msgstr "পয়েন্ট অর্জন করুন এভাবে:"
+
+#: templates/citizen/leaderboard.html:124
+msgid "Submitting a report: +10 points"
+msgstr "রিপোর্ট জমা দিয়ে: +১০ পয়েন্ট"
+
+#: templates/citizen/leaderboard.html:125
+msgid "Voting on issues: +2 points"
+msgstr "সমস্যায় ভোট দিয়ে: +২ পয়েন্ট"
+
+#: templates/citizen/leaderboard.html:126
+msgid "Report gets resolved: +5 bonus points"
+msgstr "রিপোর্ট সমাধান হলে: +৫ বোনাস পয়েন্ট"
+
+#: templates/citizen/leaderboard.html:130
+msgid "Badge Levels:"
+msgstr "ব্যাজ স্তর:"
+
+#: templates/citizen/leaderboard.html:132
+#: templates/citizen/leaderboard.html:133
+#: templates/citizen/leaderboard.html:134
+#: templates/citizen/leaderboard.html:135
+msgid "points"
+msgstr "পয়েন্ট"
+
+#: templates/citizen/leaderboard.html:146
+msgid "Your Achievements"
+msgstr "আপনার অর্জন"
+
+#: templates/citizen/leaderboard.html:154
+msgid "First Report"
+msgstr "প্রথম রিপোর্ট"
+
+#: templates/citizen/leaderboard.html:172
+msgid "Voter"
+msgstr "ভোটার"
+
+#: templates/citizen/leaderboard.html:190
+msgid "Century"
+msgstr "সেঞ্চুরি"
+
+#: templates/citizen/leaderboard.html:199
+msgid "Top 10"
+msgstr "শীর্ষ ১০"
+
+#: templates/citizen/report.html:20
+msgid "Basic Info"
+msgstr "মৌলিক তথ্য"
+
+#: templates/citizen/report.html:26
+msgid "Check Duplicates"
+msgstr "নকল চেক করুন"
+
+#: templates/citizen/report.html:32
+msgid "Complete Report"
+msgstr "রিপোর্ট সম্পন্ন করুন"
+
+#: templates/citizen/report.html:40
+msgid "Step 1: Basic Information"
+msgstr "ধাপ ১: মৌলিক তথ্য"
+
+#: templates/citizen/report.html:43
+msgid "Issue Category"
+msgstr "সমস্যার বিভাগ"
+
+#: templates/citizen/report.html:45
+msgid "Select Category"
+msgstr "বিভাগ নির্বাচন করুন"
+
+#: templates/citizen/report.html:47
+msgid "Sanitation & Waste Management"
+msgstr "স্যানিটেশন ও বর্জ্য ব্যবস্থাপনা"
+
+#: templates/citizen/report.html:49
+msgid "Electricity & Street Lighting"
+msgstr "বিদ্যুৎ ও স্ট্রিট লাইটিং"
+
+#: templates/citizen/report.html:50
+msgid "Public Safety & Security"
+msgstr "জননিরাপত্তা ও নিরাপত্তা"
+
+#: templates/citizen/report.html:51
+msgid "Environment & Pollution"
+msgstr "পরিবেশ ও দূষণ"
+
+#: templates/citizen/report.html:52
+msgid "Transportation & Traffic"
+msgstr "পরিবহন ও ট্র্যাফিক"
+
+#: templates/citizen/report.html:53
+msgid "Healthcare & Public Health"
+msgstr "স্বাস্থ্যসেবা ও জনস্বাস্থ্য"
+
+#: templates/citizen/report.html:54
+msgid "Digital Services & E-Governance"
+msgstr "ডিজিটাল পরিষেবা ও ই-গভর্নেন্স"
+
+#: templates/citizen/report.html:55
+msgid "Education & Public Spaces"
+msgstr "শিক্ষা ও পাবলিক স্পেস"
+
+#: templates/citizen/report.html:56
+msgid "Emergency & Disaster Management"
+msgstr "জরুরী ও দুর্যোগ ব্যবস্থাপনা"
+
+#: templates/citizen/report.html:57
+msgid "Citizen Rights & Governance"
+msgstr "নাগরিক অধিকার ও শাসন"
+
+#: templates/citizen/report.html:62
+msgid "Issue Title"
+msgstr "সমস্যার শিরোনাম"
+
+#: templates/citizen/report.html:72
+msgid "PIN/Postal/Zip Code"
+msgstr "পিন/পোস্টাল/জিপ কোড"
+
+#: templates/citizen/report.html:73
+msgid "e.g., 110001, 90210, M5V 3L9"
+msgstr "যেমন, 110001, 90210, M5V 3L9"
+
+#: templates/citizen/report.html:74
+msgid "PIN/Postal/Zip code is required"
+msgstr "পিন/পোস্টাল/জিপ কোড আবশ্যক"
+
+#: templates/citizen/report.html:83
+msgid "Location (Optional)"
+msgstr "অবস্থান (ঐচ্ছিক)"
+
+#: templates/citizen/report.html:87
+msgid "Get Current Location"
+msgstr "বর্তমান অবস্থান নিন"
+
+#: templates/citizen/report.html:92
+msgid "Choose on Map"
+msgstr "মানচিত্রে বেছে নিন"
+
+#: templates/citizen/report.html:97
+msgid "Location:"
+msgstr "অবস্থান:"
+
+#: templates/citizen/report.html:105
+msgid "Check for Similar Issues"
+msgstr "অনুরূপ সমস্যা পরীক্ষা করুন"
+
+#: templates/citizen/report.html:113
+msgid "Step 2: Similar Issues Found"
+msgstr "ধাপ ২: অনুরূপ সমস্যা পাওয়া গেছে"
+
+#: templates/citizen/report.html:119 templates/citizen/report.html:170
+msgid "Back"
+msgstr "পিছনে"
+
+#: templates/citizen/report.html:122
+msgid "Continue with New Report"
+msgstr "নতুন রিপোর্ট নিয়ে এগিয়ে যান"
+
+#: templates/citizen/report.html:129
+msgid "Step 3: Complete Your Report"
+msgstr "ধাপ ৩: আপনার রিপোর্ট সম্পূর্ণ করুন"
+
+#: templates/citizen/report.html:145
+msgid "Select Severity"
+msgstr "গুরুত্ব নির্বাচন করুন"
+
+#: templates/citizen/report.html:156
+msgid "Photo is mandatory for all reports"
+msgstr "সব রিপোর্টের জন্য ছবি বাধ্যতামূলক"
+
+#: templates/citizen/report.html:163
+msgid "Report Anonymously (Hide my identity in public views)"
+msgstr "বেনামে রিপোর্ট করুন (পাবলিক ভিউতে আমার পরিচয় লুকান)"
+
+#: templates/citizen/report.html:189
+msgid "Similar Issue Details"
+msgstr "অনুরূপ সমস্যার বিবরণ"
+
+#: templates/citizen/report.html:204
+msgid "Choose Location on Map"
+msgstr "মানচিত্রে অবস্থান নির্বাচন করুন"
+
+#: templates/citizen/report.html:212
+msgid "Confirm Location"
+msgstr "অবস্থান নিশ্চিত করুন"
+
+#: templates/citizen/report.html:333
+msgid "Please fill in all required fields before checking for duplicates."
+msgstr "নকল পরীক্ষা করার আগে অনুগ্রহ করে সমস্ত প্রয়োজনীয় ক্ষেত্র পূরণ করুন।"
+
+#: templates/citizen/report.html:355
+msgid "Error checking for duplicates:"
+msgstr "নকল পরীক্ষা করতে ত্রুটি:"
+
+#: templates/citizen/report.html:360
+msgid "Error checking for duplicates. Please try again."
+msgstr "নকল পরীক্ষা করতে ত্রুটি। আবার চেষ্টা করুন।"
+
+#: templates/citizen/report.html:370
+msgid ""
+"No similar issues found in your area. You can proceed with creating a new"
+" report."
+msgstr ""
+"আপনার এলাকায় অনুরূপ কোনো সমস্যা পাওয়া যায়নি। আপনি একটি নতুন রিপোর্ট "
+"তৈরি করতে পারেন।"
+
+#: templates/citizen/report.html:378
+msgid "Found"
+msgstr "পাওয়া গেছে"
+
+#: templates/citizen/report.html:378
+msgid ""
+"similar issue(s) in your area. Please review them and consider voting "
+"instead of creating a duplicate report."
+msgstr ""
+"টি অনুরূপ সমস্যা আপনার এলাকায়। অনুগ্রহ করে সেগুলি পর্যালোচনা করুন এবং "
+"একটি নকল রিপোর্ট তৈরি করার পরিবর্তে ভোট দেওয়ার কথা বিবেচনা করুন।"
+
+#: templates/citizen/report.html:392 templates/citizen/report.html:434
+msgid "Reported by:"
+msgstr "রিপোর্ট করেছেন:"
+
+#: templates/citizen/report.html:398 templates/citizen/report.html:471
+msgid "votes"
+msgstr "ভোট"
+
+#: templates/citizen/report.html:407 templates/citizen/report.html:462
+msgid "Voted"
+msgstr "ভোট দিয়েছেন"
+
+#: templates/citizen/report.html:407
+msgid "Vote"
+msgstr "ভোট দিন"
+
+#: templates/citizen/report.html:431
+msgid "Address:"
+msgstr "ঠিকানা:"
+
+#: templates/citizen/report.html:432
+msgid "Severity:"
+msgstr "গুরুত্ব:"
+
+#: templates/citizen/report.html:433
+msgid "Status:"
+msgstr "অবস্থা:"
+
+#: templates/citizen/report.html:435
+msgid "Date:"
+msgstr "তারিখ:"
+
+#: templates/citizen/report.html:438
+msgid "Report Photo"
+msgstr "রিপোর্টের ছবি"
+
+#: templates/citizen/report.html:438
+msgid "No photo available"
+msgstr "কোনো ছবি উপলব্ধ নেই"
+
+#: templates/citizen/report.html:447
+msgid "Error loading report details."
+msgstr "রিপোর্টের বিবরণ লোড করতে ত্রুটি।"
+
+#: templates/citizen/report.html:474
+msgid "Error voting:"
+msgstr "ভোট দিতে ত্রুটি:"
+
+#: templates/citizen/report.html:479
+msgid "Error voting. Please try again."
+msgstr "ভোট দিতে ত্রুটি। আবার চেষ্টা করুন।"
+
+#: templates/citizen/report.html:507
+msgid "Error getting location:"
+msgstr "অবস্থান পেতে ত্রুটি:"
+
+#: templates/citizen/report.html:510
+msgid "Geolocation is not supported by this browser."
+msgstr "জিওলোকেশন এই ব্রাউজার দ্বারা সমর্থিত নয়।"
+
+#: templates/citizen/report.html:544
+msgid "Please select a location on the map."
+msgstr "অনুগ্রহ করে মানচিত্রে একটি অবস্থান নির্বাচন করুন।"
+
+#: templates/citizen/report.html:560
+msgid "Report submitted successfully!"
+msgstr "রিপোর্ট সফলভাবে জমা দেওয়া হয়েছে!"
+
+#: templates/citizen/report.html:563
+msgid "Error submitting report:"
+msgstr "রিপোর্ট জমা দিতে ত্রুটি:"
+
+#: templates/citizen/report.html:568
+msgid "Error submitting report. Please try again."
+msgstr "রিপোর্ট জমা দিতে ত্রুটি। আবার চেষ্টা করুন।"
+
+#: templates/citizen/report_detail.html:69
+#: templates/citizen/report_detail.html:171
+#, fuzzy
+msgid "Location not provided"
+msgstr "প্রদত্ত নয়"
+
+#: templates/citizen/report_detail.html:92
+#, fuzzy
+msgid "Coordinates Unavailable"
+msgstr "অবস্থানের স্থানাঙ্ক উপলব্ধ নেই"
+
+#: templates/citizen/report_detail.html:93
+#, fuzzy
+msgid "Location data not provided"
+msgstr "অবস্থানের স্থানাঙ্ক উপলব্ধ নেই"
+
+#: templates/citizen/report_detail.html:190
+#, fuzzy
+msgid "Ticket #"
+msgstr "টিকেট নম্বর"
+
+#~ msgid "Report photo"
+#~ msgstr "রিপোর্টের ছবি"
+

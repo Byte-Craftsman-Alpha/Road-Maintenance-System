@@ -1,0 +1,1996 @@
+# Marathi translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-19 21:38+0530\n"
+"PO-Revision-Date: 2025-09-19 12:05+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: mr\n"
+"Language-Team: mr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:62 templates/base.html:71
+#: templates/index.html:15
+msgid "CivicSetu"
+msgstr "सिविकसेतू"
+
+#: templates/base.html:86 templates/base.html:102
+msgid "Dashboard"
+msgstr "डॅशबोर्ड"
+
+#: templates/base.html:91 templates/citizen/dashboard.html:124
+#: templates/citizen/report.html:3
+msgid "Report Issue"
+msgstr "समस्या नोंदवा"
+
+#: templates/base.html:96
+msgid "Leaderboard"
+msgstr "आघाडीचे नागरिक"
+
+#: templates/authority/reports.html:7 templates/base.html:107
+#: templates/public_reports.html:45
+msgid "All Reports"
+msgstr "सर्व तक्रारी"
+
+#: templates/base.html:112
+msgid "Analytics"
+msgstr "विश्लेषण"
+
+#: templates/base.html:119 templates/public_reports.html:7
+msgid "Public Reports"
+msgstr "सार्वजनिक तक्रारी"
+
+#: templates/base.html:124 templates/track_report.html:24
+msgid "Track Report"
+msgstr "तक्रार शोधा"
+
+#: templates/base.html:138
+msgid "Indian Languages"
+msgstr "भारतीय भाषा"
+
+#: templates/base.html:180
+msgid "Logout"
+msgstr "बाहेर पडा"
+
+#: templates/auth/login.html:10 templates/base.html:187 templates/index.html:30
+msgid "Login"
+msgstr "प्रवेश करा"
+
+#: templates/auth/register.html:10 templates/base.html:192
+msgid "Register"
+msgstr "नोंदणी करा"
+
+#: templates/index.html:17
+msgid "Civic System for Empowering Transparency & Upliftment"
+msgstr "पारदर्शकता आणि उन्नतीसाठी नागरी व्यवस्था"
+
+#: templates/index.html:19
+msgid ""
+"Empowering citizens to report different issues and enabling authorities "
+"to respond faster. \n"
+"                        Together, we build better infrastructure for "
+"everyone."
+msgstr ""
+"नागरिकांना विविध समस्या नोंदवण्यासाठी सक्षम करणे आणि अधिकाऱ्यांना "
+"जलद प्रतिसाद देण्यास सक्षम करणे. \n"
+"                        एकत्रितपणे, आपण सर्वांसाठी चांगली पायाभूत सुविधा तयार करतो."
+
+#: templates/index.html:27
+msgid "Get Started"
+msgstr "सुरुवात करा"
+
+#: templates/index.html:40
+msgid "Report Issues Instantly"
+msgstr "समस्या त्वरित नोंदवा"
+
+#: templates/index.html:58
+msgid "Easy Reporting"
+msgstr "सोपी तक्रार नोंदणी"
+
+#: templates/index.html:60
+msgid ""
+"Report issues instantly using your mobile device with GPS location and "
+"photo upload."
+msgstr ""
+"तुमच्या मोबाइलवरून GPS स्थान आणि फोटोसह समस्या त्वरित नोंदवा."
+
+#: templates/index.html:74
+msgid "Fast Response"
+msgstr "जलद प्रतिसाद"
+
+#: templates/index.html:76
+msgid ""
+"Automated ticketing system ensures quick response times and efficient "
+"resource allocation."
+msgstr ""
+"स्वयंचलित तिकीट प्रणाली जलद प्रतिसाद आणि कार्यक्षम संसाधन वाटप सुनिश्चित करते."
+
+#: templates/index.html:90
+msgid "Transparency"
+msgstr "पारदर्शकता"
+
+#: templates/index.html:92
+msgid ""
+"Track progress in real-time and access analytics for long-term "
+"infrastructure improvement."
+msgstr ""
+"रिअल-टाइममध्ये प्रगती पहा आणि दीर्घकालीन पायाभूत सुविधा सुधारणेसाठी विश्लेषण पहा."
+
+#: templates/index.html:106
+msgid "How It Works"
+msgstr "हे कसे काम करते"
+
+#: templates/index.html:108
+msgid "Simple steps to report issues and track their resolution"
+msgstr "समस्या नोंदवण्यासाठी आणि त्यांचे निराकरण पाहण्यासाठी सोप्या पायऱ्या"
+
+#: templates/index.html:122
+msgid "Spot the Issue"
+msgstr "समस्या ओळखा"
+
+#: templates/index.html:124
+msgid ""
+"Notice any issues like potholes, broken streetlight, or damaged road? "
+"Take a photo and note the location."
+msgstr ""
+"खड्डे, तुटलेला पथदिवा किंवा खराब रस्ता यासारख्या समस्या दिसल्या? "
+"फोटो काढा आणि स्थान नोंदवा."
+
+#: templates/citizen/report.html:173 templates/index.html:138
+msgid "Submit Report"
+msgstr "तक्रार सादर करा"
+
+#: templates/index.html:140
+msgid ""
+"Fill out a quick form with details, upload the photo, and submit your "
+"report instantly."
+msgstr ""
+"तपशीलांसह एक जलद फॉर्म भरा, फोटो अपलोड करा आणि तुमची तक्रार त्वरित सादर करा."
+
+#: templates/index.html:154
+msgid "Automatic Processing"
+msgstr "स्वयंचलित प्रक्रिया"
+
+#: templates/index.html:156
+msgid ""
+"Our system creates a maintenance ticket and assigns it to the relevant "
+"authority team."
+msgstr ""
+"आमची प्रणाली एक देखभाल तिकीट तयार करते आणि संबंधित प्राधिकरण टीमला नियुक्त करते."
+
+#: templates/index.html:170
+msgid "Track Progress"
+msgstr "प्रगती पहा"
+
+#: templates/index.html:172
+msgid ""
+"Get real-time updates on your report status and see when the issue is "
+"resolved."
+msgstr ""
+"तुमच्या तक्रारीच्या स्थितीबद्दल रिअल-टाइम अपडेट्स मिळवा आणि समस्या कधी सोडवली गेली ते पहा."
+
+#: templates/index.html:183
+msgid "Start Reporting"
+msgstr "तक्रार करणे सुरू करा"
+
+#: templates/index.html:186
+msgid "View Public Reports"
+msgstr "सार्वजनिक तक्रारी पहा"
+
+#: templates/citizen/dashboard.html:9 templates/citizen/report.html:11
+#: templates/index.html:190
+msgid "Report New Issue"
+msgstr "नवीन समस्या नोंदवा"
+
+#: templates/index.html:193
+msgid "Go to Dashboard"
+msgstr "डॅशबोर्डवर जा"
+
+#: templates/index.html:205
+msgid "Recent Reports Map"
+msgstr "अलीकडील तक्रारींचा नकाशा"
+
+#: templates/authority/dashboard.html:20 templates/citizen/dashboard.html:18
+#: templates/public_reports.html:16
+msgid "Total Reports"
+msgstr "एकूण तक्रारी"
+
+#: templates/authority/dashboard.html:47
+#: templates/authority/report_detail.html:117
+#: templates/authority/reports.html:37 templates/citizen/dashboard.html:42
+#: templates/public_reports.html:25 templates/public_reports.html:87
+msgid "Completed"
+msgstr "पूर्ण झाले"
+
+#: templates/authority/analytics.html:29 templates/public_reports.html:34
+msgid "Completion Rate"
+msgstr "पूर्णता दर"
+
+#: templates/public_reports.html:54
+msgid "Filters"
+msgstr "फिल्टर"
+
+#: templates/authority/reports.html:44 templates/public_reports.html:66
+msgid "All Categories"
+msgstr "सर्व श्रेणी"
+
+#: templates/authority/reports.html:45 templates/citizen/report.html:46
+#: templates/public_reports.html:67
+msgid "Infrastructure & Roads"
+msgstr "पायाभूत सुविधा आणि रस्ते"
+
+#: templates/authority/reports.html:46 templates/public_reports.html:68
+msgid "Sanitation & Waste"
+msgstr "स्वच्छता आणि कचरा"
+
+#: templates/authority/reports.html:47 templates/citizen/report.html:48
+#: templates/public_reports.html:69
+msgid "Water Supply & Drainage"
+msgstr "पाणीपुरवठा आणि जलनिस्सारण"
+
+#: templates/authority/reports.html:48 templates/public_reports.html:70
+msgid "Electricity & Lighting"
+msgstr "वीज आणि प्रकाशव्यवस्था"
+
+#: templates/authority/reports.html:49 templates/public_reports.html:71
+msgid "Public Safety"
+msgstr "सार्वजनिक सुरक्षा"
+
+#: templates/authority/reports.html:50 templates/public_reports.html:72
+msgid "Environment"
+msgstr "पर्यावरण"
+
+#: templates/authority/reports.html:51 templates/public_reports.html:73
+msgid "Transportation"
+msgstr "वाहतूक"
+
+#: templates/authority/reports.html:52 templates/public_reports.html:74
+msgid "Healthcare"
+msgstr "आरोग्यसेवा"
+
+#: templates/authority/reports.html:53 templates/public_reports.html:75
+msgid "Digital Services"
+msgstr "डिजिटल सेवा"
+
+#: templates/authority/reports.html:54 templates/public_reports.html:76
+msgid "Education"
+msgstr "शिक्षण"
+
+#: templates/authority/reports.html:55 templates/public_reports.html:77
+msgid "Emergency"
+msgstr "आणीबाणी"
+
+#: templates/authority/reports.html:56 templates/public_reports.html:78
+msgid "Citizen Rights"
+msgstr "नागरी हक्क"
+
+#: templates/authority/reports.html:33 templates/public_reports.html:83
+msgid "All Status"
+msgstr "सर्व स्थिती"
+
+#: templates/authority/dashboard.html:178 templates/authority/reports.html:34
+#: templates/citizen/dashboard.html:352
+#: templates/citizen/report_detail.html:107 templates/public_reports.html:84
+msgid "Reported"
+msgstr "नोंदवले"
+
+#: templates/authority/report_detail.html:111
+#: templates/authority/reports.html:35 templates/citizen/leaderboard.html:181
+#: templates/public_reports.html:85
+msgid "Verified"
+msgstr "सत्यापित"
+
+#: templates/authority/dashboard.html:38
+#: templates/authority/report_detail.html:114
+#: templates/authority/reports.html:36 templates/citizen/dashboard.html:34
+#: templates/public_reports.html:86
+msgid "In Progress"
+msgstr "प्रगतीपथावर"
+
+#: templates/authority/reports.html:62 templates/public_reports.html:92
+msgid "All Severity"
+msgstr "सर्व तीव्रता"
+
+#: templates/authority/report_detail.html:318
+#: templates/authority/reports.html:63 templates/citizen/report.html:146
+#: templates/public_reports.html:93
+msgid "Low"
+msgstr "कमी"
+
+#: templates/authority/report_detail.html:319
+#: templates/authority/reports.html:64 templates/citizen/report.html:147
+#: templates/public_reports.html:94
+msgid "Medium"
+msgstr "मध्यम"
+
+#: templates/authority/report_detail.html:320
+#: templates/authority/reports.html:65 templates/citizen/report.html:148
+#: templates/public_reports.html:95
+msgid "High"
+msgstr "उच्च"
+
+#: templates/citizen/report.html:149 templates/public_reports.html:96
+msgid "Critical"
+msgstr "गंभीर"
+
+#: templates/authority/reports.html:73 templates/authority/reports.html:332
+#: templates/public_reports.html:101
+msgid "Clear Filters"
+msgstr "फिल्टर साफ करा"
+
+#: templates/authority/dashboard.html:99 templates/authority/reports.html:87
+#: templates/authority/reports.html:118 templates/authority/reports.html:209
+#: templates/public_reports.html:113
+msgid "ID"
+msgstr "आयडी"
+
+#: templates/authority/dashboard.html:100 templates/authority/reports.html:88
+#: templates/authority/reports.html:124 templates/authority/reports.html:212
+#: templates/citizen/dashboard.html:58 templates/citizen/dashboard.html:346
+#: templates/public_reports.html:114
+msgid "Title"
+msgstr "शीर्षक"
+
+#: templates/authority/analytics.html:104
+#: templates/authority/dashboard.html:101
+#: templates/authority/report_detail.html:27
+#: templates/authority/reports.html:89 templates/authority/reports.html:130
+#: templates/authority/reports.html:215 templates/citizen/dashboard.html:59
+#: templates/citizen/dashboard.html:348 templates/citizen/report_detail.html:27
+#: templates/public_reports.html:115 templates/track_report_result.html:24
+msgid "Category"
+msgstr "श्रेणी"
+
+#: templates/authority/analytics.html:135
+#: templates/authority/dashboard.html:103 templates/authority/reports.html:91
+#: templates/authority/reports.html:142 templates/authority/reports.html:221
+#: templates/citizen/dashboard.html:61 templates/citizen/dashboard.html:351
+#: templates/citizen/report_detail.html:38 templates/public_reports.html:116
+#: templates/track_report_result.html:8
+msgid "Status"
+msgstr "स्थिती"
+
+#: templates/authority/dashboard.html:102
+#: templates/authority/report_detail.html:32
+#: templates/authority/reports.html:90 templates/authority/reports.html:136
+#: templates/authority/reports.html:218 templates/citizen/dashboard.html:60
+#: templates/citizen/dashboard.html:349 templates/citizen/report.html:143
+#: templates/citizen/report_detail.html:31 templates/public_reports.html:117
+#: templates/track_report_result.html:27
+msgid "Severity"
+msgstr "तीव्रता"
+
+#: templates/citizen/report.html:154 templates/citizen/report_detail.html:152
+#: templates/public_reports.html:118
+msgid "Photo"
+msgstr "फोटो"
+
+#: templates/authority/report_detail.html:192
+#: templates/citizen/report_detail.html:61
+#: templates/citizen/report_detail.html:162 templates/public_reports.html:119
+#: templates/track_report_result.html:42
+msgid "Location"
+msgstr "स्थान"
+
+#: templates/authority/reports.html:160 templates/public_reports.html:120
+msgid "PIN Code"
+msgstr "पिन कोड"
+
+#: templates/authority/report_detail.html:68 templates/public_reports.html:121
+#: templates/track_report_result.html:44
+msgid "Reported by"
+msgstr "तक्रारदार"
+
+#: templates/authority/dashboard.html:105 templates/authority/reports.html:172
+#: templates/authority/reports.html:236 templates/public_reports.html:122
+msgid "Date"
+msgstr "तारीख"
+
+#: templates/authority/reports.html:148 templates/authority/reports.html:224
+#: templates/citizen/leaderboard.html:59 templates/public_reports.html:123
+msgid "Votes"
+msgstr "मते"
+
+#: templates/authority/dashboard.html:106 templates/authority/reports.html:238
+#: templates/citizen/dashboard.html:64 templates/public_reports.html:124
+msgid "Actions"
+msgstr "कृती"
+
+#: templates/public_reports.html:198
+msgid "Track"
+msgstr "शोधा"
+
+#: templates/authority/dashboard.html:158 templates/public_reports.html:209
+msgid "No reports available"
+msgstr "कोणत्याही तक्रारी उपलब्ध नाहीत"
+
+#: templates/public_reports.html:210
+msgid "Reports will appear here as they are submitted by citizens."
+msgstr "नागरिकांनी सादर केल्यानंतर तक्रारी येथे दिसतील."
+
+#: templates/public_reports.html:219
+msgid "All Reports Map"
+msgstr "सर्व तक्रारींचा नकाशा"
+
+#: templates/track_report.html:11
+msgid "Track Your Report"
+msgstr "तुमची तक्रार शोधा"
+
+#: templates/track_report.html:12
+msgid "Enter your report ID to track its status"
+msgstr "तक्रारीची स्थिती पाहण्यासाठी तुमचा तक्रार आयडी टाका"
+
+#: templates/citizen/report_detail.html:51 templates/track_report.html:17
+msgid "Report ID"
+msgstr "तक्रार आयडी"
+
+#: templates/track_report.html:19
+msgid "Enter Report ID (e.g., 123)"
+msgstr "तक्रार आयडी टाका (उदा., 123)"
+
+#: templates/track_report.html:20
+msgid "You can find your report ID in the confirmation email or dashboard."
+msgstr "तुम्ही तुमचा तक्रार आयडी पुष्टीकरण ईमेल किंवा डॅशबोर्डमध्ये शोधू शकता."
+
+#: templates/track_report.html:33
+msgid "How to Track"
+msgstr "कसे शोधावे"
+
+#: templates/track_report.html:37
+msgid "Enter your report ID in the field above"
+msgstr "वरील फील्डमध्ये तुमचा तक्रार आयडी टाका"
+
+#: templates/track_report.html:38
+msgid "Click \"Track Report\" to view the current status"
+msgstr "सध्याची स्थिती पाहण्यासाठी \"तक्रार शोधा\" वर क्लिक करा"
+
+#: templates/track_report.html:39
+msgid "See all status updates and maintenance tickets"
+msgstr "सर्व स्थिती अपडेट्स आणि देखभाल तिकिटे पहा"
+
+#: templates/track_report.html:40
+msgid "No login required - completely public"
+msgstr "लॉगिनची गरज नाही - पूर्णपणे सार्वजनिक"
+
+#: templates/authority/report_detail.html:7
+#: templates/track_report_result.html:8
+msgid "Report"
+msgstr "तक्रार"
+
+#: templates/track_report_result.html:10 templates/track_report_result.html:200
+msgid "Track Another Report"
+msgstr "दुसरी तक्रार शोधा"
+
+#: templates/authority/report_detail.html:18
+#: templates/citizen/dashboard.html:150 templates/citizen/report_detail.html:3
+#: templates/citizen/report_detail.html:12
+#: templates/track_report_result.html:17
+msgid "Report Details"
+msgstr "तक्रार तपशील"
+
+#: templates/citizen/dashboard.html:347 templates/citizen/report.html:67
+#: templates/citizen/report_detail.html:56
+#: templates/track_report_result.html:23
+msgid "Description"
+msgstr "वर्णन"
+
+#: templates/track_report_result.html:30
+msgid "Current Status"
+msgstr "सध्याची स्थिती"
+
+#: templates/track_report_result.html:43
+msgid "Reported On"
+msgstr "नोंदवल्याची तारीख"
+
+#: templates/authority/dashboard.html:139 templates/track_report_result.html:46
+msgid "Anonymous"
+msgstr "अज्ञात"
+
+#: templates/track_report_result.html:51
+msgid "Community Votes"
+msgstr "समुदाय मते"
+
+#: templates/citizen/dashboard.html:103 templates/track_report_result.html:65
+msgid "No image available"
+msgstr "कोणतीही प्रतिमा उपलब्ध नाही"
+
+#: templates/track_report_result.html:76
+msgid "Status Updates Timeline"
+msgstr "स्थिती अपडेटची वेळरेषा"
+
+#: templates/track_report_result.html:96
+msgid "Status changed to"
+msgstr "स्थिती बदलली"
+
+#: templates/citizen/report_detail.html:137
+#: templates/track_report_result.html:104
+msgid "Updated by"
+msgstr "अपडेट केले"
+
+#: templates/track_report_result.html:115
+msgid "Image not available"
+msgstr "प्रतिमा उपलब्ध नाही"
+
+#: templates/track_report_result.html:130
+msgid "No status updates yet"
+msgstr "अद्याप कोणतेही स्थिती अपडेट नाहीत"
+
+#: templates/track_report_result.html:131
+msgid "Status updates will appear here as authorities review your report."
+msgstr "अधिकारी तुमच्या तक्रारीचे पुनरावलोकन करतील तेव्हा स्थिती अपडेट येथे दिसतील."
+
+#: templates/track_report_result.html:140
+msgid "Maintenance Tickets"
+msgstr "देखभाल तिकिटे"
+
+#: templates/authority/report_detail.html:224
+#: templates/authority/report_detail.html:316
+#: templates/citizen/report_detail.html:191
+#: templates/track_report_result.html:150
+msgid "Priority"
+msgstr "प्राधान्य"
+
+#: templates/authority/report_detail.html:232
+#: templates/track_report_result.html:156
+msgid "Assigned to"
+msgstr "नियुक्त केले"
+
+#: templates/authority/report_detail.html:238
+#: templates/authority/report_detail.html:327
+#: templates/track_report_result.html:159
+msgid "Estimated Cost"
+msgstr "अंदाजे खर्च"
+
+#: templates/authority/report_detail.html:244
+#: templates/authority/report_detail.html:331
+#: templates/citizen/report_detail.html:195
+#: templates/track_report_result.html:164
+msgid "Estimated Completion"
+msgstr "अंदाजे पूर्णता"
+
+#: templates/track_report_result.html:167
+msgid "Completed On"
+msgstr "पूर्ण झाल्याची तारीख"
+
+#: templates/track_report_result.html:169
+msgid "Created"
+msgstr "तयार केले"
+
+#: templates/authority/report_detail.html:336
+#: templates/citizen/report_detail.html:201
+#: templates/track_report_result.html:174
+msgid "Work Description"
+msgstr "कामाचे वर्णन"
+
+#: templates/authority/report_detail.html:340
+#: templates/track_report_result.html:178
+msgid "Materials Used"
+msgstr "वापरलेले साहित्य"
+
+#: templates/track_report_result.html:187
+msgid "No maintenance tickets yet"
+msgstr "अद्याप कोणतेही देखभाल तिकिटे नाहीत"
+
+#: templates/track_report_result.html:188
+msgid ""
+"Maintenance tickets will be created once your report is verified by "
+"authorities."
+msgstr ""
+"अधिकाऱ्यांनी तुमची तक्रार सत्यापित केल्यानंतर देखभाल तिकिटे तयार केली जातील."
+
+#: templates/track_report_result.html:197
+msgid "View All Public Reports"
+msgstr "सर्व सार्वजनिक तक्रारी पहा"
+
+#: templates/auth/forgot_password.html:10
+msgid "Forgot Password"
+msgstr "पासवर्ड विसरलात?"
+
+#: templates/auth/forgot_password.html:38
+msgid "Enter your email address and we'll send you a reset code."
+msgstr "तुमचा ईमेल पत्ता टाका आणि आम्ही तुम्हाला रीसेट कोड पाठवू."
+
+#: templates/auth/forgot_password.html:39
+msgid "Make sure to check your spam folder if you don't see the email."
+msgstr "ईमेल दिसत नसल्यास तुमचे स्पॅम फोल्डर तपासण्याची खात्री करा."
+
+#: templates/auth/forgot_password.html:64
+msgid "Remember your password?"
+msgstr "तुमचा पासवर्ड आठवला?"
+
+#: templates/auth/forgot_password.html:64
+msgid "Back to Login"
+msgstr "लॉगिनवर परत जा"
+
+#: templates/auth/forgot_password.html:72 templates/auth/verify_otp.html:88
+msgid "Security Note:"
+msgstr "सुरक्षा सूचना:"
+
+#: templates/auth/forgot_password.html:72
+msgid "The reset code will be valid for 10 minutes only."
+msgstr "रीसेट कोड फक्त 10 मिनिटांसाठी वैध असेल."
+
+#: templates/auth/forgot_password.html:73
+msgid "If you don't receive the email, please check your spam folder."
+msgstr "तुम्हाला ईमेल प्राप्त होत नसल्यास, कृपया तुमचे स्पॅम फोल्डर तपासा."
+
+#: templates/auth/login.html:47
+msgid "Forgot your password?"
+msgstr "पासवर्ड विसरलात?"
+
+#: templates/auth/login.html:53
+msgid "Don't have an account?"
+msgstr "खाते नाही?"
+
+#: templates/auth/login.html:53
+msgid "Register here"
+msgstr "येथे नोंदणी करा"
+
+#: templates/auth/login.html:58
+msgid "Demo Accounts:"
+msgstr "डेमो खाती:"
+
+#: templates/auth/login.html:61
+msgid "Register as citizen or authority for full experience"
+msgstr "पूर्ण अनुभवासाठी नागरिक किंवा प्राधिकरण म्हणून नोंदणी करा"
+
+#: templates/auth/register.html:83
+msgid "Required for authority users"
+msgstr "प्राधिकरण वापरकर्त्यांसाठी आवश्यक"
+
+#: templates/auth/register.html:96
+msgid "Special password required for authority registration"
+msgstr "प्राधिकरण नोंदणीसाठी विशेष पासवर्ड आवश्यक"
+
+#: templates/auth/register.html:113
+msgid "Already have an account?"
+msgstr "आधीच खाते आहे?"
+
+#: templates/auth/register.html:113
+msgid "Login here"
+msgstr "येथे लॉगिन करा"
+
+#: templates/auth/verify_otp.html:3 templates/auth/verify_otp.html:10
+msgid "Verify OTP"
+msgstr "OTP सत्यापित करा"
+
+#: templates/auth/verify_otp.html:43
+msgid "We've sent a 6-digit verification code to:"
+msgstr "आम्ही 6-अंकी सत्यापन कोड येथे पाठवला आहे:"
+
+#: templates/auth/verify_otp.html:45
+msgid "Please check your email and enter the code below"
+msgstr "कृपया तुमचा ईमेल तपासा आणि खाली कोड टाका"
+
+#: templates/auth/verify_otp.html:53
+msgid "Enter 6-digit OTP"
+msgstr "6-अंकी OTP टाका"
+
+#: templates/auth/verify_otp.html:69
+msgid "Didn't receive the code?"
+msgstr "कोड मिळाला नाही?"
+
+#: templates/auth/verify_otp.html:71 templates/auth/verify_otp.html:142
+#: templates/auth/verify_otp.html:148 templates/auth/verify_otp.html:170
+msgid "Resend OTP"
+msgstr "OTP पुन्हा पाठवा"
+
+#: templates/auth/verify_otp.html:74
+msgid "Resend available in"
+msgstr "पुन्हा पाठवणे उपलब्ध"
+
+#: templates/auth/verify_otp.html:74
+msgid "seconds"
+msgstr "सेकंद"
+
+#: templates/auth/verify_otp.html:80
+msgid "Want to use a different email?"
+msgstr "वेगळा ईमेल वापरायचा आहे?"
+
+#: templates/auth/verify_otp.html:80
+msgid "Register again"
+msgstr "पुन्हा नोंदणी करा"
+
+#: templates/auth/verify_otp.html:88
+msgid "The OTP is valid for 10 minutes only."
+msgstr "OTP फक्त 10 मिनिटांसाठी वैध आहे."
+
+#: templates/auth/verify_otp.html:89
+msgid "Don't share this code with anyone."
+msgstr "हा कोड कोणाशीही शेअर करू नका."
+
+#: templates/auth/verify_otp.html:108
+msgid "Sending..."
+msgstr "पाठवत आहे..."
+
+#: templates/authority/analytics.html:7
+msgid "Analytics Dashboard"
+msgstr "विश्लेषण डॅशबोर्ड"
+
+#: templates/authority/analytics.html:9 templates/authority/reports.html:9
+#: templates/citizen/leaderboard.html:11
+#: templates/citizen/report_detail.html:14
+msgid "Back to Dashboard"
+msgstr "डॅशबोर्डवर परत जा"
+
+#: templates/authority/analytics.html:20
+msgid "Avg Response Days"
+msgstr "सरासरी प्रतिसाद दिवस"
+
+#: templates/authority/analytics.html:38 templates/authority/dashboard.html:69
+msgid "High Priority Reports"
+msgstr "उच्च प्राधान्य तक्रारी"
+
+#: templates/authority/analytics.html:47
+msgid "This Month"
+msgstr "या महिन्यात"
+
+#: templates/authority/analytics.html:58
+msgid "Reports by Category"
+msgstr "श्रेणीनुसार तक्रारी"
+
+#: templates/authority/analytics.html:69
+msgid "Status Distribution"
+msgstr "स्थिती वितरण"
+
+#: templates/authority/analytics.html:83
+msgid "Monthly Report Trends"
+msgstr "मासिक तक्रार ट्रेंड"
+
+#: templates/authority/analytics.html:97
+msgid "Category Breakdown"
+msgstr "श्रेणी विभागणी"
+
+#: templates/authority/analytics.html:105
+#: templates/authority/analytics.html:136
+msgid "Count"
+msgstr "संख्या"
+
+#: templates/authority/analytics.html:106
+#: templates/authority/analytics.html:137
+msgid "Percentage"
+msgstr "टक्केवारी"
+
+#: templates/authority/analytics.html:128
+msgid "Status Breakdown"
+msgstr "स्थिती विभागणी"
+
+#: templates/authority/dashboard.html:3 templates/authority/dashboard.html:7
+msgid "Authority Dashboard"
+msgstr "प्राधिकरण डॅशबोर्ड"
+
+#: templates/authority/dashboard.html:9
+msgid "View All Reports"
+msgstr "सर्व तक्रारी पहा"
+
+#: templates/authority/dashboard.html:29
+msgid "Pending Action"
+msgstr "प्रलंबित कृती"
+
+#: templates/authority/dashboard.html:58
+#: templates/authority/report_detail.html:266
+msgid "Quick Actions"
+msgstr "त्वरित कृती"
+
+#: templates/authority/dashboard.html:63
+msgid "New Reports"
+msgstr "नवीन तक्रारी"
+
+#: templates/authority/dashboard.html:66
+msgid "In Progress Reports"
+msgstr "प्रगतीपथावरील तक्रारी"
+
+#: templates/authority/dashboard.html:79
+msgid "Recent Activity"
+msgstr "अलीकडील क्रियाकलाप"
+
+#: templates/authority/dashboard.html:91
+msgid "Recent Reports"
+msgstr "अलीकडील तक्रारी"
+
+#: templates/authority/dashboard.html:104 templates/authority/reports.html:92
+#: templates/authority/reports.html:154 templates/authority/reports.html:227
+#: templates/citizen/leaderboard.html:163
+msgid "Reporter"
+msgstr "तक्रारदार"
+
+#: templates/authority/dashboard.html:116 templates/citizen/dashboard.html:73
+msgid "Has photo"
+msgstr "फोटो आहे"
+
+#: templates/authority/dashboard.html:147 templates/citizen/dashboard.html:110
+msgid "View"
+msgstr "पहा"
+
+#: templates/authority/dashboard.html:159
+msgid "New reports will appear here as they are submitted by citizens."
+msgstr "नागरिकांनी सादर केल्यानंतर नवीन तक्रारी येथे दिसतील."
+
+#: templates/authority/dashboard.html:170
+msgid "Critical Issues"
+msgstr "गंभीर समस्या"
+
+#: templates/authority/dashboard.html:181
+msgid "Review"
+msgstr "पुनरावलोकन करा"
+
+#: templates/authority/dashboard.html:186
+msgid "No critical issues at the moment"
+msgstr "सध्या कोणत्याही गंभीर समस्या नाहीत"
+
+#: templates/authority/dashboard.html:195
+msgid "Quick Stats"
+msgstr "त्वरित आकडेवारी"
+
+#: templates/authority/dashboard.html:201
+msgid "This Week"
+msgstr "या आठवड्यात"
+
+#: templates/authority/dashboard.html:205
+msgid "Resolved This Week"
+msgstr "या आठवड्यात सोडवले"
+
+#: templates/authority/dashboard.html:209
+msgid "Avg Response Time (hrs)"
+msgstr "सरासरी प्रतिसाद वेळ (तास)"
+
+#: templates/authority/dashboard.html:213
+msgid "Satisfaction Rate"
+msgstr "समाधान दर"
+
+#: templates/authority/dashboard.html:226
+msgid "Reports Map"
+msgstr "तक्रारींचा नकाशा"
+
+#: templates/authority/report_detail.html:9
+msgid "Back to Reports"
+msgstr "तक्रारींवर परत जा"
+
+#: templates/authority/report_detail.html:51
+#: templates/authority/reports.html:94 templates/authority/reports.html:166
+#: templates/authority/reports.html:233 templates/citizen/dashboard.html:350
+#: templates/citizen/report.html:78 templates/citizen/report_detail.html:99
+msgid "Address"
+msgstr "पत्ता"
+
+#: templates/authority/report_detail.html:55
+#: templates/authority/reports.html:93 templates/authority/reports.html:230
+#: templates/citizen/report_detail.html:102
+msgid "PIN/Postal Code"
+msgstr "पिन/पोस्टल कोड"
+
+#: templates/authority/report_detail.html:59
+#: templates/citizen/report_detail.html:82
+#: templates/citizen/report_detail.html:169
+msgid "Coordinates"
+msgstr "निर्देशांक"
+
+#: templates/authority/report_detail.html:72
+#: templates/citizen/dashboard.html:63
+msgid "Date Reported"
+msgstr "नोंदवल्याची तारीख"
+
+#: templates/authority/report_detail.html:77
+#: templates/citizen/dashboard.html:354
+#: templates/citizen/report_detail.html:110
+msgid "Last Updated"
+msgstr "शेवटचे अपडेट"
+
+#: templates/authority/report_detail.html:90
+#: templates/citizen/dashboard.html:326
+msgid "No photo uploaded"
+msgstr "कोणताही फोटो अपलोड केलेला नाही"
+
+#: templates/authority/report_detail.html:101
+#: templates/authority/report_detail.html:141
+msgid "Update Status"
+msgstr "स्थिती अपडेट करा"
+
+#: templates/authority/report_detail.html:107
+msgid "New Status"
+msgstr "नवीन स्थिती"
+
+#: templates/authority/report_detail.html:112
+#: templates/authority/report_detail.html:115
+#: templates/authority/reports.html:38
+msgid "Rejected"
+msgstr "नाकारले"
+
+#: templates/authority/report_detail.html:122
+msgid "Current status"
+msgstr "सध्याची स्थिती"
+
+#: templates/authority/report_detail.html:125
+msgid "Status Update Image"
+msgstr "स्थिती अपडेट प्रतिमा"
+
+#: templates/authority/report_detail.html:129
+msgid "Image is required for completed status"
+msgstr "पूर्ण स्थितीसाठी प्रतिमा आवश्यक आहे"
+
+#: templates/authority/report_detail.html:131
+msgid "Optional: Upload image to document the status update"
+msgstr "पर्यायी: स्थिती अपडेट दस्तऐवजीकरणासाठी प्रतिमा अपलोड करा"
+
+#: templates/authority/report_detail.html:136
+msgid "Comment (Optional)"
+msgstr "टिप्पणी (पर्यायी)"
+
+#: templates/authority/report_detail.html:137
+msgid "Add a comment about this status update..."
+msgstr "या स्थिती अपडेटबद्दल टिप्पणी जोडा..."
+
+#: templates/authority/report_detail.html:152
+msgid "Status History"
+msgstr "स्थिती इतिहास"
+
+#: templates/authority/report_detail.html:199
+msgid "Location coordinates not available"
+msgstr "स्थान निर्देशांक उपलब्ध नाहीत"
+
+#: templates/authority/report_detail.html:205
+msgid "Open in Google Maps"
+msgstr "Google Maps मध्ये उघडा"
+
+#: templates/authority/report_detail.html:215
+#: templates/citizen/report_detail.html:187
+msgid "Maintenance Ticket"
+msgstr "देखभाल तिकीट"
+
+#: templates/authority/report_detail.html:219
+msgid "Ticket Number"
+msgstr "तिकीट क्रमांक"
+
+#: templates/authority/report_detail.html:250
+msgid "Completed on"
+msgstr "पूर्ण झाले"
+
+#: templates/authority/report_detail.html:256
+msgid "Edit Ticket Details"
+msgstr "तिकीट तपशील संपादित करा"
+
+#: templates/authority/report_detail.html:272
+msgid "Verify Report"
+msgstr "तक्रार सत्यापित करा"
+
+#: templates/authority/report_detail.html:276
+msgid "Start Work"
+msgstr "काम सुरू करा"
+
+#: templates/authority/report_detail.html:280
+msgid "Mark Complete"
+msgstr "पूर्ण म्हणून चिन्हांकित करा"
+
+#: templates/authority/report_detail.html:286
+msgid "Reject Report"
+msgstr "तक्रार नाकारा"
+
+#: templates/authority/report_detail.html:300
+msgid "Edit Maintenance Ticket"
+msgstr "देखभाल तिकीट संपादित करा"
+
+#: templates/authority/report_detail.html:307
+#: templates/citizen/report_detail.html:198
+msgid "Assigned To"
+msgstr "नियुक्त केले"
+
+#: templates/authority/report_detail.html:309
+msgid "Unassigned"
+msgstr "नियुक्त नाही"
+
+#: templates/authority/report_detail.html:321
+msgid "Urgent"
+msgstr "तातडीचे"
+
+#: templates/authority/report_detail.html:346 templates/citizen/report.html:211
+msgid "Cancel"
+msgstr "रद्द करा"
+
+#: templates/authority/report_detail.html:347
+msgid "Save Changes"
+msgstr "बदल जतन करा"
+
+#: templates/authority/reports.html:18
+msgid "Filters & Search"
+msgstr "फिल्टर आणि शोध"
+
+#: templates/authority/reports.html:22
+msgid "Advanced Options"
+msgstr "प्रगत पर्याय"
+
+#: templates/authority/reports.html:31
+msgid "Status Filter"
+msgstr "स्थिती फिल्टर"
+
+#: templates/authority/reports.html:42
+msgid "Category Filter"
+msgstr "श्रेणी फिल्टर"
+
+#: templates/authority/reports.html:60
+msgid "Severity Filter"
+msgstr "तीव्रता फिल्टर"
+
+#: templates/authority/reports.html:84
+msgid "Search in Column"
+msgstr "स्तंभात शोधा"
+
+#: templates/authority/reports.html:86
+msgid "All Columns"
+msgstr "सर्व स्तंभ"
+
+#: templates/authority/reports.html:98
+msgid "Search Term"
+msgstr "शोध शब्द"
+
+#: templates/authority/reports.html:99
+msgid "Enter search term..."
+msgstr "शोध शब्द टाका..."
+
+#: templates/authority/reports.html:104
+msgid "Search"
+msgstr "शोधा"
+
+#: templates/authority/reports.html:113
+msgid "Show/Hide Columns"
+msgstr "स्तंभ दाखवा/लपवा"
+
+#: templates/authority/reports.html:186 templates/citizen/leaderboard.html:58
+msgid "Reports"
+msgstr "तक्रारी"
+
+#: templates/authority/reports.html:192
+msgid "Bulk Verify"
+msgstr "एकत्रित सत्यापन"
+
+#: templates/authority/reports.html:195
+msgid "Bulk Start Work"
+msgstr "एकत्रित काम सुरू करा"
+
+#: templates/authority/reports.html:322
+msgid "No reports found"
+msgstr "कोणत्याही तक्रारी सापडल्या नाहीत"
+
+#: templates/authority/reports.html:325
+msgid "No reports match the current filters."
+msgstr "सध्याच्या फिल्टरशी कोणत्याही तक्रारी जुळत नाहीत."
+
+#: templates/authority/reports.html:327
+msgid "No reports have been submitted yet."
+msgstr "अद्याप कोणत्याही तक्रारी सादर केल्या गेल्या नाहीत."
+
+#: templates/authority/reports.html:345
+msgid "Report Location"
+msgstr "तक्रारीचे स्थान"
+
+#: templates/citizen/dashboard.html:3
+msgid "Citizen Dashboard"
+msgstr "नागरिक डॅशबोर्ड"
+
+#: templates/citizen/dashboard.html:7
+msgid "My Dashboard"
+msgstr "माझे डॅशबोर्ड"
+
+#: templates/citizen/dashboard.html:26
+msgid "Pending"
+msgstr "प्रलंबित"
+
+#: templates/citizen/dashboard.html:50
+msgid "My Reports"
+msgstr "माझ्या तक्रारी"
+
+#: templates/citizen/dashboard.html:62
+msgid "Image"
+msgstr "प्रतिमा"
+
+#: templates/citizen/dashboard.html:100
+msgid "Click to view full image"
+msgstr "पूर्ण प्रतिमा पाहण्यासाठी क्लिक करा"
+
+#: templates/citizen/dashboard.html:121
+msgid "No reports yet"
+msgstr "अद्याप कोणत्याही तक्रारी नाहीत"
+
+#: templates/citizen/dashboard.html:122
+msgid "Start by reporting your first road issue!"
+msgstr "तुमच्या पहिल्या रस्त्याच्या समस्येची तक्रार करून सुरुवात करा!"
+
+#: templates/citizen/dashboard.html:136
+msgid "My Reports Map"
+msgstr "माझ्या तक्रारींचा नकाशा"
+
+#: templates/citizen/dashboard.html:266 templates/citizen/report.html:401
+msgid "View Details"
+msgstr "तपशील पहा"
+
+#: templates/citizen/dashboard.html:330
+#: templates/citizen/report_detail.html:119
+msgid "Status Updates"
+msgstr "स्थिती अपडेट्स"
+
+#: templates/citizen/dashboard.html:350 templates/citizen/report.html:431
+msgid "Not provided"
+msgstr "प्रदान केले नाही"
+
+#: templates/citizen/leaderboard.html:3 templates/citizen/leaderboard.html:9
+msgid "Citizen Leaderboard"
+msgstr "नागरिक आघाडी"
+
+#: templates/citizen/leaderboard.html:19
+msgid "Your Ranking"
+msgstr "तुमची रँकिंग"
+
+#: templates/citizen/leaderboard.html:25
+msgid "Current Rank"
+msgstr "सध्याची रँक"
+
+#: templates/citizen/leaderboard.html:29
+msgid "Total Points"
+msgstr "एकूण गुण"
+
+#: templates/citizen/leaderboard.html:33
+msgid "Reports Submitted"
+msgstr "सादर केलेल्या तक्रारी"
+
+#: templates/citizen/leaderboard.html:37
+msgid "Votes Cast"
+msgstr "दिलेली मते"
+
+#: templates/citizen/leaderboard.html:47
+msgid "Top Citizens"
+msgstr "अग्रगण्य नागरिक"
+
+#: templates/citizen/leaderboard.html:55
+msgid "Rank"
+msgstr "रँक"
+
+#: templates/citizen/leaderboard.html:56
+msgid "Citizen"
+msgstr "नागरिक"
+
+#: templates/citizen/leaderboard.html:57
+msgid "Points"
+msgstr "गुण"
+
+#: templates/citizen/leaderboard.html:60
+msgid "Badge"
+msgstr "बॅज"
+
+#: templates/citizen/leaderboard.html:82
+msgid "You"
+msgstr "तुम्ही"
+
+#: templates/citizen/leaderboard.html:90 templates/citizen/leaderboard.html:135
+msgid "Champion"
+msgstr "विजेता"
+
+#: templates/citizen/leaderboard.html:92 templates/citizen/leaderboard.html:134
+msgid "Expert"
+msgstr "तज्ञ"
+
+#: templates/citizen/leaderboard.html:94 templates/citizen/leaderboard.html:133
+msgid "Active"
+msgstr "सक्रिय"
+
+#: templates/citizen/leaderboard.html:96 templates/citizen/leaderboard.html:132
+msgid "Beginner"
+msgstr "नवशिक्या"
+
+#: templates/citizen/leaderboard.html:107
+msgid "No leaderboard data available"
+msgstr "कोणताही लीडरबोर्ड डेटा उपलब्ध नाही"
+
+#: templates/citizen/leaderboard.html:108
+msgid "Start reporting issues to earn points and appear on the leaderboard!"
+msgstr "गुण मिळवण्यासाठी आणि लीडरबोर्डवर दिसण्यासाठी समस्या नोंदवणे सुरू करा!"
+
+#: templates/citizen/leaderboard.html:117
+msgid "How Points Work"
+msgstr "गुण कसे काम करतात"
+
+#: templates/citizen/leaderboard.html:122
+msgid "Earn Points By:"
+msgstr "गुण मिळवा:"
+
+#: templates/citizen/leaderboard.html:124
+msgid "Submitting a report: +10 points"
+msgstr "तक्रार सादर करणे: +10 गुण"
+
+#: templates/citizen/leaderboard.html:125
+msgid "Voting on issues: +2 points"
+msgstr "समस्यांवर मतदान: +2 गुण"
+
+#: templates/citizen/leaderboard.html:126
+msgid "Report gets resolved: +5 bonus points"
+msgstr "तक्रार सोडवली गेली: +5 बोनस गुण"
+
+#: templates/citizen/leaderboard.html:130
+msgid "Badge Levels:"
+msgstr "बॅज स्तर:"
+
+#: templates/citizen/leaderboard.html:132
+#: templates/citizen/leaderboard.html:133
+#: templates/citizen/leaderboard.html:134
+#: templates/citizen/leaderboard.html:135
+msgid "points"
+msgstr "गुण"
+
+#: templates/citizen/leaderboard.html:146
+msgid "Your Achievements"
+msgstr "तुमच्या उपलब्धी"
+
+#: templates/citizen/leaderboard.html:154
+msgid "First Report"
+msgstr "पहिली तक्रार"
+
+#: templates/citizen/leaderboard.html:172
+msgid "Voter"
+msgstr "मतदार"
+
+#: templates/citizen/leaderboard.html:190
+msgid "Century"
+msgstr "शतक"
+
+#: templates/citizen/leaderboard.html:199
+msgid "Top 10"
+msgstr "टॉप 10"
+
+#: templates/citizen/report.html:20
+msgid "Basic Info"
+msgstr "मूलभूत माहिती"
+
+#: templates/citizen/report.html:26
+msgid "Check Duplicates"
+msgstr "डुप्लिकेट तपासा"
+
+#: templates/citizen/report.html:32
+msgid "Complete Report"
+msgstr "तक्रार पूर्ण करा"
+
+#: templates/citizen/report.html:40
+msgid "Step 1: Basic Information"
+msgstr "पायरी 1: मूलभूत माहिती"
+
+#: templates/citizen/report.html:43
+msgid "Issue Category"
+msgstr "समस्या श्रेणी"
+
+#: templates/citizen/report.html:45
+msgid "Select Category"
+msgstr "श्रेणी निवडा"
+
+#: templates/citizen/report.html:47
+msgid "Sanitation & Waste Management"
+msgstr "स्वच्छता आणि कचरा व्यवस्थापन"
+
+#: templates/citizen/report.html:49
+msgid "Electricity & Street Lighting"
+msgstr "वीज आणि पथदिवे"
+
+#: templates/citizen/report.html:50
+msgid "Public Safety & Security"
+msgstr "सार्वजनिक सुरक्षा आणि संरक्षण"
+
+#: templates/citizen/report.html:51
+msgid "Environment & Pollution"
+msgstr "पर्यावरण आणि प्रदूषण"
+
+#: templates/citizen/report.html:52
+msgid "Transportation & Traffic"
+msgstr "वाहतूक आणि ट्रॅफिक"
+
+#: templates/citizen/report.html:53
+msgid "Healthcare & Public Health"
+msgstr "आरोग्यसेवा आणि सार्वजनिक आरोग्य"
+
+#: templates/citizen/report.html:54
+msgid "Digital Services & E-Governance"
+msgstr "डिजिटल सेवा आणि ई-गव्हर्नन्स"
+
+#: templates/citizen/report.html:55
+msgid "Education & Public Spaces"
+msgstr "शिक्षण आणि सार्वजनिक जागा"
+
+#: templates/citizen/report.html:56
+msgid "Emergency & Disaster Management"
+msgstr "आणीबाणी आणि आपत्ती व्यवस्थापन"
+
+#: templates/citizen/report.html:57
+msgid "Citizen Rights & Governance"
+msgstr "नागरी हक्क आणि शासन"
+
+#: templates/citizen/report.html:62
+msgid "Issue Title"
+msgstr "समस्या शीर्षक"
+
+#: templates/citizen/report.html:72
+msgid "PIN/Postal/Zip Code"
+msgstr "पिन/पोस्टल/झिप कोड"
+
+#: templates/citizen/report.html:73
+msgid "e.g., 110001, 90210, M5V 3L9"
+msgstr "उदा., 110001, 90210, M5V 3L9"
+
+#: templates/citizen/report.html:74
+msgid "PIN/Postal/Zip code is required"
+msgstr "पिन/पोस्टल/झिप कोड आवश्यक आहे"
+
+#: templates/citizen/report.html:83
+msgid "Location (Optional)"
+msgstr "स्थान (पर्यायी)"
+
+#: templates/citizen/report.html:87
+msgid "Get Current Location"
+msgstr "सध्याचे स्थान मिळवा"
+
+#: templates/citizen/report.html:92
+msgid "Choose on Map"
+msgstr "नकाशावर निवडा"
+
+#: templates/citizen/report.html:97
+msgid "Location:"
+msgstr "स्थान:"
+
+#: templates/citizen/report.html:105
+msgid "Check for Similar Issues"
+msgstr "समान समस्या तपासा"
+
+#: templates/citizen/report.html:113
+msgid "Step 2: Similar Issues Found"
+msgstr "पायरी 2: समान समस्या सापडल्या"
+
+#: templates/citizen/report.html:119 templates/citizen/report.html:170
+msgid "Back"
+msgstr "मागे"
+
+#: templates/citizen/report.html:122
+msgid "Continue with New Report"
+msgstr "नवीन तक्रार सुरू ठेवा"
+
+#: templates/citizen/report.html:129
+msgid "Step 3: Complete Your Report"
+msgstr "पायरी 3: तुमची तक्रार पूर्ण करा"
+
+#: templates/citizen/report.html:145
+msgid "Select Severity"
+msgstr "तीव्रता निवडा"
+
+#: templates/citizen/report.html:156
+msgid "Photo is mandatory for all reports"
+msgstr "सर्व तक्रारींसाठी फोटो अनिवार्य आहे"
+
+#: templates/citizen/report.html:163
+msgid "Report Anonymously (Hide my identity in public views)"
+msgstr "निनावीपणे तक्रार करा (सार्वजनिक दृश्यांमध्ये माझी ओळख लपवा)"
+
+#: templates/citizen/report.html:189
+msgid "Similar Issue Details"
+msgstr "समान समस्या तपशील"
+
+#: templates/citizen/report.html:204
+msgid "Choose Location on Map"
+msgstr "नकाशावर स्थान निवडा"
+
+#: templates/citizen/report.html:212
+msgid "Confirm Location"
+msgstr "स्थान पुष्टी करा"
+
+#: templates/citizen/report.html:333
+msgid "Please fill in all required fields before checking for duplicates."
+msgstr "डुप्लिकेट तपासण्यापूर्वी कृपया सर्व आवश्यक फील्ड भरा."
+
+#: templates/citizen/report.html:355
+msgid "Error checking for duplicates:"
+msgstr "डुप्लिकेट तपासताना त्रुटी:"
+
+#: templates/citizen/report.html:360
+msgid "Error checking for duplicates. Please try again."
+msgstr "डुप्लिकेट तपासताना त्रुटी. कृपया पुन्हा प्रयत्न करा."
+
+#: templates/citizen/report.html:370
+msgid ""
+"No similar issues found in your area. You can proceed with creating a new"
+" report."
+msgstr ""
+"तुमच्या परिसरात कोणत्याही समान समस्या सापडल्या नाहीत. तुम्ही नवीन तक्रार तयार करू शकता."
+
+#: templates/citizen/report.html:378
+msgid "Found"
+msgstr "सापडले"
+
+#: templates/citizen/report.html:378
+msgid ""
+"similar issue(s) in your area. Please review them and consider voting "
+"instead of creating a duplicate report."
+msgstr ""
+"तुमच्या परिसरात समान समस्या. कृपया त्यांचे पुनरावलोकन करा आणि डुप्लिकेट तक्रार तयार करण्याऐवजी मतदान करण्याचा विचार करा."
+
+#: templates/citizen/report.html:392 templates/citizen/report.html:434
+msgid "Reported by:"
+msgstr "तक्रारदार:"
+
+#: templates/citizen/report.html:398 templates/citizen/report.html:471
+msgid "votes"
+msgstr "मते"
+
+#: templates/citizen/report.html:407 templates/citizen/report.html:462
+msgid "Voted"
+msgstr "मत दिले"
+
+#: templates/citizen/report.html:407
+msgid "Vote"
+msgstr "मत द्या"
+
+#: templates/citizen/report.html:431
+msgid "Address:"
+msgstr "पत्ता:"
+
+#: templates/citizen/report.html:432
+msgid "Severity:"
+msgstr "तीव्रता:"
+
+#: templates/citizen/report.html:433
+msgid "Status:"
+msgstr "स्थिती:"
+
+#: templates/citizen/report.html:435
+msgid "Date:"
+msgstr "तारीख:"
+
+#: templates/citizen/report.html:438
+msgid "Report Photo"
+msgstr "तक्रार फोटो"
+
+#: templates/citizen/report.html:438
+msgid "No photo available"
+msgstr "कोणताही फोटो उपलब्ध नाही"
+
+#: templates/citizen/report.html:447
+msgid "Error loading report details."
+msgstr "तक्रार तपशील लोड करताना त्रुटी."
+
+#: templates/citizen/report.html:474
+msgid "Error voting:"
+msgstr "मतदान करताना त्रुटी:"
+
+#: templates/citizen/report.html:479
+msgid "Error voting. Please try again."
+msgstr "मतदान करताना त्रुटी. कृपया पुन्हा प्रयत्न करा."
+
+#: templates/citizen/report.html:507
+msgid "Error getting location:"
+msgstr "स्थान मिळवताना त्रुटी:"
+
+#: templates/citizen/report.html:510
+msgid "Geolocation is not supported by this browser."
+msgstr "या ब्राउझरद्वारे जिओलोकेशन समर्थित नाही."
+
+#: templates/citizen/report.html:544
+msgid "Please select a location on the map."
+msgstr "कृपया नकाशावर स्थान निवडा."
+
+#: templates/citizen/report.html:560
+msgid "Report submitted successfully!"
+msgstr "तक्रार यशस्वीरित्या सादर केली!"
+
+#: templates/citizen/report.html:563
+msgid "Error submitting report:"
+msgstr "तक्रार सादर करताना त्रुटी:"
+
+#: templates/citizen/report.html:568
+msgid "Error submitting report. Please try again."
+msgstr "तक्रार सादर करताना त्रुटी. कृपया पुन्हा प्रयत्न करा."
+
+#: templates/citizen/report_detail.html:69
+#: templates/citizen/report_detail.html:171
+msgid "Location not provided"
+msgstr "स्थान प्रदान केले नाही"
+
+#: templates/citizen/report_detail.html:92
+msgid "Coordinates Unavailable"
+msgstr "निर्देशांक अनुपलब्ध"
+
+#: templates/citizen/report_detail.html:93
+msgid "Location data not provided"
+msgstr "स्थान डेटा प्रदान केला नाही"
+
+#: templates/citizen/report_detail.html:190
+msgid "Ticket #"
+msgstr "तिकीट #"
+
+#~ msgid ""
+#~ "Report road issues instantly using your"
+#~ " mobile device with GPS location and"
+#~ " photo upload."
+#~ msgstr ""
+#~ "तुमच्या मोबाइल डिव्हाइसवरून GPS स्थान आणि"
+#~ " फोटो अपलोडसह रस्त्याच्या समस्या"
+#~ " त्वरित नोंदवा."
+
+#~ msgid ""
+#~ "Notice any issue like potholes, broken"
+#~ " streetlight, or damaged road? Take a"
+#~ " photo and note the location."
+#~ msgstr ""
+#~ "खड्डे, तुटलेला पथदिवा किंवा खराब"
+#~ " रस्ता यासारखी कोणतीही समस्या दिसली?"
+#~ " फोटो काढा आणि स्थान नोंदवा."
+
+#~ msgid "Profile"
+#~ msgstr "प्रोफाइल"
+
+#~ msgid "Welcome"
+#~ msgstr "स्वागत आहे"
+
+#~ msgid "Submit"
+#~ msgstr "सबमिट करा"
+
+#~ msgid "Save"
+#~ msgstr "सेव्ह करा"
+
+#~ msgid "Delete"
+#~ msgstr "डिलीट करा"
+
+#~ msgid "Edit"
+#~ msgstr "एडिट करा"
+
+#~ msgid "Sort"
+#~ msgstr "क्रमवारी लावा"
+
+#~ msgid "Time"
+#~ msgstr "वेळ"
+
+#~ msgid "Upload"
+#~ msgstr "अपलोड करा"
+
+#~ msgid "Download"
+#~ msgstr "डाउनलोड करा"
+
+#~ msgid "Share"
+#~ msgstr "शेअर करा"
+
+#~ msgid "Print"
+#~ msgstr "प्रिंट करा"
+
+#~ msgid "Help"
+#~ msgstr "मदत"
+
+#~ msgid "About"
+#~ msgstr "बद्दल"
+
+#~ msgid "Contact"
+#~ msgstr "संपर्क"
+
+#~ msgid "Settings"
+#~ msgstr "सेटिंग्ज"
+
+#~ msgid "Notifications"
+#~ msgstr "सूचना"
+
+#~ msgid "Messages"
+#~ msgstr "संदेश"
+
+#~ msgid "Users"
+#~ msgstr "वापरकर्ते"
+
+#~ msgid "Statistics"
+#~ msgstr "आकडेवारी"
+
+#~ msgid "Export"
+#~ msgstr "एक्सपोर्ट"
+
+#~ msgid "Import"
+#~ msgstr "इम्पोर्ट"
+
+#~ msgid "Backup"
+#~ msgstr "बॅकअप"
+
+#~ msgid "Restore"
+#~ msgstr "रिस्टोअर"
+
+#~ msgid "Refresh"
+#~ msgstr "रिफ्रेश"
+
+#~ msgid "Loading"
+#~ msgstr "लोड होत आहे"
+
+#~ msgid "Please wait"
+#~ msgstr "कृपया प्रतीक्षा करा"
+
+#~ msgid "Success"
+#~ msgstr "यश"
+
+#~ msgid "Error"
+#~ msgstr "त्रुटी"
+
+#~ msgid "Warning"
+#~ msgstr "चेतावणी"
+
+#~ msgid "Information"
+#~ msgstr "माहिती"
+
+#~ msgid "Confirmation"
+#~ msgstr "पुष्टीकरण"
+
+#~ msgid "Yes"
+#~ msgstr "होय"
+
+#~ msgid "No"
+#~ msgstr "नाही"
+
+#~ msgid "OK"
+#~ msgstr "ठीक आहे"
+
+#~ msgid "Close"
+#~ msgstr "बंद करा"
+
+#~ msgid "Next"
+#~ msgstr "पुढे"
+
+#~ msgid "Previous"
+#~ msgstr "मागील"
+
+#~ msgid "First"
+#~ msgstr "पहिला"
+
+#~ msgid "Last"
+#~ msgstr "शेवटचा"
+
+#~ msgid "Home"
+#~ msgstr "होम"
+
+#~ msgid "Page"
+#~ msgstr "पान"
+
+#~ msgid "Total"
+#~ msgstr "एकूण"
+
+#~ msgid "Name"
+#~ msgstr "नाव"
+
+#~ msgid "Email"
+#~ msgstr "ईमेल"
+
+#~ msgid "Phone"
+#~ msgstr "फोन"
+
+#~ msgid "City"
+#~ msgstr "शहर"
+
+#~ msgid "State"
+#~ msgstr "राज्य"
+
+#~ msgid "Country"
+#~ msgstr "देश"
+
+#~ msgid "Report photo"
+#~ msgstr "तक्रार फोटो"
+
+#~ msgid "Update"
+#~ msgstr "अपडेट करा"
+
+#~ msgid "Filter"
+#~ msgstr "फिल्टर"
+
+#~ msgid "Reset"
+#~ msgstr "रीसेट करा"
+
+#~ msgid "Clear"
+#~ msgstr "साफ करा"
+
+#~ msgid "Select"
+#~ msgstr "निवडा"
+
+#~ msgid "Choose"
+#~ msgstr "निवडा"
+
+#~ msgid "Browse"
+#~ msgstr "ब्राउझ करा"
+
+#~ msgid "Open"
+#~ msgstr "उघडा"
+
+#~ msgid "View All"
+#~ msgstr "सर्व पहा"
+
+#~ msgid "Show More"
+#~ msgstr "अधिक दाखवा"
+
+#~ msgid "Show Less"
+#~ msgstr "कमी दाखवा"
+
+#~ msgid "Expand"
+#~ msgstr "विस्तार करा"
+
+#~ msgid "Collapse"
+#~ msgstr "संकुचित करा"
+
+#~ msgid "Reply"
+#~ msgstr "उत्तर द्या"
+
+#~ msgid "Forward"
+#~ msgstr "पुढे पाठवा"
+
+#~ msgid "Archive"
+#~ msgstr "संग्रहित करा"
+
+#~ msgid "Unarchive"
+#~ msgstr "संग्रहातून काढा"
+
+#~ msgid "Mark as Read"
+#~ msgstr "वाचले म्हणून चिन्हांकित करा"
+
+#~ msgid "Mark as Unread"
+#~ msgstr "न वाचलेले म्हणून चिन्हांकित करा"
+
+#~ msgid "Priority"
+#~ msgstr "प्राधान्य"
+
+#~ msgid "Deadline"
+#~ msgstr "अंतिम मुदत"
+
+#~ msgid "Duration"
+#~ msgstr "कालावधी"
+
+#~ msgid "Progress"
+#~ msgstr "प्रगती"
+
+#~ msgid "Percentage"
+#~ msgstr "टक्केवारी"
+
+#~ msgid "Details"
+#~ msgstr "तपशील"
+
+#~ msgid "Summary"
+#~ msgstr "सारांश"
+
+#~ msgid "Overview"
+#~ msgstr "विहंगावलोकन"
+
+#~ msgid "History"
+#~ msgstr "इतिहास"
+
+#~ msgid "Activity"
+#~ msgstr "क्रियाकलाप"
+
+#~ msgid "Timeline"
+#~ msgstr "कालक्रम"
+
+#~ msgid "Calendar"
+#~ msgstr "कॅलेंडर"
+
+#~ msgid "Schedule"
+#~ msgstr "वेळापत्रक"
+
+#~ msgid "Reminder"
+#~ msgstr "स्मरणपत्र"
+
+#~ msgid "Alert"
+#~ msgstr "सूचना"
+
+#~ msgid "Badge"
+#~ msgstr "बॅज"
+
+#~ msgid "Label"
+#~ msgstr "लेबल"
+
+#~ msgid "Tag"
+#~ msgstr "टॅग"
+
+#~ msgid "Bookmark"
+#~ msgstr "बुकमार्क"
+
+#~ msgid "Favorite"
+#~ msgstr "आवडते"
+
+#~ msgid "Like"
+#~ msgstr "लाइक"
+
+#~ msgid "Comment"
+#~ msgstr "टिप्पणी"
+
+#~ msgid "Review"
+#~ msgstr "पुनरावलोकन"
+
+#~ msgid "Rating"
+#~ msgstr "रेटिंग"
+
+#~ msgid "Feedback"
+#~ msgstr "अभिप्राय"
+
+#~ msgid "Survey"
+#~ msgstr "सर्वेक्षण"
+
+#~ msgid "Poll"
+#~ msgstr "मतदान"
+
+#~ msgid "Question"
+#~ msgstr "प्रश्न"
+
+#~ msgid "Answer"
+#~ msgstr "उत्तर"
+
+#~ msgid "Solution"
+#~ msgstr "उपाय"
+
+#~ msgid "Result"
+#~ msgstr "निकाल"
+
+#~ msgid "Output"
+#~ msgstr "आउटपुट"
+
+#~ msgid "Input"
+#~ msgstr "इनपुट"
+
+#~ msgid "Form"
+#~ msgstr "फॉर्म"
+
+#~ msgid "Field"
+#~ msgstr "फील्ड"
+
+#~ msgid "Required"
+#~ msgstr "आवश्यक"
+
+#~ msgid "Optional"
+#~ msgstr "पर्यायी"
+
+#~ msgid "Mandatory"
+#~ msgstr "अनिवार्य"
+
+#~ msgid "Terms"
+#~ msgstr "अटी"
+
+#~ msgid "Conditions"
+#~ msgstr "शर्ती"
+
+#~ msgid "Privacy"
+#~ msgstr "गोपनीयता"
+
+#~ msgid "Security"
+#~ msgstr "सुरक्षा"
+
+#~ msgid "Permission"
+#~ msgstr "परवानगी"
+
+#~ msgid "Access"
+#~ msgstr "प्रवेश"
+
+#~ msgid "Deny"
+#~ msgstr "नकार"
+
+#~ msgid "Allow"
+#~ msgstr "परवानगी द्या"
+
+#~ msgid "Block"
+#~ msgstr "ब्लॉक करा"
+
+#~ msgid "Unblock"
+#~ msgstr "अनब्लॉक करा"
+
+#~ msgid "Enable"
+#~ msgstr "सक्षम करा"
+
+#~ msgid "Disable"
+#~ msgstr "अक्षम करा"
+
+#~ msgid "Active"
+#~ msgstr "सक्रिय"
+
+#~ msgid "Inactive"
+#~ msgstr "निष्क्रिय"
+
+#~ msgid "Online"
+#~ msgstr "ऑनलाइन"
+
+#~ msgid "Offline"
+#~ msgstr "ऑफलाइन"
+
+#~ msgid "Available"
+#~ msgstr "उपलब्ध"
+
+#~ msgid "Unavailable"
+#~ msgstr "अनुपलब्ध"
+
+#~ msgid "Busy"
+#~ msgstr "व्यस्त"
+
+#~ msgid "Away"
+#~ msgstr "दूर"
+
+#~ msgid "Administrator"
+#~ msgstr "प्रशासक"
+
+#~ msgid "Moderator"
+#~ msgstr "मॉडरेटर"
+
+#~ msgid "Member"
+#~ msgstr "सदस्य"
+
+#~ msgid "Guest"
+#~ msgstr "अतिथी"
+
+#~ msgid "Account"
+#~ msgstr "खाते"
+
+#~ msgid "Username"
+#~ msgstr "वापरकर्तानाव"
+
+#~ msgid "Language"
+#~ msgstr "भाषा"
+
+#~ msgid "Theme"
+#~ msgstr "थीम"
+
+#~ msgid "Dark Mode"
+#~ msgstr "डार्क मोड"
+
+#~ msgid "Light Mode"
+#~ msgstr "लाइट मोड"
+
+#~ msgid "System Default"
+#~ msgstr "सिस्टम डिफॉल्ट"
+
+#~ msgid "Preferences"
+#~ msgstr "प्राधान्ये"
+
+#~ msgid "Configuration"
+#~ msgstr "कॉन्फिगरेशन"
+
+#~ msgid "Options"
+#~ msgstr "पर्याय"
+
+#~ msgid "Tools"
+#~ msgstr "साधने"
+
+#~ msgid "Resources"
+#~ msgstr "संसाधने"
+
+#~ msgid "Documentation"
+#~ msgstr "दस्तऐवजीकरण"
+
+#~ msgid "Tutorial"
+#~ msgstr "ट्यूटोरियल"
+
+#~ msgid "Guide"
+#~ msgstr "मार्गदर्शक"
+
+#~ msgid "Manual"
+#~ msgstr "मॅन्युअल"
+
+#~ msgid "FAQ"
+#~ msgstr "वारंवार विचारले जाणारे प्रश्न"
+
+#~ msgid "Support"
+#~ msgstr "समर्थन"
+
+#~ msgid "Feedback Form"
+#~ msgstr "अभिप्राय फॉर्म"
+
+#~ msgid "Report Bug"
+#~ msgstr "बग नोंदवा"
+
+#~ msgid "Request Feature"
+#~ msgstr "वैशिष्ट्याची विनंती करा"
+
+#~ msgid "Version"
+#~ msgstr "आवृत्ती"
+
+#~ msgid "Changelog"
+#~ msgstr "बदल लॉग"
+
+#~ msgid "License"
+#~ msgstr "परवाना"
+
+#~ msgid "Copyright"
+#~ msgstr "कॉपीराइट"
+
+#~ msgid "All Rights Reserved"
+#~ msgstr "सर्व हक्क राखीव"

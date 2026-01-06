@@ -1,0 +1,370 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Citizen Dashboard') }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4 scroll-reveal-left">
+    <h2><i class="fas fa-tachometer-alt"></i> {{ _('My Dashboard') }}</h2>
+    <a href="{{ url_for('create_report') }}" class="btn btn-primary">
+        <i class="fas fa-plus-circle"></i> {{ _('Report New Issue') }}
+    </a>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card text-center scroll-reveal scroll-reveal-delay-1">
+            <div class="card-body">
+                <h3>{{ reports|length }}</h3>
+                <p class="mb-0">{{ _('Total Reports') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white text-center scroll-reveal scroll-reveal-delay-2">
+            <div class="card-body">
+                <h3>{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</h3>
+                <p class="mb-0">{{ _('Pending') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white text-center scroll-reveal scroll-reveal-delay-3">
+            <div class="card-body">
+                <h3>{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</h3>
+                <p class="mb-0">{{ _('In Progress') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white text-center scroll-reveal scroll-reveal-delay-4">
+            <div class="card-body">
+                <h3>{{ reports|selectattr("status", "equalto", "completed")|list|length }}</h3>
+                <p class="mb-0">{{ _('Completed') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card scroll-reveal">
+    <div class="card-header">
+        <h5 class="mb-0"><i class="fas fa-list"></i> {{ _('My Reports') }}</h5>
+    </div>
+    <div class="card-body">
+        {% if reports %}
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>{{ _('Title') }}</th>
+                            <th>{{ _('Category') }}</th>
+                            <th>{{ _('Severity') }}</th>
+                            <th>{{ _('Status') }}</th>
+                            <th>{{ _('Image') }}</th>
+                            <th>{{ _('Date Reported') }}</th>
+                            <th>{{ _('Actions') }}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for report in reports %}
+                        <tr>
+                            <td>
+                                <strong>{{ report.title }}</strong>
+                                {% if report.photo_path %}
+                                    <i class="fas fa-camera text-muted ms-1" title="{{ _('Has photo') }}"></i>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
+                            </td>
+                            <td>
+                                <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                            </td>
+                            <td>
+                                {% set status_colors = {
+                                    'reported': 'secondary',
+                                    'verified': 'info',
+                                    'in_progress': 'warning',
+                                    'completed': 'success',
+                                    'rejected': 'danger'
+                                } %}
+                                <span class="badge bg-{{ status_colors[report.status] }}">
+                                    {{ report.status.replace('_', ' ').title() }}
+                                </span>
+                            </td>
+                            <td>
+                                {% if report.photo_path %}
+                                    <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}" 
+                                         class="img-thumbnail" 
+                                         style="max-width: 60px; max-height: 60px; cursor: pointer;" 
+                                         onclick="showImageModal('{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}', '{{ report.title }}')"
+                                         title="{{ _('Click to view full image') }}">
+                                {% else %}
+                                    <span class="text-muted small">
+                                        <i class="fas fa-image-slash"></i> {{ _('No image available') }}
+                                    </span>
+                                {% endif %}
+                            </td>
+                            <td>{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td>
+                                <a href="{{ url_for('view_citizen_report', report_id=report.id) }}" class="btn btn-sm btn-outline-primary">
+                                    <i class="fas fa-eye"></i> {{ _('View') }}
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        {% else %}
+            <div class="text-center py-4">
+                <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
+                <h5>{{ _('No reports yet') }}</h5>
+                <p class="text-muted">{{ _('Start by reporting your first road issue!') }}</p>
+                <a href="{{ url_for('create_report') }}" class="btn btn-primary">
+                    <i class="fas fa-plus-circle"></i> {{ _('Report Issue') }}
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Reports Map -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('My Reports Map') }}</h5>
+            </div>
+            <div class="card-body">
+                <div id="citizenReportsMap" class="map-container" style="height: 400px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Report Details Modal -->
+<div class="modal fade" id="reportModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('Report Details') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="reportModalBody">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Image Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="imageModalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body" id="imageModalBody">
+                <!-- Content loaded dynamically -->
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+var reportsData = [];
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Store reports data from server (avoiding template syntax in JS)
+    try {
+        const rawData = '{{ reports_data|tojson|safe }}';
+        console.log('Raw JSON data:', rawData);
+        reportsData = JSON.parse(rawData);
+        console.log('Reports data loaded:', reportsData);
+        console.log('Number of reports:', reportsData.length);
+        
+        // Log each report's coordinates
+        reportsData.forEach(function(report, index) {
+            console.log(`Report ${index + 1}:`, {
+                id: report.id,
+                title: report.title,
+                latitude: report.latitude,
+                longitude: report.longitude,
+                lat_type: typeof report.latitude,
+                lng_type: typeof report.longitude
+            });
+        });
+    } catch (e) {
+        console.error('Error parsing reports data:', e);
+        reportsData = [];
+    }
+    
+    // Always initialize map, even if no reports
+    initializeCitizenMap();
+});
+
+function initializeCitizenMap() {
+    console.log('Initializing citizen map...');
+    
+    // Check if map container exists
+    const mapContainer = document.getElementById('citizenReportsMap');
+    if (!mapContainer) {
+        console.error('Map container not found!');
+        return;
+    }
+    
+    try {
+        // Initialize map with proper touch controls
+        const map = L.map('citizenReportsMap', {
+            // Enable touch interactions
+            touchZoom: true,
+            doubleClickZoom: true,
+            scrollWheelZoom: true,
+            boxZoom: true,
+            keyboard: true,
+            dragging: true,
+            // Disable single-finger zoom to require two fingers
+            tap: true,
+            tapTolerance: 15,
+            // Enable proper mobile gestures
+            zoomControl: true,
+            attributionControl: true
+        }).setView([28.6139, 77.2090], 10);
+        console.log('Map object created successfully');
+        
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'OpenStreetMap contributors'
+        }).addTo(map);
+        console.log('Tile layer added');
+        
+        const markers = [];
+        
+        console.log('Processing reports for markers:', reportsData.length);
+        
+        reportsData.forEach(function(report) {
+            console.log('Processing report:', report.id, 'Lat:', report.latitude, 'Lng:', report.longitude);
+            if (report.latitude && report.longitude) {
+                const color = getMarkerColor(report.severity);
+                const marker = L.circleMarker([report.latitude, report.longitude], {
+                    color: color,
+                    fillColor: color,
+                    fillOpacity: 0.8,
+                    radius: getSeverityRadius(report.severity),
+                    weight: 3
+                }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div class="text-center">
+                        <strong>${report.title}</strong><br>
+                        <span class="badge bg-${getSeverityBadgeColor(report.severity)}">${report.severity}</span><br>
+                        Status: ${report.status.replace('_', ' ')}<br>
+                        <small>${new Date(report.created_at).toLocaleDateString()}</small><br>
+                        <button class="btn btn-sm btn-primary mt-1" onclick="viewReportDetails(${report.id})">{{ _('View Details') }}</button>
+                    </div>
+                `);
+                
+                markers.push(marker);
+                console.log('Added marker for report:', report.id);
+            }
+        });
+        
+        console.log('Total markers added:', markers.length);
+        
+        // Fit map to show all markers
+        if (markers.length > 0) {
+            const group = new L.featureGroup(markers);
+            map.fitBounds(group.getBounds().pad(0.1));
+        }
+        
+    } catch (error) {
+        console.error('Error initializing map:', error);
+    }
+}
+
+function getMarkerColor(severity) {
+    switch(severity) {
+        case 'critical': return '#721c24';
+        case 'high': return '#dc3545';
+        case 'medium': return '#fd7e14';
+        case 'low': return '#198754';
+        default: return '#6c757d';
+    }
+}
+
+function getSeverityRadius(severity) {
+    switch(severity) {
+        case 'critical': return 12;
+        case 'high': return 10;
+        case 'medium': return 8;
+        case 'low': return 6;
+        default: return 8;
+    }
+}
+
+function getSeverityBadgeColor(severity) {
+    switch(severity) {
+        case 'critical': return 'dark';
+        case 'high': return 'danger';
+        case 'medium': return 'warning';
+        case 'low': return 'success';
+        default: return 'secondary';
+    }
+}
+
+function viewReportDetails(reportId) {
+    // Find report data from the stored data
+    var report = reportsData.find(function(r) { return r.id === reportId; });
+    
+    if (report) {
+        var modalBody = document.getElementById('reportModalBody');
+        var photoHtml = report.photo_path ? 
+            '<img src="/' + report.photo_path + '" class="img-fluid rounded" alt="{{ ('Report photo') }}">': 
+            '<p class="text-muted">{{ _('No photo uploaded') }}</p>';
+        
+        var updatesHtml = '';
+        if (report.updates && report.updates.length > 0) {
+            updatesHtml = '<hr><h6>{{ _('Status Updates') }}:</h6><div class="timeline">';
+            report.updates.forEach(function(update) {
+                updatesHtml += '<div class="mb-2">';
+                updatesHtml += '<small class="text-muted">' + new Date(update.created_at).toLocaleString() + '</small><br>';
+                updatesHtml += '<strong>' + update.status.replace('_', ' ') + '</strong>';
+                if (update.comment) {
+                    updatesHtml += '<br><em>' + update.comment + '</em>';
+                }
+                updatesHtml += '</div>';
+            });
+            updatesHtml += '</div>';
+        }
+        
+        modalBody.innerHTML = 
+            '<div class="row">' +
+                '<div class="col-md-8">' +
+                    '<h6><strong>{{ _('Title') }}:</strong> ' + report.title + '</h6>' +
+                    '<p><strong>{{ _('Description') }}:</strong> ' + report.description + '</p>' +
+                    '<p><strong>{{ _('Category') }}:</strong> ' + report.category.replace('_', ' ') + '</p>' +
+                    '<p><strong>{{ _('Severity') }}:</strong> ' + report.severity + '</p>' +
+                    '<p><strong>{{ _('Address') }}:</strong> ' + (report.address || '{{ _('Not provided') }}') + '</p>' +
+                    '<p><strong>{{ _('Status') }}:</strong> ' + report.status.replace('_', ' ') + '</p>' +
+                    '<p><strong>{{ _('Reported') }}:</strong> ' + new Date(report.created_at).toLocaleString() + '</p>' +
+                    (report.updated_at !== report.created_at ? 
+                        '<p><strong>{{ _('Last Updated') }}:</strong> ' + new Date(report.updated_at).toLocaleString() + '</p>' : '') +
+                '</div>' +
+                '<div class="col-md-4">' + photoHtml + '</div>' +
+            '</div>' + updatesHtml;
+        
+        new bootstrap.Modal(document.getElementById('reportModal')).show();
+    }
+}
+
+function showImageModal(imageUrl, title) {
+    var modalBody = document.getElementById('imageModalBody');
+    modalBody.innerHTML = '<img src="' + imageUrl + '" class="img-fluid" alt="' + title + '">';
+    document.getElementById('imageModalTitle').innerText = title;
+    new bootstrap.Modal(document.getElementById('imageModal')).show();
+}
+</script>
+{% endblock %}

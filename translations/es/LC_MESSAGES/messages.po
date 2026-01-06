@@ -1,0 +1,385 @@
+# Spanish translations for Road Maintenance System
+# Copyright (C) 2025 Paradox Team
+# This file is distributed under the same license as the Road Maintenance System project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Road Maintenance System 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-12 22:47:32+0530\n"
+"PO-Revision-Date: 2025-01-12 22:47:32+0530\n"
+"Last-Translator: Paradox Team\n"
+"Language: es\n"
+"Language-Team: es <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+# Navigation and branding
+msgid "Road Maintenance System"
+msgstr "Sistema de Mantenimiento de Carreteras"
+
+msgid "Dashboard"
+msgstr "Panel de Control"
+
+msgid "Report Issue"
+msgstr "Reportar Problema"
+
+msgid "Leaderboard"
+msgstr "Tabla de Clasificación"
+
+msgid "All Reports"
+msgstr "Todos los Reportes"
+
+msgid "Analytics"
+msgstr "Análisis"
+
+msgid "Public Reports"
+msgstr "Reportes Públicos"
+
+msgid "Track Report"
+msgstr "Rastrear Reporte"
+
+msgid "Login"
+msgstr "Iniciar Sesión"
+
+msgid "Register"
+msgstr "Registrarse"
+
+msgid "Logout"
+msgstr "Cerrar Sesión"
+
+msgid "Improving infrastructure through citizen engagement."
+msgstr "Mejorando la infraestructura a través de la participación ciudadana."
+
+# Common terms
+msgid "Title"
+msgstr "Título"
+
+msgid "Description"
+msgstr "Descripción"
+
+msgid "Category"
+msgstr "Categoría"
+
+msgid "Severity"
+msgstr "Severidad"
+
+msgid "Status"
+msgstr "Estado"
+
+msgid "Location"
+msgstr "Ubicación"
+
+msgid "Date"
+msgstr "Fecha"
+
+msgid "Image"
+msgstr "Imagen"
+
+msgid "Actions"
+msgstr "Acciones"
+
+msgid "Submit"
+msgstr "Enviar"
+
+msgid "Cancel"
+msgstr "Cancelar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "Delete"
+msgstr "Eliminar"
+
+msgid "Edit"
+msgstr "Editar"
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "Search"
+msgstr "Buscar"
+
+msgid "Filter"
+msgstr "Filtrar"
+
+msgid "Sort"
+msgstr "Ordenar"
+
+msgid "Export"
+msgstr "Exportar"
+
+# Status values
+msgid "Reported"
+msgstr "Reportado"
+
+msgid "Verified"
+msgstr "Verificado"
+
+msgid "In Progress"
+msgstr "En Progreso"
+
+msgid "Completed"
+msgstr "Completado"
+
+msgid "Rejected"
+msgstr "Rechazado"
+
+# Severity levels
+msgid "Low"
+msgstr "Bajo"
+
+msgid "Medium"
+msgstr "Medio"
+
+msgid "High"
+msgstr "Alto"
+
+msgid "Critical"
+msgstr "Crítico"
+
+# Categories
+msgid "Pothole"
+msgstr "Bache"
+
+msgid "Crack"
+msgstr "Grieta"
+
+msgid "Flooding"
+msgstr "Inundación"
+
+msgid "Debris"
+msgstr "Escombros"
+
+msgid "Signage"
+msgstr "Señalización"
+
+msgid "Lighting"
+msgstr "Iluminación"
+
+msgid "Other"
+msgstr "Otro"
+
+# Form labels and messages
+msgid "Username"
+msgstr "Nombre de Usuario"
+
+msgid "Email"
+msgstr "Correo Electrónico"
+
+msgid "Password"
+msgstr "Contraseña"
+
+msgid "Confirm Password"
+msgstr "Confirmar Contraseña"
+
+msgid "Role"
+msgstr "Rol"
+
+msgid "Citizen"
+msgstr "Ciudadano"
+
+msgid "Authority"
+msgstr "Autoridad"
+
+msgid "Upload Image"
+msgstr "Subir Imagen"
+
+msgid "Choose File"
+msgstr "Elegir Archivo"
+
+msgid "No file chosen"
+msgstr "Ningún archivo elegido"
+
+# Messages and notifications
+msgid "Report submitted successfully!"
+msgstr "¡Reporte enviado exitosamente!"
+
+msgid "Status updated successfully!"
+msgstr "¡Estado actualizado exitosamente!"
+
+msgid "Login successful!"
+msgstr "¡Inicio de sesión exitoso!"
+
+msgid "Registration successful!"
+msgstr "¡Registro exitoso!"
+
+msgid "Invalid credentials"
+msgstr "Credenciales inválidas"
+
+msgid "Access denied"
+msgstr "Acceso denegado"
+
+msgid "Report not found"
+msgstr "Reporte no encontrado"
+
+msgid "Image uploaded successfully"
+msgstr "Imagen subida exitosamente"
+
+msgid "Error uploading image"
+msgstr "Error al subir imagen"
+
+msgid "Vote added successfully"
+msgstr "Voto agregado exitosamente"
+
+msgid "Vote removed successfully"
+msgstr "Voto eliminado exitosamente"
+
+msgid "Only citizens can vote"
+msgstr "Solo los ciudadanos pueden votar"
+
+# Dashboard and statistics
+msgid "Total Reports"
+msgstr "Total de Reportes"
+
+msgid "Pending Reports"
+msgstr "Reportes Pendientes"
+
+msgid "Completed Reports"
+msgstr "Reportes Completados"
+
+msgid "My Reports"
+msgstr "Mis Reportes"
+
+msgid "Recent Activity"
+msgstr "Actividad Reciente"
+
+msgid "Statistics"
+msgstr "Estadísticas"
+
+msgid "Completion Rate"
+msgstr "Tasa de Finalización"
+
+msgid "Average Response Time"
+msgstr "Tiempo Promedio de Respuesta"
+
+# Sorting and filtering
+msgid "Sort By"
+msgstr "Ordenar Por"
+
+msgid "Date (Newest First)"
+msgstr "Fecha (Más Reciente Primero)"
+
+msgid "Date (Oldest First)"
+msgstr "Fecha (Más Antiguo Primero)"
+
+msgid "Severity (High to Low)"
+msgstr "Severidad (Alto a Bajo)"
+
+msgid "Severity (Low to High)"
+msgstr "Severidad (Bajo a Alto)"
+
+msgid "Title (A-Z)"
+msgstr "Título (A-Z)"
+
+msgid "Title (Z-A)"
+msgstr "Título (Z-A)"
+
+msgid "Most Votes"
+msgstr "Más Votos"
+
+msgid "Least Votes"
+msgstr "Menos Votos"
+
+msgid "Status Priority"
+msgstr "Prioridad de Estado"
+
+# Error messages
+msgid "This field is required"
+msgstr "Este campo es obligatorio"
+
+msgid "Invalid email address"
+msgstr "Dirección de correo inválida"
+
+msgid "Password too short"
+msgstr "Contraseña demasiado corta"
+
+msgid "Passwords do not match"
+msgstr "Las contraseñas no coinciden"
+
+msgid "Username already exists"
+msgstr "El nombre de usuario ya existe"
+
+msgid "Email already registered"
+msgstr "Correo ya registrado"
+
+msgid "File too large"
+msgstr "Archivo demasiado grande"
+
+msgid "Invalid file type"
+msgstr "Tipo de archivo inválido"
+
+# Buttons and actions
+msgid "Create Report"
+msgstr "Crear Reporte"
+
+msgid "Update Status"
+msgstr "Actualizar Estado"
+
+msgid "Add Comment"
+msgstr "Agregar Comentario"
+
+msgid "Upload Photo"
+msgstr "Subir Foto"
+
+msgid "Vote"
+msgstr "Votar"
+
+msgid "Remove Vote"
+msgstr "Quitar Voto"
+
+msgid "Track by ID"
+msgstr "Rastrear por ID"
+
+msgid "View Details"
+msgstr "Ver Detalles"
+
+msgid "Download Report"
+msgstr "Descargar Reporte"
+
+# Placeholders and help text
+msgid "Enter report title..."
+msgstr "Ingrese título del reporte..."
+
+msgid "Describe the issue in detail..."
+msgstr "Describa el problema en detalle..."
+
+msgid "Enter your username"
+msgstr "Ingrese su nombre de usuario"
+
+msgid "Enter your email address"
+msgstr "Ingrese su dirección de correo"
+
+msgid "Enter your password"
+msgstr "Ingrese su contraseña"
+
+msgid "Enter report ID to track"
+msgstr "Ingrese ID del reporte para rastrear"
+
+# Time and date
+msgid "Today"
+msgstr "Hoy"
+
+msgid "Yesterday"
+msgstr "Ayer"
+
+msgid "Last Week"
+msgstr "Semana Pasada"
+
+msgid "Last Month"
+msgstr "Mes Pasado"
+
+msgid "minutes ago"
+msgstr "minutos atrás"
+
+msgid "hours ago"
+msgstr "horas atrás"
+
+msgid "days ago"
+msgstr "días atrás"

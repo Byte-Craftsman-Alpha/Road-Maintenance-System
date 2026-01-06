@@ -1,0 +1,257 @@
+{% extends "base.html" %}
+
+{% block title %}Analytics Dashboard - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-chart-line"></i> {{ _('Analytics Dashboard')}}</h2>
+    <a href="{{ url_for('authority_dashboard') }}" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> {{ _('Back to Dashboard') }}
+    </a>
+</div>
+
+<!-- Key Metrics -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card text-center">
+            <div class="card-body">
+                <i class="fas fa-clock fa-2x mb-2"></i>
+                <h3>{{ "%.1f"|format(avg_response_time) }}</h3>
+                <p class="mb-0">{{ _('Avg Response Days') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white text-center">
+            <div class="card-body">
+                <i class="fas fa-percentage fa-2x mb-2"></i>
+                <h3>{{ "%.1f"|format((status_stats|selectattr('status', 'equalto', 'completed')|map(attribute='count')|sum / status_stats|map(attribute='count')|sum * 100) if status_stats else 0) }}%</h3>
+                <p class="mb-0">{{ _('Completion Rate') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white text-center">
+            <div class="card-body">
+                <i class="fas fa-exclamation-triangle fa-2x mb-2"></i>
+                <h3>{{ severity_stats|selectattr('severity', 'in', ['high', 'critical'])|map(attribute='count')|sum or 0 }}</h3>
+                <p class="mb-0">{{ _('High Priority Reports') }}</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white text-center">
+            <div class="card-body">
+                <i class="fas fa-calendar-month fa-2x mb-2"></i>
+                <h3>{{ monthly_stats[-1].count if monthly_stats else 0 }}</h3>
+                <p class="mb-0">{{ _('This Month') }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-pie"></i> {{ _('Reports by Category') }}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="categoryChart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-doughnut"></i> {{ _('Status Distribution') }}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="statusChart" height="300"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Monthly Trends -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-chart-line"></i> {{ _('Monthly Report Trends') }}</h5>
+            </div>
+            <div class="card-body">
+                <canvas id="monthlyChart" height="100"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Detailed Statistics -->
+<div class="row">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-table"></i> {{ _('Category Breakdown') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>{{ _('Category') }}</th>
+                                <th>{{ _('Count') }}</th>
+                                <th>{{ _('Percentage') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set total_category = category_stats|map(attribute='count')|sum %}
+                            {% for item in category_stats %}
+                            <tr>
+                                <td>{{ item.category.replace('_', ' ').title() }}</td>
+                                <td>{{ item.count }}</td>
+                                <td>{{ "%.1f"|format(item.count / total_category * 100) if total_category > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-tasks"></i> {{ _('Status Breakdown') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>{{ _('Status') }}</th>
+                                <th>{{ _('Count') }}</th>
+                                <th>{{ _('Percentage') }}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% set total_status = status_stats|map(attribute='count')|sum %}
+                            {% for item in status_stats %}
+                            <tr>
+                                <td>{{ item.status.replace('_', ' ').title() }}</td>
+                                <td>{{ item.count }}</td>
+                                <td>{{ "%.1f"|format(item.count / total_status * 100) if total_status > 0 else 0 }}%</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Category Chart
+    const categoryData = {{ category_stats|tojson }};
+    const categoryLabels = categoryData.map(item => item.category.replace('_', ' '));
+    const categoryCounts = categoryData.map(item => item.count);
+    
+    const categoryCtx = document.getElementById('categoryChart').getContext('2d');
+    new Chart(categoryCtx, {
+        type: 'pie',
+        data: {
+            labels: categoryLabels,
+            datasets: [{
+                data: categoryCounts,
+                backgroundColor: [
+                    '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', 
+                    '#9966FF', '#FF9F40', '#FF6384', '#C9CBCF'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    
+    // Status Chart
+    const statusData = {{ status_stats|tojson }};
+    const statusLabels = statusData.map(item => item.status.replace('_', ' '));
+    const statusCounts = statusData.map(item => item.count);
+    
+    const statusCtx = document.getElementById('statusChart').getContext('2d');
+    new Chart(statusCtx, {
+        type: 'doughnut',
+        data: {
+            labels: statusLabels,
+            datasets: [{
+                data: statusCounts,
+                backgroundColor: [
+                    '#6c757d', '#17a2b8', '#ffc107', '#28a745', '#dc3545'
+                ],
+                borderWidth: 0
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        }
+    });
+    
+    // Monthly Trends Chart
+    const monthlyData = {{ monthly_stats|tojson }};
+    const monthlyLabels = monthlyData.map(item => item.month);
+    const monthlyCounts = monthlyData.map(item => item.count);
+    
+    const monthlyCtx = document.getElementById('monthlyChart').getContext('2d');
+    new Chart(monthlyCtx, {
+        type: 'line',
+        data: {
+            labels: monthlyLabels,
+            datasets: [{
+                label: 'Reports',
+                data: monthlyCounts,
+                borderColor: '#007bff',
+                backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            },
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+        }
+    });
+});
+</script>
+{% endblock %}

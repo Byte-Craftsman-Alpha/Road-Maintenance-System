@@ -1,0 +1,563 @@
+{% extends "base.html" %}
+
+{% block title %}Report #{{ report.id }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h2><i class="fas fa-file-alt"></i> {{ _('Report') }} #{{ report.id }}</h2>
+    <a href="{{ url_for('view_reports') }}" class="btn btn-outline-primary">
+        <i class="fas fa-arrow-left"></i> {{ _('Back to Reports') }}
+    </a>
+</div>
+
+<div class="row">
+    <!-- Report Details -->
+    <div class="col-lg-8">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">{{ _('Report Details') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6><strong>{{ report.title }}</strong></h6>
+                        <p class="text-muted mb-3">{{ report.description }}</p>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('Category') }}:</strong> 
+                            <span class="badge bg-secondary ms-1">{{ report.category.replace('_', ' ').title() }}</span>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('Severity') }}:</strong> 
+                            <span class="badge severity-{{ report.severity }} ms-1">{{ report.severity.title() }}</span>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>Status:</strong> 
+                            {% set status_colors = {
+                                'reported': 'secondary',
+                                'verified': 'info',
+                                'in_progress': 'warning',
+                                'completed': 'success',
+                                'rejected': 'danger'
+                            } %}
+                            <span class="badge bg-{{ status_colors[report.status] }} ms-1">
+                                {{ report.status.replace('_', ' ').title() }}
+                            </span>
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('Address') }}:</strong> {{ report.address or 'Not provided' }}
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('PIN/Postal Code') }}:</strong> {{ report.postal_code or 'Not provided' }}
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('Coordinates') }}:</strong> 
+                            {% if report.latitude and report.longitude %}
+                                {{ "%.6f, %.6f"|format(report.latitude, report.longitude) }}
+                            {% else %}
+                                Not provided
+                            {% endif %}
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('Reported by') }}:</strong> {{ report.reporter.username }} ({{ report.reporter.email }})
+                        </div>
+                        
+                        <div class="mb-2">
+                            <strong>{{ _('Date Reported') }}:</strong> {{ report.created_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                        </div>
+                        
+                        {% if report.updated_at != report.created_at %}
+                        <div class="mb-2">
+                            <strong>{{ _('Last Updated') }}:</strong> {{ report.updated_at.strftime('%Y-%m-%d %H:%M:%S') }}
+                        </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="col-md-6">
+                        {% if report.photo_path %}
+                            <div class="text-center">
+                                <img src="/{{ report.photo_path }}" class="img-fluid rounded shadow" alt="Report photo">
+                            </div>
+                        {% else %}
+                            <div class="text-center text-muted">
+                                <i class="fas fa-image fa-3x mb-2"></i>
+                                <p>{{ _('No photo uploaded') }}</p>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Status Update Form -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-edit"></i> {{ _('Update Status') }}</h5>
+            </div>
+            <div class="card-body">
+                <form id="statusUpdateForm" enctype="multipart/form-data">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">{{ _('New Status') }}</label>
+                            <select class="form-select" id="newStatus" required>
+                                {% set current_status = report.status %}
+                                {% if current_status == 'reported' %}
+                                    <option value="verified">{{ _('Verified')}}</option>
+                                    <option value="rejected">{{ _('Rejected')}}</option>
+                                {% elif current_status == 'verified' %}
+                                    <option value="in_progress">{{ _('In Progress')}}</option>
+                                    <option value="rejected">{{ _('Rejected')}}</option>
+                                {% elif current_status == 'in_progress' %}
+                                    <option value="completed">{{ _('Completed')}}</option>
+                                {% else %}
+                                    <option value="{{ current_status }}" selected>{{ current_status.replace('_', ' ').title() }} (No changes allowed)</option>
+                                {% endif %}
+                            </select>
+                            <div class="form-text">{{ _('Current status') }}: <strong>{{ current_status.replace('_', ' ').title() }}</strong></div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">{{ _('Status Update Image') }}</label>
+                            <input type="file" class="form-control" id="statusImage" name="image" accept="image/*">
+                            <div class="form-text">
+                                <span id="imageRequiredText" style="display: none;" class="text-danger">
+                                    <i class="fas fa-exclamation-triangle"></i> {{ _('Image is required for completed status') }}
+                                </span>
+                                <span id="imageOptionalText">{{ _('Optional: Upload image to document the status update') }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Comment (Optional)') }}</label>
+                        <textarea class="form-control" id="statusComment" rows="3" placeholder="{{ _('Add a comment about this status update...') }}"></textarea>
+                    </div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary" id="updateStatusBtn">
+                            <i class="fas fa-save"></i> {{ _('Update Status') }}
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        <!-- Status History -->
+        {% if report.updates %}
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-history"></i> {{ _('Status History') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    {% for update in report.updates %}
+                    <div class="timeline-item mb-3">
+                        <div class="d-flex">
+                            <div class="flex-shrink-0">
+                                <div class="timeline-marker bg-primary"></div>
+                            </div>
+                            <div class="flex-grow-1 ms-3">
+                                <div class="d-flex justify-content-between align-items-start">
+                                    <div>
+                                        <h6 class="mb-1">{{ update.status.replace('_', ' ').title() }}</h6>
+                                        {% if update.comment %}
+                                            <p class="mb-1">{{ update.comment }}</p>
+                                        {% endif %}
+                                        <small class="text-muted">
+                                            by {{ update.updated_by.username }} on {{ update.created_at.strftime('%Y-%m-%d %H:%M') }}
+                                        </small>
+                                    </div>
+                                    <span class="badge bg-{{ status_colors[update.status] }}">
+                                        {{ update.status.replace('_', ' ').title() }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+    
+    <!-- Sidebar -->
+    <div class="col-lg-4">
+        <!-- Location Map -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ _('Location') }}</h5>
+            </div>
+            <div class="card-body">
+                <div id="reportLocationMap" class="map-container">
+                    {% if not report.latitude and not report.longitude %}
+                        <div class="text-center text-muted">
+                            <i class="fas fa-map fa-3x mb-2"></i>
+                            <p>{{ _('Location coordinates not available') }}</p>
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="mt-2 text-center">
+                    <button class="btn btn-sm btn-outline-primary" onclick="openInGoogleMaps()">
+                        <i class="fas fa-external-link-alt"></i> {{ _('Open in Google Maps') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Maintenance Ticket -->
+        {% if report.ticket %}
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-ticket-alt"></i> {{ _('Maintenance Ticket') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="mb-2">
+                    <strong>{{ _('Ticket Number') }}:</strong><br>
+                    <code>{{ report.ticket.ticket_number }}</code>
+                </div>
+                
+                <div class="mb-2">
+                    <strong>{{ _('Priority') }}:</strong>
+                    <span class="badge bg-{{ 'danger' if report.ticket.priority == 'urgent' else 'warning' if report.ticket.priority == 'high' else 'info' }} ms-1">
+                        {{ report.ticket.priority.title() }}
+                    </span>
+                </div>
+                
+                {% if report.ticket.assigned_to %}
+                <div class="mb-2">
+                    <strong>{{ _('Assigned to') }}:</strong> {{ report.ticket.assigned_to.username }}
+                </div>
+                {% endif %}
+                
+                {% if report.ticket.estimated_cost %}
+                <div class="mb-2">
+                    <strong>{{ _('Estimated Cost') }}:</strong> ₹{{ "%.2f"|format(report.ticket.estimated_cost) }}
+                </div>
+                {% endif %}
+                
+                {% if report.ticket.estimated_completion %}
+                <div class="mb-2">
+                    <strong>{{ _('Estimated Completion') }}:</strong> {{ report.ticket.estimated_completion.strftime('%Y-%m-%d') }}
+                </div>
+                {% endif %}
+                
+                {% if report.ticket.actual_completion %}
+                <div class="mb-2">
+                    <strong>{{ _('Completed on') }}:</strong> {{ report.ticket.actual_completion.strftime('%Y-%m-%d %H:%M') }}
+                </div>
+                {% endif %}
+                
+                <div class="mt-3">
+                    <button class="btn btn-sm btn-outline-primary w-100" onclick="editTicket()">
+                        <i class="fas fa-edit"></i> {{ _('Edit Ticket Details') }}
+                    </button>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        
+        <!-- Quick Actions -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0"><i class="fas fa-bolt"></i> {{ _('Quick Actions') }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    {% if report.status == 'reported' %}
+                        <button class="btn btn-success" onclick="quickUpdate('verified')">
+                            <i class="fas fa-check"></i> {{ _('Verify Report') }}
+                        </button>
+                    {% elif report.status == 'verified' %}
+                        <button class="btn btn-warning" onclick="quickUpdate('in_progress')">
+                            <i class="fas fa-tools"></i> {{ _('Start Work') }}
+                        </button>
+                    {% elif report.status == 'in_progress' %}
+                        <button class="btn btn-success" onclick="quickUpdate('completed')">
+                            <i class="fas fa-check-circle"></i> {{ _('Mark Complete') }}
+                        </button>
+                    {% endif %}
+                    
+                    {% if report.status != 'rejected' %}
+                        <button class="btn btn-danger" onclick="quickUpdate('rejected')">
+                            <i class="fas fa-times"></i> {{ _('Reject Report') }}
+                        </button>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Ticket Edit Modal -->
+<div class="modal fade" id="ticketEditModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">{{ _('Edit Maintenance Ticket') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <form id="ticketEditForm">
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">{{ _('Assigned To') }}</label>
+                            <select class="form-select" id="editAssignedTo">
+                                <option value="">{{ _('Unassigned') }}</option>
+                                {% for authority in authority_users %}
+                                <option value="{{ authority.id }}">{{ authority.username }} ({{ authority.email }})</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">{{ _('Priority') }}</label>
+                            <select class="form-select" id="editPriority">
+                                <option value="low">{{ _('Low') }}</option>
+                                <option value="medium">{{ _('Medium') }}</option>
+                                <option value="high">{{ _('High') }}</option>
+                                <option value="urgent">{{ _('Urgent') }}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">{{ _('Estimated Cost') }} (₹)</label>
+                            <input type="number" class="form-control" id="editEstimatedCost" step="0.01" min="0">
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">{{ _('Estimated Completion') }}</label>
+                            <input type="date" class="form-control" id="editEstimatedCompletion">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Work Description') }}</label>
+                        <textarea class="form-control" id="editWorkDescription" rows="3"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">{{ _('Materials Used') }}</label>
+                        <textarea class="form-control" id="editMaterialsUsed" rows="2"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ _('Cancel') }}</button>
+                <button type="button" class="btn btn-primary" onclick="saveTicketChanges()">{{ _('Save Changes') }}</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize map
+    {% if report.latitude and report.longitude %}
+    const reportLat = {{ report.latitude }};
+    const reportLng = {{ report.longitude }};
+    const reportTitle = {{ report.title|tojson }};
+    
+    // Initialize map with proper touch controls
+    const map = L.map('reportLocationMap', {
+        // Enable touch interactions
+        touchZoom: true,
+        doubleClickZoom: true,
+        scrollWheelZoom: true,
+        boxZoom: true,
+        keyboard: true,
+        dragging: true,
+        // Disable single-finger zoom to require two fingers
+        tap: true,
+        tapTolerance: 15,
+        // Enable proper mobile gestures
+        zoomControl: true,
+        attributionControl: true
+    }).setView([reportLat, reportLng], 15);
+    
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: ' OpenStreetMap contributors'
+    }).addTo(map);
+    
+    // Add marker
+    const marker = L.marker([reportLat, reportLng]).addTo(map);
+    marker.bindPopup(reportTitle).openPopup();
+    {% endif %}
+    
+    // Status update form
+    document.getElementById('statusUpdateForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const newStatus = document.getElementById('newStatus').value;
+        const comment = document.getElementById('statusComment').value;
+        const image = document.getElementById('statusImage').files[0];
+        
+        // Check if image is required for completed status
+        if (newStatus === 'completed' && !image) {
+            alert('Image upload is mandatory when marking status as completed');
+            return;
+        }
+        
+        updateStatus(newStatus, comment, image);
+    });
+    
+    // Show/hide image requirement text based on status selection
+    document.getElementById('newStatus').addEventListener('change', function() {
+        const selectedStatus = this.value;
+        const imageRequiredText = document.getElementById('imageRequiredText');
+        const imageOptionalText = document.getElementById('imageOptionalText');
+        const statusImage = document.getElementById('statusImage');
+        
+        if (selectedStatus === 'completed') {
+            imageRequiredText.style.display = 'block';
+            imageOptionalText.style.display = 'none';
+            statusImage.required = true;
+        } else {
+            imageRequiredText.style.display = 'none';
+            imageOptionalText.style.display = 'block';
+            statusImage.required = false;
+        }
+    });
+});
+
+function updateStatus(status, comment, image) {
+    const updateBtn = document.getElementById('updateStatusBtn');
+    const originalContent = updateBtn.innerHTML;
+    
+    // Show loading state
+    updateBtn.disabled = true;
+    updateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+    updateBtn.classList.remove('btn-primary');
+    updateBtn.classList.add('btn-warning');
+    
+    const formData = new FormData();
+    formData.append('status', status);
+    formData.append('comment', comment);
+    if (image) {
+        formData.append('image', image);
+    }
+    
+    fetch('/authority/update_status/{{ report.id }}', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success state
+            updateBtn.innerHTML = '<i class="fas fa-check"></i> Updated!';
+            updateBtn.classList.remove('btn-warning');
+            updateBtn.classList.add('btn-success');
+            
+            // Reload after showing success
+            setTimeout(() => location.reload(), 1000);
+        } else {
+            alert('Error updating status: ' + data.error);
+            // Reset button on error
+            updateBtn.disabled = false;
+            updateBtn.innerHTML = originalContent;
+            updateBtn.classList.remove('btn-warning');
+            updateBtn.classList.add('btn-primary');
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error updating status');
+        // Reset button on error
+        updateBtn.disabled = false;
+        updateBtn.innerHTML = originalContent;
+        updateBtn.classList.remove('btn-warning');
+        updateBtn.classList.add('btn-primary');
+    });
+}
+
+function quickUpdate(status) {
+    const comment = prompt(`Add a comment for this ${status.replace('_', ' ')} update (optional):`);
+    if (comment !== null) { // User didn't cancel
+        updateStatus(status, comment || '');
+    }
+}
+
+function openInGoogleMaps() {
+    {% if report.latitude and report.longitude %}
+    const url = `https://www.google.com/maps?q={{ report.latitude }},{{ report.longitude }}`;
+    window.open(url, '_blank');
+    {% else %}
+    alert('Location coordinates not available for this report.');
+    {% endif %}
+}
+
+function editTicket() {
+    // Show ticket editing modal
+    const modal = new bootstrap.Modal(document.getElementById('ticketEditModal'));
+    
+    // Populate form with current values
+    {% if report.ticket %}
+    document.getElementById('editAssignedTo').value = {{ report.ticket.assigned_to_id|tojson }};
+    document.getElementById('editPriority').value = {{ report.ticket.priority|tojson }};
+    document.getElementById('editEstimatedCost').value = {{ report.ticket.estimated_cost|tojson }};
+    document.getElementById('editEstimatedCompletion').value = {{ (report.ticket.estimated_completion.strftime("%Y-%m-%d") if report.ticket.estimated_completion else "")|tojson }};
+    document.getElementById('editWorkDescription').value = {{ report.ticket.work_description|tojson }};
+    document.getElementById('editMaterialsUsed').value = {{ report.ticket.materials_used|tojson }};
+    {% endif %}
+    
+    modal.show();
+}
+
+function saveTicketChanges() {
+    const formData = {
+        assigned_to_id: document.getElementById('editAssignedTo').value || null,
+        priority: document.getElementById('editPriority').value,
+        estimated_cost: document.getElementById('editEstimatedCost').value || null,
+        estimated_completion: document.getElementById('editEstimatedCompletion').value || null,
+        work_description: document.getElementById('editWorkDescription').value,
+        materials_used: document.getElementById('editMaterialsUsed').value
+    };
+    
+    fetch('/authority/edit_ticket/{{ report.id }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            location.reload();
+        } else {
+            alert('Error updating ticket: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        alert('Error updating ticket');
+    });
+}
+</script>
+
+<style>
+.timeline-marker {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin-top: 4px;
+}
+
+.timeline-item:not(:last-child)::before {
+    content: '';
+    position: absolute;
+    left: 5px;
+    top: 20px;
+    width: 2px;
+    height: calc(100% - 8px);
+    background-color: #dee2e6;
+}
+
+.timeline {
+    position: relative;
+}
+</style>
+{% endblock %}

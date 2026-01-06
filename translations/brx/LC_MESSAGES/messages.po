@@ -1,0 +1,1513 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-19 21:38+0530\n"
+"PO-Revision-Date: 2025-09-19 12:05+0530\n"
+"Last-Translator: FULL NAME EMAIL@ADDRESS\n"
+"Language: brx\n"
+"Language-Team: brx LL@li.org\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:62 templates/base.html:71
+#: templates/index.html:15
+msgid "CivicSetu"
+msgstr "सिभिक सेतु"
+
+#: templates/base.html:86 templates/base.html:102
+msgid "Dashboard"
+msgstr "मुलुग फारि"
+
+#: templates/base.html:91 templates/citizen/dashboard.html:124
+#: templates/citizen/report.html:3
+msgid "Report Issue"
+msgstr "जेंना फोरमायनाय"
+
+#: templates/base.html:96
+msgid "Leaderboard"
+msgstr "दैदेनगिरि फारि"
+
+#: templates/authority/reports.html:7 templates/base.html:107
+#: templates/public_reports.html:45
+msgid "All Reports"
+msgstr "गासै रिपर्टफोर"
+
+#: templates/base.html:112
+msgid "Analytics"
+msgstr "सिनायथि"
+
+#: templates/base.html:119 templates/public_reports.html:7
+msgid "Public Reports"
+msgstr "रायजोनि रिपर्टफोर"
+
+#: templates/base.html:124 templates/track_report.html:24
+msgid "Track Report"
+msgstr "रिपर्ट नायगासिनाय"
+
+#: templates/base.html:138
+msgid "Indian Languages"
+msgstr "भारतनि राव"
+
+#: templates/base.html:180
+msgid "Logout"
+msgstr "ओंखारलांनाय"
+
+#: templates/auth/login.html:10 templates/base.html:187 templates/index.html:30
+msgid "Login"
+msgstr "हाबनाय"
+
+#: templates/auth/register.html:10 templates/base.html:192
+msgid "Register"
+msgstr "मुं लिरनाय"
+
+#: templates/index.html:17
+msgid "Civic System for Empowering Transparency & Upliftment"
+msgstr "गोजौथि आरो दैदेनथिनि थाखाय हारिमु खालामनाय"
+
+#: templates/index.html:19
+msgid ""
+"Empowering citizens to report different issues and enabling authorities "
+"to respond faster. \n"
+"                        Together, we build better infrastructure for "
+"everyone."
+msgstr ""
+"हारिमुआफोरखौ जुदा जुदा जेंनाफोर फोरमायनो गोहो होनाय आरो दायित्वआरिफोरखौ "
+"गोख्रों फिननो हायो होनाय। \n"
+" जोंहा मोनसे जायगायाव, जों गासैनो थाखाय गेदेर सुबिदा बानायनाय।"
+
+#: templates/index.html:27
+msgid "Get Started"
+msgstr "जागायनाय"
+
+#: templates/index.html:40
+msgid "Report Issues Instantly"
+msgstr "थारैनो जेंनाफोर फोरमाय"
+
+#: templates/index.html:58
+msgid "Easy Reporting"
+msgstr "गोरलै फोरमायनाय"
+
+#: templates/index.html:60
+msgid ""
+"Report issues instantly using your mobile device with GPS location and "
+"photo upload."
+msgstr ""
+"नोंथांनि मोबाइल फोन बाहायनानै GPS जायगा आरो फटो अपलोड खालामनानै थारैनो "
+"जेंनाफोर फोरमाय।"
+
+#: templates/index.html:74
+msgid "Fast Response"
+msgstr "गोख्रों फिननाय"
+
+#: templates/index.html:76
+msgid ""
+"Automated ticketing system ensures quick response times and efficient "
+"resource allocation."
+msgstr ""
+"अटोमेटेड टिकेटिं दस्तुरा गोख्रों फिननाय आरो गेदेमाव गोनां सम्पत्ति रानाय "
+"रोखा खालामो।"
+
+#: templates/index.html:90
+msgid "Transparency"
+msgstr "गोजौथि"
+
+#: templates/index.html:92
+msgid ""
+"Track progress in real-time and access analytics for long-term "
+"infrastructure improvement."
+msgstr ""
+"दानि समाव दैदेनथि नायगासि आरो गोलाव समनि थाखाय सुबिदा सुजुथिनि थाखाय "
+"सिनायथि मोन।"
+
+#: templates/index.html:106
+msgid "How It Works"
+msgstr "बेयो माबोरै खामानि खालामो"
+
+#: templates/index.html:108
+msgid "Simple steps to report issues and track their resolution"
+msgstr "जेंनाफोर फोरमायनो आरो बेफोरखौ थि खालामनो गोरलै उनाव"
+
+#: templates/index.html:122
+msgid "Spot the Issue"
+msgstr "जेंनाखौ नुनाय"
+
+#: templates/index.html:124
+msgid ""
+"Notice any issues like potholes, broken streetlight, or damaged road? "
+"Take a photo and note the location."
+msgstr ""
+"गोदो गारि, गाजाब लामा बत्ति, एबा गाजाब लामा बाहागो नुयो नामा? मोनसे फटो "
+"ला आरो जायगाखौ लिर।"
+
+#: templates/citizen/report.html:173 templates/index.html:138
+msgid "Submit Report"
+msgstr "रिपर्ट दैथाय हर"
+
+#: templates/index.html:140
+msgid ""
+"Fill out a quick form with details, upload the photo, and submit your "
+"report instantly."
+msgstr ""
+"गुदि गुदि जों गोख्रों फर्म आबुं खालाम, फटो अपलोड खालाम आरो नोंथांनि "
+"रिपर्ट थारैनो दैथाय हर।"
+
+#: templates/index.html:154
+msgid "Automatic Processing"
+msgstr "गावनो गाव खामानि"
+
+#: templates/index.html:156
+msgid ""
+"Our system creates a maintenance ticket and assigns it to the relevant "
+"authority team."
+msgstr "जोंनि दस्तुरा रैखाथि टिकेट सोरजि आरो थार दायित्वआरि हान्जाखौ हो।"
+
+#: templates/index.html:170
+msgid "Track Progress"
+msgstr "दैदेनथि नायगासि"
+
+#: templates/index.html:172
+msgid ""
+"Get real-time updates on your report status and see when the issue is "
+"resolved."
+msgstr ""
+"नोंथांनि रिपर्टनि थाथाय आव दानि अपडेट मोन आरो जेंनाखौ माब्ला थि खालामनाय "
+"जायो बेखौ नाय।"
+
+#: templates/index.html:183
+msgid "Start Reporting"
+msgstr "फोरमायनाय जागाय"
+
+#: templates/index.html:186
+msgid "View Public Reports"
+msgstr "रायजोनि रिपर्टफोर नाय"
+
+#: templates/citizen/dashboard.html:9 templates/citizen/report.html:11
+#: templates/index.html:190
+msgid "Report New Issue"
+msgstr "गोदान जेंना फोरमाय"
+
+#: templates/index.html:193
+msgid "Go to Dashboard"
+msgstr "मुलुग फारिसिम थां"
+
+#: templates/index.html:205
+msgid "Recent Reports Map"
+msgstr "दानि रिपर्टनि मेप"
+
+#: templates/authority/dashboard.html:20 templates/citizen/dashboard.html:18
+#: templates/public_reports.html:16
+msgid "Total Reports"
+msgstr "गासै रिपर्ट"
+
+#: templates/authority/dashboard.html:47
+#: templates/authority/report_detail.html:117
+#: templates/authority/reports.html:37 templates/citizen/dashboard.html:42
+#: templates/public_reports.html:25 templates/public_reports.html:87
+msgid "Completed"
+msgstr "जोबबो जानाय"
+
+#: templates/authority/analytics.html:29 templates/public_reports.html:34
+msgid "Completion Rate"
+msgstr "जोबबो जानायनि रेट"
+
+#: templates/public_reports.html:54
+msgid "Filters"
+msgstr "फिल्टार"
+
+#: templates/authority/reports.html:44 templates/public_reports.html:66
+msgid "All Categories"
+msgstr "गासै थाखो"
+
+#: templates/authority/reports.html:45 templates/citizen/report.html:46
+#: templates/public_reports.html:67
+msgid "Infrastructure & Roads"
+msgstr "सुबिदा आरो लामा"
+
+#: templates/authority/reports.html:46 templates/public_reports.html:68
+msgid "Sanitation & Waste"
+msgstr "गोसोथि आरो आबाद"
+
+#: templates/authority/reports.html:47 templates/citizen/report.html:48
+#: templates/public_reports.html:69
+msgid "Water Supply & Drainage"
+msgstr "दै रानाय आरो दै ओंखारनाय"
+
+#: templates/authority/reports.html:48 templates/public_reports.html:70
+msgid "Electricity & Lighting"
+msgstr "बिजुलि आरो सायाव"
+
+#: templates/authority/reports.html:49 templates/public_reports.html:71
+msgid "Public Safety"
+msgstr "रायजोनि रैखाथि"
+
+#: templates/authority/reports.html:50 templates/public_reports.html:72
+msgid "Environment"
+msgstr "गोबां"
+
+#: templates/authority/reports.html:51 templates/public_reports.html:73
+msgid "Transportation"
+msgstr "थांनाय फैनाय"
+
+#: templates/authority/reports.html:52 templates/public_reports.html:74
+msgid "Healthcare"
+msgstr "मोदोम रैखाथि"
+
+#: templates/authority/reports.html:53 templates/public_reports.html:75
+msgid "Digital Services"
+msgstr "डिजिटेल सेवा"
+
+#: templates/authority/reports.html:54 templates/public_reports.html:76
+msgid "Education"
+msgstr "फोरोंसालि"
+
+#: templates/authority/reports.html:55 templates/public_reports.html:77
+msgid "Emergency"
+msgstr "गोख्रों गोनांथि"
+
+#: templates/authority/reports.html:56 templates/public_reports.html:78
+msgid "Citizen Rights"
+msgstr "हारिमुनि आखुथाय"
+
+#: templates/authority/reports.html:33 templates/public_reports.html:83
+msgid "All Status"
+msgstr "गासै थाथाय"
+
+#: templates/authority/dashboard.html:178 templates/authority/reports.html:34
+#: templates/citizen/dashboard.html:352
+#: templates/citizen/report_detail.html:107 templates/public_reports.html:84
+msgid "Reported"
+msgstr "फोरमायनाय"
+
+#: templates/authority/report_detail.html:111
+#: templates/authority/reports.html:35 templates/citizen/leaderboard.html:181
+#: templates/public_reports.html:85
+msgid "Verified"
+msgstr "रोखा खालामनाय"
+
+#: templates/authority/dashboard.html:38
+#: templates/authority/report_detail.html:114
+#: templates/authority/reports.html:36 templates/citizen/dashboard.html:34
+#: templates/public_reports.html:86
+msgid "In Progress"
+msgstr "खामानि जागासिनगौ"
+
+#: templates/authority/reports.html:62 templates/public_reports.html:92
+msgid "All Severity"
+msgstr "गासै गोहोमथि"
+
+#: templates/authority/report_detail.html:318
+#: templates/authority/reports.html:63 templates/citizen/report.html:146
+#: templates/public_reports.html:93
+msgid "Low"
+msgstr "इसे"
+
+#: templates/authority/report_detail.html:319
+#: templates/authority/reports.html:64 templates/citizen/report.html:147
+#: templates/public_reports.html:94
+msgid "Medium"
+msgstr "गेजेराव"
+
+#: templates/authority/report_detail.html:320
+#: templates/authority/reports.html:65 templates/citizen/report.html:148
+#: templates/public_reports.html:95
+msgid "High"
+msgstr "गोबां"
+
+#: templates/citizen/report.html:149 templates/public_reports.html:96
+msgid "Critical"
+msgstr "जोबोद गोहोम"
+
+#: templates/authority/reports.html:73 templates/authority/reports.html:332
+#: templates/public_reports.html:101
+msgid "Clear Filters"
+msgstr "फिल्टार बोखार"
+
+#: templates/authority/dashboard.html:99 templates/authority/reports.html:87
+#: templates/authority/reports.html:118 templates/authority/reports.html:209
+#: templates/public_reports.html:113
+msgid "ID"
+msgstr "आइडि"
+
+#: templates/authority/dashboard.html:100 templates/authority/reports.html:88
+#: templates/authority/reports.html:124 templates/authority/reports.html:212
+#: templates/citizen/dashboard.html:58 templates/citizen/dashboard.html:346
+#: templates/public_reports.html:114
+msgid "Title"
+msgstr "बिमुं"
+
+#: templates/authority/analytics.html:104
+#: templates/authority/dashboard.html:101
+#: templates/authority/report_detail.html:27
+#: templates/authority/reports.html:89 templates/authority/reports.html:130
+#: templates/authority/reports.html:215 templates/citizen/dashboard.html:59
+#: templates/citizen/dashboard.html:348 templates/citizen/report_detail.html:27
+#: templates/public_reports.html:115 templates/track_report_result.html:24
+msgid "Category"
+msgstr "थाखो"
+
+#: templates/authority/analytics.html:135
+#: templates/authority/dashboard.html:103 templates/authority/reports.html:91
+#: templates/authority/reports.html:142 templates/authority/reports.html:221
+#: templates/citizen/dashboard.html:61 templates/citizen/dashboard.html:351
+#: templates/citizen/report_detail.html:38 templates/public_reports.html:116
+#: templates/track_report_result.html:8
+msgid "Status"
+msgstr "थाथाय"
+
+#: templates/authority/dashboard.html:102
+#: templates/authority/report_detail.html:32
+#: templates/authority/reports.html:90 templates/authority/reports.html:136
+#: templates/authority/reports.html:218 templates/citizen/dashboard.html:60
+#: templates/citizen/dashboard.html:349 templates/citizen/report.html:143
+#: templates/citizen/report_detail.html:31 templates/public_reports.html:117
+#: templates/track_report_result.html:27
+msgid "Severity"
+msgstr "गोहोमथि"
+
+#: templates/citizen/report.html:154 templates/citizen/report_detail.html:152
+#: templates/public_reports.html:118
+msgid "Photo"
+msgstr "फटो"
+
+#: templates/authority/report_detail.html:192
+#: templates/citizen/report_detail.html:61
+#: templates/citizen/report_detail.html:162 templates/public_reports.html:119
+#: templates/track_report_result.html:42
+msgid "Location"
+msgstr "जायगा"
+
+#: templates/authority/reports.html:160 templates/public_reports.html:120
+msgid "PIN Code"
+msgstr "पिन कोड"
+
+#: templates/authority/report_detail.html:68 templates/public_reports.html:121
+#: templates/track_report_result.html:44
+msgid "Reported by"
+msgstr "फोरमायग्रा"
+
+#: templates/authority/dashboard.html:105 templates/authority/reports.html:172
+#: templates/authority/reports.html:236 templates/public_reports.html:122
+msgid "Date"
+msgstr "अक्ट'"
+
+#: templates/authority/reports.html:148 templates/authority/reports.html:224
+#: templates/citizen/leaderboard.html:59 templates/public_reports.html:123
+msgid "Votes"
+msgstr "भोट"
+
+#: templates/authority/dashboard.html:106 templates/authority/reports.html:238
+#: templates/citizen/dashboard.html:64 templates/public_reports.html:124
+msgid "Actions"
+msgstr "खामानि"
+
+#: templates/public_reports.html:198
+msgid "Track"
+msgstr "नायगासि"
+
+#: templates/authority/dashboard.html:158 templates/public_reports.html:209
+msgid "No reports available"
+msgstr "जेबो रिपर्ट गैया"
+
+#: templates/public_reports.html:210
+msgid "Reports will appear here as they are submitted by citizens."
+msgstr "हारिमुआफोरा फोरमायनायाव रिपर्टफोर बेयाव नुगोन।"
+
+#: templates/public_reports.html:219
+msgid "All Reports Map"
+msgstr "गासै रिपर्टनि मेप"
+
+#: templates/track_report.html:11
+msgid "Track Your Report"
+msgstr "नोंथांनि रिपर्ट नायगासि"
+
+#: templates/track_report.html:12
+msgid "Enter your report ID to track its status"
+msgstr "थाथाय नायनो नोंथांनि रिपर्ट आइडि लिर"
+
+#: templates/citizen/report_detail.html:51 templates/track_report.html:17
+msgid "Report ID"
+msgstr "रिपर्ट आइडि"
+
+#: templates/track_report.html:19
+msgid "Enter Report ID (e.g., 123)"
+msgstr "रिपर्ट आइडि लिर (बिदि: 123)"
+
+#: templates/track_report.html:20
+msgid "You can find your report ID in the confirmation email or dashboard."
+msgstr "नोंथांनि रिपर्ट आइडि रोखा इमेइल एबा मुलुग फारिआव मोनगोन।"
+
+#: templates/track_report.html:33
+msgid "How to Track"
+msgstr "माबोरै नायगासिनो"
+
+#: templates/track_report.html:37
+msgid "Enter your report ID in the field above"
+msgstr "गोजौआव दिनथाय जायगायाव नोंथांनि रिपर्ट आइडि लिर"
+
+#: templates/track_report.html:38
+msgid "Click \"Track Report\" to view the current status"
+msgstr "दानि थाथाय नायनो \"रिपर्ट नायगासि\" आव क्लिक खालाम"
+
+#: templates/track_report.html:39
+msgid "See all status updates and maintenance tickets"
+msgstr "गासै थाथाय अपडेट आरो रैखाथि टिकेट नाय"
+
+#: templates/track_report.html:40
+msgid "No login required - completely public"
+msgstr "हाबनाय गोनां नङा - गासैबो रायजोनि"
+
+#: templates/authority/report_detail.html:7
+#: templates/track_report_result.html:8
+msgid "Report"
+msgstr "रिपर्ट"
+
+#: templates/track_report_result.html:10 templates/track_report_result.html:200
+msgid "Track Another Report"
+msgstr "गुबुन रिपर्ट नायगासि"
+
+#: templates/authority/report_detail.html:18
+#: templates/citizen/dashboard.html:150 templates/citizen/report_detail.html:3
+#: templates/citizen/report_detail.html:12
+#: templates/track_report_result.html:17
+msgid "Report Details"
+msgstr "रिपर्टनि गुदि गासै"
+
+#: templates/citizen/dashboard.html:347 templates/citizen/report.html:67
+#: templates/citizen/report_detail.html:56
+#: templates/track_report_result.html:23
+msgid "Description"
+msgstr "बिजिरनाय"
+
+#: templates/track_report_result.html:30
+msgid "Current Status"
+msgstr "दानि थाथाय"
+
+#: templates/track_report_result.html:43
+msgid "Reported On"
+msgstr "फोरमायनाय सान"
+
+#: templates/authority/dashboard.html:139 templates/track_report_result.html:46
+msgid "Anonymous"
+msgstr "मुं गैयै"
+
+#: templates/track_report_result.html:51
+msgid "Community Votes"
+msgstr "हारिमुनि भोट"
+
+#: templates/citizen/dashboard.html:103 templates/track_report_result.html:65
+msgid "No image available"
+msgstr "जेबो मुसुखा गैया"
+
+#: templates/track_report_result.html:76
+msgid "Status Updates Timeline"
+msgstr "थाथाय अपडेटनि सम रेखा"
+
+#: templates/track_report_result.html:96
+msgid "Status changed to"
+msgstr "थाथाय सोलाय होनाय"
+
+#: templates/citizen/report_detail.html:137
+#: templates/track_report_result.html:104
+msgid "Updated by"
+msgstr "अपडेट खालामग्रा"
+
+#: templates/track_report_result.html:115
+msgid "Image not available"
+msgstr "मुसुखा गैया"
+
+#: templates/track_report_result.html:130
+msgid "No status updates yet"
+msgstr "दासिम जेबो थाथाय अपडेट गैया"
+
+#: templates/track_report_result.html:131
+msgid "Status updates will appear here as authorities review your report."
+msgstr "दायित्वआरिफोरा नोंथांनि रिपर्ट नायनायाव थाथाय अपडेट बेयाव नुगोन।"
+
+#: templates/track_report_result.html:140
+msgid "Maintenance Tickets"
+msgstr "रैखाथि टिकेट"
+
+#: templates/authority/report_detail.html:224
+#: templates/authority/report_detail.html:316
+#: templates/citizen/report_detail.html:191
+#: templates/track_report_result.html:150
+msgid "Priority"
+msgstr "गोदानथि"
+
+#: templates/authority/report_detail.html:232
+#: templates/track_report_result.html:156
+msgid "Assigned to"
+msgstr "हायो होनाय"
+
+#: templates/authority/report_detail.html:238
+#: templates/authority/report_detail.html:327
+#: templates/track_report_result.html:159
+msgid "Estimated Cost"
+msgstr "अनुमान खर्च"
+
+#: templates/authority/report_detail.html:244
+#: templates/authority/report_detail.html:331
+#: templates/citizen/report_detail.html:195
+#: templates/track_report_result.html:164
+msgid "Estimated Completion"
+msgstr "अनुमान जोबबो जानाय"
+
+#: templates/track_report_result.html:167
+msgid "Completed On"
+msgstr "जोबबो जानाय सान"
+
+#: templates/track_report_result.html:169
+msgid "Created"
+msgstr "सोरजिनाय"
+
+#: templates/authority/report_detail.html:336
+#: templates/citizen/report_detail.html:201
+#: templates/track_report_result.html:174
+msgid "Work Description"
+msgstr "खामानि बिजिरनाय"
+
+#: templates/authority/report_detail.html:340
+#: templates/track_report_result.html:178
+msgid "Materials Used"
+msgstr "बाहायनाय माल"
+
+#: templates/track_report_result.html:187
+msgid "No maintenance tickets yet"
+msgstr "दासिम जेबो रैखाथि टिकेट गैया"
+
+#: templates/track_report_result.html:188
+msgid ""
+"Maintenance tickets will be created once your report is verified by "
+"authorities."
+msgstr "दायित्वआरिफोरा नोंथांनि रिपर्ट रोखा खालामनायनि उनाव रैखाथि टिकेट सोरजिगोन।"
+
+#: templates/track_report_result.html:197
+msgid "View All Public Reports"
+msgstr "गासै रायजोनि रिपर्ट नाय"
+
+#: templates/auth/forgot_password.html:10
+msgid "Forgot Password"
+msgstr "पासवर्ड बावनाय"
+
+#: templates/auth/forgot_password.html:38
+msgid "Enter your email address and we'll send you a reset code."
+msgstr "नोंथांनि इमेइल ठिकाना लिर आरो जों नोंथांनो रिसेट कोड दैथायगोन।"
+
+#: templates/auth/forgot_password.html:39
+msgid "Make sure to check your spam folder if you don't see the email."
+msgstr "इमेइल नुया नङाब्ला नोंथांनि स्पेम फोल्डार नायना।"
+
+#: templates/auth/forgot_password.html:64
+msgid "Remember your password?"
+msgstr "नोंथांनि पासवर्ड गोसो दङ नामा?"
+
+#: templates/auth/forgot_password.html:64
+msgid "Back to Login"
+msgstr "हाबनायसिम उनफिन"
+
+#: templates/auth/forgot_password.html:72 templates/auth/verify_otp.html:88
+msgid "Security Note:"
+msgstr "रैखाथि लिरथाय:"
+
+#: templates/auth/forgot_password.html:72
+msgid "The reset code will be valid for 10 minutes only."
+msgstr "रिसेट कोडआ 10 मिनिटनि थाखायल' थाना।"
+
+#: templates/auth/forgot_password.html:73
+msgid "If you don't receive the email, please check your spam folder."
+msgstr "इमेइल मोनै नङाब्ला, अननानै नोंथांनि स्पेम फोल्डार नायना।"
+
+#: templates/auth/login.html:47
+msgid "Forgot your password?"
+msgstr "नोंथांनि पासवर्ड बावनाय नामा?"
+
+#: templates/auth/login.html:53
+msgid "Don't have an account?"
+msgstr "एकाउन्ट गैया नामा?"
+
+#: templates/auth/login.html:53
+msgid "Register here"
+msgstr "बेयाव रेजिस्टार खालाम"
+
+#: templates/auth/login.html:58
+msgid "Demo Accounts:"
+msgstr "डेमो एकाउन्ट:"
+
+#: templates/auth/login.html:61
+msgid "Register as citizen or authority for full experience"
+msgstr "आबुं अनजादखौ मोननो हारिमु एबा दायित्वआरि बादियाव रेजिस्टार खालाम"
+
+#: templates/auth/register.html:83
+msgid "Required for authority users"
+msgstr "दायित्वआरि बाहायग्राफोरनो गोनां"
+
+#: templates/auth/register.html:96
+msgid "Special password required for authority registration"
+msgstr "दायित्वआरि रेजिस्ट्रेसननि थाखाय गुबुन पासवर्ड गोनां"
+
+#: templates/auth/register.html:113
+msgid "Already have an account?"
+msgstr "सिगांआवनो एकाउन्ट दङ नामा?"
+
+#: templates/auth/register.html:113
+msgid "Login here"
+msgstr "बेयाव हाबनाय"
+
+#: templates/auth/verify_otp.html:3 templates/auth/verify_otp.html:10
+msgid "Verify OTP"
+msgstr "OTP रोखा खालाम"
+
+#: templates/auth/verify_otp.html:43
+msgid "We've sent a 6-digit verification code to:"
+msgstr "जों 6-अंकनि रोखा कोड दैथायबाय:"
+
+#: templates/auth/verify_otp.html:45
+msgid "Please check your email and enter the code below"
+msgstr "अननानै नोंथांनि इमेइल नाय आरो गाहायाव कोड लिर"
+
+#: templates/auth/verify_otp.html:53
+msgid "Enter 6-digit OTP"
+msgstr "6-अंकनि OTP लिर"
+
+#: templates/auth/verify_otp.html:69
+msgid "Didn't receive the code?"
+msgstr "कोड मोनै नङा नामा?"
+
+#: templates/auth/verify_otp.html:71 templates/auth/verify_otp.html:142
+#: templates/auth/verify_otp.html:148 templates/auth/verify_otp.html:170
+msgid "Resend OTP"
+msgstr "OTP फिन दैथाय"
+
+#: templates/auth/verify_otp.html:74
+msgid "Resend available in"
+msgstr "फिन दैथायनाय मोनगोन"
+
+#: templates/auth/verify_otp.html:74
+msgid "seconds"
+msgstr "सेकेन्ड"
+
+#: templates/auth/verify_otp.html:80
+msgid "Want to use a different email?"
+msgstr "गुबुन इमेइल बाहायनो सानो नामा?"
+
+#: templates/auth/verify_otp.html:80
+msgid "Register again"
+msgstr "फिन रेजिस्टार खालाम"
+
+#: templates/auth/verify_otp.html:88
+msgid "The OTP is valid for 10 minutes only."
+msgstr "OTP आ 10 मिनिटनि थाखायल' थाना।"
+
+#: templates/auth/verify_otp.html:89
+msgid "Don't share this code with anyone."
+msgstr "बे कोडखौ रावबो लोगोसे दों होनाङै।"
+
+#: templates/auth/verify_otp.html:108
+msgid "Sending..."
+msgstr "दैथायगासिनदों..."
+
+#: templates/authority/analytics.html:7
+msgid "Analytics Dashboard"
+msgstr "सिनायथि मुलुग फारि"
+
+#: templates/authority/analytics.html:9 templates/authority/reports.html:9
+#: templates/citizen/leaderboard.html:11
+#: templates/citizen/report_detail.html:14
+msgid "Back to Dashboard"
+msgstr "मुलुग फारिसिम उनफिन"
+
+#: templates/authority/analytics.html:20
+msgid "Avg Response Days"
+msgstr "गेजेराव फिननाय सान"
+
+#: templates/authority/analytics.html:38 templates/authority/dashboard.html:69
+msgid "High Priority Reports"
+msgstr "गोदान गोनांथि रिपर्ट"
+
+#: templates/authority/analytics.html:47
+msgid "This Month"
+msgstr "बे दानथि"
+
+#: templates/authority/analytics.html:58
+msgid "Reports by Category"
+msgstr "थाखो बादि रिपर्ट"
+
+#: templates/authority/analytics.html:69
+msgid "Status Distribution"
+msgstr "थाथाय रानाय"
+
+#: templates/authority/analytics.html:83
+msgid "Monthly Report Trends"
+msgstr "दानथिनि रिपर्ट बेहेमा"
+
+#: templates/authority/analytics.html:97
+msgid "Category Breakdown"
+msgstr "थाखो फारि"
+
+#: templates/authority/analytics.html:105
+#: templates/authority/analytics.html:136
+msgid "Count"
+msgstr "अनजिमा"
+
+#: templates/authority/analytics.html:106
+#: templates/authority/analytics.html:137
+msgid "Percentage"
+msgstr "जौथाय"
+
+#: templates/authority/analytics.html:128
+msgid "Status Breakdown"
+msgstr "थाथाय फारि"
+
+#: templates/authority/dashboard.html:3 templates/authority/dashboard.html:7
+msgid "Authority Dashboard"
+msgstr "दायित्वआरि मुलुग फारि"
+
+#: templates/authority/dashboard.html:9
+msgid "View All Reports"
+msgstr "गासै रिपर्ट नाय"
+
+#: templates/authority/dashboard.html:29
+msgid "Pending Action"
+msgstr "नागारगासिनदों खामानि"
+
+#: templates/authority/dashboard.html:58
+#: templates/authority/report_detail.html:266
+msgid "Quick Actions"
+msgstr "गोख्रों खामानि"
+
+#: templates/authority/dashboard.html:63
+msgid "New Reports"
+msgstr "गोदान रिपर्ट"
+
+#: templates/authority/dashboard.html:66
+msgid "In Progress Reports"
+msgstr "खामानि जागासिनदों रिपर्ट"
+
+#: templates/authority/dashboard.html:79
+msgid "Recent Activity"
+msgstr "दानि खामानि"
+
+#: templates/authority/dashboard.html:91
+msgid "Recent Reports"
+msgstr "दानि रिपर्ट"
+
+#: templates/authority/dashboard.html:104 templates/authority/reports.html:92
+#: templates/authority/reports.html:154 templates/authority/reports.html:227
+#: templates/citizen/leaderboard.html:163
+msgid "Reporter"
+msgstr "फोरमायग्रा"
+
+#: templates/authority/dashboard.html:116 templates/citizen/dashboard.html:73
+msgid "Has photo"
+msgstr "फटो दङ"
+
+#: templates/authority/dashboard.html:147 templates/citizen/dashboard.html:110
+msgid "View"
+msgstr "नाय"
+
+#: templates/authority/dashboard.html:159
+msgid "New reports will appear here as they are submitted by citizens."
+msgstr "हारिमुआफोरा फोरमायनायाव गोदान रिपर्टफोर बेयाव नुगोन।"
+
+#: templates/authority/dashboard.html:170
+msgid "Critical Issues"
+msgstr "जोबोद गोहोम जेंना"
+
+#: templates/authority/dashboard.html:181
+msgid "Review"
+msgstr "फिन नाय"
+
+#: templates/authority/dashboard.html:186
+msgid "No critical issues at the moment"
+msgstr "दा जेबो गोहोम जेंना गैया"
+
+#: templates/authority/dashboard.html:195
+msgid "Quick Stats"
+msgstr "गोख्रों अनजिमा"
+
+#: templates/authority/dashboard.html:201
+msgid "This Week"
+msgstr "बे सफ्ता"
+
+#: templates/authority/dashboard.html:205
+msgid "Resolved This Week"
+msgstr "बे सफ्ताआव थि खालामनाय"
+
+#: templates/authority/dashboard.html:209
+msgid "Avg Response Time (hrs)"
+msgstr "गेजेराव फिननाय सम (घण्टा)"
+
+#: templates/authority/dashboard.html:213
+msgid "Satisfaction Rate"
+msgstr "मोजां मोननायनि रेट"
+
+#: templates/authority/dashboard.html:226
+msgid "Reports Map"
+msgstr "रिपर्टनि मेप"
+
+#: templates/authority/report_detail.html:9
+msgid "Back to Reports"
+msgstr "रिपर्टसिम उनफिन"
+
+#: templates/authority/report_detail.html:51
+#: templates/authority/reports.html:94 templates/authority/reports.html:166
+#: templates/authority/reports.html:233 templates/citizen/dashboard.html:350
+#: templates/citizen/report.html:78 templates/citizen/report_detail.html:99
+msgid "Address"
+msgstr "ठिकाना"
+
+#: templates/authority/report_detail.html:55
+#: templates/authority/reports.html:93 templates/authority/reports.html:230
+#: templates/citizen/report_detail.html:102
+msgid "PIN/Postal Code"
+msgstr "पिन/डाक कोड"
+
+#: templates/authority/report_detail.html:59
+#: templates/citizen/report_detail.html:82
+#: templates/citizen/report_detail.html:169
+msgid "Coordinates"
+msgstr "निर्देशांक"
+
+#: templates/authority/report_detail.html:72
+#: templates/citizen/dashboard.html:63
+msgid "Date Reported"
+msgstr "फोरमायनाय अक्ट'"
+
+#: templates/authority/report_detail.html:77
+#: templates/citizen/dashboard.html:354
+#: templates/citizen/report_detail.html:110
+msgid "Last Updated"
+msgstr "जोबथा अपडेट"
+
+#: templates/authority/report_detail.html:90
+#: templates/citizen/dashboard.html:326
+msgid "No photo uploaded"
+msgstr "जेबो फटो अपलोड खालामा"
+
+#: templates/authority/report_detail.html:101
+#: templates/authority/report_detail.html:141
+msgid "Update Status"
+msgstr "थाथाय अपडेट खालाम"
+
+#: templates/authority/report_detail.html:107
+msgid "New Status"
+msgstr "गोदान थाथाय"
+
+#: templates/authority/report_detail.html:112
+#: templates/authority/report_detail.html:115
+#: templates/authority/reports.html:38
+msgid "Rejected"
+msgstr "नेवसिनाय"
+
+#: templates/authority/report_detail.html:122
+msgid "Current status"
+msgstr "दानि थाथाय"
+
+#: templates/authority/report_detail.html:125
+msgid "Status Update Image"
+msgstr "थाथाय अपडेट मुसुखा"
+
+#: templates/authority/report_detail.html:129
+msgid "Image is required for completed status"
+msgstr "जोबबो जानाय थाथायनि थाखाय मुसुखा गोनां"
+
+#: templates/authority/report_detail.html:131
+msgid "Optional: Upload image to document the status update"
+msgstr "बासाननाय: थाथाय अपडेट फोरमान खालामनो मुसुखा अपलोड खालाम"
+
+#: templates/authority/report_detail.html:136
+msgid "Comment (Optional)"
+msgstr "बिथोन (बासाननाय)"
+
+#: templates/authority/report_detail.html:137
+msgid "Add a comment about this status update..."
+msgstr "बे थाथाय अपडेटनि सोमोन्दै मोनसे बिथोन दाजाब..."
+
+#: templates/authority/report_detail.html:152
+msgid "Status History"
+msgstr "थाथाय जारिमिन"
+
+#: templates/authority/report_detail.html:199
+msgid "Location coordinates not available"
+msgstr "जायगा निर्देशांक गैया"
+
+#: templates/authority/report_detail.html:205
+msgid "Open in Google Maps"
+msgstr "गुगल मेपआव खेव"
+
+#: templates/authority/report_detail.html:215
+#: templates/citizen/report_detail.html:187
+msgid "Maintenance Ticket"
+msgstr "रैखाथि टिकेट"
+
+#: templates/authority/report_detail.html:219
+msgid "Ticket Number"
+msgstr "टिकेट नम्बर"
+
+#: templates/authority/report_detail.html:250
+msgid "Completed on"
+msgstr "जोबबो जानाय"
+
+#: templates/authority/report_detail.html:256
+msgid "Edit Ticket Details"
+msgstr "टिकेट गुदि सुजु"
+
+#: templates/authority/report_detail.html:272
+msgid "Verify Report"
+msgstr "रिपर्ट रोखा खालाम"
+
+#: templates/authority/report_detail.html:276
+msgid "Start Work"
+msgstr "खामानि जागाय"
+
+#: templates/authority/report_detail.html:280
+msgid "Mark Complete"
+msgstr "जोबबो बादि दाग हो"
+
+#: templates/authority/report_detail.html:286
+msgid "Reject Report"
+msgstr "रिपर्ट नेवसि"
+
+#: templates/authority/report_detail.html:300
+msgid "Edit Maintenance Ticket"
+msgstr "रैखाथि टिकेट सुजु"
+
+#: templates/authority/report_detail.html:307
+#: templates/citizen/report_detail.html:198
+msgid "Assigned To"
+msgstr "हायो होनाय"
+
+#: templates/authority/report_detail.html:309
+msgid "Unassigned"
+msgstr "हायो होया"
+
+#: templates/authority/report_detail.html:321
+msgid "Urgent"
+msgstr "गोख्रों गोनां"
+
+#: templates/authority/report_detail.html:346 templates/citizen/report.html:211
+msgid "Cancel"
+msgstr "नेवसि"
+
+#: templates/authority/report_detail.html:347
+msgid "Save Changes"
+msgstr "सोलायनायखौ थिना दोन"
+
+#: templates/authority/reports.html:18
+msgid "Filters & Search"
+msgstr "फिल्टार आरो नागिरनाय"
+
+#: templates/authority/reports.html:22
+msgid "Advanced Options"
+msgstr "दैदेनसिन बासाननाय"
+
+#: templates/authority/reports.html:31
+msgid "Status Filter"
+msgstr "थाथाय फिल्टार"
+
+#: templates/authority/reports.html:42
+msgid "Category Filter"
+msgstr "थाखो फिल्टार"
+
+#: templates/authority/reports.html:60
+msgid "Severity Filter"
+msgstr "गोहोमथि फिल्टार"
+
+#: templates/authority/reports.html:84
+msgid "Search in Column"
+msgstr "थामाव नागिर"
+
+#: templates/authority/reports.html:86
+msgid "All Columns"
+msgstr "गासै थाम"
+
+#: templates/authority/reports.html:98
+msgid "Search Term"
+msgstr "नागिरनाय सोदोब"
+
+#: templates/authority/reports.html:99
+msgid "Enter search term..."
+msgstr "नागिरनाय सोदोब लिर..."
+
+#: templates/authority/reports.html:104
+msgid "Search"
+msgstr "नागिर"
+
+#: templates/authority/reports.html:113
+msgid "Show/Hide Columns"
+msgstr "थाम दिनथि/एरसो"
+
+#: templates/authority/reports.html:186 templates/citizen/leaderboard.html:58
+msgid "Reports"
+msgstr "रिपर्टफोर"
+
+#: templates/authority/reports.html:192
+msgid "Bulk Verify"
+msgstr "गोबां रोखा खालाम"
+
+#: templates/authority/reports.html:195
+msgid "Bulk Start Work"
+msgstr "गोबां खामानि जागाय"
+
+#: templates/authority/reports.html:322
+msgid "No reports found"
+msgstr "जेबो रिपर्ट मोनै"
+
+#: templates/authority/reports.html:325
+msgid "No reports match the current filters."
+msgstr "दानि फिल्टारजों जेबो रिपर्ट गेजेरै जाया।"
+
+#: templates/authority/reports.html:327
+msgid "No reports have been submitted yet."
+msgstr "दासिम जेबो रिपर्ट दैथाय होया।"
+
+#: templates/authority/reports.html:345
+msgid "Report Location"
+msgstr "रिपर्ट जायगा"
+
+#: templates/citizen/dashboard.html:3
+msgid "Citizen Dashboard"
+msgstr "हारिमु मुलुग फारि"
+
+#: templates/citizen/dashboard.html:7
+msgid "My Dashboard"
+msgstr "आंनि मुलुग फारि"
+
+#: templates/citizen/dashboard.html:26
+msgid "Pending"
+msgstr "नागारगासिनदों"
+
+#: templates/citizen/dashboard.html:50
+msgid "My Reports"
+msgstr "आंनि रिपर्ट"
+
+#: templates/citizen/dashboard.html:62
+msgid "Image"
+msgstr "मुसुखा"
+
+#: templates/citizen/dashboard.html:100
+msgid "Click to view full image"
+msgstr "आबुं मुसुखा नायनो क्लिक खालाम"
+
+#: templates/citizen/dashboard.html:121
+msgid "No reports yet"
+msgstr "दासिम जेबो रिपर्ट गैया"
+
+#: templates/citizen/dashboard.html:122
+msgid "Start by reporting your first road issue!"
+msgstr "नोंथांनि गिबि लामा जेंना फोरमायनानै जागाय!"
+
+#: templates/citizen/dashboard.html:136
+msgid "My Reports Map"
+msgstr "आंनि रिपर्टनि मेप"
+
+#: templates/citizen/dashboard.html:266 templates/citizen/report.html:401
+msgid "View Details"
+msgstr "गुदि गासै नाय"
+
+#: templates/citizen/dashboard.html:330
+#: templates/citizen/report_detail.html:119
+msgid "Status Updates"
+msgstr "थाथाय अपडेट"
+
+#: templates/citizen/dashboard.html:350 templates/citizen/report.html:431
+msgid "Not provided"
+msgstr "होया"
+
+#: templates/citizen/leaderboard.html:3 templates/citizen/leaderboard.html:9
+msgid "Citizen Leaderboard"
+msgstr "हारिमु दैदेनगिरि फारि"
+
+#: templates/citizen/leaderboard.html:19
+msgid "Your Ranking"
+msgstr "नोंथांनि थारि"
+
+#: templates/citizen/leaderboard.html:25
+msgid "Current Rank"
+msgstr "दानि थारि"
+
+#: templates/citizen/leaderboard.html:29
+msgid "Total Points"
+msgstr "गासै बिन्दु"
+
+#: templates/citizen/leaderboard.html:33
+msgid "Reports Submitted"
+msgstr "दैथाय होनाय रिपर्ट"
+
+#: templates/citizen/leaderboard.html:37
+msgid "Votes Cast"
+msgstr "होनाय भोट"
+
+#: templates/citizen/leaderboard.html:47
+msgid "Top Citizens"
+msgstr "गोजौनि हारिमु"
+
+#: templates/citizen/leaderboard.html:55
+msgid "Rank"
+msgstr "थारि"
+
+#: templates/citizen/leaderboard.html:56
+msgid "Citizen"
+msgstr "हारिमु"
+
+#: templates/citizen/leaderboard.html:57
+msgid "Points"
+msgstr "बिन्दु"
+
+#: templates/citizen/leaderboard.html:60
+msgid "Badge"
+msgstr "बेज"
+
+#: templates/citizen/leaderboard.html:82
+msgid "You"
+msgstr "नों"
+
+#: templates/citizen/leaderboard.html:90 templates/citizen/leaderboard.html:135
+msgid "Champion"
+msgstr "जयी"
+
+#: templates/citizen/leaderboard.html:92 templates/citizen/leaderboard.html:134
+msgid "Expert"
+msgstr "गोसोग्रा"
+
+#: templates/citizen/leaderboard.html:94 templates/citizen/leaderboard.html:133
+msgid "Active"
+msgstr "खामानि मावग्रा"
+
+#: templates/citizen/leaderboard.html:96 templates/citizen/leaderboard.html:132
+msgid "Beginner"
+msgstr "जागायग्रा"
+
+#: templates/citizen/leaderboard.html:107
+msgid "No leaderboard data available"
+msgstr "जेबो दैदेनगिरि फारि डाटा गैया"
+
+#: templates/citizen/leaderboard.html:108
+msgid "Start reporting issues to earn points and appear on the leaderboard!"
+msgstr "बिन्दु मोननो आरो दैदेनगिरि फारिआव नुनो जेंना फोरमायनाय जागाय!"
+
+#: templates/citizen/leaderboard.html:117
+msgid "How Points Work"
+msgstr "बिन्दुफोर माबोरै खामानि खालामो"
+
+#: templates/citizen/leaderboard.html:122
+msgid "Earn Points By:"
+msgstr "बिन्दु मोननाय:"
+
+#: templates/citizen/leaderboard.html:124
+msgid "Submitting a report: +10 points"
+msgstr "रिपर्ट दैथाय हरनाय: +10 बिन्दु"
+
+#: templates/citizen/leaderboard.html:125
+msgid "Voting on issues: +2 points"
+msgstr "जेंनाआव भोट होनाय: +2 बिन्दु"
+
+#: templates/citizen/leaderboard.html:126
+msgid "Report gets resolved: +5 bonus points"
+msgstr "रिपर्ट थि खालामनाय: +5 बोनास बिन्दु"
+
+#: templates/citizen/leaderboard.html:130
+msgid "Badge Levels:"
+msgstr "बेज थाक:"
+
+#: templates/citizen/leaderboard.html:132
+#: templates/citizen/leaderboard.html:133
+#: templates/citizen/leaderboard.html:134
+#: templates/citizen/leaderboard.html:135
+msgid "points"
+msgstr "बिन्दु"
+
+#: templates/citizen/leaderboard.html:146
+msgid "Your Achievements"
+msgstr "नोंथांनि जयथि"
+
+#: templates/citizen/leaderboard.html:154
+msgid "First Report"
+msgstr "गिबि रिपर्ट"
+
+#: templates/citizen/leaderboard.html:172
+msgid "Voter"
+msgstr "भोट होग्रा"
+
+#: templates/citizen/leaderboard.html:190
+msgid "Century"
+msgstr "जौजानै"
+
+#: templates/citizen/leaderboard.html:199
+msgid "Top 10"
+msgstr "गोजौ 10"
+
+#: templates/citizen/report.html:20
+msgid "Basic Info"
+msgstr "गुदि फोरमायथि"
+
+#: templates/citizen/report.html:26
+msgid "Check Duplicates"
+msgstr "बारै गेजेरै नाय"
+
+#: templates/citizen/report.html:32
+msgid "Complete Report"
+msgstr "रिपर्ट जोबबो खालाम"
+
+#: templates/citizen/report.html:40
+msgid "Step 1: Basic Information"
+msgstr "उनाव 1: गुदि फोरमायथि"
+
+#: templates/citizen/report.html:43
+msgid "Issue Category"
+msgstr "जेंना थाखो"
+
+#: templates/citizen/report.html:45
+msgid "Select Category"
+msgstr "थाखो बासि"
+
+#: templates/citizen/report.html:47
+msgid "Sanitation & Waste Management"
+msgstr "गोसोथि आरो आबाद साजायनाय"
+
+#: templates/citizen/report.html:49
+msgid "Electricity & Street Lighting"
+msgstr "बिजुलि आरो लामा सायाव"
+
+#: templates/citizen/report.html:50
+msgid "Public Safety & Security"
+msgstr "रायजोनि रैखाथि आरो बाथ्राथि"
+
+#: templates/citizen/report.html:51
+msgid "Environment & Pollution"
+msgstr "गोबां आरो गन्दाथि"
+
+#: templates/citizen/report.html:52
+msgid "Transportation & Traffic"
+msgstr "थांनाय फैनाय आरो ट्राफिक"
+
+#: templates/citizen/report.html:53
+msgid "Healthcare & Public Health"
+msgstr "मोदोम रैखाथि आरो रायजोनि मोदोम"
+
+#: templates/citizen/report.html:54
+msgid "Digital Services & E-Governance"
+msgstr "डिजिटेल सेवा आरो इ-सासन"
+
+#: templates/citizen/report.html:55
+msgid "Education & Public Spaces"
+msgstr "फोरोंसालि आरो रायजोनि जायगा"
+
+#: templates/citizen/report.html:56
+msgid "Emergency & Disaster Management"
+msgstr "गोख्रों गोनांथि आरो बाइदि साजायनाय"
+
+#: templates/citizen/report.html:57
+msgid "Citizen Rights & Governance"
+msgstr "हारिमुनि आखुथाय आरो सासन"
+
+#: templates/citizen/report.html:62
+msgid "Issue Title"
+msgstr "जेंनानि बिमुं"
+
+#: templates/citizen/report.html:72
+msgid "PIN/Postal/Zip Code"
+msgstr "पिन/डाक/जिप कोड"
+
+#: templates/citizen/report.html:73
+msgid "e.g., 110001, 90210, M5V 3L9"
+msgstr "बिदि: 110001, 90210, M5V 3L9"
+
+#: templates/citizen/report.html:74
+msgid "PIN/Postal/Zip code is required"
+msgstr "पिन/डाक/जिप कोड गोनां"
+
+#: templates/citizen/report.html:83
+msgid "Location (Optional)"
+msgstr "जायगा (बासाननाय)"
+
+#: templates/citizen/report.html:87
+msgid "Get Current Location"
+msgstr "दानि जायगा ला"
+
+#: templates/citizen/report.html:92
+msgid "Choose on Map"
+msgstr "मेपआव बासि"
+
+#: templates/citizen/report.html:97
+msgid "Location:"
+msgstr "जायगा:"
+
+#: templates/citizen/report.html:105
+msgid "Check for Similar Issues"
+msgstr "गेजेराव जेंना नागिर"
+
+#: templates/citizen/report.html:113
+msgid "Step 2: Similar Issues Found"
+msgstr "उनाव 2: गेजेराव जेंना मोनबाय"
+
+#: templates/citizen/report.html:119 templates/citizen/report.html:170
+msgid "Back"
+msgstr "उनफिन"
+
+#: templates/citizen/report.html:122
+msgid "Continue with New Report"
+msgstr "गोदान रिपर्टजों सोलिनाय"
+
+#: templates/citizen/report.html:129
+msgid "Step 3: Complete Your Report"
+msgstr "उनाव 3: नोंथांनि रिपर्ट जोबबो खालाम"
+
+#: templates/citizen/report.html:145
+msgid "Select Severity"
+msgstr "गोहोमथि बासि"
+
+#: templates/citizen/report.html:156
+msgid "Photo is mandatory for all reports"
+msgstr "गासै रिपर्टनो फटो गोनां"
+
+#: templates/citizen/report.html:163
+msgid "Report Anonymously (Hide my identity in public views)"
+msgstr "मुं गैयै फोरमाय (रायजोनि नायनायाव आंनि सिनायथि एरसो)"
+
+#: templates/citizen/report.html:189
+msgid "Similar Issue Details"
+msgstr "गेजेराव जेंनानि गुदि"
+
+#: templates/citizen/report.html:204
+msgid "Choose Location on Map"
+msgstr "मेपआव जायगा बासि"
+
+#: templates/citizen/report.html:212
+msgid "Confirm Location"
+msgstr "जायगा रोखा खालाम"
+
+#: templates/citizen/report.html:333
+msgid "Please fill in all required fields before checking for duplicates."
+msgstr "बारै गेजेरै नागिरनायनि सिगां गासै गोनां जायगा आबुं खालाम।"
+
+#: templates/citizen/report.html:355
+msgid "Error checking for duplicates:"
+msgstr "बारै गेजेरै नागिरनायाव गोरोन्थि:"
+
+#: templates/citizen/report.html:360
+msgid "Error checking for duplicates. Please try again."
+msgstr "बारै गेजेरै नागिरनायाव गोरोन्थि। अननानै फिन नाजा।"
+
+#: templates/citizen/report.html:370
+msgid ""
+"No similar issues found in your area. You can proceed with creating a new"
+" report."
+msgstr ""
+"नोंथांनि ओनसोलाव जेबो गेजेराव जेंना मोनै। नों गोदान रिपर्ट सोरजिनो सोलिनो"
+" हागोन।"
+
+#: templates/citizen/report.html:378
+msgid "Found"
+msgstr "मोनबाय"
+
+#: templates/citizen/report.html:378
+msgid ""
+"similar issue(s) in your area. Please review them and consider voting "
+"instead of creating a duplicate report."
+msgstr ""
+"नोंथांनि ओनसोलाव गेजेराव जेंना। अननानै बेफोरखौ नाय आरो बारै रिपर्ट "
+"सोरजिनायनि सोलायै भोट होनायखौ सानना।"
+
+#: templates/citizen/report.html:392 templates/citizen/report.html:434
+msgid "Reported by:"
+msgstr "फोरमायग्रा:"
+
+#: templates/citizen/report.html:398 templates/citizen/report.html:471
+msgid "votes"
+msgstr "भोट"
+
+#: templates/citizen/report.html:407 templates/citizen/report.html:462
+msgid "Voted"
+msgstr "भोट होबाय"
+
+#: templates/citizen/report.html:407
+msgid "Vote"
+msgstr "भोट हो"
+
+#: templates/citizen/report.html:431
+msgid "Address:"
+msgstr "ठिकाना:"
+
+#: templates/citizen/report.html:432
+msgid "Severity:"
+msgstr "गोहोमथि:"
+
+#: templates/citizen/report.html:433
+msgid "Status:"
+msgstr "थाथाय:"
+
+#: templates/citizen/report.html:435
+msgid "Date:"
+msgstr "अक्ट':"
+
+#: templates/citizen/report.html:438
+msgid "Report Photo"
+msgstr "रिपर्ट फटो"
+
+#: templates/citizen/report.html:438
+msgid "No photo available"
+msgstr "जेबो फटो गैया"
+
+#: templates/citizen/report.html:447
+msgid "Error loading report details."
+msgstr "रिपर्ट गुदि ल'ड खालामनायाव गोरोन्थि।"
+
+#: templates/citizen/report.html:474
+msgid "Error voting:"
+msgstr "भोट होनायाव गोरोन्थि:"
+
+#: templates/citizen/report.html:479
+msgid "Error voting. Please try again."
+msgstr "भोट होनायाव गोरोन्थि। अननानै फिन नाजा।"
+
+#: templates/citizen/report.html:507
+msgid "Error getting location:"
+msgstr "जायगा मोननायाव गोरोन्थि:"
+
+#: templates/citizen/report.html:510
+msgid "Geolocation is not supported by this browser."
+msgstr "बे ब्राउजारा जिओलोकेसन सापोर्ट खालामा।"
+
+#: templates/citizen/report.html:544
+msgid "Please select a location on the map."
+msgstr "अननानै मेपआव मोनसे जायगा बासि।"
+
+#: templates/citizen/report.html:560
+msgid "Report submitted successfully!"
+msgstr "रिपर्ट जाहोनै दैथाय होबाय!"
+
+#: templates/citizen/report.html:563
+msgid "Error submitting report:"
+msgstr "रिपर्ट दैथाय हरनायाव गोरोन्थि:"
+
+#: templates/citizen/report.html:568
+msgid "Error submitting report. Please try again."
+msgstr "रिपर्ट दैथाय हरनायाव गोरोन्थि। अननानै फिन नाजा।"
+
+#: templates/citizen/report_detail.html:69
+#: templates/citizen/report_detail.html:171
+#, fuzzy
+msgid "Location not provided"
+msgstr "होया"
+
+#: templates/citizen/report_detail.html:92
+#, fuzzy
+msgid "Coordinates Unavailable"
+msgstr "जायगा निर्देशांक गैया"
+
+#: templates/citizen/report_detail.html:93
+#, fuzzy
+msgid "Location data not provided"
+msgstr "जायगा निर्देशांक गैया"
+
+#: templates/citizen/report_detail.html:190
+#, fuzzy
+msgid "Ticket #"
+msgstr "टिकेट नम्बर"
+

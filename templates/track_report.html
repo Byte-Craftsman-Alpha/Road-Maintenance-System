@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Track Report - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header text-center">
+                    <h4><i class="fas fa-search"></i> {{ _('Track Your Report') }}</h4>
+                    <p class="mb-0 text-muted">{{ _('Enter your report ID to track its status') }}</p>
+                </div>
+                <div class="card-body">
+                    <form id="trackingForm">
+                        <div class="mb-3">
+                            <label for="report_id" class="form-label">{{ _('Report ID') }}</label>
+                            <input type="number" class="form-control" id="report_id" name="report_id" 
+                                   placeholder="{{ _('Enter Report ID (e.g., 123)') }}" required>
+                            <div class="form-text">{{ _('You can find your report ID in the confirmation email or dashboard.') }}</div>
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-search"></i> {{ _('Track Report') }}
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="card mt-4">
+                <div class="card-header">
+                    <h6><i class="fas fa-info-circle"></i> {{ _('How to Track') }}</h6>
+                </div>
+                <div class="card-body">
+                    <ol class="mb-0">
+                        <li>{{ _('Enter your report ID in the field above') }}</li>
+                        <li>{{ _('Click "Track Report" to view the current status') }}</li>
+                        <li>{{ _('See all status updates and maintenance tickets') }}</li>
+                        <li>{{ _('No login required - completely public') }}</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('trackingForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const reportId = document.getElementById('report_id').value;
+    if (!reportId) {
+        alert('Please enter a report ID');
+        return;
+    }
+    
+    // Redirect to tracking result page
+    window.location.href = '/track-report/' + reportId;
+});
+</script>
+{% endblock %}

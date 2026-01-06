@@ -1,0 +1,1520 @@
+# Kashmiri translations for PROJECT.
+# Copyright (C) 2025 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2025.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2025-09-19 21:38+0530\n"
+"PO-Revision-Date: 2025-09-19 12:05+0530\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ks\n"
+"Language-Team: ks <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.17.0\n"
+
+#: templates/base.html:6 templates/base.html:62 templates/base.html:71
+#: templates/index.html:15
+msgid "CivicSetu"
+msgstr "سِوِک سیتو"
+
+#: templates/base.html:86 templates/base.html:102
+msgid "Dashboard"
+msgstr "ڈیش بورڈ"
+
+#: templates/base.html:91 templates/citizen/dashboard.html:124
+#: templates/citizen/report.html:3
+msgid "Report Issue"
+msgstr "مسلہٕ رپورٹ کٔرِو"
+
+#: templates/base.html:96
+msgid "Leaderboard"
+msgstr "لیڈر بورڈ"
+
+#: templates/authority/reports.html:7 templates/base.html:107
+#: templates/public_reports.html:45
+msgid "All Reports"
+msgstr "تمام رپورٹہٕ"
+
+#: templates/base.html:112
+msgid "Analytics"
+msgstr "تجزیات"
+
+#: templates/base.html:119 templates/public_reports.html:7
+msgid "Public Reports"
+msgstr "عوٲمی رپورٹہٕ"
+
+#: templates/base.html:124 templates/track_report.html:24
+msgid "Track Report"
+msgstr "رپورٹ ٹریک کٔرِو"
+
+#: templates/base.html:138
+msgid "Indian Languages"
+msgstr "ہِندوستٲنی زبانہٕ"
+
+#: templates/base.html:180
+msgid "Logout"
+msgstr "لاگ آوٹ"
+
+#: templates/auth/login.html:10 templates/base.html:187 templates/index.html:30
+msgid "Login"
+msgstr "لاگ اِن"
+
+#: templates/auth/register.html:10 templates/base.html:192
+msgid "Register"
+msgstr "رجسٹر کٔرِو"
+
+#: templates/index.html:17
+msgid "Civic System for Empowering Transparency & Upliftment"
+msgstr "شفافیت تہٕ ترقی خٲطرٕ شہری نظام"
+
+#: templates/index.html:19
+msgid ""
+"Empowering citizens to report different issues and enabling authorities "
+"to respond faster. \n"
+"                        Together, we build better infrastructure for "
+"everyone."
+msgstr ""
+"شہریَن مُختلِف مسلہٕ رپورٹ کرنُک اِختیار دِیُن تہٕ حُکامَن تیز جواب دینُک"
+" قٲبِل بناوُن۔ \n"
+"                        اکوٹہٕ، أسۍ سٲری خٲطرٕ بہتر بُنیادی ڈھانچہٕ "
+"بناوان۔"
+
+#: templates/index.html:27
+msgid "Get Started"
+msgstr "شُروع کٔرِو"
+
+#: templates/index.html:40
+msgid "Report Issues Instantly"
+msgstr "فوری طور پٲٹھۍ مسلہٕ رپورٹ کٔرِو"
+
+#: templates/index.html:58
+msgid "Easy Reporting"
+msgstr "آسان رپورٹِنگ"
+
+#: templates/index.html:60
+msgid ""
+"Report issues instantly using your mobile device with GPS location and "
+"photo upload."
+msgstr ""
+"پننِس موبائل ڈیوائسَس پٲٹھۍ GPS مقام تہٕ فوٹو اَپ لوڈ سٟتۍ فوری طور پٲٹھۍ"
+" مسلہٕ رپورٹ کٔرِو۔"
+
+#: templates/index.html:74
+msgid "Fast Response"
+msgstr "تیز جواب"
+
+#: templates/index.html:76
+msgid ""
+"Automated ticketing system ensures quick response times and efficient "
+"resource allocation."
+msgstr "خودکار ٹکٹِنگ سِسٹم تیز جوابی وقت تہٕ مؤثر وسٲیِل تقسیم یقینی بناوان چھُ۔"
+
+#: templates/index.html:90
+msgid "Transparency"
+msgstr "شفافیت"
+
+#: templates/index.html:92
+msgid ""
+"Track progress in real-time and access analytics for long-term "
+"infrastructure improvement."
+msgstr ""
+"حقیقی وقتَس منٛز پیش رفت ٹریک کٔرِو تہٕ طویِل مُدتی بُنیادی ڈھانچُک بہتری"
+" خٲطرٕ تجزیات تَک رسائی حٲصِل کٔرِو۔"
+
+#: templates/index.html:106
+msgid "How It Works"
+msgstr "یہِ کِتھہٕ پٲٹھۍ کٲم چھُ کران"
+
+#: templates/index.html:108
+msgid "Simple steps to report issues and track their resolution"
+msgstr "مسلہٕ رپورٹ کرنہٕ تہٕ تِمَن ہُنٛد حل ٹریک کرنُک آسان اقدامات"
+
+#: templates/index.html:122
+msgid "Spot the Issue"
+msgstr "مسلہٕ ژھانڈِو"
+
+#: templates/index.html:124
+msgid ""
+"Notice any issues like potholes, broken streetlight, or damaged road? "
+"Take a photo and note the location."
+msgstr ""
+"کانٛہہ مسلہٕ یِتھہٕ کٔنۍ کھڈہٕ، پھُٹمُت سٹریٹ لائٹ، یا خراب سڑک وُچھا؟ "
+"فوٹو تُلِو تہٕ جاے نوٹ کٔرِو۔"
+
+#: templates/citizen/report.html:173 templates/index.html:138
+msgid "Submit Report"
+msgstr "رپورٹ جمع کٔرِو"
+
+#: templates/index.html:140
+msgid ""
+"Fill out a quick form with details, upload the photo, and submit your "
+"report instantly."
+msgstr ""
+"تفصیلات سٟتۍ اکھ جلد فارم بٔرِو، فوٹو اَپ لوڈ کٔرِو، تہٕ پنُن رپورٹ فوری "
+"طور پٲٹھۍ جمع کٔرِو۔"
+
+#: templates/index.html:154
+msgid "Automatic Processing"
+msgstr "خودکار کاروٲیی"
+
+#: templates/index.html:156
+msgid ""
+"Our system creates a maintenance ticket and assigns it to the relevant "
+"authority team."
+msgstr ""
+"سٲنۍ سِسٹم اکھ مینٹیننس ٹِکٹ بناوان چھُ تہٕ یہِ متعلقہ اتھارٹی ٹیمَس "
+"تفویض کران چھُ۔"
+
+#: templates/index.html:170
+msgid "Track Progress"
+msgstr "پیش رفت ٹریک کٔرِو"
+
+#: templates/index.html:172
+msgid ""
+"Get real-time updates on your report status and see when the issue is "
+"resolved."
+msgstr ""
+"پننہِ رپورٹُک حال پٲٹھۍ حقیقی وقتُک اَپ ڈیٹ حٲصِل کٔرِو تہٕ وُچھِو مسلہٕ "
+"کَر چھُ حل گژھان۔"
+
+#: templates/index.html:183
+msgid "Start Reporting"
+msgstr "رپورٹِنگ شُروع کٔرِو"
+
+#: templates/index.html:186
+msgid "View Public Reports"
+msgstr "عوٲمی رپورٹہٕ وُچھِو"
+
+#: templates/citizen/dashboard.html:9 templates/citizen/report.html:11
+#: templates/index.html:190
+msgid "Report New Issue"
+msgstr "نٔو مسلہٕ رپورٹ کٔرِو"
+
+#: templates/index.html:193
+msgid "Go to Dashboard"
+msgstr "ڈیش بورڈَس کُن گٔژھِو"
+
+#: templates/index.html:205
+msgid "Recent Reports Map"
+msgstr "حالیہ رپورٹَن ہُنٛد نقشہٕ"
+
+#: templates/authority/dashboard.html:20 templates/citizen/dashboard.html:18
+#: templates/public_reports.html:16
+msgid "Total Reports"
+msgstr "کُل رپورٹہٕ"
+
+#: templates/authority/dashboard.html:47
+#: templates/authority/report_detail.html:117
+#: templates/authority/reports.html:37 templates/citizen/dashboard.html:42
+#: templates/public_reports.html:25 templates/public_reports.html:87
+msgid "Completed"
+msgstr "مُکمل"
+
+#: templates/authority/analytics.html:29 templates/public_reports.html:34
+msgid "Completion Rate"
+msgstr "تکمیلُک شرح"
+
+#: templates/public_reports.html:54
+msgid "Filters"
+msgstr "فِلٹر"
+
+#: templates/authority/reports.html:44 templates/public_reports.html:66
+msgid "All Categories"
+msgstr "تمام زمرٕ"
+
+#: templates/authority/reports.html:45 templates/citizen/report.html:46
+#: templates/public_reports.html:67
+msgid "Infrastructure & Roads"
+msgstr "بُنیادی ڈھانچہٕ تہٕ سڑکہٕ"
+
+#: templates/authority/reports.html:46 templates/public_reports.html:68
+msgid "Sanitation & Waste"
+msgstr "صفٲیی تہٕ کچرٕ"
+
+#: templates/authority/reports.html:47 templates/citizen/report.html:48
+#: templates/public_reports.html:69
+msgid "Water Supply & Drainage"
+msgstr "آبی رسد تہٕ نِکاسی"
+
+#: templates/authority/reports.html:48 templates/public_reports.html:70
+msgid "Electricity & Lighting"
+msgstr "بِجلی تہٕ روشنی"
+
+#: templates/authority/reports.html:49 templates/public_reports.html:71
+msgid "Public Safety"
+msgstr "عوٲمی حِفاظت"
+
+#: templates/authority/reports.html:50 templates/public_reports.html:72
+msgid "Environment"
+msgstr "ماحول"
+
+#: templates/authority/reports.html:51 templates/public_reports.html:73
+msgid "Transportation"
+msgstr "نقل و حمل"
+
+#: templates/authority/reports.html:52 templates/public_reports.html:74
+msgid "Healthcare"
+msgstr "صحت کِہ خِدمات"
+
+#: templates/authority/reports.html:53 templates/public_reports.html:75
+msgid "Digital Services"
+msgstr "ڈیجیٹل خِدمات"
+
+#: templates/authority/reports.html:54 templates/public_reports.html:76
+msgid "Education"
+msgstr "تعلیم"
+
+#: templates/authority/reports.html:55 templates/public_reports.html:77
+msgid "Emergency"
+msgstr "ہنگامی حالات"
+
+#: templates/authority/reports.html:56 templates/public_reports.html:78
+msgid "Citizen Rights"
+msgstr "شہری حقوق"
+
+#: templates/authority/reports.html:33 templates/public_reports.html:83
+msgid "All Status"
+msgstr "تمام حالات"
+
+#: templates/authority/dashboard.html:178 templates/authority/reports.html:34
+#: templates/citizen/dashboard.html:352
+#: templates/citizen/report_detail.html:107 templates/public_reports.html:84
+msgid "Reported"
+msgstr "رپورٹ کرنہٕ آمُت"
+
+#: templates/authority/report_detail.html:111
+#: templates/authority/reports.html:35 templates/citizen/leaderboard.html:181
+#: templates/public_reports.html:85
+msgid "Verified"
+msgstr "تصدیق شُدٕ"
+
+#: templates/authority/dashboard.html:38
+#: templates/authority/report_detail.html:114
+#: templates/authority/reports.html:36 templates/citizen/dashboard.html:34
+#: templates/public_reports.html:86
+msgid "In Progress"
+msgstr "جٲری"
+
+#: templates/authority/reports.html:62 templates/public_reports.html:92
+msgid "All Severity"
+msgstr "تمام شِدت"
+
+#: templates/authority/report_detail.html:318
+#: templates/authority/reports.html:63 templates/citizen/report.html:146
+#: templates/public_reports.html:93
+msgid "Low"
+msgstr "کم"
+
+#: templates/authority/report_detail.html:319
+#: templates/authority/reports.html:64 templates/citizen/report.html:147
+#: templates/public_reports.html:94
+msgid "Medium"
+msgstr "درمیان"
+
+#: templates/authority/report_detail.html:320
+#: templates/authority/reports.html:65 templates/citizen/report.html:148
+#: templates/public_reports.html:95
+msgid "High"
+msgstr "زیادٕ"
+
+#: templates/citizen/report.html:149 templates/public_reports.html:96
+msgid "Critical"
+msgstr "انتہٲیی اہم"
+
+#: templates/authority/reports.html:73 templates/authority/reports.html:332
+#: templates/public_reports.html:101
+msgid "Clear Filters"
+msgstr "فِلٹر صاف کٔرِو"
+
+#: templates/authority/dashboard.html:99 templates/authority/reports.html:87
+#: templates/authority/reports.html:118 templates/authority/reports.html:209
+#: templates/public_reports.html:113
+msgid "ID"
+msgstr "آی ڈی"
+
+#: templates/authority/dashboard.html:100 templates/authority/reports.html:88
+#: templates/authority/reports.html:124 templates/authority/reports.html:212
+#: templates/citizen/dashboard.html:58 templates/citizen/dashboard.html:346
+#: templates/public_reports.html:114
+msgid "Title"
+msgstr "عنوان"
+
+#: templates/authority/analytics.html:104
+#: templates/authority/dashboard.html:101
+#: templates/authority/report_detail.html:27
+#: templates/authority/reports.html:89 templates/authority/reports.html:130
+#: templates/authority/reports.html:215 templates/citizen/dashboard.html:59
+#: templates/citizen/dashboard.html:348 templates/citizen/report_detail.html:27
+#: templates/public_reports.html:115 templates/track_report_result.html:24
+msgid "Category"
+msgstr "زُمرٕ"
+
+#: templates/authority/analytics.html:135
+#: templates/authority/dashboard.html:103 templates/authority/reports.html:91
+#: templates/authority/reports.html:142 templates/authority/reports.html:221
+#: templates/citizen/dashboard.html:61 templates/citizen/dashboard.html:351
+#: templates/citizen/report_detail.html:38 templates/public_reports.html:116
+#: templates/track_report_result.html:8
+msgid "Status"
+msgstr "حالت"
+
+#: templates/authority/dashboard.html:102
+#: templates/authority/report_detail.html:32
+#: templates/authority/reports.html:90 templates/authority/reports.html:136
+#: templates/authority/reports.html:218 templates/citizen/dashboard.html:60
+#: templates/citizen/dashboard.html:349 templates/citizen/report.html:143
+#: templates/citizen/report_detail.html:31 templates/public_reports.html:117
+#: templates/track_report_result.html:27
+msgid "Severity"
+msgstr "شِدت"
+
+#: templates/citizen/report.html:154 templates/citizen/report_detail.html:152
+#: templates/public_reports.html:118
+msgid "Photo"
+msgstr "فوٹو"
+
+#: templates/authority/report_detail.html:192
+#: templates/citizen/report_detail.html:61
+#: templates/citizen/report_detail.html:162 templates/public_reports.html:119
+#: templates/track_report_result.html:42
+msgid "Location"
+msgstr "جاے"
+
+#: templates/authority/reports.html:160 templates/public_reports.html:120
+msgid "PIN Code"
+msgstr "پِن کوڈ"
+
+#: templates/authority/report_detail.html:68 templates/public_reports.html:121
+#: templates/track_report_result.html:44
+msgid "Reported by"
+msgstr "رپورٹ کرنہٕ وول"
+
+#: templates/authority/dashboard.html:105 templates/authority/reports.html:172
+#: templates/authority/reports.html:236 templates/public_reports.html:122
+msgid "Date"
+msgstr "تٲریخ"
+
+#: templates/authority/reports.html:148 templates/authority/reports.html:224
+#: templates/citizen/leaderboard.html:59 templates/public_reports.html:123
+msgid "Votes"
+msgstr "ووٹ"
+
+#: templates/authority/dashboard.html:106 templates/authority/reports.html:238
+#: templates/citizen/dashboard.html:64 templates/public_reports.html:124
+msgid "Actions"
+msgstr "اعمال"
+
+#: templates/public_reports.html:198
+msgid "Track"
+msgstr "ٹریک کٔرِو"
+
+#: templates/authority/dashboard.html:158 templates/public_reports.html:209
+msgid "No reports available"
+msgstr "کانٛہہ رپورٹ دستیاب چھَنہٕ"
+
+#: templates/public_reports.html:210
+msgid "Reports will appear here as they are submitted by citizens."
+msgstr "رپورٹہٕ یتھ ظٲہِر گژھَن ییلہِ شہری تِم جمع کرَن۔"
+
+#: templates/public_reports.html:219
+msgid "All Reports Map"
+msgstr "تمام رپورٹَن ہُنٛد نقشہٕ"
+
+#: templates/track_report.html:11
+msgid "Track Your Report"
+msgstr "پنُن رپورٹ ٹریک کٔرِو"
+
+#: templates/track_report.html:12
+msgid "Enter your report ID to track its status"
+msgstr "امُک حال ٹریک کرنہٕ خٲطرٕ پنُن رپورٹ آی ڈی دٲخِل کٔرِو"
+
+#: templates/citizen/report_detail.html:51 templates/track_report.html:17
+msgid "Report ID"
+msgstr "رپورٹ آی ڈی"
+
+#: templates/track_report.html:19
+msgid "Enter Report ID (e.g., 123)"
+msgstr "رپورٹ آی ڈی دٲخِل کٔرِو (مثلاً، 123)"
+
+#: templates/track_report.html:20
+msgid "You can find your report ID in the confirmation email or dashboard."
+msgstr "تُہۍ ہیٚکِو پنُن رپورٹ آی ڈی تصدیقی ای میل یا ڈیش بورڈَس منٛز ژھانٛڈِتھ۔"
+
+#: templates/track_report.html:33
+msgid "How to Track"
+msgstr "کِتھہٕ کٔنۍ ٹریک کرُن"
+
+#: templates/track_report.html:37
+msgid "Enter your report ID in the field above"
+msgstr "پیٚٹھمِس خانَس منٛز پنُن رپورٹ آی ڈی دٲخِل کٔرِو"
+
+#: templates/track_report.html:38
+msgid "Click \"Track Report\" to view the current status"
+msgstr "موجودٕ حال وُچھنہٕ خٲطرٕ \"رپورٹ ٹریک کٔرِو\" پیٚٹھ کلِک کٔرِو"
+
+#: templates/track_report.html:39
+msgid "See all status updates and maintenance tickets"
+msgstr "تمام سٹیٹس اَپ ڈیٹ تہٕ مینٹیننس ٹِکٹ وُچھِو"
+
+#: templates/track_report.html:40
+msgid "No login required - completely public"
+msgstr "کانٛہہ لاگ اِن ضروری چھُنہٕ - پورٕ پٲٹھۍ عوٲمی"
+
+#: templates/authority/report_detail.html:7
+#: templates/track_report_result.html:8
+msgid "Report"
+msgstr "رپورٹ"
+
+#: templates/track_report_result.html:10 templates/track_report_result.html:200
+msgid "Track Another Report"
+msgstr "بیاکھ رپورٹ ٹریک کٔرِو"
+
+#: templates/authority/report_detail.html:18
+#: templates/citizen/dashboard.html:150 templates/citizen/report_detail.html:3
+#: templates/citizen/report_detail.html:12
+#: templates/track_report_result.html:17
+msgid "Report Details"
+msgstr "رپورٹُک تفصیلات"
+
+#: templates/citizen/dashboard.html:347 templates/citizen/report.html:67
+#: templates/citizen/report_detail.html:56
+#: templates/track_report_result.html:23
+msgid "Description"
+msgstr "تفصیل"
+
+#: templates/track_report_result.html:30
+msgid "Current Status"
+msgstr "موجودٕ حالت"
+
+#: templates/track_report_result.html:43
+msgid "Reported On"
+msgstr "رپورٹ کرنُک تٲریخ"
+
+#: templates/authority/dashboard.html:139 templates/track_report_result.html:46
+msgid "Anonymous"
+msgstr "گُمنام"
+
+#: templates/track_report_result.html:51
+msgid "Community Votes"
+msgstr "کمیونٹی ووٹ"
+
+#: templates/citizen/dashboard.html:103 templates/track_report_result.html:65
+msgid "No image available"
+msgstr "کانٛہہ تصویر دستیاب چھَنہٕ"
+
+#: templates/track_report_result.html:76
+msgid "Status Updates Timeline"
+msgstr "سٹیٹس اَپ ڈیٹُک ٹائم لائن"
+
+#: templates/track_report_result.html:96
+msgid "Status changed to"
+msgstr "سٹیٹس بدلاونہٕ آو"
+
+#: templates/citizen/report_detail.html:137
+#: templates/track_report_result.html:104
+msgid "Updated by"
+msgstr "اَپ ڈیٹ کرنہٕ وول"
+
+#: templates/track_report_result.html:115
+msgid "Image not available"
+msgstr "تصویر دستیاب چھَنہٕ"
+
+#: templates/track_report_result.html:130
+msgid "No status updates yet"
+msgstr "وۄنۍ تام کانٛہہ سٹیٹس اَپ ڈیٹ چھُنہٕ"
+
+#: templates/track_report_result.html:131
+msgid "Status updates will appear here as authorities review your report."
+msgstr "سٹیٹس اَپ ڈیٹ یتھ ظٲہِر گژھَن ییلہِ حُکام تُہنٛد رپورٹُک جٲیزٕ نِن۔"
+
+#: templates/track_report_result.html:140
+msgid "Maintenance Tickets"
+msgstr "مینٹیننس ٹِکٹ"
+
+#: templates/authority/report_detail.html:224
+#: templates/authority/report_detail.html:316
+#: templates/citizen/report_detail.html:191
+#: templates/track_report_result.html:150
+msgid "Priority"
+msgstr "ترجیح"
+
+#: templates/authority/report_detail.html:232
+#: templates/track_report_result.html:156
+msgid "Assigned to"
+msgstr "تفویض کرنہٕ آمُت"
+
+#: templates/authority/report_detail.html:238
+#: templates/authority/report_detail.html:327
+#: templates/track_report_result.html:159
+msgid "Estimated Cost"
+msgstr "تخمینہٕ لاگت"
+
+#: templates/authority/report_detail.html:244
+#: templates/authority/report_detail.html:331
+#: templates/citizen/report_detail.html:195
+#: templates/track_report_result.html:164
+msgid "Estimated Completion"
+msgstr "تخمینہٕ تکمیل"
+
+#: templates/track_report_result.html:167
+msgid "Completed On"
+msgstr "مُکمل کرنُک تٲریخ"
+
+#: templates/track_report_result.html:169
+msgid "Created"
+msgstr "بناونہٕ آمُت"
+
+#: templates/authority/report_detail.html:336
+#: templates/citizen/report_detail.html:201
+#: templates/track_report_result.html:174
+msgid "Work Description"
+msgstr "کٲمِہ ہُنٛد تفصیل"
+
+#: templates/authority/report_detail.html:340
+#: templates/track_report_result.html:178
+msgid "Materials Used"
+msgstr "استعمال گٔمٕتۍ سامان"
+
+#: templates/track_report_result.html:187
+msgid "No maintenance tickets yet"
+msgstr "وۄنۍ تام کانٛہہ مینٹیننس ٹِکٹ چھُنہٕ"
+
+#: templates/track_report_result.html:188
+msgid ""
+"Maintenance tickets will be created once your report is verified by "
+"authorities."
+msgstr "مینٹیننس ٹِکٹ بناونہٕ یِن ییلہِ حُکامَن ذٔریعہ تُہنٛد رپورٹُک تصدیق گژھہِ۔"
+
+#: templates/track_report_result.html:197
+msgid "View All Public Reports"
+msgstr "تمام عوٲمی رپورٹہٕ وُچھِو"
+
+#: templates/auth/forgot_password.html:10
+msgid "Forgot Password"
+msgstr "پاس وَرڈ وسٲرِو"
+
+#: templates/auth/forgot_password.html:38
+msgid "Enter your email address and we'll send you a reset code."
+msgstr "پنُن ای میل ایڈریس دٲخِل کٔرِو تہٕ أسۍ سوزاوَو تُہۍ ری سیٹ کوڈ۔"
+
+#: templates/auth/forgot_password.html:39
+msgid "Make sure to check your spam folder if you don't see the email."
+msgstr "اگر تُہۍ ای میل وُچھِو نہٕ تیلہِ پنُن سپیم فولڈر ضرور چیک کٔرِو۔"
+
+#: templates/auth/forgot_password.html:64
+msgid "Remember your password?"
+msgstr "تُہنٛد پاس وَرڈ چھا یاد؟"
+
+#: templates/auth/forgot_password.html:64
+msgid "Back to Login"
+msgstr "لاگ اِنَس کُن واپس"
+
+#: templates/auth/forgot_password.html:72 templates/auth/verify_otp.html:88
+msgid "Security Note:"
+msgstr "سیکیورٹی نوٹ:"
+
+#: templates/auth/forgot_password.html:72
+msgid "The reset code will be valid for 10 minutes only."
+msgstr "ری سیٹ کوڈ صِرف 10 منٹَن تام درُست روزِ۔"
+
+#: templates/auth/forgot_password.html:73
+msgid "If you don't receive the email, please check your spam folder."
+msgstr "اگر تۄہہِ ای میل مِلیو نہٕ، مہربٲنی کٔرِتھ پنُن سپیم فولڈر چیک کٔرِو۔"
+
+#: templates/auth/login.html:47
+msgid "Forgot your password?"
+msgstr "تُہنٛد پاس وَرڈ چھا وسرِمُت؟"
+
+#: templates/auth/login.html:53
+msgid "Don't have an account?"
+msgstr "اکاؤنٹ چھا نہٕ؟"
+
+#: templates/auth/login.html:53
+msgid "Register here"
+msgstr "یتھ رجسٹر کٔرِو"
+
+#: templates/auth/login.html:58
+msgid "Demo Accounts:"
+msgstr "ڈیمو اکاؤنٹ:"
+
+#: templates/auth/login.html:61
+msgid "Register as citizen or authority for full experience"
+msgstr "پورٕ تجربہٕ خٲطرٕ شہری یا اتھارٹی پٲٹھۍ رجسٹر کٔرِو"
+
+#: templates/auth/register.html:83
+msgid "Required for authority users"
+msgstr "اتھارٹی صٲرفین خٲطرٕ ضروری"
+
+#: templates/auth/register.html:96
+msgid "Special password required for authority registration"
+msgstr "اتھارٹی رجسٹریشن خٲطرٕ خاص پاس وَرڈ ضروری"
+
+#: templates/auth/register.html:113
+msgid "Already have an account?"
+msgstr "گۄڈَے اکاؤنٹ چھا؟"
+
+#: templates/auth/register.html:113
+msgid "Login here"
+msgstr "یتھ لاگ اِن کٔرِو"
+
+#: templates/auth/verify_otp.html:3 templates/auth/verify_otp.html:10
+msgid "Verify OTP"
+msgstr "OTP تصدیق کٔرِو"
+
+#: templates/auth/verify_otp.html:43
+msgid "We've sent a 6-digit verification code to:"
+msgstr "أسۍ سوز 6-عدد ہُنٛد تصدیقی کوڈ یتھ:"
+
+#: templates/auth/verify_otp.html:45
+msgid "Please check your email and enter the code below"
+msgstr "مہربٲنی کٔرِتھ پنُن ای میل چیک کٔرِو تہٕ بۄنہٕ کوڈ دٲخِل کٔرِو"
+
+#: templates/auth/verify_otp.html:53
+msgid "Enter 6-digit OTP"
+msgstr "6-عدد OTP دٲخِل کٔرِو"
+
+#: templates/auth/verify_otp.html:69
+msgid "Didn't receive the code?"
+msgstr "کوڈ میلیوا نہٕ؟"
+
+#: templates/auth/verify_otp.html:71 templates/auth/verify_otp.html:142
+#: templates/auth/verify_otp.html:148 templates/auth/verify_otp.html:170
+msgid "Resend OTP"
+msgstr "OTP دوبارٕ سوزِو"
+
+#: templates/auth/verify_otp.html:74
+msgid "Resend available in"
+msgstr "دوبارٕ سوزنُک دستیاب"
+
+#: templates/auth/verify_otp.html:74
+msgid "seconds"
+msgstr "سیکنڈَن منٛز"
+
+#: templates/auth/verify_otp.html:80
+msgid "Want to use a different email?"
+msgstr "مُختلِف ای میل استعمال کرُن چھِوا یژھان؟"
+
+#: templates/auth/verify_otp.html:80
+msgid "Register again"
+msgstr "دوبارٕ رجسٹر کٔرِو"
+
+#: templates/auth/verify_otp.html:88
+msgid "The OTP is valid for 10 minutes only."
+msgstr "OTP چھُ صِرف 10 منٹَن تام درُست۔"
+
+#: templates/auth/verify_otp.html:89
+msgid "Don't share this code with anyone."
+msgstr "یہِ کوڈ مہ کٔرِو کٲنٛسہِ سٟتۍ شیئر۔"
+
+#: templates/auth/verify_otp.html:108
+msgid "Sending..."
+msgstr "سوزان..."
+
+#: templates/authority/analytics.html:7
+msgid "Analytics Dashboard"
+msgstr "تجزیاتی ڈیش بورڈ"
+
+#: templates/authority/analytics.html:9 templates/authority/reports.html:9
+#: templates/citizen/leaderboard.html:11
+#: templates/citizen/report_detail.html:14
+msgid "Back to Dashboard"
+msgstr "ڈیش بورڈَس کُن واپس"
+
+#: templates/authority/analytics.html:20
+msgid "Avg Response Days"
+msgstr "اوسط جوابی دۄہ"
+
+#: templates/authority/analytics.html:38 templates/authority/dashboard.html:69
+msgid "High Priority Reports"
+msgstr "زیادٕ ترجیحی رپورٹہٕ"
+
+#: templates/authority/analytics.html:47
+msgid "This Month"
+msgstr "یہِ رؠتھ"
+
+#: templates/authority/analytics.html:58
+msgid "Reports by Category"
+msgstr "زُمرٕ وار رپورٹہٕ"
+
+#: templates/authority/analytics.html:69
+msgid "Status Distribution"
+msgstr "حالتُک تقسیم"
+
+#: templates/authority/analytics.html:83
+msgid "Monthly Report Trends"
+msgstr "ماہانہ رپورٹ رُجحانات"
+
+#: templates/authority/analytics.html:97
+msgid "Category Breakdown"
+msgstr "زُمرٕ وار تفصیل"
+
+#: templates/authority/analytics.html:105
+#: templates/authority/analytics.html:136
+msgid "Count"
+msgstr "تعداد"
+
+#: templates/authority/analytics.html:106
+#: templates/authority/analytics.html:137
+msgid "Percentage"
+msgstr "فیصد"
+
+#: templates/authority/analytics.html:128
+msgid "Status Breakdown"
+msgstr "حالت وار تفصیل"
+
+#: templates/authority/dashboard.html:3 templates/authority/dashboard.html:7
+msgid "Authority Dashboard"
+msgstr "اتھارٹی ڈیش بورڈ"
+
+#: templates/authority/dashboard.html:9
+msgid "View All Reports"
+msgstr "تمام رپورٹہٕ وُچھِو"
+
+#: templates/authority/dashboard.html:29
+msgid "Pending Action"
+msgstr "التوا منٛز کارروٲیی"
+
+#: templates/authority/dashboard.html:58
+#: templates/authority/report_detail.html:266
+msgid "Quick Actions"
+msgstr "تیز کارروٲیی"
+
+#: templates/authority/dashboard.html:63
+msgid "New Reports"
+msgstr "نَوِ رپورٹہٕ"
+
+#: templates/authority/dashboard.html:66
+msgid "In Progress Reports"
+msgstr "جٲری رپورٹہٕ"
+
+#: templates/authority/dashboard.html:79
+msgid "Recent Activity"
+msgstr "حالیہ سرگرمی"
+
+#: templates/authority/dashboard.html:91
+msgid "Recent Reports"
+msgstr "حالیہ رپورٹہٕ"
+
+#: templates/authority/dashboard.html:104 templates/authority/reports.html:92
+#: templates/authority/reports.html:154 templates/authority/reports.html:227
+#: templates/citizen/leaderboard.html:163
+msgid "Reporter"
+msgstr "رپورٹر"
+
+#: templates/authority/dashboard.html:116 templates/citizen/dashboard.html:73
+msgid "Has photo"
+msgstr "فوٹو چھا"
+
+#: templates/authority/dashboard.html:147 templates/citizen/dashboard.html:110
+msgid "View"
+msgstr "وُچھِو"
+
+#: templates/authority/dashboard.html:159
+msgid "New reports will appear here as they are submitted by citizens."
+msgstr "نَوِ رپورٹہٕ یتھ ظٲہِر گژھَن ییلہِ شہری تِم جمع کرَن۔"
+
+#: templates/authority/dashboard.html:170
+msgid "Critical Issues"
+msgstr "انتہٲیی اہم مسلہٕ"
+
+#: templates/authority/dashboard.html:181
+msgid "Review"
+msgstr "جٲیزٕ نِیُن"
+
+#: templates/authority/dashboard.html:186
+msgid "No critical issues at the moment"
+msgstr "فی الوقت چھُنہٕ کانٛہہ انتہٲیی اہم مسلہٕ"
+
+#: templates/authority/dashboard.html:195
+msgid "Quick Stats"
+msgstr "تیز اعداد و شُمار"
+
+#: templates/authority/dashboard.html:201
+msgid "This Week"
+msgstr "یہِ ہفتہٕ"
+
+#: templates/authority/dashboard.html:205
+msgid "Resolved This Week"
+msgstr "یِمہِ ہفتَس منٛز حل گٔمٕتۍ"
+
+#: templates/authority/dashboard.html:209
+msgid "Avg Response Time (hrs)"
+msgstr "اوسط جوابی وقت (گھنٹہٕ)"
+
+#: templates/authority/dashboard.html:213
+msgid "Satisfaction Rate"
+msgstr "اطمینانُک شرح"
+
+#: templates/authority/dashboard.html:226
+msgid "Reports Map"
+msgstr "رپورٹَن ہُنٛد نقشہٕ"
+
+#: templates/authority/report_detail.html:9
+msgid "Back to Reports"
+msgstr "رپورٹَن کُن واپس"
+
+#: templates/authority/report_detail.html:51
+#: templates/authority/reports.html:94 templates/authority/reports.html:166
+#: templates/authority/reports.html:233 templates/citizen/dashboard.html:350
+#: templates/citizen/report.html:78 templates/citizen/report_detail.html:99
+msgid "Address"
+msgstr "پتہٕ"
+
+#: templates/authority/report_detail.html:55
+#: templates/authority/reports.html:93 templates/authority/reports.html:230
+#: templates/citizen/report_detail.html:102
+msgid "PIN/Postal Code"
+msgstr "پِن/پوسٹل کوڈ"
+
+#: templates/authority/report_detail.html:59
+#: templates/citizen/report_detail.html:82
+#: templates/citizen/report_detail.html:169
+msgid "Coordinates"
+msgstr "نِردیشانک"
+
+#: templates/authority/report_detail.html:72
+#: templates/citizen/dashboard.html:63
+msgid "Date Reported"
+msgstr "رپورٹ کرنُک تٲریخ"
+
+#: templates/authority/report_detail.html:77
+#: templates/citizen/dashboard.html:354
+#: templates/citizen/report_detail.html:110
+msgid "Last Updated"
+msgstr "ٲخری اَپ ڈیٹ"
+
+#: templates/authority/report_detail.html:90
+#: templates/citizen/dashboard.html:326
+msgid "No photo uploaded"
+msgstr "کانٛہہ فوٹو اَپ لوڈ کرنہٕ آمُت چھُنہٕ"
+
+#: templates/authority/report_detail.html:101
+#: templates/authority/report_detail.html:141
+msgid "Update Status"
+msgstr "سٹیٹس اَپ ڈیٹ کٔرِو"
+
+#: templates/authority/report_detail.html:107
+msgid "New Status"
+msgstr "نٔو سٹیٹس"
+
+#: templates/authority/report_detail.html:112
+#: templates/authority/report_detail.html:115
+#: templates/authority/reports.html:38
+msgid "Rejected"
+msgstr "مُسترد"
+
+#: templates/authority/report_detail.html:122
+msgid "Current status"
+msgstr "موجودٕ حالت"
+
+#: templates/authority/report_detail.html:125
+msgid "Status Update Image"
+msgstr "سٹیٹس اَپ ڈیٹُک تصویر"
+
+#: templates/authority/report_detail.html:129
+msgid "Image is required for completed status"
+msgstr "مُکمل سٹیٹس خٲطرٕ چھےٚ تصویر ضروری"
+
+#: templates/authority/report_detail.html:131
+msgid "Optional: Upload image to document the status update"
+msgstr "اِختیٲری: سٹیٹس اَپ ڈیٹ دستاویز کرنہٕ خٲطرٕ تصویر اَپ لوڈ کٔرِو"
+
+#: templates/authority/report_detail.html:136
+msgid "Comment (Optional)"
+msgstr "تبصرٕ (اِختیٲری)"
+
+#: templates/authority/report_detail.html:137
+msgid "Add a comment about this status update..."
+msgstr "یِمہِ سٹیٹس اَپ ڈیٹَس متعلق اکھ تبصرٕ شٲمِل کٔرِو..."
+
+#: templates/authority/report_detail.html:152
+msgid "Status History"
+msgstr "سٹیٹسُک تٲریخ"
+
+#: templates/authority/report_detail.html:199
+msgid "Location coordinates not available"
+msgstr "جایہِ ہٕنٛدۍ نِردیشانک دستیاب چھِنہٕ"
+
+#: templates/authority/report_detail.html:205
+msgid "Open in Google Maps"
+msgstr "گوگل میپَس منٛز کھولِو"
+
+#: templates/authority/report_detail.html:215
+#: templates/citizen/report_detail.html:187
+msgid "Maintenance Ticket"
+msgstr "مینٹیننس ٹِکٹ"
+
+#: templates/authority/report_detail.html:219
+msgid "Ticket Number"
+msgstr "ٹِکٹ نمبر"
+
+#: templates/authority/report_detail.html:250
+msgid "Completed on"
+msgstr "مُکمل کرنُک تٲریخ"
+
+#: templates/authority/report_detail.html:256
+msgid "Edit Ticket Details"
+msgstr "ٹِکٹُک تفصیلات اِیڈِٹ کٔرِو"
+
+#: templates/authority/report_detail.html:272
+msgid "Verify Report"
+msgstr "رپورٹُک تصدیق کٔرِو"
+
+#: templates/authority/report_detail.html:276
+msgid "Start Work"
+msgstr "کٲم شُروع کٔرِو"
+
+#: templates/authority/report_detail.html:280
+msgid "Mark Complete"
+msgstr "مُکمل نِشان لگٲیِو"
+
+#: templates/authority/report_detail.html:286
+msgid "Reject Report"
+msgstr "رپورٹ مُسترد کٔرِو"
+
+#: templates/authority/report_detail.html:300
+msgid "Edit Maintenance Ticket"
+msgstr "مینٹیننس ٹِکٹ اِیڈِٹ کٔرِو"
+
+#: templates/authority/report_detail.html:307
+#: templates/citizen/report_detail.html:198
+msgid "Assigned To"
+msgstr "تفویض کرنہٕ آمُت"
+
+#: templates/authority/report_detail.html:309
+msgid "Unassigned"
+msgstr "غٲر تفویض شُدٕ"
+
+#: templates/authority/report_detail.html:321
+msgid "Urgent"
+msgstr "فوری"
+
+#: templates/authority/report_detail.html:346 templates/citizen/report.html:211
+msgid "Cancel"
+msgstr "منسوخ"
+
+#: templates/authority/report_detail.html:347
+msgid "Save Changes"
+msgstr "تبدیلی محفوظ کٔرِو"
+
+#: templates/authority/reports.html:18
+msgid "Filters & Search"
+msgstr "فِلٹر تہٕ تلاش"
+
+#: templates/authority/reports.html:22
+msgid "Advanced Options"
+msgstr "ترقی یافتہ اِختیارات"
+
+#: templates/authority/reports.html:31
+msgid "Status Filter"
+msgstr "سٹیٹس فِلٹر"
+
+#: templates/authority/reports.html:42
+msgid "Category Filter"
+msgstr "زُمرٕ فِلٹر"
+
+#: templates/authority/reports.html:60
+msgid "Severity Filter"
+msgstr "شِدت فِلٹر"
+
+#: templates/authority/reports.html:84
+msgid "Search in Column"
+msgstr "کالمَس منٛز تلاش کٔرِو"
+
+#: templates/authority/reports.html:86
+msgid "All Columns"
+msgstr "تمام کالم"
+
+#: templates/authority/reports.html:98
+msgid "Search Term"
+msgstr "تلاش لفظ"
+
+#: templates/authority/reports.html:99
+msgid "Enter search term..."
+msgstr "تلاش لفظ دٲخِل کٔرِو..."
+
+#: templates/authority/reports.html:104
+msgid "Search"
+msgstr "تلاش"
+
+#: templates/authority/reports.html:113
+msgid "Show/Hide Columns"
+msgstr "کالم ہٲوِو/ژورٲوِو"
+
+#: templates/authority/reports.html:186 templates/citizen/leaderboard.html:58
+msgid "Reports"
+msgstr "رپورٹہٕ"
+
+#: templates/authority/reports.html:192
+msgid "Bulk Verify"
+msgstr "اکہٕ سٟتۍ تصدیق"
+
+#: templates/authority/reports.html:195
+msgid "Bulk Start Work"
+msgstr "اکہٕ سٟتۍ کٲم شُروع"
+
+#: templates/authority/reports.html:322
+msgid "No reports found"
+msgstr "کانٛہہ رپورٹ میلیٚمُت نہٕ"
+
+#: templates/authority/reports.html:325
+msgid "No reports match the current filters."
+msgstr "موجودٕ فِلٹرَن سٟتۍ میل کھیوان کانٛہہ رپورٹ چھُنہٕ۔"
+
+#: templates/authority/reports.html:327
+msgid "No reports have been submitted yet."
+msgstr "وۄنۍ تام چھُنہٕ کانٛہہ رپورٹ جمع کرنہٕ آمُت۔"
+
+#: templates/authority/reports.html:345
+msgid "Report Location"
+msgstr "رپورٹُک جاے"
+
+#: templates/citizen/dashboard.html:3
+msgid "Citizen Dashboard"
+msgstr "شہری ڈیش بورڈ"
+
+#: templates/citizen/dashboard.html:7
+msgid "My Dashboard"
+msgstr "میٚون ڈیش بورڈ"
+
+#: templates/citizen/dashboard.html:26
+msgid "Pending"
+msgstr "التوا منٛز"
+
+#: templates/citizen/dashboard.html:50
+msgid "My Reports"
+msgstr "میٚنۍ رپورٹہٕ"
+
+#: templates/citizen/dashboard.html:62
+msgid "Image"
+msgstr "تصویر"
+
+#: templates/citizen/dashboard.html:100
+msgid "Click to view full image"
+msgstr "پورٕ تصویر وُچھنہٕ خٲطرٕ کلِک کٔرِو"
+
+#: templates/citizen/dashboard.html:121
+msgid "No reports yet"
+msgstr "وۄنۍ تام کانٛہہ رپورٹ چھَنہٕ"
+
+#: templates/citizen/dashboard.html:122
+msgid "Start by reporting your first road issue!"
+msgstr "پنُن گۄڈنیُک سڑک مسلہٕ رپورٹ کٔرِتھ شُروع کٔرِو!"
+
+#: templates/citizen/dashboard.html:136
+msgid "My Reports Map"
+msgstr "میٚنہِ رپورٹَن ہُنٛد نقشہٕ"
+
+#: templates/citizen/dashboard.html:266 templates/citizen/report.html:401
+msgid "View Details"
+msgstr "تفصیلات وُچھِو"
+
+#: templates/citizen/dashboard.html:330
+#: templates/citizen/report_detail.html:119
+msgid "Status Updates"
+msgstr "سٹیٹس اَپ ڈیٹ"
+
+#: templates/citizen/dashboard.html:350 templates/citizen/report.html:431
+msgid "Not provided"
+msgstr "فراہم کرنہٕ آمُت چھُنہٕ"
+
+#: templates/citizen/leaderboard.html:3 templates/citizen/leaderboard.html:9
+msgid "Citizen Leaderboard"
+msgstr "شہری لیڈر بورڈ"
+
+#: templates/citizen/leaderboard.html:19
+msgid "Your Ranking"
+msgstr "تُہنٛد رینکِنگ"
+
+#: templates/citizen/leaderboard.html:25
+msgid "Current Rank"
+msgstr "موجودٕ رینک"
+
+#: templates/citizen/leaderboard.html:29
+msgid "Total Points"
+msgstr "کُل پوائنٹ"
+
+#: templates/citizen/leaderboard.html:33
+msgid "Reports Submitted"
+msgstr "جمع کرنہٕ آمٕتۍ رپورٹہٕ"
+
+#: templates/citizen/leaderboard.html:37
+msgid "Votes Cast"
+msgstr "دِنہٕ آمٕتۍ ووٹ"
+
+#: templates/citizen/leaderboard.html:47
+msgid "Top Citizens"
+msgstr "سرِس شہری"
+
+#: templates/citizen/leaderboard.html:55
+msgid "Rank"
+msgstr "رینک"
+
+#: templates/citizen/leaderboard.html:56
+msgid "Citizen"
+msgstr "شہری"
+
+#: templates/citizen/leaderboard.html:57
+msgid "Points"
+msgstr "پوائنٹ"
+
+#: templates/citizen/leaderboard.html:60
+msgid "Badge"
+msgstr "بیج"
+
+#: templates/citizen/leaderboard.html:82
+msgid "You"
+msgstr "تۄہۍ"
+
+#: templates/citizen/leaderboard.html:90 templates/citizen/leaderboard.html:135
+msgid "Champion"
+msgstr "چیمپیَن"
+
+#: templates/citizen/leaderboard.html:92 templates/citizen/leaderboard.html:134
+msgid "Expert"
+msgstr "ماہِر"
+
+#: templates/citizen/leaderboard.html:94 templates/citizen/leaderboard.html:133
+msgid "Active"
+msgstr "سرگرم"
+
+#: templates/citizen/leaderboard.html:96 templates/citizen/leaderboard.html:132
+msgid "Beginner"
+msgstr "نٔو شُروعات کرن وول"
+
+#: templates/citizen/leaderboard.html:107
+msgid "No leaderboard data available"
+msgstr "کانٛہہ لیڈر بورڈ ڈیٹا دستیاب چھُنہٕ"
+
+#: templates/citizen/leaderboard.html:108
+msgid "Start reporting issues to earn points and appear on the leaderboard!"
+msgstr ""
+"پوائنٹ کمانہٕ تہٕ لیڈر بورڈَس پیٚٹھ ظٲہِر گژھنہٕ خٲطرٕ مسلہٕ رپورٹ کرُن "
+"شُروع کٔرِو!"
+
+#: templates/citizen/leaderboard.html:117
+msgid "How Points Work"
+msgstr "پوائنٹ کِتھہٕ کٔنۍ کٲم چھِ کران"
+
+#: templates/citizen/leaderboard.html:122
+msgid "Earn Points By:"
+msgstr "پوائنٹ کمٲیِو:"
+
+#: templates/citizen/leaderboard.html:124
+msgid "Submitting a report: +10 points"
+msgstr "رپورٹ جمع کرُن: +10 پوائنٹ"
+
+#: templates/citizen/leaderboard.html:125
+msgid "Voting on issues: +2 points"
+msgstr "مسلَن پیٚٹھ ووٹ کرُن: +2 پوائنٹ"
+
+#: templates/citizen/leaderboard.html:126
+msgid "Report gets resolved: +5 bonus points"
+msgstr "رپورٹ حل گژھُن: +5 بونس پوائنٹ"
+
+#: templates/citizen/leaderboard.html:130
+msgid "Badge Levels:"
+msgstr "بیج لیول:"
+
+#: templates/citizen/leaderboard.html:132
+#: templates/citizen/leaderboard.html:133
+#: templates/citizen/leaderboard.html:134
+#: templates/citizen/leaderboard.html:135
+msgid "points"
+msgstr "پوائنٹ"
+
+#: templates/citizen/leaderboard.html:146
+msgid "Your Achievements"
+msgstr "تُہنٛدۍ کامیٲبی"
+
+#: templates/citizen/leaderboard.html:154
+msgid "First Report"
+msgstr "گۄڈنیُک رپورٹ"
+
+#: templates/citizen/leaderboard.html:172
+msgid "Voter"
+msgstr "ووٹر"
+
+#: templates/citizen/leaderboard.html:190
+msgid "Century"
+msgstr "سینچری"
+
+#: templates/citizen/leaderboard.html:199
+msgid "Top 10"
+msgstr "ٹاپ 10"
+
+#: templates/citizen/report.html:20
+msgid "Basic Info"
+msgstr "بُنیٲدی معلومات"
+
+#: templates/citizen/report.html:26
+msgid "Check Duplicates"
+msgstr "نقل چیک کٔرِو"
+
+#: templates/citizen/report.html:32
+msgid "Complete Report"
+msgstr "رپورٹ مُکمل کٔرِو"
+
+#: templates/citizen/report.html:40
+msgid "Step 1: Basic Information"
+msgstr "قدم 1: بُنیٲدی معلومات"
+
+#: templates/citizen/report.html:43
+msgid "Issue Category"
+msgstr "مسلُک زُمرٕ"
+
+#: templates/citizen/report.html:45
+msgid "Select Category"
+msgstr "زُمرٕ ژٲرِو"
+
+#: templates/citizen/report.html:47
+msgid "Sanitation & Waste Management"
+msgstr "صفٲیی تہٕ کچرٕ انتظام"
+
+#: templates/citizen/report.html:49
+msgid "Electricity & Street Lighting"
+msgstr "بِجلی تہٕ سٹریٹ لائٹِنگ"
+
+#: templates/citizen/report.html:50
+msgid "Public Safety & Security"
+msgstr "عوٲمی حِفاظت تہٕ سیکیورٹی"
+
+#: templates/citizen/report.html:51
+msgid "Environment & Pollution"
+msgstr "ماحول تہٕ آلودگی"
+
+#: templates/citizen/report.html:52
+msgid "Transportation & Traffic"
+msgstr "نقل و حمل تہٕ ٹریفِک"
+
+#: templates/citizen/report.html:53
+msgid "Healthcare & Public Health"
+msgstr "صحت کِہ خِدمات تہٕ عوٲمی صحت"
+
+#: templates/citizen/report.html:54
+msgid "Digital Services & E-Governance"
+msgstr "ڈیجیٹل خِدمات تہٕ ای-گورننس"
+
+#: templates/citizen/report.html:55
+msgid "Education & Public Spaces"
+msgstr "تعلیم تہٕ عوٲمی جایہِ"
+
+#: templates/citizen/report.html:56
+msgid "Emergency & Disaster Management"
+msgstr "ہنگامی تہٕ آفت انتظام"
+
+#: templates/citizen/report.html:57
+msgid "Citizen Rights & Governance"
+msgstr "شہری حقوق تہٕ حُکمرٲنی"
+
+#: templates/citizen/report.html:62
+msgid "Issue Title"
+msgstr "مسلُک عنوان"
+
+#: templates/citizen/report.html:72
+msgid "PIN/Postal/Zip Code"
+msgstr "پِن/پوسٹل/زِپ کوڈ"
+
+#: templates/citizen/report.html:73
+msgid "e.g., 110001, 90210, M5V 3L9"
+msgstr "مثلاً، 110001, 90210, M5V 3L9"
+
+#: templates/citizen/report.html:74
+msgid "PIN/Postal/Zip code is required"
+msgstr "پِن/پوسٹل/زِپ کوڈ چھُ ضروری"
+
+#: templates/citizen/report.html:83
+msgid "Location (Optional)"
+msgstr "جاے (اِختیٲری)"
+
+#: templates/citizen/report.html:87
+msgid "Get Current Location"
+msgstr "موجودٕ جاے حٲصِل کٔرِو"
+
+#: templates/citizen/report.html:92
+msgid "Choose on Map"
+msgstr "نقشَس پیٚٹھ ژٲرِو"
+
+#: templates/citizen/report.html:97
+msgid "Location:"
+msgstr "جاے:"
+
+#: templates/citizen/report.html:105
+msgid "Check for Similar Issues"
+msgstr "ملتہٕ جُلتہٕ مسلہٕ چیک کٔرِو"
+
+#: templates/citizen/report.html:113
+msgid "Step 2: Similar Issues Found"
+msgstr "قدم 2: ملتہٕ جُلتہٕ مسلہٕ میلۍ"
+
+#: templates/citizen/report.html:119 templates/citizen/report.html:170
+msgid "Back"
+msgstr "واپس"
+
+#: templates/citizen/report.html:122
+msgid "Continue with New Report"
+msgstr "نٔو رپورٹَس سٟتۍ جٲری تھٲیِو"
+
+#: templates/citizen/report.html:129
+msgid "Step 3: Complete Your Report"
+msgstr "قدم 3: پنُن رپورٹ مُکمل کٔرِو"
+
+#: templates/citizen/report.html:145
+msgid "Select Severity"
+msgstr "شِدت ژٲرِو"
+
+#: templates/citizen/report.html:156
+msgid "Photo is mandatory for all reports"
+msgstr "تمام رپورٹَن خٲطرٕ چھےٚ فوٹو لازمی"
+
+#: templates/citizen/report.html:163
+msgid "Report Anonymously (Hide my identity in public views)"
+msgstr "گُمنام رپورٹ کٔرِو (عوٲمی نظرِ منٛز میٚون شناخت ژورٲیِو)"
+
+#: templates/citizen/report.html:189
+msgid "Similar Issue Details"
+msgstr "ملتہٕ جُلتہٕ مسلُک تفصیلات"
+
+#: templates/citizen/report.html:204
+msgid "Choose Location on Map"
+msgstr "نقشَس پیٚٹھ جاے ژٲرِو"
+
+#: templates/citizen/report.html:212
+msgid "Confirm Location"
+msgstr "جایہِ ہُنٛد تصدیق کٔرِو"
+
+#: templates/citizen/report.html:333
+msgid "Please fill in all required fields before checking for duplicates."
+msgstr "نقل چیک کرنہٕ برونٛہہ مہربٲنی کٔرِتھ تمام ضروری خانہٕ بٔرِو۔"
+
+#: templates/citizen/report.html:355
+msgid "Error checking for duplicates:"
+msgstr "نقل چیک کرنَس منٛز غلطی:"
+
+#: templates/citizen/report.html:360
+msgid "Error checking for duplicates. Please try again."
+msgstr "نقل چیک کرنَس منٛز غلطی۔ مہربٲنی کٔرِتھ دوبارٕ کوشِش کٔرِو۔"
+
+#: templates/citizen/report.html:370
+msgid ""
+"No similar issues found in your area. You can proceed with creating a new"
+" report."
+msgstr ""
+"تُہنٛدِس علاقَس منٛز میلیٚمُت نہٕ کانٛہہ ملتہٕ جُلتہٕ مسلہٕ۔ تۄہۍ ہیٚکِو "
+"نٔو رپورٹ بناونَس سٟتۍ برونٛہہ برُن۔"
+
+#: templates/citizen/report.html:378
+msgid "Found"
+msgstr "میلیٚمُت"
+
+#: templates/citizen/report.html:378
+msgid ""
+"similar issue(s) in your area. Please review them and consider voting "
+"instead of creating a duplicate report."
+msgstr ""
+"تُہنٛدِس علاقَس منٛز ملتہٕ جُلتہٕ مسلہٕ۔ مہربٲنی کٔرِتھ تِم وُچھِو تہٕ "
+"نقل رپورٹ بناونہٕ بجایہِ ووٹ کرنُک خیال کٔرِو۔"
+
+#: templates/citizen/report.html:392 templates/citizen/report.html:434
+msgid "Reported by:"
+msgstr "رپورٹ کرنہٕ وول:"
+
+#: templates/citizen/report.html:398 templates/citizen/report.html:471
+msgid "votes"
+msgstr "ووٹ"
+
+#: templates/citizen/report.html:407 templates/citizen/report.html:462
+msgid "Voted"
+msgstr "ووٹ دِیُمُت"
+
+#: templates/citizen/report.html:407
+msgid "Vote"
+msgstr "ووٹ دِیِو"
+
+#: templates/citizen/report.html:431
+msgid "Address:"
+msgstr "پتہٕ:"
+
+#: templates/citizen/report.html:432
+msgid "Severity:"
+msgstr "شِدت:"
+
+#: templates/citizen/report.html:433
+msgid "Status:"
+msgstr "حالت:"
+
+#: templates/citizen/report.html:435
+msgid "Date:"
+msgstr "تٲریخ:"
+
+#: templates/citizen/report.html:438
+msgid "Report Photo"
+msgstr "رپورٹُک فوٹو"
+
+#: templates/citizen/report.html:438
+msgid "No photo available"
+msgstr "کانٛہہ فوٹو دستیاب چھُنہٕ"
+
+#: templates/citizen/report.html:447
+msgid "Error loading report details."
+msgstr "رپورٹُک تفصیلات لوڈ کرنَس منٛز غلطی۔"
+
+#: templates/citizen/report.html:474
+msgid "Error voting:"
+msgstr "ووٹ دِنَس منٛز غلطی:"
+
+#: templates/citizen/report.html:479
+msgid "Error voting. Please try again."
+msgstr "ووٹ دِنَس منٛز غلطی۔ مہربٲنی کٔرِتھ دوبارٕ کوشِش کٔرِو۔"
+
+#: templates/citizen/report.html:507
+msgid "Error getting location:"
+msgstr "جاے حٲصِل کرنَس منٛز غلطی:"
+
+#: templates/citizen/report.html:510
+msgid "Geolocation is not supported by this browser."
+msgstr "یِمہِ براؤزرَس منٛز چھُنہٕ جیولوکیشن سپورٹ۔"
+
+#: templates/citizen/report.html:544
+msgid "Please select a location on the map."
+msgstr "مہربٲنی کٔرِتھ نقشَس پیٚٹھ اکھ جاے ژٲرِو۔"
+
+#: templates/citizen/report.html:560
+msgid "Report submitted successfully!"
+msgstr "رپورٹ کامیٲبی سان جمع گٔیہِ!"
+
+#: templates/citizen/report.html:563
+msgid "Error submitting report:"
+msgstr "رپورٹ جمع کرنَس منٛز غلطی:"
+
+#: templates/citizen/report.html:568
+msgid "Error submitting report. Please try again."
+msgstr "رپورٹ جمع کرنَس منٛز غلطی۔ مہربٲنی کٔرِتھ دوبارٕ کوشِش کٔرِو۔"
+
+#: templates/citizen/report_detail.html:69
+#: templates/citizen/report_detail.html:171
+#, fuzzy
+msgid "Location not provided"
+msgstr "فراہم کرنہٕ آمُت چھُنہٕ"
+
+#: templates/citizen/report_detail.html:92
+#, fuzzy
+msgid "Coordinates Unavailable"
+msgstr "جایہِ ہٕنٛدۍ نِردیشانک دستیاب چھِنہٕ"
+
+#: templates/citizen/report_detail.html:93
+#, fuzzy
+msgid "Location data not provided"
+msgstr "جایہِ ہٕنٛدۍ نِردیشانک دستیاب چھِنہٕ"
+
+#: templates/citizen/report_detail.html:190
+#, fuzzy
+msgid "Ticket #"
+msgstr "ٹِکٹ نمبر"
+

@@ -1,0 +1,385 @@
+# English translations for Road Maintenance System
+# Copyright (C) 2025 Paradox Team
+# This file is distributed under the same license as the Road Maintenance System project.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Road Maintenance System 1.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-12 22:47:32+0530\n"
+"PO-Revision-Date: 2025-01-12 22:47:32+0530\n"
+"Last-Translator: Paradox Team\n"
+"Language: en\n"
+"Language-Team: en <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.12.1\n"
+
+# Navigation and branding
+msgid "Road Maintenance System"
+msgstr "Road Maintenance System"
+
+msgid "Dashboard"
+msgstr "Dashboard"
+
+msgid "Report Issue"
+msgstr "Report Issue"
+
+msgid "Leaderboard"
+msgstr "Leaderboard"
+
+msgid "All Reports"
+msgstr "All Reports"
+
+msgid "Analytics"
+msgstr "Analytics"
+
+msgid "Public Reports"
+msgstr "Public Reports"
+
+msgid "Track Report"
+msgstr "Track Report"
+
+msgid "Login"
+msgstr "Login"
+
+msgid "Register"
+msgstr "Register"
+
+msgid "Logout"
+msgstr "Logout"
+
+msgid "Improving infrastructure through citizen engagement."
+msgstr "Improving infrastructure through citizen engagement."
+
+# Common terms
+msgid "Title"
+msgstr "Title"
+
+msgid "Description"
+msgstr "Description"
+
+msgid "Category"
+msgstr "Category"
+
+msgid "Severity"
+msgstr "Severity"
+
+msgid "Status"
+msgstr "Status"
+
+msgid "Location"
+msgstr "Location"
+
+msgid "Date"
+msgstr "Date"
+
+msgid "Image"
+msgstr "Image"
+
+msgid "Actions"
+msgstr "Actions"
+
+msgid "Submit"
+msgstr "Submit"
+
+msgid "Cancel"
+msgstr "Cancel"
+
+msgid "Save"
+msgstr "Save"
+
+msgid "Delete"
+msgstr "Delete"
+
+msgid "Edit"
+msgstr "Edit"
+
+msgid "View"
+msgstr "View"
+
+msgid "Update"
+msgstr "Update"
+
+msgid "Search"
+msgstr "Search"
+
+msgid "Filter"
+msgstr "Filter"
+
+msgid "Sort"
+msgstr "Sort"
+
+msgid "Export"
+msgstr "Export"
+
+# Status values
+msgid "Reported"
+msgstr "Reported"
+
+msgid "Verified"
+msgstr "Verified"
+
+msgid "In Progress"
+msgstr "In Progress"
+
+msgid "Completed"
+msgstr "Completed"
+
+msgid "Rejected"
+msgstr "Rejected"
+
+# Severity levels
+msgid "Low"
+msgstr "Low"
+
+msgid "Medium"
+msgstr "Medium"
+
+msgid "High"
+msgstr "High"
+
+msgid "Critical"
+msgstr "Critical"
+
+# Categories
+msgid "Pothole"
+msgstr "Pothole"
+
+msgid "Crack"
+msgstr "Crack"
+
+msgid "Flooding"
+msgstr "Flooding"
+
+msgid "Debris"
+msgstr "Debris"
+
+msgid "Signage"
+msgstr "Signage"
+
+msgid "Lighting"
+msgstr "Lighting"
+
+msgid "Other"
+msgstr "Other"
+
+# Form labels and messages
+msgid "Username"
+msgstr "Username"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "Password"
+msgstr "Password"
+
+msgid "Confirm Password"
+msgstr "Confirm Password"
+
+msgid "Role"
+msgstr "Role"
+
+msgid "Citizen"
+msgstr "Citizen"
+
+msgid "Authority"
+msgstr "Authority"
+
+msgid "Upload Image"
+msgstr "Upload Image"
+
+msgid "Choose File"
+msgstr "Choose File"
+
+msgid "No file chosen"
+msgstr "No file chosen"
+
+# Messages and notifications
+msgid "Report submitted successfully!"
+msgstr "Report submitted successfully!"
+
+msgid "Status updated successfully!"
+msgstr "Status updated successfully!"
+
+msgid "Login successful!"
+msgstr "Login successful!"
+
+msgid "Registration successful!"
+msgstr "Registration successful!"
+
+msgid "Invalid credentials"
+msgstr "Invalid credentials"
+
+msgid "Access denied"
+msgstr "Access denied"
+
+msgid "Report not found"
+msgstr "Report not found"
+
+msgid "Image uploaded successfully"
+msgstr "Image uploaded successfully"
+
+msgid "Error uploading image"
+msgstr "Error uploading image"
+
+msgid "Vote added successfully"
+msgstr "Vote added successfully"
+
+msgid "Vote removed successfully"
+msgstr "Vote removed successfully"
+
+msgid "Only citizens can vote"
+msgstr "Only citizens can vote"
+
+# Dashboard and statistics
+msgid "Total Reports"
+msgstr "Total Reports"
+
+msgid "Pending Reports"
+msgstr "Pending Reports"
+
+msgid "Completed Reports"
+msgstr "Completed Reports"
+
+msgid "My Reports"
+msgstr "My Reports"
+
+msgid "Recent Activity"
+msgstr "Recent Activity"
+
+msgid "Statistics"
+msgstr "Statistics"
+
+msgid "Completion Rate"
+msgstr "Completion Rate"
+
+msgid "Average Response Time"
+msgstr "Average Response Time"
+
+# Sorting and filtering
+msgid "Sort By"
+msgstr "Sort By"
+
+msgid "Date (Newest First)"
+msgstr "Date (Newest First)"
+
+msgid "Date (Oldest First)"
+msgstr "Date (Oldest First)"
+
+msgid "Severity (High to Low)"
+msgstr "Severity (High to Low)"
+
+msgid "Severity (Low to High)"
+msgstr "Severity (Low to High)"
+
+msgid "Title (A-Z)"
+msgstr "Title (A-Z)"
+
+msgid "Title (Z-A)"
+msgstr "Title (Z-A)"
+
+msgid "Most Votes"
+msgstr "Most Votes"
+
+msgid "Least Votes"
+msgstr "Least Votes"
+
+msgid "Status Priority"
+msgstr "Status Priority"
+
+# Error messages
+msgid "This field is required"
+msgstr "This field is required"
+
+msgid "Invalid email address"
+msgstr "Invalid email address"
+
+msgid "Password too short"
+msgstr "Password too short"
+
+msgid "Passwords do not match"
+msgstr "Passwords do not match"
+
+msgid "Username already exists"
+msgstr "Username already exists"
+
+msgid "Email already registered"
+msgstr "Email already registered"
+
+msgid "File too large"
+msgstr "File too large"
+
+msgid "Invalid file type"
+msgstr "Invalid file type"
+
+# Buttons and actions
+msgid "Create Report"
+msgstr "Create Report"
+
+msgid "Update Status"
+msgstr "Update Status"
+
+msgid "Add Comment"
+msgstr "Add Comment"
+
+msgid "Upload Photo"
+msgstr "Upload Photo"
+
+msgid "Vote"
+msgstr "Vote"
+
+msgid "Remove Vote"
+msgstr "Remove Vote"
+
+msgid "Track by ID"
+msgstr "Track by ID"
+
+msgid "View Details"
+msgstr "View Details"
+
+msgid "Download Report"
+msgstr "Download Report"
+
+# Placeholders and help text
+msgid "Enter report title..."
+msgstr "Enter report title..."
+
+msgid "Describe the issue in detail..."
+msgstr "Describe the issue in detail..."
+
+msgid "Enter your username"
+msgstr "Enter your username"
+
+msgid "Enter your email address"
+msgstr "Enter your email address"
+
+msgid "Enter your password"
+msgstr "Enter your password"
+
+msgid "Enter report ID to track"
+msgstr "Enter report ID to track"
+
+# Time and date
+msgid "Today"
+msgstr "Today"
+
+msgid "Yesterday"
+msgstr "Yesterday"
+
+msgid "Last Week"
+msgstr "Last Week"
+
+msgid "Last Month"
+msgstr "Last Month"
+
+msgid "minutes ago"
+msgstr "minutes ago"
+
+msgid "hours ago"
+msgstr "hours ago"
+
+msgid "days ago"
+msgstr "days ago"

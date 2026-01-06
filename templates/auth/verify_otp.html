@@ -1,0 +1,200 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Verify OTP') }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4">
+        <div class="card shadow">
+            <div class="card-header text-center bg-primary text-white">
+                <h4><i class="fas fa-shield-alt"></i> {{ _('Verify OTP') }}</h4>
+            </div>
+            <div class="card-body">
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            {% if category == 'success' %}
+                                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-check-circle"></i> {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% elif category == 'error' %}
+                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-exclamation-circle"></i> {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% elif category == 'warning' %}
+                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-exclamation-triangle"></i> {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% else %}
+                                <div class="alert alert-info alert-dismissible fade show" role="alert">
+                                    <i class="fas fa-info-circle"></i> {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+                
+                <div class="text-center mb-4">
+                    <p class="mb-2">{{ _('We\'ve sent a 6-digit verification code to:') }}</p>
+                    <strong class="text-primary">{{ email }}</strong>
+                    <p class="small text-muted mt-2">{{ _('Please check your email and enter the code below') }}</p>
+                </div>
+
+                <form method="POST">
+                    {{ form.hidden_tag() }}
+                    
+                    <div class="mb-3">
+                        {{ form.otp_code.label(class="form-label") }}
+                        {{ form.otp_code(class="form-control text-center", style="font-size: 1.5rem; letter-spacing: 0.5rem;", placeholder=_("Enter 6-digit OTP"), maxlength="6") }}
+                        {% if form.otp_code.errors %}
+                            <div class="text-danger">
+                                {% for error in form.otp_code.errors %}
+                                    <small>{{ error }}</small>
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    
+                    <div class="d-grid mb-3">
+                        {{ form.submit(class="btn btn-primary") }}
+                    </div>
+                </form>
+                
+                <div class="text-center">
+                    <p class="mb-2">{{ _('Didn\'t receive the code?') }}</p>
+                    <button id="resendBtn" class="btn btn-outline-secondary btn-sm" onclick="resendOTP()">
+                        <i class="fas fa-redo"></i> {{ _('Resend OTP') }}
+                    </button>
+                    <div id="countdown" class="small text-muted mt-2" style="display: none;">
+                        {{ _('Resend available in') }} <span id="timer">60</span> {{ _('seconds') }}
+                    </div>
+                </div>
+                
+                <hr>
+                <div class="text-center">
+                    <p class="mb-0">{{ _('Want to use a different email?') }} <a href="{{ url_for('register') }}">{{ _('Register again') }}</a></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="alert alert-info mt-3">
+            <small>
+                <i class="fas fa-info-circle"></i>
+                <strong>{{ _('Security Note:') }}</strong> {{ _('The OTP is valid for 10 minutes only.') }} 
+                {{ _('Don\'t share this code with anyone.') }}
+            </small>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let countdownTimer;
+let timeLeft = 0;
+
+function resendOTP() {
+    const resendBtn = document.getElementById('resendBtn');
+    const countdown = document.getElementById('countdown');
+    const timer = document.getElementById('timer');
+    
+    // Disable button and show countdown
+    resendBtn.disabled = true;
+    resendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {{ _('Sending...') }}';
+    
+    fetch('{{ url_for("resend_otp") }}', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        }
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            // Show success message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-success alert-dismissible fade show';
+            alert.innerHTML = `
+                <i class="fas fa-check-circle"></i> ${data.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.card-body').insertBefore(alert, document.querySelector('form'));
+            
+            // Start countdown
+            startCountdown();
+        } else {
+            // Show error message
+            const alert = document.createElement('div');
+            alert.className = 'alert alert-danger alert-dismissible fade show';
+            alert.innerHTML = `
+                <i class="fas fa-exclamation-circle"></i> ${data.message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            document.querySelector('.card-body').insertBefore(alert, document.querySelector('form'));
+            
+            // Re-enable button
+            resendBtn.disabled = false;
+            resendBtn.innerHTML = '<i class="fas fa-redo"></i> {{ _('Resend OTP') }}';
+        }
+    })
+    .catch(error => {
+        console.error('Error:', error);
+        resendBtn.disabled = false;
+        resendBtn.innerHTML = '<i class="fas fa-redo"></i> {{ _('Resend OTP') }}';
+    });
+}
+
+function startCountdown() {
+    const resendBtn = document.getElementById('resendBtn');
+    const countdown = document.getElementById('countdown');
+    const timer = document.getElementById('timer');
+    
+    timeLeft = 60;
+    countdown.style.display = 'block';
+    resendBtn.style.display = 'none';
+    
+    countdownTimer = setInterval(() => {
+        timeLeft--;
+        timer.textContent = timeLeft;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdownTimer);
+            countdown.style.display = 'none';
+            resendBtn.style.display = 'inline-block';
+            resendBtn.disabled = false;
+            resendBtn.innerHTML = '<i class="fas fa-redo"></i> {{ _('Resend OTP') }}';
+        }
+    }, 1000);
+}
+
+// Auto-focus on OTP input
+document.addEventListener('DOMContentLoaded', function() {
+    const otpInput = document.getElementById('otp_code');
+    if (otpInput) {
+        otpInput.focus();
+        
+        // Auto-submit when 6 digits are entered
+        otpInput.addEventListener('input', function() {
+            if (this.value.length === 6) {
+                // Small delay to allow user to see the complete code
+                setTimeout(() => {
+                    document.querySelector('form').submit();
+                }, 500);
+            }
+        });
+        
+        // Only allow numbers
+        otpInput.addEventListener('keypress', function(e) {
+            if (!/[0-9]/.test(e.key) && !['Backspace', 'Delete', 'Tab', 'Enter'].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+    }
+});
+</script>
+{% endblock %}
