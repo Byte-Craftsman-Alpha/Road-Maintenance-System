@@ -125,7 +125,7 @@
                             <label class="form-label">{{ _('Status Update Image') }}</label>
                             <input type="file" class="form-control" id="statusImage" name="image" accept="image/*">
                             <div class="form-text">
-                                <span id="imageRequiredText" style="display: none;" class="text-danger">
+                                <span id="imageRequiredText" class="text-danger is-hidden">
                                     <i class="fas fa-exclamation-triangle"></i> {{ _('Image is required for completed status') }}
                                 </span>
                                 <span id="imageOptionalText">{{ _('Optional: Upload image to document the status update') }}</span>
@@ -352,39 +352,66 @@
 {% endblock %}
 
 {% block scripts %}
+<script type="application/json" id="report-location-data">{{ {
+    'latitude': report.latitude,
+    'longitude': report.longitude,
+    'title': report.title
+} | tojson }}</script>
+<script type="application/json" id="report-ticket-data">{{ (
+    {
+        'assigned_to_id': report.ticket.assigned_to_id,
+        'priority': report.ticket.priority,
+        'estimated_cost': report.ticket.estimated_cost,
+        'estimated_completion': (report.ticket.estimated_completion.strftime('%Y-%m-%d') if report.ticket.estimated_completion else ''),
+        'work_description': report.ticket.work_description,
+        'materials_used': report.ticket.materials_used
+    } if report.ticket else {}
+) | tojson }}</script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize map
-    {% if report.latitude and report.longitude %}
-    const reportLat = {{ report.latitude }};
-    const reportLng = {{ report.longitude }};
-    const reportTitle = {{ report.title|tojson }};
-    
-    // Initialize map with proper touch controls
-    const map = L.map('reportLocationMap', {
-        // Enable touch interactions
-        touchZoom: true,
-        doubleClickZoom: true,
-        scrollWheelZoom: true,
-        boxZoom: true,
-        keyboard: true,
-        dragging: true,
-        // Disable single-finger zoom to require two fingers
-        tap: true,
-        tapTolerance: 15,
-        // Enable proper mobile gestures
-        zoomControl: true,
-        attributionControl: true
-    }).setView([reportLat, reportLng], 15);
-    
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: ' OpenStreetMap contributors'
-    }).addTo(map);
-    
-    // Add marker
-    const marker = L.marker([reportLat, reportLng]).addTo(map);
-    marker.bindPopup(reportTitle).openPopup();
-    {% endif %}
+    let reportLat = null;
+    let reportLng = null;
+    let reportTitle = '';
+
+    const mapDataEl = document.getElementById('report-location-data');
+    if (mapDataEl && mapDataEl.textContent) {
+        try {
+            const mapData = JSON.parse(mapDataEl.textContent);
+            reportLat = mapData.latitude;
+            reportLng = mapData.longitude;
+            reportTitle = mapData.title || '';
+        } catch (e) {
+            console.warn('Failed to parse report-location-data JSON', e);
+        }
+    }
+
+    if (typeof L !== 'undefined' && reportLat && reportLng) {
+        // Initialize map with proper touch controls
+        const map = L.map('reportLocationMap', {
+            // Enable touch interactions
+            touchZoom: true,
+            doubleClickZoom: true,
+            scrollWheelZoom: true,
+            boxZoom: true,
+            keyboard: true,
+            dragging: true,
+            // Disable single-finger zoom to require two fingers
+            tap: true,
+            tapTolerance: 15,
+            // Enable proper mobile gestures
+            zoomControl: true,
+            attributionControl: true
+        }).setView([reportLat, reportLng], 15);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: ' OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Add marker
+        const marker = L.marker([reportLat, reportLng]).addTo(map);
+        marker.bindPopup(reportTitle).openPopup();
+    }
     
     // Status update form
     document.getElementById('statusUpdateForm').addEventListener('submit', function(e) {
@@ -411,12 +438,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const statusImage = document.getElementById('statusImage');
         
         if (selectedStatus === 'completed') {
-            imageRequiredText.style.display = 'block';
-            imageOptionalText.style.display = 'none';
+            imageRequiredText.classList.remove('is-hidden');
+            imageOptionalText.classList.add('is-hidden');
             statusImage.required = true;
         } else {
-            imageRequiredText.style.display = 'none';
-            imageOptionalText.style.display = 'block';
+            imageRequiredText.classList.add('is-hidden');
+            imageOptionalText.classList.remove('is-hidden');
             statusImage.required = false;
         }
     });
@@ -481,12 +508,23 @@ function quickUpdate(status) {
 }
 
 function openInGoogleMaps() {
-    {% if report.latitude and report.longitude %}
-    const url = `https://www.google.com/maps?q={{ report.latitude }},{{ report.longitude }}`;
-    window.open(url, '_blank');
-    {% else %}
-    alert('Location coordinates not available for this report.');
-    {% endif %}
+    const mapDataEl = document.getElementById('report-location-data');
+    if (!mapDataEl || !mapDataEl.textContent) {
+        alert('Location coordinates not available for this report.');
+        return;
+    }
+
+    try {
+        const mapData = JSON.parse(mapDataEl.textContent);
+        if (!mapData || !mapData.latitude || !mapData.longitude) {
+            alert('Location coordinates not available for this report.');
+            return;
+        }
+        const url = `https://www.google.com/maps?q=${mapData.latitude},${mapData.longitude}`;
+        window.open(url, '_blank');
+    } catch (e) {
+        alert('Location coordinates not available for this report.');
+    }
 }
 
 function editTicket() {
@@ -494,14 +532,22 @@ function editTicket() {
     const modal = new bootstrap.Modal(document.getElementById('ticketEditModal'));
     
     // Populate form with current values
-    {% if report.ticket %}
-    document.getElementById('editAssignedTo').value = {{ report.ticket.assigned_to_id|tojson }};
-    document.getElementById('editPriority').value = {{ report.ticket.priority|tojson }};
-    document.getElementById('editEstimatedCost').value = {{ report.ticket.estimated_cost|tojson }};
-    document.getElementById('editEstimatedCompletion').value = {{ (report.ticket.estimated_completion.strftime("%Y-%m-%d") if report.ticket.estimated_completion else "")|tojson }};
-    document.getElementById('editWorkDescription').value = {{ report.ticket.work_description|tojson }};
-    document.getElementById('editMaterialsUsed').value = {{ report.ticket.materials_used|tojson }};
-    {% endif %}
+    const ticketDataEl = document.getElementById('report-ticket-data');
+    if (ticketDataEl && ticketDataEl.textContent) {
+        try {
+            const ticket = JSON.parse(ticketDataEl.textContent);
+            if (ticket) {
+                document.getElementById('editAssignedTo').value = ticket.assigned_to_id ?? '';
+                document.getElementById('editPriority').value = ticket.priority ?? '';
+                document.getElementById('editEstimatedCost').value = ticket.estimated_cost ?? '';
+                document.getElementById('editEstimatedCompletion').value = ticket.estimated_completion ?? '';
+                document.getElementById('editWorkDescription').value = ticket.work_description ?? '';
+                document.getElementById('editMaterialsUsed').value = ticket.materials_used ?? '';
+            }
+        } catch (e) {
+            console.warn('Failed to parse report-ticket-data JSON', e);
+        }
+    }
     
     modal.show();
 }
@@ -537,27 +583,4 @@ function saveTicketChanges() {
     });
 }
 </script>
-
-<style>
-.timeline-marker {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    margin-top: 4px;
-}
-
-.timeline-item:not(:last-child)::before {
-    content: '';
-    position: absolute;
-    left: 5px;
-    top: 20px;
-    width: 2px;
-    height: calc(100% - 8px);
-    background-color: #dee2e6;
-}
-
-.timeline {
-    position: relative;
-}
-</style>
 {% endblock %}

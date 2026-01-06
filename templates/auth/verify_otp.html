@@ -3,91 +3,67 @@
 {% block title %}{{ _('Verify OTP') }} - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-6 col-lg-4">
-        <div class="card shadow">
-            <div class="card-header text-center bg-primary text-white">
-                <h4><i class="fas fa-shield-alt"></i> {{ _('Verify OTP') }}</h4>
+<div class="mx-auto w-full max-w-md py-8">
+    <div class="minimal-card p-6 sm:p-8" id="otpCard">
+        <div class="mb-6 text-center">
+            <div class="mx-auto mb-3 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-indigo-50 text-indigo-700">
+                <span class="iconify" data-icon="solar:shield-check-outline" aria-hidden="true"></span>
             </div>
-            <div class="card-body">
-                <!-- Flash Messages -->
-                {% with messages = get_flashed_messages(with_categories=true) %}
-                    {% if messages %}
-                        {% for category, message in messages %}
-                            {% if category == 'success' %}
-                                <div class="alert alert-success alert-dismissible fade show" role="alert">
-                                    <i class="fas fa-check-circle"></i> {{ message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                </div>
-                            {% elif category == 'error' %}
-                                <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                                    <i class="fas fa-exclamation-circle"></i> {{ message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                </div>
-                            {% elif category == 'warning' %}
-                                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                                    <i class="fas fa-exclamation-triangle"></i> {{ message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                </div>
-                            {% else %}
-                                <div class="alert alert-info alert-dismissible fade show" role="alert">
-                                    <i class="fas fa-info-circle"></i> {{ message }}
-                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
-                    {% endif %}
-                {% endwith %}
-                
-                <div class="text-center mb-4">
-                    <p class="mb-2">{{ _('We\'ve sent a 6-digit verification code to:') }}</p>
-                    <strong class="text-primary">{{ email }}</strong>
-                    <p class="small text-muted mt-2">{{ _('Please check your email and enter the code below') }}</p>
-                </div>
+            <h2 class="text-xl font-semibold">{{ _('Verify OTP') }}</h2>
+            <p class="mt-2 text-sm minimal-muted">
+                {{ _('We\'ve sent a 6-digit verification code to:') }}
+                <span class="font-semibold" style="color: var(--primary-700);">{{ email }}</span>
+            </p>
+            <p class="mt-1 text-xs minimal-muted">{{ _('Please check your email and enter the code below') }}</p>
+        </div>
 
-                <form method="POST">
-                    {{ form.hidden_tag() }}
-                    
-                    <div class="mb-3">
-                        {{ form.otp_code.label(class="form-label") }}
-                        {{ form.otp_code(class="form-control text-center", style="font-size: 1.5rem; letter-spacing: 0.5rem;", placeholder=_("Enter 6-digit OTP"), maxlength="6") }}
-                        {% if form.otp_code.errors %}
-                            <div class="text-danger">
-                                {% for error in form.otp_code.errors %}
-                                    <small>{{ error }}</small>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
+        <div class="space-y-3" id="otpAlerts"></div>
+
+        <form method="POST" class="space-y-4">
+            {{ form.hidden_tag() }}
+
+            <div>
+                {{ form.otp_code.label(class="block text-xs font-semibold uppercase tracking-wider minimal-muted mb-2") }}
+                {{ form.otp_code(class="minimal-input otp-input", placeholder=_("Enter 6-digit OTP"), maxlength="6") }}
+                {% if form.otp_code.errors %}
+                    <div class="mt-2 text-sm text-rose-700">
+                        {% for error in form.otp_code.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
                     </div>
-                    
-                    <div class="d-grid mb-3">
-                        {{ form.submit(class="btn btn-primary") }}
-                    </div>
-                </form>
-                
-                <div class="text-center">
-                    <p class="mb-2">{{ _('Didn\'t receive the code?') }}</p>
-                    <button id="resendBtn" class="btn btn-outline-secondary btn-sm" onclick="resendOTP()">
-                        <i class="fas fa-redo"></i> {{ _('Resend OTP') }}
-                    </button>
-                    <div id="countdown" class="small text-muted mt-2" style="display: none;">
-                        {{ _('Resend available in') }} <span id="timer">60</span> {{ _('seconds') }}
-                    </div>
-                </div>
-                
-                <hr>
-                <div class="text-center">
-                    <p class="mb-0">{{ _('Want to use a different email?') }} <a href="{{ url_for('register') }}">{{ _('Register again') }}</a></p>
-                </div>
+                {% endif %}
+            </div>
+
+            <div>
+                {{ form.submit(class="minimal-btn minimal-btn-primary w-full") }}
+            </div>
+        </form>
+
+        <div class="mt-6 border-t border-slate-200 pt-4 text-center">
+            <p class="mb-2 text-sm minimal-muted">{{ _('Didn\'t receive the code?') }}</p>
+
+            <button id="resendBtn" class="minimal-btn" type="button" onclick="resendOTP()">
+                <span class="iconify" data-icon="solar:refresh-outline" aria-hidden="true"></span>
+                <span>{{ _('Resend OTP') }}</span>
+            </button>
+
+            <div id="countdown" class="mt-2 text-xs minimal-muted" style="display: none;">
+                {{ _('Resend available in') }} <span id="timer">60</span> {{ _('seconds') }}
+            </div>
+
+            <div class="mt-4 text-sm minimal-muted">
+                <span>{{ _('Want to use a different email?') }}</span>
+                <a class="font-medium text-indigo-700 hover:text-indigo-800" href="{{ url_for('register') }}">{{ _('Register again') }}</a>
             </div>
         </div>
-        
-        <div class="alert alert-info mt-3">
-            <small>
-                <i class="fas fa-info-circle"></i>
-                <strong>{{ _('Security Note:') }}</strong> {{ _('The OTP is valid for 10 minutes only.') }} 
+
+        <div class="mt-6 minimal-callout">
+            <div class="text-sm">
+                <span class="iconify" data-icon="solar:info-circle-outline" aria-hidden="true"></span>
+                <strong>{{ _('Security Note:') }}</strong>
+                {{ _('The OTP is valid for 10 minutes only.') }}
                 {{ _('Don\'t share this code with anyone.') }}
-            </small>
+            </div>
         </div>
     </div>
 </div>
@@ -103,9 +79,9 @@ function resendOTP() {
     const countdown = document.getElementById('countdown');
     const timer = document.getElementById('timer');
     
-    // Disable button and show countdown
+    // Disable button and show loading
     resendBtn.disabled = true;
-    resendBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> {{ _('Sending...') }}';
+    resendBtn.innerHTML = '<span class="iconify" data-icon="solar:spinner-outline" aria-hidden="true"></span> {{ _("Sending...") }}';
     
     fetch('{{ url_for("resend_otp") }}', {
         method: 'POST',
@@ -116,36 +92,28 @@ function resendOTP() {
     .then(response => response.json())
     .then(data => {
         if (data.success) {
-            // Show success message
             const alert = document.createElement('div');
-            alert.className = 'alert alert-success alert-dismissible fade show';
-            alert.innerHTML = `
-                <i class="fas fa-check-circle"></i> ${data.message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            `;
-            document.querySelector('.card-body').insertBefore(alert, document.querySelector('form'));
+            alert.className = 'minimal-callout minimal-callout-success';
+            alert.innerHTML = `<div class="text-sm"><span class="iconify" data-icon="solar:check-circle-outline" aria-hidden="true"></span> ${data.message}</div>`;
+            document.getElementById('otpAlerts').prepend(alert);
             
             // Start countdown
             startCountdown();
         } else {
-            // Show error message
             const alert = document.createElement('div');
-            alert.className = 'alert alert-danger alert-dismissible fade show';
-            alert.innerHTML = `
-                <i class="fas fa-exclamation-circle"></i> ${data.message}
-                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-            `;
-            document.querySelector('.card-body').insertBefore(alert, document.querySelector('form'));
+            alert.className = 'minimal-callout minimal-callout-danger';
+            alert.innerHTML = `<div class="text-sm"><span class="iconify" data-icon="solar:danger-circle-outline" aria-hidden="true"></span> ${data.message}</div>`;
+            document.getElementById('otpAlerts').prepend(alert);
             
             // Re-enable button
             resendBtn.disabled = false;
-            resendBtn.innerHTML = '<i class="fas fa-redo"></i> {{ _('Resend OTP') }}';
+            resendBtn.innerHTML = '<span class="iconify" data-icon="solar:refresh-outline" aria-hidden="true"></span> <span>{{ _("Resend OTP") }}</span>';
         }
     })
     .catch(error => {
         console.error('Error:', error);
         resendBtn.disabled = false;
-        resendBtn.innerHTML = '<i class="fas fa-redo"></i> {{ _('Resend OTP') }}';
+        resendBtn.innerHTML = '<span class="iconify" data-icon="solar:refresh-outline" aria-hidden="true"></span> <span>{{ _("Resend OTP") }}</span>';
     });
 }
 
@@ -167,7 +135,7 @@ function startCountdown() {
             countdown.style.display = 'none';
             resendBtn.style.display = 'inline-block';
             resendBtn.disabled = false;
-            resendBtn.innerHTML = '<i class="fas fa-redo"></i> {{ _('Resend OTP') }}';
+            resendBtn.innerHTML = '<span class="iconify" data-icon="solar:refresh-outline" aria-hidden="true"></span> <span>{{ _("Resend OTP") }}</span>';
         }
     }, 1000);
 }

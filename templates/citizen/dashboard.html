@@ -3,83 +3,77 @@
 {% block title %}{{ _('Citizen Dashboard') }} - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="d-flex justify-content-between align-items-center mb-4 scroll-reveal-left">
-    <h2><i class="fas fa-tachometer-alt"></i> {{ _('My Dashboard') }}</h2>
-    <a href="{{ url_for('create_report') }}" class="btn btn-primary">
-        <i class="fas fa-plus-circle"></i> {{ _('Report New Issue') }}
+<div class="scroll-reveal-left mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+    <h1 class="text-2xl font-semibold text-slate-900">
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="22" data-height="22"></span> {{ _('My Dashboard') }}
+    </h1>
+    <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary inline-flex items-center gap-2">
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-bold" data-width="20" data-height="20"></span> {{ _('Report New Issue') }}
     </a>
 </div>
 
-<div class="row mb-4">
-    <div class="col-md-3 mb-3">
-        <div class="card stats-card text-center scroll-reveal scroll-reveal-delay-1">
-            <div class="card-body">
-                <h3>{{ reports|length }}</h3>
-                <p class="mb-0">{{ _('Total Reports') }}</p>
-            </div>
+<div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="minimal-card scroll-reveal scroll-reveal-delay-1">
+        <div class="p-5">
+            <div class="text-sm font-medium text-slate-600">{{ _('Total Reports') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|length }}</div>
         </div>
     </div>
-    <div class="col-md-3 mb-3">
-        <div class="card bg-warning text-white text-center scroll-reveal scroll-reveal-delay-2">
-            <div class="card-body">
-                <h3>{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</h3>
-                <p class="mb-0">{{ _('Pending') }}</p>
-            </div>
+    <div class="minimal-card scroll-reveal scroll-reveal-delay-2">
+        <div class="p-5">
+            <div class="text-sm font-medium text-slate-600">{{ _('Pending') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</div>
         </div>
     </div>
-    <div class="col-md-3 mb-3">
-        <div class="card bg-info text-white text-center scroll-reveal scroll-reveal-delay-3">
-            <div class="card-body">
-                <h3>{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</h3>
-                <p class="mb-0">{{ _('In Progress') }}</p>
-            </div>
+    <div class="minimal-card scroll-reveal scroll-reveal-delay-3">
+        <div class="p-5">
+            <div class="text-sm font-medium text-slate-600">{{ _('In Progress') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</div>
         </div>
     </div>
-    <div class="col-md-3 mb-3">
-        <div class="card bg-success text-white text-center scroll-reveal scroll-reveal-delay-4">
-            <div class="card-body">
-                <h3>{{ reports|selectattr("status", "equalto", "completed")|list|length }}</h3>
-                <p class="mb-0">{{ _('Completed') }}</p>
-            </div>
+    <div class="minimal-card scroll-reveal scroll-reveal-delay-4">
+        <div class="p-5">
+            <div class="text-sm font-medium text-slate-600">{{ _('Completed') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|selectattr("status", "equalto", "completed")|list|length }}</div>
         </div>
     </div>
 </div>
 
-<div class="card scroll-reveal">
-    <div class="card-header">
-        <h5 class="mb-0"><i class="fas fa-list"></i> {{ _('My Reports') }}</h5>
+<div class="minimal-card scroll-reveal">
+    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4">
+        <h2 class="text-base font-semibold text-slate-900"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('My Reports') }}</h2>
     </div>
-    <div class="card-body">
+    <div class="px-6 py-4">
         {% if reports %}
-            <div class="table-responsive">
-                <table class="table table-hover">
-                    <thead>
-                        <tr>
-                            <th>{{ _('Title') }}</th>
-                            <th>{{ _('Category') }}</th>
-                            <th>{{ _('Severity') }}</th>
-                            <th>{{ _('Status') }}</th>
-                            <th>{{ _('Image') }}</th>
-                            <th>{{ _('Date Reported') }}</th>
-                            <th>{{ _('Actions') }}</th>
+            <div class="overflow-x-auto">
+                <table class="min-w-full text-left text-sm">
+                    <thead class="text-xs font-semibold uppercase tracking-wider text-slate-500">
+                        <tr class="border-b border-slate-200/70">
+                            <th class="py-3 pr-4">{{ _('Title') }}</th>
+                            <th class="py-3 pr-4">{{ _('Category') }}</th>
+                            <th class="py-3 pr-4">{{ _('Severity') }}</th>
+                            <th class="py-3 pr-4">{{ _('Status') }}</th>
+                            <th class="py-3 pr-4">{{ _('Image') }}</th>
+                            <th class="py-3 pr-4">{{ _('Date Reported') }}</th>
+                            <th class="py-3">{{ _('Actions') }}</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody class="divide-y divide-slate-200/70">
                         {% for report in reports %}
-                        <tr>
-                            <td>
-                                <strong>{{ report.title }}</strong>
+                        <tr class="hover:bg-slate-50/70">
+                            <td class="py-3 pr-4">
+                                <div class="font-medium text-slate-900">{{ report.title }}</div>
                                 {% if report.photo_path %}
-                                    <i class="fas fa-camera text-muted ms-1" title="{{ _('Has photo') }}"></i>
+                                    <div class="mt-1 text-xs text-slate-500"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:camera-outline" data-width="16" data-height="16"></span> {{ _('Has photo') }}</div>
                                 {% endif %}
                             </td>
-                            <td>
-                                <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
+                            <td class="py-3 pr-4">
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">{{ report.category.replace('_', ' ').title() }}</span>
                             </td>
-                            <td>
-                                <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                            <td class="py-3 pr-4">
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 severity-{{ report.severity }}">{{ report.severity.title() }}</span>
                             </td>
-                            <td>
+                            <td class="py-3 pr-4">
                                 {% set status_colors = {
                                     'reported': 'secondary',
                                     'verified': 'info',
@@ -87,27 +81,25 @@
                                     'completed': 'success',
                                     'rejected': 'danger'
                                 } %}
-                                <span class="badge bg-{{ status_colors[report.status] }}">
-                                    {{ report.status.replace('_', ' ').title() }}
-                                </span>
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">{{ report.status.replace('_', ' ').title() }}</span>
                             </td>
-                            <td>
+                            <td class="py-3 pr-4">
                                 {% if report.photo_path %}
-                                    <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}" 
-                                         class="img-thumbnail" 
-                                         style="max-width: 60px; max-height: 60px; cursor: pointer;" 
-                                         onclick="showImageModal('{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}', '{{ report.title }}')"
+                                    <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                         class="h-14 w-14 rounded-xl border border-slate-200 object-cover"
+                                         style="cursor: pointer;"
+                                         data-modal="image"
+                                         data-image-url="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                         data-image-title="{{ report.title }}"
                                          title="{{ _('Click to view full image') }}">
                                 {% else %}
-                                    <span class="text-muted small">
-                                        <i class="fas fa-image-slash"></i> {{ _('No image available') }}
-                                    </span>
+                                    <span class="text-xs text-slate-500"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span> {{ _('No image available') }}</span>
                                 {% endif %}
                             </td>
-                            <td>{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
-                            <td>
-                                <a href="{{ url_for('view_citizen_report', report_id=report.id) }}" class="btn btn-sm btn-outline-primary">
-                                    <i class="fas fa-eye"></i> {{ _('View') }}
+                            <td class="py-3 pr-4 text-slate-700">{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td class="py-3">
+                                <a href="{{ url_for('view_citizen_report', report_id=report.id) }}" class="minimal-btn inline-flex items-center gap-2 px-3 py-2 text-sm">
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span> {{ _('View') }}
                                 </a>
                             </td>
                         </tr>
@@ -116,73 +108,110 @@
                 </table>
             </div>
         {% else %}
-            <div class="text-center py-4">
-                <i class="fas fa-clipboard-list fa-3x text-muted mb-3"></i>
-                <h5>{{ _('No reports yet') }}</h5>
-                <p class="text-muted">{{ _('Start by reporting your first road issue!') }}</p>
-                <a href="{{ url_for('create_report') }}" class="btn btn-primary">
-                    <i class="fas fa-plus-circle"></i> {{ _('Report Issue') }}
+            <div class="py-10 text-center">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-600">
+                    <span class="iconify" data-icon="solar:clipboard-list-outline" data-width="26" data-height="26"></span>
+                </div>
+                <h3 class="mt-4 text-base font-semibold text-slate-900">{{ _('No reports yet') }}</h3>
+                <p class="mt-1 text-sm text-slate-600">{{ _('Start by reporting your first road issue!') }}</p>
+                <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary mt-4 inline-flex items-center gap-2">
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-bold" data-width="20" data-height="20"></span> {{ _('Report Issue') }}
                 </a>
             </div>
         {% endif %}
     </div>
 </div>
 
-<!-- Reports Map -->
-<div class="row mt-4">
-    <div class="col-12">
-        <div class="card">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('My Reports Map') }}</h5>
+<div class="mt-6 minimal-card">
+    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4">
+        <h2 class="text-base font-semibold text-slate-900"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:map-point-bold" data-width="18" data-height="18"></span> {{ _('My Reports Map') }}</h2>
+    </div>
+    <div class="px-6 py-4">
+        <div id="citizenReportsMap" class="map-container" style="height: 400px;"></div>
+    </div>
+</div>
+
+<div id="reportModal" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-slate-900/50" onclick="closeModal('reportModal')"></div>
+    <div class="relative mx-auto my-6 w-[calc(100%-2rem)] max-w-3xl">
+        <div class="minimal-card overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4">
+                <h5 class="text-base font-semibold text-slate-900">{{ _('Report Details') }}</h5>
+                <button type="button" class="minimal-btn px-3 py-2 text-sm" onclick="closeModal('reportModal')">
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                </button>
             </div>
-            <div class="card-body">
-                <div id="citizenReportsMap" class="map-container" style="height: 400px;"></div>
-            </div>
+            <div class="px-6 py-4" id="reportModalBody"></div>
         </div>
     </div>
 </div>
 
-<!-- Report Details Modal -->
-<div class="modal fade" id="reportModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title">{{ _('Report Details') }}</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<div id="imageModal" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-slate-900/50" onclick="closeModal('imageModal')"></div>
+    <div class="relative mx-auto my-6 w-[calc(100%-2rem)] max-w-3xl">
+        <div class="minimal-card overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4">
+                <h5 class="text-base font-semibold text-slate-900" id="imageModalTitle"></h5>
+                <button type="button" class="minimal-btn px-3 py-2 text-sm" onclick="closeModal('imageModal')">
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                </button>
             </div>
-            <div class="modal-body" id="reportModalBody">
-                <!-- Content loaded dynamically -->
-            </div>
+            <div class="px-6 py-4" id="imageModalBody"></div>
         </div>
     </div>
 </div>
-
-<!-- Image Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageModalTitle"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-            </div>
-            <div class="modal-body" id="imageModalBody">
-                <!-- Content loaded dynamically -->
-            </div>
-        </div>
-    </div>
-</div>
-
 {% endblock %}
 
 {% block scripts %}
+<script type="application/json" id="reportsDataJson">{{ reports_data|tojson|safe }}</script>
+<script type="application/json" id="uiLabelsJson">{{ {
+    'viewDetails': _('View Details'),
+    'reportPhotoAlt': _('Report photo'),
+    'noPhotoUploaded': _('No photo uploaded'),
+    'statusUpdates': _('Status Updates'),
+    'title': _('Title'),
+    'description': _('Description'),
+    'category': _('Category'),
+    'severity': _('Severity'),
+    'address': _('Address'),
+    'notProvided': _('Not provided'),
+    'status': _('Status'),
+    'reported': _('Reported'),
+    'lastUpdated': _('Last Updated')
+}|tojson }}</script>
+
 <script>
 var reportsData = [];
+var uiLabels = {};
+
+function openModal(modalId) {
+    const el = document.getElementById(modalId);
+    if (!el) return;
+    el.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
+}
+
+function closeModal(modalId) {
+    const el = document.getElementById(modalId);
+    if (!el) return;
+    el.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    ['reportModal', 'imageModal'].forEach(function(id) {
+        const el = document.getElementById(id);
+        if (el && !el.classList.contains('hidden')) {
+            closeModal(id);
+        }
+    });
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     // Store reports data from server (avoiding template syntax in JS)
     try {
-        const rawData = '{{ reports_data|tojson|safe }}';
-        console.log('Raw JSON data:', rawData);
+        const rawData = document.getElementById('reportsDataJson').textContent;
         reportsData = JSON.parse(rawData);
         console.log('Reports data loaded:', reportsData);
         console.log('Number of reports:', reportsData.length);
@@ -202,6 +231,22 @@ document.addEventListener('DOMContentLoaded', function() {
         console.error('Error parsing reports data:', e);
         reportsData = [];
     }
+
+    try {
+        const labelsRaw = document.getElementById('uiLabelsJson').textContent;
+        uiLabels = JSON.parse(labelsRaw);
+    } catch (e) {
+        uiLabels = {};
+    }
+
+    document.addEventListener('click', function(e) {
+        const imageEl = e.target.closest('[data-modal="image"]');
+        if (!imageEl) return;
+        const imageUrl = imageEl.getAttribute('data-image-url');
+        const imageTitle = imageEl.getAttribute('data-image-title') || '';
+        if (!imageUrl) return;
+        showImageModal(imageUrl, imageTitle);
+    });
     
     // Always initialize map, even if no reports
     initializeCitizenMap();
@@ -263,7 +308,7 @@ function initializeCitizenMap() {
                         <span class="badge bg-${getSeverityBadgeColor(report.severity)}">${report.severity}</span><br>
                         Status: ${report.status.replace('_', ' ')}<br>
                         <small>${new Date(report.created_at).toLocaleDateString()}</small><br>
-                        <button class="btn btn-sm btn-primary mt-1" onclick="viewReportDetails(${report.id})">{{ _('View Details') }}</button>
+                        <button class="minimal-btn minimal-btn-primary mt-2 inline-flex items-center gap-2 px-3 py-2 text-xs" onclick="viewReportDetails(${report.id})">${uiLabels.viewDetails}</button>
                     </div>
                 `);
                 
@@ -322,12 +367,12 @@ function viewReportDetails(reportId) {
     if (report) {
         var modalBody = document.getElementById('reportModalBody');
         var photoHtml = report.photo_path ? 
-            '<img src="/' + report.photo_path + '" class="img-fluid rounded" alt="{{ ('Report photo') }}">': 
-            '<p class="text-muted">{{ _('No photo uploaded') }}</p>';
+            '<img src="/' + report.photo_path + '" class="w-full rounded-2xl border border-slate-200" alt="' + uiLabels.reportPhotoAlt + '">': 
+            '<p class="text-sm text-slate-600">' + uiLabels.noPhotoUploaded + '</p>';
         
         var updatesHtml = '';
         if (report.updates && report.updates.length > 0) {
-            updatesHtml = '<hr><h6>{{ _('Status Updates') }}:</h6><div class="timeline">';
+            updatesHtml = '<hr class="my-4 border-slate-200/70"><h6 class="text-sm font-semibold text-slate-900">' + uiLabels.statusUpdates + ':</h6><div class="timeline">';
             report.updates.forEach(function(update) {
                 updatesHtml += '<div class="mb-2">';
                 updatesHtml += '<small class="text-muted">' + new Date(update.created_at).toLocaleString() + '</small><br>';
@@ -343,28 +388,28 @@ function viewReportDetails(reportId) {
         modalBody.innerHTML = 
             '<div class="row">' +
                 '<div class="col-md-8">' +
-                    '<h6><strong>{{ _('Title') }}:</strong> ' + report.title + '</h6>' +
-                    '<p><strong>{{ _('Description') }}:</strong> ' + report.description + '</p>' +
-                    '<p><strong>{{ _('Category') }}:</strong> ' + report.category.replace('_', ' ') + '</p>' +
-                    '<p><strong>{{ _('Severity') }}:</strong> ' + report.severity + '</p>' +
-                    '<p><strong>{{ _('Address') }}:</strong> ' + (report.address || '{{ _('Not provided') }}') + '</p>' +
-                    '<p><strong>{{ _('Status') }}:</strong> ' + report.status.replace('_', ' ') + '</p>' +
-                    '<p><strong>{{ _('Reported') }}:</strong> ' + new Date(report.created_at).toLocaleString() + '</p>' +
+                    '<h6><strong>' + uiLabels.title + ':</strong> ' + report.title + '</h6>' +
+                    '<p><strong>' + uiLabels.description + ':</strong> ' + report.description + '</p>' +
+                    '<p><strong>' + uiLabels.category + ':</strong> ' + report.category.replace('_', ' ') + '</p>' +
+                    '<p><strong>' + uiLabels.severity + ':</strong> ' + report.severity + '</p>' +
+                    '<p><strong>' + uiLabels.address + ':</strong> ' + (report.address || uiLabels.notProvided) + '</p>' +
+                    '<p><strong>' + uiLabels.status + ':</strong> ' + report.status.replace('_', ' ') + '</p>' +
+                    '<p><strong>' + uiLabels.reported + ':</strong> ' + new Date(report.created_at).toLocaleString() + '</p>' +
                     (report.updated_at !== report.created_at ? 
-                        '<p><strong>{{ _('Last Updated') }}:</strong> ' + new Date(report.updated_at).toLocaleString() + '</p>' : '') +
+                        '<p><strong>' + uiLabels.lastUpdated + ':</strong> ' + new Date(report.updated_at).toLocaleString() + '</p>' : '') +
                 '</div>' +
                 '<div class="col-md-4">' + photoHtml + '</div>' +
             '</div>' + updatesHtml;
-        
-        new bootstrap.Modal(document.getElementById('reportModal')).show();
+
+        openModal('reportModal');
     }
 }
 
 function showImageModal(imageUrl, title) {
     var modalBody = document.getElementById('imageModalBody');
-    modalBody.innerHTML = '<img src="' + imageUrl + '" class="img-fluid" alt="' + title + '">';
+    modalBody.innerHTML = '<img src="' + imageUrl + '" class="w-full rounded-2xl border border-slate-200" alt="' + title + '">';
     document.getElementById('imageModalTitle').innerText = title;
-    new bootstrap.Modal(document.getElementById('imageModal')).show();
+    openModal('imageModal');
 }
 </script>
 {% endblock %}

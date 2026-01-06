@@ -3,116 +3,117 @@
 {% block title %}Register - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="row justify-content-center">
-    <div class="col-md-8 col-lg-6">
-        <div class="card shadow">
-            <div class="card-header text-center bg-success text-white">
-                <h4><i class="fas fa-user-plus"></i> {{ _('Register') }}</h4>
-            </div>
-            <div class="card-body">
-                <form method="POST">
-                    {{ form.hidden_tag() }}
-                    
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            {{ form.username.label(class="form-label") }}
-                            {{ form.username(class="form-control") }}
-                            {% if form.username.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.username.errors %}
-                                        <small>{{ error }}</small>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
+<div class="mx-auto w-full max-w-2xl">
+    <div class="minimal-card p-6 sm:p-8">
+        <div class="mb-6 text-center">
+            <h2 class="text-xl font-semibold text-slate-900">
+                <i class="fas fa-user-plus" style="color: var(--primary-600);"></i>
+                {{ _('Register') }}
+            </h2>
+            <p class="mt-2 text-sm text-slate-500">{{ _('Create your account to start reporting issues.') }}</p>
+        </div>
+
+        <form method="POST" class="space-y-4">
+            {{ form.hidden_tag() }}
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                    {{ form.username.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                    {{ form.username(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10") }}
+                    {% if form.username.errors %}
+                        <div class="mt-2 text-sm text-rose-700">
+                            {% for error in form.username.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
                         </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            {{ form.email.label(class="form-label") }}
-                            {{ form.email(class="form-control") }}
-                            {% if form.email.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.email.errors %}
-                                        <small>{{ error }}</small>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
+                    {% endif %}
+                </div>
+
+                <div>
+                    {{ form.email.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                    {{ form.email(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10") }}
+                    {% if form.email.errors %}
+                        <div class="mt-2 text-sm text-rose-700">
+                            {% for error in form.email.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
                         </div>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6 mb-3">
-                            {{ form.password.label(class="form-label") }}
-                            {{ form.password(class="form-control") }}
-                            {% if form.password.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.password.errors %}
-                                        <small>{{ error }}</small>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                        </div>
-                        
-                        <div class="col-md-6 mb-3">
-                            {{ form.phone.label(class="form-label") }}
-                            {{ form.phone(class="form-control") }}
-                            {% if form.phone.errors %}
-                                <div class="text-danger">
-                                    {% for error in form.phone.errors %}
-                                        <small>{{ error }}</small>
-                                    {% endfor %}
-                                </div>
-                            {% endif %}
-                        </div>
-                    </div>
-                    
-                    <div class="mb-3">
-                        {{ form.role.label(class="form-label") }}
-                        {{ form.role(class="form-select", id="roleSelect") }}
-                        {% if form.role.errors %}
-                            <div class="text-danger">
-                                {% for error in form.role.errors %}
-                                    <small>{{ error }}</small>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="mb-3" id="departmentField" style="display: none;">
-                        {{ form.department.label(class="form-label") }}
-                        {{ form.department(class="form-control") }}
-                        <small class="form-text text-muted">{{ _('Required for authority users') }}</small>
-                        {% if form.department.errors %}
-                            <div class="text-danger">
-                                {% for error in form.department.errors %}
-                                    <small>{{ error }}</small>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="mb-3" id="authorityPasswordField" style="display: none;">
-                        {{ form.authority_password.label(class="form-label") }}
-                        {{ form.authority_password(class="form-control") }}
-                        <small class="form-text text-muted">{{ _('Special password required for authority registration') }}</small>
-                        {% if form.authority_password.errors %}
-                            <div class="text-danger">
-                                {% for error in form.authority_password.errors %}
-                                    <small>{{ error }}</small>
-                                {% endfor %}
-                            </div>
-                        {% endif %}
-                    </div>
-                    
-                    <div class="d-grid">
-                        {{ form.submit(class="btn btn-success") }}
-                    </div>
-                </form>
-                
-                <hr>
-                <div class="text-center">
-                    <p class="mb-0">{{ _('Already have an account?')}} <a href="{{ url_for('login') }}">{{ _('Login here')}}</a></p>
+                    {% endif %}
                 </div>
             </div>
+
+            <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div>
+                    {{ form.password.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                    {{ form.password(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10") }}
+                    {% if form.password.errors %}
+                        <div class="mt-2 text-sm text-rose-700">
+                            {% for error in form.password.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div>
+                    {{ form.phone.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                    {{ form.phone(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10") }}
+                    {% if form.phone.errors %}
+                        <div class="mt-2 text-sm text-rose-700">
+                            {% for error in form.phone.errors %}
+                                <div>{{ error }}</div>
+                            {% endfor %}
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+
+            <div>
+                {{ form.role.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                {{ form.role(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10", id="roleSelect") }}
+                {% if form.role.errors %}
+                    <div class="mt-2 text-sm text-rose-700">
+                        {% for error in form.role.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div id="departmentField" style="display: none;">
+                {{ form.department.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                {{ form.department(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10") }}
+                <div class="mt-2 text-sm text-slate-500">{{ _('Required for authority users') }}</div>
+                {% if form.department.errors %}
+                    <div class="mt-2 text-sm text-rose-700">
+                        {% for error in form.department.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div id="authorityPasswordField" style="display: none;">
+                {{ form.authority_password.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 mb-2") }}
+                {{ form.authority_password(class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 shadow-sm focus:outline-none focus:border-indigo-400 focus:ring-4 focus:ring-indigo-500/10") }}
+                <div class="mt-2 text-sm text-slate-500">{{ _('Special password required for authority registration') }}</div>
+                {% if form.authority_password.errors %}
+                    <div class="mt-2 text-sm text-rose-700">
+                        {% for error in form.authority_password.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div>
+                {{ form.submit(class="minimal-btn minimal-btn-primary", style="width: 100%;") }}
+            </div>
+        </form>
+
+        <div class="mt-6 border-t border-slate-200 pt-4 text-center text-sm text-slate-600">
+            <span>{{ _('Already have an account?') }}</span>
+            <a class="font-medium text-indigo-700 hover:text-indigo-800" href="{{ url_for('login') }}">{{ _('Login here') }}</a>
         </div>
     </div>
 </div>

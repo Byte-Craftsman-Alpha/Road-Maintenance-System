@@ -76,7 +76,7 @@
                     <div class="col-md-6">
                         <h5 class="mb-3">Location</h5>
                         {% if report.latitude and report.longitude %}
-                        <div id="map" style="height: 200px; border-radius: 0.375rem; border: 1px solid #dee2e6;"></div>
+                        <div id="map" class="report-detail-map"></div>
                         <div class="mt-2">
                             <small class="text-muted">
                                 {{ _('Coordinates') }}: {{ report.latitude }}, {{ report.longitude }}
@@ -87,8 +87,8 @@
                             </a>
                         </div>
                         {% else %}
-                        <div style="height: 200px; border-radius: 0.375rem; border: 1px solid #dee2e6; background-color: #f8f9fa; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-                            <i class="fas fa-map-marker-slash text-muted mb-2" style="font-size: 2rem;"></i>
+                        <div class="report-detail-map-empty">
+                            <i class="fas fa-map-marker-slash text-muted mb-2 report-detail-map-empty-icon"></i>
                             <p class="text-muted mb-0">{{ _('Coordinates Unavailable') }}</p>
                             <small class="text-muted">{{ _('Location data not provided') }}</small>
                         </div>
@@ -152,7 +152,7 @@
                 <h5 class="mb-0"><i class="fas fa-camera"></i> {{ _('Photo') }}</h5>
             </div>
             <div class="card-body text-center">
-                <img src="/{{ report.photo_path }}" class="img-fluid rounded" alt="Report photo" style="max-height: 300px;">
+                <img src="/{{ report.photo_path }}" class="img-fluid rounded report-detail-photo" alt="Report photo">
             </div>
         </div>
         {% endif %}
@@ -162,7 +162,7 @@
                 <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ _('Location') }}</h5>
             </div>
             <div class="card-body">
-                <div id="map" style="height: 200px; border-radius: 0.375rem; border: 1px solid #dee2e6;"></div>
+                <div id="map" class="report-detail-map"></div>
                 <div class="mt-2">
                     <small class="text-muted">
                         {% if report.latitude and report.longitude %}
@@ -236,7 +236,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Custom marker icon (optional - using a red marker)
     var redIcon = L.divIcon({
         className: 'custom-div-icon',
-        html: '<i class="fas fa-map-marker-alt text-danger" style="font-size: 24px;"></i>',
+        html: '<i class="fas fa-map-marker-alt text-danger report-marker-icon"></i>',
         iconSize: [24, 24],
         iconAnchor: [12, 24]
     });
@@ -245,52 +245,4 @@ document.addEventListener('DOMContentLoaded', function() {
     marker.setIcon(redIcon);
 });
 </script>
-
-<style>
-.timeline {
-    position: relative;
-    padding-left: 30px;
-}
-
-.timeline-item {
-    position: relative;
-}
-
-.timeline-marker {
-    position: absolute;
-    left: -35px;
-    top: 5px;
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    border: 2px solid #fff;
-    box-shadow: 0 0 0 2px #dee2e6;
-}
-
-.timeline::before {
-    content: '';
-    position: absolute;
-    left: -29px;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    background: #dee2e6;
-}
-
-.severity-low { background-color: #28a745 !important; }
-.severity-medium { background-color: #ffc107 !important; color: #000 !important; }
-.severity-high { background-color: #fd7e14 !important; }
-.severity-critical { background-color: #dc3545 !important; }
-
-/* Custom marker styling for Leaflet */
-.custom-div-icon {
-    background: transparent;
-    border: none;
-}
-
-/* Ensure map container has proper styling */
-#map {
-    z-index: 1;
-}
-</style>
 {% endblock %}

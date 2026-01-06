@@ -61,7 +61,7 @@
                                     <div class="d-flex justify-content-between align-items-start mb-2">
                                         <h6 class="card-title">{{ report.title }}</h6>
                                         <button class="btn btn-sm vote-btn {{ 'btn-success' if report.id in user_votes else 'btn-outline-success' }}" 
-                                                onclick="toggleVote({{ report.id }})" 
+                                                data-report-id="{{ report.id }}"
                                                 id="vote-btn-{{ report.id }}">
                                             <i class="fas fa-thumbs-up"></i>
                                             <span id="vote-count-{{ report.id }}">{{ report.votes|length }}</span>
@@ -89,7 +89,7 @@
                                     
                                     {% if report.photo_path %}
                                         <div class="mt-2">
-                                            <img src="/{{ report.photo_path }}" class="img-fluid rounded" alt="Report photo" style="max-height: 120px; width: 100%; object-fit: cover;">
+                                            <img src="/{{ report.photo_path }}" class="img-fluid rounded nearby-report-img" alt="Report photo">
                                         </div>
                                     {% endif %}
                                 </div>
@@ -125,6 +125,25 @@
 
 {% block scripts %}
 <script>
+document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('click', function(e) {
+        const voteBtn = e.target.closest('.vote-btn[data-report-id]');
+        if (voteBtn) {
+            const reportId = parseInt(voteBtn.getAttribute('data-report-id') || '', 10);
+            if (!Number.isNaN(reportId)) {
+                toggleVote(reportId);
+            }
+            return;
+        }
+
+        const toastClose = e.target.closest('[data-nearby-toast-close]');
+        if (toastClose) {
+            const toast = toastClose.closest('.nearby-toast');
+            if (toast) toast.remove();
+        }
+    });
+});
+
 function toggleVote(reportId) {
     const btn = document.getElementById(`vote-btn-${reportId}`);
     const countSpan = document.getElementById(`vote-count-${reportId}`);
@@ -172,12 +191,11 @@ function toggleVote(reportId) {
 function showToast(message, type) {
     // Simple toast notification
     const toast = document.createElement('div');
-    toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} position-fixed`;
-    toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 250px;';
+    toast.className = `alert alert-${type === 'success' ? 'success' : 'danger'} nearby-toast`;
     toast.innerHTML = `
         <div class="d-flex justify-content-between align-items-center">
             <span>${message}</span>
-            <button type="button" class="btn-close" onclick="this.parentElement.parentElement.remove()"></button>
+            <button type="button" class="btn-close" data-nearby-toast-close></button>
         </div>
     `;
     
@@ -191,28 +209,4 @@ function showToast(message, type) {
     }, 3000);
 }
 </script>
-
-<style>
-.nearby-report-card {
-    transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.nearby-report-card:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-}
-
-.vote-btn {
-    transition: all 0.2s;
-}
-
-.vote-btn:hover {
-    transform: scale(1.05);
-}
-
-.severity-low { background-color: #198754; }
-.severity-medium { background-color: #fd7e14; }
-.severity-high { background-color: #dc3545; }
-.severity-critical { background-color: #721c24; }
-</style>
 {% endblock %}

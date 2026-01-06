@@ -3,218 +3,546 @@
 {% block title %}Home - CivicSetu{% endblock %}
 
 {% block content %}
-<!-- Modern Hero Section -->
-<div class="hero-section py-5 mb-5 scroll-reveal" style="background: linear-gradient(135deg, #1e3a8a00 0%, #a1b9ff80 100%); border-radius: var(--radius-2xl); margin: -1rem -15px 0 -15px; padding: 4rem 15px;">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <div class="scroll-reveal-left">
-                    <h1 class="display-4 fw-bold mb-4" style="color: var(--gray-900);">
-                        <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu Logo">
-                        <!-- <i class="fas fa-road" style="color: var(--primary-600);"></i>  -->
-                        {{ _('CivicSetu') }}
-                    </h1>
-                    <code>{{ _('Civic System for Empowering Transparency & Upliftment') }}</code>
-                    <p class="lead mb-4" style="color: var(--gray-700);">
-                        {{ _('Empowering citizens to report different issues and enabling authorities to respond faster. 
-                        Together, we build better infrastructure for everyone.') }}
+<section class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white/60 p-6 sm:p-10 shadow-[0_30px_80px_rgba(15,23,42,0.10),0_2px_10px_rgba(15,23,42,0.05)]">
+    <div class="pointer-events-none absolute inset-0">
+        <div class="absolute -top-24 -right-24 h-64 w-64 rounded-full ds-blob-primary blur-2xl"></div>
+        <div class="absolute -bottom-24 -left-24 h-64 w-64 rounded-full ds-blob-secondary blur-2xl"></div>
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,rgba(15,23,42,0.05)_1px,transparent_0)] [background-size:18px_18px] opacity-40"></div>
+    </div>
 
-                    </p>
-                    
-                    {% if not current_user.is_authenticated %}
-                        <div class="d-flex gap-3 flex-wrap">
-                            <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
-                                <i class="fas fa-user-plus"></i> {{ _('Get Started') }}
-                            </a>
-                            <a href="{{ url_for('login') }}" class="btn btn-outline-primary btn-lg">
-                                <i class="fas fa-sign-in-alt"></i> {{ _('Login') }}
-                            </a>
-                        </div>
-                    {% endif %}
-                </div>
+    <div class="relative grid grid-cols-1 gap-10 lg:grid-cols-2 lg:items-center">
+        <div class="scroll-reveal-left">
+            <div class="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1 text-xs font-semibold uppercase tracking-wider text-slate-600 shadow-sm">
+                <span class="iconify" data-icon="mdi:rocket-launch-outline" data-width="18" data-height="18"></span>
+                <span>Open Innovation Hackathon Launch</span>
             </div>
-            <div class="col-lg-6">
-                <div class="text-center scroll-reveal-right">
-                    <div style="background: white; border-radius: var(--radius-2xl); padding: 2rem; box-shadow: var(--shadow-lg); transform: rotate(2deg);">
-                        <i class="fas fa-mobile-alt fa-4x" style="color: var(--primary-500);"></i>
-                        <h5 class="mt-3 abc">{{ _('Report Issues Instantly') }}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 
-<!-- Modern Feature Cards -->
-<div class="row g-4 mb-5">
-    <div class="col-md-4">
-        <div class="card h-100 text-center border-0 scroll-reveal scroll-reveal-delay-1">
-            <div class="card-body p-4">
-                <div class="mb-4">
-                    <div style="width: 80px; height: 80px; background: var(--primary-50); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <i class="fas fa-mobile-alt fa-2x" style="color: var(--primary-600);"></i>
-                    </div>
-                </div>
-                <h5 class="card-title fw-bold mb-3">{{ _('Easy Reporting') }}</h5>
-                <p class="card-text text-muted">
-                    {{ _('Report issues instantly using your mobile device with GPS location and photo upload.') }}
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-md-4">
-        <div class="card h-100 text-center border-0 scroll-reveal scroll-reveal-delay-2">
-            <div class="card-body p-4">
-                <div class="mb-4">
-                    <div style="width: 80px; height: 80px; background: rgba(16, 185, 129, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <i class="fas fa-clock fa-2x" style="color: var(--success-500);"></i>
-                    </div>
-                </div>
-                <h5 class="card-title fw-bold mb-3">{{ _('Fast Response') }}</h5>
-                <p class="card-text text-muted">
-                    {{ _('Automated ticketing system ensures quick response times and efficient resource allocation.') }}
-                </p>
-            </div>
-        </div>
-    </div>
-    
-    <div class="col-md-4">
-        <div class="card h-100 text-center border-0 scroll-reveal scroll-reveal-delay-3">
-            <div class="card-body p-4">
-                <div class="mb-4">
-                    <div style="width: 80px; height: 80px; background: rgba(245, 158, 11, 0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto;">
-                        <i class="fas fa-chart-line fa-2x" style="color: var(--warning-500);"></i>
-                    </div>
-                </div>
-                <h5 class="card-title fw-bold mb-3">{{ _('Transparency') }}</h5>
-                <p class="card-text text-muted">
-                    {{ _('Track progress in real-time and access analytics for long-term infrastructure improvement.') }}
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
+            <h1 class="mt-5 text-4xl font-semibold tracking-tight text-slate-900 sm:text-5xl">
+                <span class="inline-flex items-center gap-3">
+                    <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu" class="h-12 w-12">
+                    <span>{{ _('CivicSetu') }}</span>
+                </span>
+            </h1>
 
-<!-- How It Works Section -->
-<div class="how-it-works-section py-5 mb-5 scroll-reveal" style="border-radius: var(--radius-2xl); color: white; position: relative; overflow: hidden;">
-    <!-- Background Pattern -->
-    <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 20px 20px; opacity: 0.3;"></div>
-    
-    <div class="container position-relative">
-        <div class="text-center mb-5 scroll-reveal-scale">
-            <h2 class="display-5 fw-bold mb-3">{{ _('How It Works') }}</h2>
-            <p class="lead" style="color: var(--gray-300); max-width: 600px; margin: 0 auto;">
-                {{ _('Simple steps to report issues and track their resolution') }}
+            <p class="mt-3 text-sm font-medium text-slate-600">
+                {{ _('Civic System for Empowering Transparency & Upliftment') }}
             </p>
-        </div>
-        
-        <div class="row g-4">
-            <!-- Step 1 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="text-center scroll-reveal scroll-reveal-delay-1">
-                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
-                        1
-                    </div>
-                    <div class="step-icon mb-3">
-                        <i class="fas fa-map-marker-alt fa-2x" style="color: var(--primary-400);"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3">{{ _('Spot the Issue') }}</h5>
-                    <p style="color: var(--gray-400); font-size: 0.9rem;">
-                        {{ _('Notice any issues like potholes, broken streetlight, or damaged road? Take a photo and note the location.') }}
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Step 2 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="text-center scroll-reveal scroll-reveal-delay-2">
-                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
-                        2
-                    </div>
-                    <div class="step-icon mb-3">
-                        <i class="fas fa-edit fa-2x" style="color: var(--primary-400);"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3">{{ _('Submit Report') }}</h5>
-                    <p style="color: var(--gray-400); font-size: 0.9rem;">
-                        {{ _('Fill out a quick form with details, upload the photo, and submit your report instantly.') }}
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Step 3 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="text-center scroll-reveal scroll-reveal-delay-3">
-                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--primary-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
-                        3
-                    </div>
-                    <div class="step-icon mb-3">
-                        <i class="fas fa-cogs fa-2x" style="color: var(--primary-400);"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3">{{ _('Automatic Processing') }}</h5>
-                    <p style="color: var(--gray-400); font-size: 0.9rem;">
-                        {{ _('Our system creates a maintenance ticket and assigns it to the relevant authority team.') }}
-                    </p>
-                </div>
-            </div>
-            
-            <!-- Step 4 -->
-            <div class="col-lg-3 col-md-6">
-                <div class="text-center scroll-reveal scroll-reveal-delay-4">
-                    <div class="step-number mb-4" style="width: 60px; height: 60px; background: var(--success-500); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto; font-weight: 700; font-size: 1.5rem;">
-                        4
-                    </div>
-                    <div class="step-icon mb-3">
-                        <i class="fas fa-check-circle fa-2x" style="color: var(--success-500);"></i>
-                    </div>
-                    <h5 class="fw-bold mb-3">{{ _('Track Progress') }}</h5>
-                    <p style="color: var(--gray-400); font-size: 0.9rem;">
-                        {{ _('Get real-time updates on your report status and see when the issue is resolved.') }}
-                    </p>
-                </div>
-            </div>
-        </div>
-        
-        <!-- Call to Action -->
-        <div class="text-center mt-5 scroll-reveal-scale">
-            <div class="d-flex justify-content-center gap-3 flex-wrap">
+
+            <p class="mt-5 text-lg text-slate-700">
+                {{ _('A modern citizen-to-authority platform built by a student tech team to make civic issue reporting fast, trackable, and transparent—turning complaints into measurable outcomes.') }}
+            </p>
+
+            <div class="mt-8 flex flex-wrap gap-3">
                 {% if not current_user.is_authenticated %}
-                    <a href="{{ url_for('register') }}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-rocket"></i> {{ _('Start Reporting') }}
+                    <a href="{{ url_for('register') }}" class="minimal-btn minimal-btn-primary">
+                        <span class="iconify" data-icon="mdi:account-plus-outline" data-width="20" data-height="20"></span>
+                        <span>{{ _('Get Started') }}</span>
                     </a>
-                    <a href="{{ url_for('public_reports') }}" class="btn btn-outline-secondary btn-lg">
-                        <i class="fas fa-eye"></i> {{ _('View Public Reports') }}
+                    <a href="{{ url_for('login') }}" class="minimal-btn">
+                        <span class="iconify" data-icon="mdi:login" data-width="20" data-height="20"></span>
+                        <span>{{ _('Login') }}</span>
                     </a>
                 {% else %}
-                    <a href="{{ url_for('create_report') }}" class="btn btn-primary btn-lg">
-                        <i class="fas fa-plus-circle"></i> {{ _('Report New Issue') }}
+                    <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary">
+                        <span class="iconify" data-icon="mdi:alert-plus-outline" data-width="20" data-height="20"></span>
+                        <span>{{ _('Report an Issue') }}</span>
                     </a>
-                    <a href="{{ url_for('citizen_dashboard') if current_user.role == 'citizen' else url_for('authority_dashboard') }}" class="btn btn-outline-light btn-lg">
-                        <i class="fas fa-tachometer-alt"></i> {{ _('Go to Dashboard') }}
+                    <a href="{{ url_for('citizen_dashboard') if current_user.role == 'citizen' else url_for('authority_dashboard') }}" class="minimal-btn">
+                        <span class="iconify" data-icon="mdi:view-dashboard-outline" data-width="20" data-height="20"></span>
+                        <span>{{ _('Go to Dashboard') }}</span>
+                    </a>
+                {% endif %}
+
+                <a href="#overview" class="minimal-btn">
+                    <span class="iconify" data-icon="mdi:compass-outline" data-width="20" data-height="20"></span>
+                    <span>Explore</span>
+                </a>
+            </div>
+
+            <div class="mt-8 flex flex-wrap items-center gap-3 text-sm text-slate-600">
+                <div class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
+                    <span class="iconify" data-icon="mdi:map-marker-outline" data-width="18" data-height="18"></span>
+                    <span>GPS + Photo proof</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
+                    <span class="iconify" data-icon="mdi:timeline-clock-outline" data-width="18" data-height="18"></span>
+                    <span>Status tracking</span>
+                </div>
+                <div class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 shadow-sm">
+                    <span class="iconify" data-icon="mdi:chart-areaspline" data-width="18" data-height="18"></span>
+                    <span>Analytics-ready</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-reveal-right">
+            <div class="grid gap-4 sm:grid-cols-2">
+                <div class="minimal-card p-5">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Citizen</div>
+                            <div class="mt-2 text-lg font-semibold text-slate-900">Report in seconds</div>
+                            <div class="mt-2 text-sm text-slate-600">Create a report with a photo + GPS, and get a tracking ID instantly.</div>
+                        </div>
+                        <span class="iconify ds-text-primary" data-icon="mdi:cellphone-marker" data-width="26" data-height="26"></span>
+                    </div>
+                </div>
+                <div class="minimal-card p-5">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Authority</div>
+                            <div class="mt-2 text-lg font-semibold text-slate-900">Prioritize & resolve</div>
+                            <div class="mt-2 text-sm text-slate-600">Sort by severity, assign teams, and update progress with proof.</div>
+                        </div>
+                        <span class="iconify ds-text-primary" data-icon="mdi:clipboard-check-outline" data-width="26" data-height="26"></span>
+                    </div>
+                </div>
+                <div class="minimal-card p-5 sm:col-span-2">
+                    <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                        <div>
+                            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Public Trust</div>
+                            <div class="mt-2 text-lg font-semibold text-slate-900">Transparent, verifiable updates</div>
+                            <div class="mt-2 text-sm text-slate-600">Public reports, timelines, and analytics help communities see real progress.</div>
+                        </div>
+                        <a href="{{ url_for('public_reports') }}" class="minimal-btn">
+                            <span class="iconify" data-icon="mdi:eye-outline" data-width="20" data-height="20"></span>
+                            <span>{{ _('View Public Reports') }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="overview" class="mt-12 scroll-reveal">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div class="lg:col-span-2">
+            <div class="minimal-card p-6 sm:p-8">
+                <div class="flex items-start justify-between gap-4">
+                    <div>
+                        <h2 class="text-2xl font-semibold text-slate-900">Introduction & Overview</h2>
+                        <p class="mt-2 text-slate-600">
+                            CivicSetu bridges the gap between citizens and civic authorities by turning everyday issues—potholes, broken streetlights, drainage problems—into structured, trackable reports.
+                        </p>
+                    </div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:bridge" data-width="34" data-height="34"></span>
+                </div>
+
+                <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-3">
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Core idea</div>
+                        <div class="mt-2 text-sm text-slate-700">One report → one ticket → visible lifecycle.</div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Proof</div>
+                        <div class="mt-2 text-sm text-slate-700">Geo-tag + photo evidence for accuracy.</div>
+                    </div>
+                    <div class="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Trust</div>
+                        <div class="mt-2 text-sm text-slate-700">Public transparency + progress tracking.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="minimal-card p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-slate-900">Quick Actions</h3>
+            <div class="mt-4 space-y-2">
+                <a class="minimal-nav-item" href="{{ url_for('track_report') }}">
+                    <span class="iconify" data-icon="mdi:magnify" data-width="20" data-height="20"></span>
+                    <span>{{ _('Track a Report') }}</span>
+                </a>
+                <a class="minimal-nav-item" href="{{ url_for('public_reports') }}">
+                    <span class="iconify" data-icon="mdi:eye-outline" data-width="20" data-height="20"></span>
+                    <span>{{ _('Explore Public Reports') }}</span>
+                </a>
+                {% if not current_user.is_authenticated %}
+                    <a class="minimal-nav-item" href="{{ url_for('register') }}">
+                        <span class="iconify" data-icon="mdi:account-plus-outline" data-width="20" data-height="20"></span>
+                        <span>{{ _('Create an Account') }}</span>
                     </a>
                 {% endif %}
             </div>
         </div>
     </div>
-</div>
+</section>
 
-<div class="row mt-5">
-    <div class="col-lg-10 mx-auto">
-        <div class="card scroll-reveal">
-            <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-map-marked-alt"></i> {{ _('Recent Reports Map') }}</h5>
+<section id="achievements" class="mt-12 scroll-reveal">
+    <div class="minimal-card p-6 sm:p-8">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-900">Achievements (Hackathon Build)</h2>
+                <p class="mt-2 text-slate-600">What we delivered as a student tech team in an Open Innovation hackathon.</p>
             </div>
-            <div class="card-body">
-                <div id="reportsMap" class="map-container"></div>
+            <a href="#get-in-touch" class="minimal-btn">
+                <span class="iconify" data-icon="mdi:account-voice" data-width="20" data-height="20"></span>
+                <span>Get in touch</span>
+            </a>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Feature set</div>
+                <div class="mt-2 text-3xl font-semibold text-slate-900 counter" data-target="9">0</div>
+                <div class="mt-2 text-sm text-slate-600">Modules shipped end-to-end</div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Lifecycle</div>
+                <div class="mt-2 text-3xl font-semibold text-slate-900 counter" data-target="5">0</div>
+                <div class="mt-2 text-sm text-slate-600">Status stages with transparency</div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Accessibility</div>
+                <div class="mt-2 text-3xl font-semibold text-slate-900"><span class="counter" data-target="12">0</span>+</div>
+                <div class="mt-2 text-sm text-slate-600">Language options supported</div>
+            </div>
+            <div class="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Goal</div>
+                <div class="mt-2 text-3xl font-semibold text-slate-900">1</div>
+                <div class="mt-2 text-sm text-slate-600">Unified civic reporting experience</div>
             </div>
         </div>
     </div>
-</div>
+</section>
+
+<section id="how-it-works" class="mt-12 scroll-reveal">
+    <div class="rounded-3xl bg-slate-900 px-6 py-10 sm:px-10">
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+                <h2 class="text-2xl font-semibold text-white">How it works</h2>
+                <p class="mt-2 text-slate-300">From street to system—simple, verifiable steps.</p>
+            </div>
+            <div class="text-sm text-slate-300">Built for mobile-first reporting</div>
+        </div>
+
+        <div class="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm font-semibold text-white">1. Spot</div>
+                    <span class="iconify ds-text-primary-soft" data-icon="mdi:map-marker-outline" data-width="24" data-height="24"></span>
+                </div>
+                <p class="mt-3 text-sm text-slate-300">Capture the issue with GPS and context.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm font-semibold text-white">2. Report</div>
+                    <span class="iconify ds-text-primary-soft" data-icon="mdi:camera-outline" data-width="24" data-height="24"></span>
+                </div>
+                <p class="mt-3 text-sm text-slate-300">Submit with photo proof and severity.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm font-semibold text-white">3. Route</div>
+                    <span class="iconify ds-text-primary-soft" data-icon="mdi:account-network-outline" data-width="24" data-height="24"></span>
+                </div>
+                <p class="mt-3 text-sm text-slate-300">Authorities see prioritized queues and analytics.</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-white/5 p-5">
+                <div class="flex items-center justify-between">
+                    <div class="text-sm font-semibold text-white">4. Resolve</div>
+                    <span class="iconify ds-text-success" data-icon="mdi:check-circle-outline" data-width="24" data-height="24"></span>
+                </div>
+                <p class="mt-3 text-sm text-slate-300">Track progress and close with resolution proof.</p>
+            </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap gap-3">
+            {% if not current_user.is_authenticated %}
+                <a href="{{ url_for('register') }}" class="minimal-btn minimal-btn-primary">
+                    <span class="iconify" data-icon="mdi:rocket-launch-outline" data-width="20" data-height="20"></span>
+                    <span>{{ _('Start Reporting') }}</span>
+                </a>
+            {% else %}
+                <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary">
+                    <span class="iconify" data-icon="mdi:alert-plus-outline" data-width="20" data-height="20"></span>
+                    <span>{{ _('Report New Issue') }}</span>
+                </a>
+            {% endif %}
+
+            <a href="{{ url_for('track_report') }}" class="minimal-btn minimal-btn-inverse">
+                <span class="iconify" data-icon="mdi:magnify" data-width="20" data-height="20"></span>
+                <span>{{ _('Track Report') }}</span>
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="why-us" class="mt-12 scroll-reveal">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-2">
+        <div class="minimal-card p-6 sm:p-8">
+            <h2 class="text-2xl font-semibold text-slate-900">Why our project</h2>
+            <p class="mt-2 text-slate-600">
+                Traditional reporting is fragmented, slow, and hard to track. CivicSetu makes it structured and measurable.
+            </p>
+
+            <div class="mt-6 space-y-4">
+                <div class="flex gap-3">
+                    <span class="iconify mt-0.5 ds-text-primary" data-icon="mdi:shield-check-outline" data-width="22" data-height="22"></span>
+                    <div>
+                        <div class="font-semibold text-slate-900">Verified reporting</div>
+                        <div class="text-sm text-slate-600">Photo + geo-tag reduces duplicates and improves accuracy.</div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="iconify mt-0.5 ds-text-primary" data-icon="mdi:ticket-confirmation-outline" data-width="22" data-height="22"></span>
+                    <div>
+                        <div class="font-semibold text-slate-900">Ticket-based accountability</div>
+                        <div class="text-sm text-slate-600">Every issue becomes a traceable case with a lifecycle.</div>
+                    </div>
+                </div>
+                <div class="flex gap-3">
+                    <span class="iconify mt-0.5 ds-text-primary" data-icon="mdi:chart-box-outline" data-width="22" data-height="22"></span>
+                    <div>
+                        <div class="font-semibold text-slate-900">Data-driven decisions</div>
+                        <div class="text-sm text-slate-600">Analytics help prioritize budgets, teams, and hotspots.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="minimal-card p-6 sm:p-8">
+            <h2 class="text-2xl font-semibold text-slate-900">Comparison</h2>
+            <p class="mt-2 text-slate-600">CivicSetu vs traditional reporting & scattered channels.</p>
+
+            <div class="mt-6 overflow-hidden rounded-2xl border border-slate-200">
+                <div class="grid grid-cols-3 bg-slate-50 text-xs font-semibold uppercase tracking-wider text-slate-500">
+                    <div class="p-3">Criteria</div>
+                    <div class="p-3">Traditional</div>
+                    <div class="p-3">CivicSetu</div>
+                </div>
+                <div class="divide-y divide-slate-200 bg-white text-sm">
+                    <div class="grid grid-cols-3">
+                        <div class="p-3 text-slate-700">Tracking</div>
+                        <div class="p-3 text-slate-500">Manual / unclear</div>
+                        <div class="p-3 font-medium text-slate-900">Real-time status</div>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <div class="p-3 text-slate-700">Evidence</div>
+                        <div class="p-3 text-slate-500">Often missing</div>
+                        <div class="p-3 font-medium text-slate-900">Photo + GPS</div>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <div class="p-3 text-slate-700">Prioritization</div>
+                        <div class="p-3 text-slate-500">Ad-hoc</div>
+                        <div class="p-3 font-medium text-slate-900">Severity-based</div>
+                    </div>
+                    <div class="grid grid-cols-3">
+                        <div class="p-3 text-slate-700">Transparency</div>
+                        <div class="p-3 text-slate-500">Low</div>
+                        <div class="p-3 font-medium text-slate-900">Public visibility</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-6 flex flex-wrap gap-3">
+                <a href="{{ url_for('public_reports') }}" class="minimal-btn minimal-btn-primary">
+                    <span class="iconify" data-icon="mdi:eye-outline" data-width="20" data-height="20"></span>
+                    <span>{{ _('See it in action') }}</span>
+                </a>
+                <a href="{{ url_for('track_report') }}" class="minimal-btn">
+                    <span class="iconify" data-icon="mdi:magnify" data-width="20" data-height="20"></span>
+                    <span>{{ _('Track a report') }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="features" class="mt-12 scroll-reveal">
+    <div class="minimal-card p-6 sm:p-8">
+        <div class="flex items-start justify-between gap-4">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-900">Platform features</h2>
+                <p class="mt-2 text-slate-600">Designed for citizens, authorities, and the public.</p>
+            </div>
+            <span class="iconify ds-text-primary" data-icon="mdi:sparkles" data-width="34" data-height="34"></span>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div class="minimal-card p-5">
+                <div class="flex items-center justify-between">
+                    <div class="font-semibold text-slate-900">Issue reporting</div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:alert-outline" data-width="22" data-height="22"></span>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">Structured form, category, severity, photo and location.</div>
+            </div>
+            <div class="minimal-card p-5">
+                <div class="flex items-center justify-between">
+                    <div class="font-semibold text-slate-900">Track & timeline</div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:timeline-outline" data-width="22" data-height="22"></span>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">Track status changes and see resolution updates.</div>
+            </div>
+            <div class="minimal-card p-5">
+                <div class="flex items-center justify-between">
+                    <div class="font-semibold text-slate-900">Role-based dashboards</div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:account-switch-outline" data-width="22" data-height="22"></span>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">Citizen experience + authority management flow.</div>
+            </div>
+            <div class="minimal-card p-5">
+                <div class="flex items-center justify-between">
+                    <div class="font-semibold text-slate-900">Public reports</div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:earth" data-width="22" data-height="22"></span>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">Transparency-first discovery for community trust.</div>
+            </div>
+            <div class="minimal-card p-5">
+                <div class="flex items-center justify-between">
+                    <div class="font-semibold text-slate-900">Analytics-ready</div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:chart-line" data-width="22" data-height="22"></span>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">Trends, hotspots, performance and severity distribution.</div>
+            </div>
+            <div class="minimal-card p-5">
+                <div class="flex items-center justify-between">
+                    <div class="font-semibold text-slate-900">Multilingual UI</div>
+                    <span class="iconify ds-text-primary" data-icon="mdi:translate" data-width="22" data-height="22"></span>
+                </div>
+                <div class="mt-2 text-sm text-slate-600">Inclusive access for wider adoption.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="live-map" class="mt-12 scroll-reveal">
+    <div class="minimal-card overflow-hidden">
+        <div class="flex flex-col gap-3 border-b border-slate-200 bg-slate-50 p-6 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h2 class="text-lg font-semibold text-slate-900">Live map preview</h2>
+                <p class="mt-1 text-sm text-slate-600">Recent reports plotted for visibility and hotspot understanding.</p>
+            </div>
+            <a href="{{ url_for('public_reports') }}" class="minimal-btn minimal-btn-primary">
+                <span class="iconify" data-icon="mdi:map-search-outline" data-width="20" data-height="20"></span>
+                <span>{{ _('Explore reports') }}</span>
+            </a>
+        </div>
+        <div class="p-6">
+            <div id="reportsMap" class="map-container"></div>
+        </div>
+    </div>
+</section>
+
+<section id="get-in-touch" class="mt-12 scroll-reveal">
+    <div class="grid grid-cols-1 gap-6 lg:grid-cols-3">
+        <div class="minimal-card p-6 sm:p-8 lg:col-span-2">
+            <h2 class="text-2xl font-semibold text-slate-900">Get in touch</h2>
+            <p class="mt-2 text-slate-600">
+                We’re a student tech team launching CivicSetu as an Open Innovation hackathon project.
+                Reach out for demos, collaboration, mentorship, or pilot opportunities.
+            </p>
+
+            <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Email</div>
+                    <div class="mt-2 text-sm text-slate-700">team@civicsetu.example</div>
+                    <div class="mt-3">
+                        <a href="mailto:team@civicsetu.example" class="minimal-btn minimal-btn-primary">
+                            <span class="iconify" data-icon="mdi:email-outline" data-width="20" data-height="20"></span>
+                            <span>Send email</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="rounded-2xl border border-slate-200 bg-white p-5">
+                    <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Pitch</div>
+                    <div class="mt-2 text-sm text-slate-700">Demo-ready platform with citizen + authority flows</div>
+                    <div class="mt-3">
+                        <a href="{{ url_for('public_reports') }}" class="minimal-btn">
+                            <span class="iconify" data-icon="mdi:play-circle-outline" data-width="20" data-height="20"></span>
+                            <span>View demo data</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="minimal-card p-6 sm:p-8">
+            <h3 class="text-lg font-semibold text-slate-900">Launch checklist</h3>
+            <div class="mt-4 space-y-2 text-sm text-slate-700">
+                <div class="flex gap-2"><span class="iconify ds-text-success" data-icon="mdi:check" data-width="18" data-height="18"></span> Citizen reporting flow</div>
+                <div class="flex gap-2"><span class="iconify ds-text-success" data-icon="mdi:check" data-width="18" data-height="18"></span> Authority dashboard + analytics</div>
+                <div class="flex gap-2"><span class="iconify ds-text-success" data-icon="mdi:check" data-width="18" data-height="18"></span> Public transparency views</div>
+                <div class="flex gap-2"><span class="iconify ds-text-success" data-icon="mdi:check" data-width="18" data-height="18"></span> Track report by ID</div>
+            </div>
+
+            <div class="mt-6 rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500">Next</div>
+                <div class="mt-2 text-sm text-slate-700">Pilots with local bodies, integrations, and stricter tokenization.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="mt-12 scroll-reveal">
+    <div class="rounded-3xl border border-slate-200 bg-white p-6 sm:p-10">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+            <div>
+                <h2 class="text-2xl font-semibold text-slate-900">Ready to launch CivicSetu?</h2>
+                <p class="mt-2 text-slate-600">Join the pilot, report issues, and help build safer roads—together.</p>
+            </div>
+            <div class="flex flex-wrap gap-3">
+                {% if not current_user.is_authenticated %}
+                    <a href="{{ url_for('register') }}" class="minimal-btn minimal-btn-primary">
+                        <span class="iconify" data-icon="mdi:rocket-launch-outline" data-width="20" data-height="20"></span>
+                        <span>{{ _('Get Started') }}</span>
+                    </a>
+                {% endif %}
+                <a href="{{ url_for('track_report') }}" class="minimal-btn">
+                    <span class="iconify" data-icon="mdi:magnify" data-width="20" data-height="20"></span>
+                    <span>{{ _('Track Report') }}</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
 {% endblock %}
 
 {% block scripts %}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
+    // Smooth in-page navigation for section anchors
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+        a.addEventListener('click', (e) => {
+            const href = a.getAttribute('href');
+            if (!href || href === '#') return;
+            const el = document.querySelector(href);
+            if (!el) return;
+            e.preventDefault();
+            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+    });
+
+    // Animated counters
+    const counters = document.querySelectorAll('.counter[data-target]');
+    if (counters.length) {
+        const animate = (el) => {
+            const target = parseInt(el.getAttribute('data-target') || '0', 10);
+            if (!target) return;
+            const duration = 900;
+            const start = performance.now();
+            const step = (now) => {
+                const progress = Math.min((now - start) / duration, 1);
+                const value = Math.floor(progress * target);
+                el.textContent = String(value);
+                if (progress < 1) requestAnimationFrame(step);
+                else el.textContent = String(target);
+            };
+            requestAnimationFrame(step);
+        };
+
+        const counterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animate(entry.target);
+                    counterObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.25 });
+
+        counters.forEach(c => counterObserver.observe(c));
+    }
+
     // Initialize map with proper touch controls
     var map = L.map('reportsMap', {
         // Enable touch interactions
@@ -250,6 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            const markers = [];
             let validReports = 0;
             let invalidReports = 0;
             
@@ -283,6 +612,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         fillOpacity: 0.7,
                         radius: 8
                     }).addTo(map);
+                    markers.push(marker);
                     
                     // Create popup content with safe string handling
                     const title = report.title || 'Untitled Report';
@@ -310,14 +640,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // If we have valid reports, adjust map view to fit all markers
             if (validReports > 0) {
-                // Get all markers and fit bounds if there are multiple
-                const group = new L.featureGroup(map._layers);
-                if (Object.keys(map._layers).length > 1) { // More than just the tile layer
-                    try {
-                        map.fitBounds(group.getBounds().pad(0.1));
-                    } catch (boundsError) {
-                        console.warn('Could not fit bounds:', boundsError);
-                    }
+                try {
+                    const group = L.featureGroup(markers);
+                    map.fitBounds(group.getBounds().pad(0.1));
+                } catch (boundsError) {
+                    console.warn('Could not fit bounds:', boundsError);
                 }
             }
         })
@@ -327,10 +654,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const mapContainer = document.getElementById('reportsMap');
             if (mapContainer) {
                 mapContainer.innerHTML = `
-                    <div class="alert alert-warning text-center p-4">
-                        <i class="fas fa-exclamation-triangle"></i>
-                        <h6>Unable to load reports map</h6>
-                        <small>Please try refreshing the page. If the problem persists, contact support.</small>
+                    <div class="alert alert-warning">
+                        <div class="text-sm">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <strong>Unable to load reports map</strong>
+                            <div class="mt-1">Please refresh the page. If the problem persists, contact the team.</div>
+                        </div>
                     </div>
                 `;
             }

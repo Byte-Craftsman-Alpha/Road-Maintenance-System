@@ -9,218 +9,181 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        window.tailwind = {
+            config: {
+                darkMode: 'class'
+            }
+        };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/3/3.1.1/iconify.min.js"></script>
     <!-- Core Styles -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="{{ url_for('static', filename='css/custom.css') }}" rel="stylesheet">
-    <style>
-        /* Override Bootstrap navbar for glassmorphism effect */
-        .navbar-dark {
-            background: rgba(255, 255, 255, 0.95) !important;
-            backdrop-filter: blur(20px);
-        }
-        
-        .navbar-dark .navbar-brand,
-        .navbar-dark .navbar-nav .nav-link {
-            color: var(--gray-700) !important;
-        }
-        
-        .navbar-dark .navbar-nav .nav-link:hover {
-            color: var(--primary-600) !important;
-        }
-        
-        .map-container {
-            height: 400px;
-            width: 100%;
-            border-radius: var(--radius-xl);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-        
-        /* Modern alert styles */
-        .alert {
-            border: none;
-            border-radius: var(--radius-lg);
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .alert-info {
-            background: var(--primary-50);
-            color: var(--primary-700);
-            border-left: 4px solid var(--primary-500);
-        }
-    </style>
 </head>
-<body>
+<body class="min-h-screen">
     <!-- Splash Screen -->
     <div id="splashScreen" class="splash-screen">
         <div class="splash-content">
             <div class="splash-logo">
                 <!-- <i class="fas fa-road"></i> -->
-                <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu Logo" style="width: 242px;">
+                <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu Logo" class="splash-logo-img">
             </div>
             <div class="splash-text">{{ _('CivicSetu') }}</div>
             <div class="splash-loader"></div>
         </div>
     </div>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
-        <div class="container">
-            <a class="navbar-brand" href="{{ url_for('index') }}">
-                <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu Logo" style="width: 44px;">
-                <!-- <i class="fas fa-road"></i> -->
-                {{ _('CivicSetu') }}
-            </a>
-            
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <svg xmlns="http://www.w3.org/2000/svg" width="42" height="42" viewBox="-5 -7 24 24" style="color: var(--gray-900);">
-                    <path fill="currentColor" d="M1 0h5a1 1 0 1 1 0 2H1a1 1 0 1 1 0-2m7 8h5a1 1 0 0 1 0 2H8a1 1 0 1 1 0-2M1 4h12a1 1 0 0 1 0 2H1a1 1 0 1 1 0-2" />
-                </svg>
-            </button>
-            
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav me-auto">
+    <nav class="site-nav sticky top-0 z-50 border-b border-slate-200/70">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 items-center justify-between">
+                <a class="flex items-center gap-3 font-semibold text-slate-900" href="{{ url_for('index') }}">
+                    <img src="{{ url_for('static', filename='logo/CivicSetu.svg') }}" alt="CivicSetu Logo" class="h-10 w-10">
+                    <span>{{ _('CivicSetu') }}</span>
+                </a>
+
+                <button id="mobileMenuBtn" class="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-3 py-2 text-slate-700 shadow-sm transition hover:bg-slate-50 md:hidden" type="button">
+                    <span class="sr-only">Toggle menu</span>
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:hamburger-menu-outline" data-width="22" data-height="22"></span>
+                </button>
+
+                <div class="hidden items-center gap-2 md:flex" id="desktopNav">
+                    <div class="flex items-center gap-1">
+                        {% if current_user.is_authenticated %}
+                            {% if current_user.role == 'citizen' %}
+                                <a class="minimal-nav-item" href="{{ url_for('citizen_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="18" data-height="18"></span> {{ _('Dashboard') }}</a>
+                                <a class="minimal-nav-item" href="{{ url_for('create_report') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-bold" data-width="18" data-height="18"></span> {{ _('Report Issue') }}</a>
+                                <a class="minimal-nav-item" href="{{ url_for('citizen_leaderboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:cup-star-bold" data-width="18" data-height="18"></span> {{ _('Leaderboard') }}</a>
+                            {% elif current_user.role == 'authority' %}
+                                <a class="minimal-nav-item" href="{{ url_for('authority_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="18" data-height="18"></span> {{ _('Dashboard') }}</a>
+                                <a class="minimal-nav-item" href="{{ url_for('view_reports') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('All Reports') }}</a>
+                                <a class="minimal-nav-item" href="{{ url_for('analytics_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:chart-2-bold" data-width="18" data-height="18"></span> {{ _('Analytics') }}</a>
+                            {% endif %}
+                        {% endif %}
+                        <a class="minimal-nav-item" href="{{ url_for('public_reports') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-bold" data-width="18" data-height="18"></span> {{ _('Public Reports') }}</a>
+                        <a class="minimal-nav-item" href="{{ url_for('track_report') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-bold" data-width="18" data-height="18"></span> {{ _('Track Report') }}</a>
+                    </div>
+
+                    <div class="flex items-center gap-2">
+                        <details class="relative">
+                            <summary class="minimal-nav-item cursor-pointer list-none">
+                                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:global-outline" data-width="18" data-height="18"></span> {{ get_locale() }}
+                            </summary>
+                            <div class="absolute right-0 mt-2 w-72 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+                                <div class="max-h-80 overflow-y-auto p-2">
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='en') }}">English</a>
+                                    <div class="my-2 h-px bg-slate-200"></div>
+                                    <div class="px-3 pb-1 text-xs font-semibold uppercase tracking-wider text-slate-500">{{ _('Indian Languages') }}</div>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='hi') }}">हिन्दी (Hindi)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='as') }}">অসমীয়া (Assamese)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='bn') }}">বাংলা (Bengali)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='brx') }}">बर' (Bodo)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='doi') }}">डोगरी (Dogri)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='gu') }}">ગુજરાતી (Gujarati)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='kn') }}">ಕನ್ನಡ (Kannada)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='ks') }}">کٲشُر (Kashmiri)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='kok') }}">कोंकणी (Konkani)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='mai') }}">मैथिली (Maithili)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='ml') }}">മലയാളം (Malayalam)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='mni') }}">মৈতৈলোন্ (Manipuri)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='mr') }}">मराठी (Marathi)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='ne') }}">नेपाली (Nepali)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='or') }}">ଓଡ଼ିଆ (Odia)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='pa') }}">ਪੰਜਾਬੀ (Punjabi)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='sa') }}">संस्कृतम् (Sanskrit)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='sat') }}">ᱥᱟᱱᱛᱟᱲᱤ (Santhali)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='sd') }}">سنڌي (Sindhi)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='ta') }}">தமிழ் (Tamil)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='te') }}">తెలుగు (Telugu)</a>
+                                    <a class="minimal-nav-item" href="{{ url_for('set_language', language='ur') }}">اردو (Urdu)</a>
+                                </div>
+                            </div>
+                        </details>
+
+                        <button class="minimal-nav-item" id="themeToggle" type="button">
+                            <span id="themeIcon" class="iconify inline-block align-[-0.125em]" data-icon="solar:moon-outline" data-width="20" data-height="20"></span>
+                        </button>
+
+                        {% if current_user.is_authenticated %}
+                            <details class="relative">
+                                <summary class="minimal-nav-item cursor-pointer list-none"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:user-rounded-bold" data-width="18" data-height="18"></span> {{ current_user.username }}</summary>
+                                <div class="absolute right-0 mt-2 w-56 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg">
+                                    <div class="p-2">
+                                        <div class="px-3 py-2 text-sm text-slate-600">{{ current_user.role.title() }}</div>
+                                        <div class="my-2 h-px bg-slate-200"></div>
+                                        <a class="minimal-nav-item" href="{{ url_for('logout') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:logout-outline" data-width="18" data-height="18"></span> {{ _('Logout') }}</a>
+                                    </div>
+                                </div>
+                            </details>
+                        {% else %}
+                            <a class="minimal-btn" href="{{ url_for('login') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:login-outline" data-width="18" data-height="18"></span> {{ _('Login') }}</a>
+                            <a class="minimal-btn minimal-btn-primary" href="{{ url_for('register') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:user-plus-bold" data-width="18" data-height="18"></span> {{ _('Register') }}</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="hidden pb-4 pt-2 md:hidden" id="mobileNav">
+                <div class="space-y-1">
                     {% if current_user.is_authenticated %}
                         {% if current_user.role == 'citizen' %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('citizen_dashboard') }}">
-                                    <i class="fas fa-tachometer-alt"></i> {{ _('Dashboard') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('create_report') }}">
-                                    <i class="fas fa-plus-circle"></i> {{ _('Report Issue') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('citizen_leaderboard') }}">
-                                    <i class="fas fa-trophy"></i> {{ _('Leaderboard') }}
-                                </a>
-                            </li>
+                            <a class="minimal-nav-item" href="{{ url_for('citizen_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="18" data-height="18"></span> {{ _('Dashboard') }}</a>
+                            <a class="minimal-nav-item" href="{{ url_for('create_report') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-bold" data-width="18" data-height="18"></span> {{ _('Report Issue') }}</a>
+                            <a class="minimal-nav-item" href="{{ url_for('citizen_leaderboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:cup-star-bold" data-width="18" data-height="18"></span> {{ _('Leaderboard') }}</a>
                         {% elif current_user.role == 'authority' %}
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('authority_dashboard') }}">
-                                    <i class="fas fa-tachometer-alt"></i> {{ _('Dashboard') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('view_reports') }}">
-                                    <i class="fas fa-list"></i> {{ _('All Reports') }}
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ url_for('analytics_dashboard') }}">
-                                    <i class="fas fa-chart-line"></i> {{ _('Analytics') }}
-                                </a>
-                            </li>
+                            <a class="minimal-nav-item" href="{{ url_for('authority_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="18" data-height="18"></span> {{ _('Dashboard') }}</a>
+                            <a class="minimal-nav-item" href="{{ url_for('view_reports') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('All Reports') }}</a>
+                            <a class="minimal-nav-item" href="{{ url_for('analytics_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:chart-2-bold" data-width="18" data-height="18"></span> {{ _('Analytics') }}</a>
                         {% endif %}
                     {% endif %}
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('public_reports') }}">
-                            <i class="fas fa-eye"></i> {{ _('Public Reports') }}
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ url_for('track_report') }}">
-                            <i class="fas fa-search"></i> {{ _('Track Report') }}
-                        </a>
-                    </li>
-                </ul>
-                
-                <ul class="navbar-nav">
-                    <!-- Language Selector -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="languageDropdown" role="button" data-bs-toggle="dropdown">
-                            <i class="fas fa-globe"></i> {{ get_locale() }}
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" style="max-height: 400px; overflow-y: auto;">
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='en') }}">English</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li class="dropdown-header">{{ _('Indian Languages') }}</li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='hi') }}">हिन्दी (Hindi)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='as') }}">অসমীয়া (Assamese)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='bn') }}">বাংলা (Bengali)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='brx') }}">बर' (Bodo)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='doi') }}">डोगरी (Dogri)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='gu') }}">ગુજરાતી (Gujarati)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='kn') }}">ಕನ್ನಡ (Kannada)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='ks') }}">کٲشُر (Kashmiri)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='kok') }}">कोंकणी (Konkani)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='mai') }}">मैथिली (Maithili)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='ml') }}">മലയാളം (Malayalam)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='mni') }}">মৈতৈলোন্ (Manipuri)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='mr') }}">मराठी (Marathi)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='ne') }}">नेपाली (Nepali)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='or') }}">ଓଡ଼ିଆ (Odia)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='pa') }}">ਪੰਜਾਬੀ (Punjabi)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='sa') }}">संस्कृतम् (Sanskrit)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='sat') }}">ᱥᱟᱱᱛᱟᱲᱤ (Santhali)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='sd') }}">سنڌي (Sindhi)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='ta') }}">தமிழ் (Tamil)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='te') }}">తెలుగు (Telugu)</a></li>
-                            <li><a class="dropdown-item" href="{{ url_for('set_language', language='ur') }}">اردو (Urdu)</a></li>
-                        </ul>
-                    </li>
-                    
-                    <!-- Theme Toggle -->
-                    <li class="nav-item">
-                        <button class="nav-link btn btn-link" id="themeToggle" style="border: none; background: none;">
-                            <i class="fas fa-moon" id="themeIcon"></i>
-                        </button>
-                    </li>
-                    
-                    {% if current_user.is_authenticated %}
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown">
-                                <i class="fas fa-user"></i> {{ current_user.username }}
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><span class="dropdown-item-text">{{ current_user.role.title() }}</span></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" href="{{ url_for('logout') }}">
-                                    <i class="fas fa-sign-out-alt"></i> {{ _('Logout') }}
-                                </a></li>
-                            </ul>
-                        </li>
-                    {% else %}
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('login') }}">
-                                <i class="fas fa-sign-in-alt"></i> {{ _('Login') }}
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ url_for('register') }}">
-                                <i class="fas fa-user-plus"></i> {{ _('Register') }}
-                            </a>
-                        </li>
+                    <a class="minimal-nav-item" href="{{ url_for('public_reports') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-bold" data-width="18" data-height="18"></span> {{ _('Public Reports') }}</a>
+                    <a class="minimal-nav-item" href="{{ url_for('track_report') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-bold" data-width="18" data-height="18"></span> {{ _('Track Report') }}</a>
+                    {% if not current_user.is_authenticated %}
+                        <a class="minimal-nav-item" href="{{ url_for('login') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:login-outline" data-width="18" data-height="18"></span> {{ _('Login') }}</a>
+                        <a class="minimal-nav-item" href="{{ url_for('register') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:user-plus-bold" data-width="18" data-height="18"></span> {{ _('Register') }}</a>
                     {% endif %}
-                </ul>
+                </div>
             </div>
         </div>
     </nav>
 
-    <main class="container mt-4">
-        {% with messages = get_flashed_messages() %}
+    <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+        {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
-                {% for message in messages %}
-                    <div class="alert alert-info alert-dismissible fade show" role="alert">
-                        {{ message }}
-                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                    </div>
-                {% endfor %}
+                <div class="space-y-3">
+                    {% for category, message in messages %}
+                        {% if category == 'success' %}
+                            <div class="toast toast-success" role="status" aria-live="polite" data-toast>
+                                <div class="toast-inner">
+                                    <span class="iconify toast-icon" data-icon="solar:check-circle-bold" data-width="18" data-height="18"></span>
+                                    <div class="toast-message">{{ message }}</div>
+                                    <button class="toast-close" type="button" aria-label="Close notification" data-toast-close>
+                                        <span class="iconify" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                                    </button>
+                                </div>
+                            </div>
+                        {% elif category == 'error' or category == 'danger' %}
+                            <div class="alert alert-danger">{{ message }}</div>
+                        {% elif category == 'warning' %}
+                            <div class="alert alert-warning">{{ message }}</div>
+                        {% else %}
+                            <div class="alert alert-info">{{ message }}</div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
             {% endif %}
         {% endwith %}
 
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="bg-light mt-5 py-4">
-        <div class="container text-center">
-            <p class="mb-0">&copy; 2025 CivicSetu & Paradox Team. Improving infrastructure through citizen engagement.</p>
+    <footer class="mt-10 border-t border-slate-200/70 bg-white/60 py-6">
+        <div class="mx-auto max-w-7xl px-4 text-center text-sm text-slate-500 sm:px-6 lg:px-8">
+            <p>&copy; 2025 CivicSetu & Paradox Team. Improving infrastructure through citizen engagement.</p>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
         // Splash Screen Management
@@ -245,6 +208,47 @@
                 splashScreen.style.display = 'none';
                 initScrollAnimations();
             }
+        });
+
+        // Mobile navigation
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.getElementById('mobileMenuBtn');
+            const nav = document.getElementById('mobileNav');
+            if (btn && nav) {
+                btn.addEventListener('click', function() {
+                    nav.classList.toggle('hidden');
+                });
+            }
+        });
+
+        // Toast notifications (Dynamic Island style)
+        document.addEventListener('DOMContentLoaded', function() {
+            const toasts = Array.from(document.querySelectorAll('[data-toast]'));
+            if (!toasts.length) return;
+
+            toasts.forEach(function(toast) {
+                let closed = false;
+
+                const closeBtn = toast.querySelector('[data-toast-close]');
+                const closeToast = function() {
+                    if (closed) return;
+                    closed = true;
+                    toast.classList.add('toast-hide');
+                    setTimeout(function() {
+                        if (toast && toast.parentNode) toast.parentNode.removeChild(toast);
+                    }, 240);
+                };
+
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', closeToast);
+                }
+
+                setTimeout(function() {
+                    toast.classList.add('toast-show');
+                }, 50);
+
+                setTimeout(closeToast, 4200);
+            });
         });
 
         // Scroll Animations (for all pages)
@@ -295,32 +299,28 @@
         const themeToggle = document.getElementById('themeToggle');
         const themeIcon = document.getElementById('themeIcon');
         const body = document.body;
-        
+        const root = document.documentElement;
+
+        const applyTheme = function(theme) {
+            body.setAttribute('data-theme', theme);
+            root.classList.toggle('dark', theme === 'dark');
+
+            if (theme === 'dark') {
+                themeIcon.setAttribute('data-icon', 'solar:sun-outline');
+            } else {
+                themeIcon.setAttribute('data-icon', 'solar:moon-outline');
+            }
+
+            localStorage.setItem('theme', theme);
+        };
+
         // Check for saved theme preference or default to 'light'
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        
-        // Apply theme on page load
-        if (currentTheme === 'dark') {
-            body.setAttribute('data-theme', 'dark');
-            themeIcon.className = 'fas fa-sun';
-        } else {
-            body.setAttribute('data-theme', 'light');
-            themeIcon.className = 'fas fa-moon';
-        }
-        
+        applyTheme(localStorage.getItem('theme') || 'light');
+
         // Theme toggle functionality
         themeToggle.addEventListener('click', function() {
-            const currentTheme = body.getAttribute('data-theme');
-            
-            if (currentTheme === 'dark') {
-                body.setAttribute('data-theme', 'light');
-                themeIcon.className = 'fas fa-moon';
-                localStorage.setItem('theme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                themeIcon.className = 'fas fa-sun';
-                localStorage.setItem('theme', 'dark');
-            }
+            const currentTheme = body.getAttribute('data-theme') || 'light';
+            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
     </script>
     
