@@ -12,7 +12,7 @@ sys.path.append('gmail_notification')
 from gmail_notification.email_notifier import EmailNotifier, send_otp_email, send_password_reset_email, send_status_update_email, send_maintenance_ticket_update_email
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your-secret-key-change-in-production'
+app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'your-secret-key-change-in-production')
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///road_maintenance.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
@@ -85,7 +85,9 @@ os.makedirs(app.config['UPLOAD_FOLDER'], exist_ok=True)
 # Email configuration
 app.config['EMAIL_ADDRESS'] = os.getenv('EMAIL_ADDRESS', 'your-email@gmail.com')
 app.config['EMAIL_PASSWORD'] = os.getenv('EMAIL_PASSWORD', 'your-app-password')
-app.config['AUTHORITY_REGISTRATION_PASSWORD'] = 'ADMIN2025!'  # Change this in production
+app.config['AUTHORITY_REGISTRATION_PASSWORD'] = os.getenv('AUTHORITY_REGISTRATION_PASSWORD', 'ADMIN2025!')
+
+app.config['SHOW_DEMO_CREDENTIALS'] = os.getenv('SHOW_DEMO_CREDENTIALS', '').strip().lower() in {'1', 'true', 'yes', 'on'}
 
 # Initialize email notifier
 email_notifier = EmailNotifier()
@@ -101,6 +103,13 @@ db.init_app(app)
 login_manager = LoginManager()
 login_manager.init_app(app)
 login_manager.login_view = 'login'
+
+@app.context_processor
+def inject_demo_credentials_flag():
+    return {
+        'show_demo_credentials': app.config.get('SHOW_DEMO_CREDENTIALS', False),
+        'current_year': datetime.utcnow().year
+    }
 
 @login_manager.user_loader
 def load_user(user_id):

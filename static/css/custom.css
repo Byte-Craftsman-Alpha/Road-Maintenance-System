@@ -1838,9 +1838,8 @@ body[data-theme="dark"] .leaflet-tile {
 
 /* Modern Footer */
 footer {
-    background: var(--gray-900) !important;
-    color: var(--gray-300);
-    border-top: 1px solid var(--gray-800);
+    color: inherit;
+    border-top: 1px solid var(--gray-200);
 }
 
 .toast {
@@ -2395,15 +2394,13 @@ body[data-theme="dark"] .alert {
 }
 
 [data-theme="dark"] footer {
-    background: var(--gray-200) !important;
-    color: var(--gray-700);
+    color: inherit;
     border-top-color: var(--gray-300);
 }
 
 body[data-theme="dark"] footer {
-    background: rgba(15, 23, 42, 0.6) !important;
-    color: var(--gray-600) !important;
-    border-top-color: rgba(51, 65, 85, 0.7) !important;
+    color: inherit;
+    border-top-color: rgba(51, 65, 85, 0.7);
 }
 
 /* Theme Toggle Button Styling */

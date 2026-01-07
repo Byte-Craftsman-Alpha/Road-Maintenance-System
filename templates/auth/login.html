@@ -58,17 +58,19 @@
         </div>
     </div>
 
-    <div class="mt-4 minimal-callout">
-        <div class="text-sm">
-            <span class="iconify" data-icon="solar:info-circle-bold" data-width="18" data-height="18"></span>
-            <div>
-                <div class="font-semibold">{{ _('Demo Accounts:') }}</div>
-                <div class="mt-1 text-xs">
-                    Admin: admin@roadmaintenance.com / admin123
-                    <div>({{ _('Register as citizen or authority for full experience') }})</div>
+    {% if show_demo_credentials %}
+        <div class="mt-4 minimal-callout">
+            <div class="text-sm">
+                <span class="iconify" data-icon="solar:info-circle-bold" data-width="18" data-height="18"></span>
+                <div>
+                    <div class="font-semibold">{{ _('Demo Accounts:') }}</div>
+                    <div class="mt-1 text-xs">
+                        Admin: admin@roadmaintenance.com / admin123
+                        <div>({{ _('Register as citizen or authority for full experience') }})</div>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    {% endif %}
 </div>
 {% endblock %}
