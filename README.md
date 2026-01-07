@@ -402,4 +402,10 @@ For technical support or questions about the system:
 
 ## License
 
-This project is developed for educational and municipal use. Please ensure compliance with local data protection and privacy regulations when deploying in production environments.
+This project is licensed under the terms of the MIT license. See `LICENSE`.
+
+### Community
+
+- `CODE_OF_CONDUCT.md`
+- `CONTRIBUTING.md`
+- `SECURITY.md`
