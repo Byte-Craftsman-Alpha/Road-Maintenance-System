@@ -237,7 +237,20 @@ document.addEventListener('DOMContentLoaded', function() {
     var lng = parseFloat('{{ report.longitude }}');
     
     // Initialize the map
-    var map = L.map('map').setView([lat, lng], 15);
+    var map = L.map('map', {
+        touchZoom: true,
+        doubleClickZoom: true,
+        scrollWheelZoom: true,
+        boxZoom: true,
+        keyboard: true,
+        dragging: true,
+        zoomControl: true,
+        attributionControl: true
+    }).setView([lat, lng], 15);
+
+    if (window.qsApplyLeafletGestureGuards) {
+        window.qsApplyLeafletGestureGuards(map);
+    }
     
     // Add OpenStreetMap tiles
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

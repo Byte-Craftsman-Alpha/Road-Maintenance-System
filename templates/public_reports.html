@@ -3,20 +3,28 @@
 {% block title %}Public Reports - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="public-reports-page mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
-        <div class="flex items-center gap-3">
-            <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:eye-bold" data-width="26" data-height="26"></span>
-            <h1 class="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">{{ _('Public Reports') }}</h1>
+<div class="public-reports-page mx-auto max-w-7xl px-4 py-4 pb-24 sm:px-6 sm:py-6 lg:px-8 md:pb-0">
+    <div class="minimal-card mb-6 hidden p-4 sm:p-6 md:block">
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex items-start gap-3">
+                <span class="mt-1 inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-slate-100 text-slate-700 dark:bg-slate-900/40 dark:text-slate-200">
+                    <span class="iconify" data-icon="solar:eye-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                </span>
+                <div class="min-w-0">
+                    <h1 class="text-2xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-3xl dark:text-slate-100">{{ _('Public Reports') }}</h1>
+                    <p class="mt-1 text-sm leading-snug text-slate-600 dark:text-slate-300">{{ _('Browse issues submitted by citizens, vote to prioritize, and track progress.') }}</p>
+                </div>
+            </div>
+
+            <a href="{{ url_for('index') }}" class="minimal-btn w-full sm:w-auto">
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:home-2-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                {{ _('Home') }}
+            </a>
         </div>
-        <a href="{{ url_for('index') }}" class="minimal-btn">
-            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:home-2-outline" data-width="18" data-height="18"></span>
-            {{ _('Home') }}
-        </a>
     </div>
 
-    <div class="grid gap-4 sm:grid-cols-3 mb-6">
-        <div class="minimal-card p-5">
+    <div class="grid grid-cols-2 gap-3 sm:grid-cols-3 sm:gap-4 mb-6">
+        <div class="minimal-card p-4 sm:p-5">
             <div class="flex items-center justify-between gap-4">
                 <div>
                     <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Total Reports') }}</div>
@@ -25,7 +33,7 @@
                 <span class="iconify ds-text-primary" data-icon="solar:clipboard-list-bold" data-width="26" data-height="26"></span>
             </div>
         </div>
-        <div class="minimal-card p-5">
+        <div class="minimal-card p-4 sm:p-5">
             <div class="flex items-center justify-between gap-4">
                 <div>
                     <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Completed') }}</div>
@@ -34,7 +42,7 @@
                 <span class="iconify ds-text-success" data-icon="solar:check-circle-bold" data-width="26" data-height="26"></span>
             </div>
         </div>
-        <div class="minimal-card p-5">
+        <div class="minimal-card p-4 sm:p-5 col-span-2 sm:col-span-1">
             <div class="flex items-center justify-between gap-4">
                 <div>
                     <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Completion Rate') }}</div>
@@ -46,38 +54,98 @@
     </div>
 
     <div class="minimal-card mb-6">
-        <div class="flex flex-col gap-3 border-b border-slate-200/70 dark:border-slate-700/70 px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
+        <div class="flex flex-col gap-3 border-b border-slate-200/70 dark:border-slate-700/70 px-4 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-5">
             <div class="flex items-center gap-2">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:documents-bold" data-width="18" data-height="18"></span>
                 <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('All Reports') }}</h2>
             </div>
 
-            <div class="flex flex-col gap-3 sm:flex-row sm:items-center">
-                <input type="text" id="searchInput" class="minimal-input" placeholder="Search reports...">
-                <select id="sortSelect" class="minimal-input">
-                    <option value="date_desc">{{ _('Sort: Newest') }}</option>
-                    <option value="date_asc">{{ _('Sort: Oldest') }}</option>
-                    <option value="votes_desc">{{ _('Sort: Votes (High)') }}</option>
-                    <option value="votes_asc">{{ _('Sort: Votes (Low)') }}</option>
-                    <option value="severity_desc">{{ _('Sort: Severity (High)') }}</option>
-                    <option value="severity_asc">{{ _('Sort: Severity (Low)') }}</option>
-                </select>
-                <div class="flex gap-2">
-                    <button id="filtersToggle" type="button" class="minimal-btn">
-                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:filter-bold" data-width="18" data-height="18"></span>
-                        {{ _('Filters') }}
+            <div class="w-full sm:w-auto">
+                <!-- Mobile toolbar: Search + Sort + Filter in one row -->
+                <div class="relative flex items-center gap-2 sm:hidden">
+                    <div class="relative flex-1">
+                        <span class="pointer-events-none absolute left-3 top-1/2 flex h-10 -translate-y-1/2 items-center justify-center text-slate-400">
+                            <span class="iconify" data-icon="solar:magnifer-outline" data-width="18" data-height="18" style="line-height: 0;"></span>
+                        </span>
+                        <input type="text" id="searchInputMobile" class="minimal-input h-10 w-full" style="padding-left: 2.75rem !important;" placeholder="{{ _('Search reports...') }}">
+                    </div>
+
+                    <button id="sortToggle" type="button" class="minimal-btn flex h-10 w-10 items-center justify-center px-0" aria-label="{{ _('Sort') }}" title="{{ _('Sort') }}">
+                        <span class="iconify" data-icon="solar:sort-outline" data-width="18" data-height="18"></span>
                     </button>
-                    <button type="button" class="minimal-btn" onclick="clearFilters()">
-                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-bold" data-width="18" data-height="18"></span>
-                        {{ _('Clear') }}
+
+                    <button id="filtersToggleMobile" type="button" class="minimal-btn flex h-10 w-10 items-center justify-center px-0" aria-label="{{ _('Filters') }}" title="{{ _('Filters') }}">
+                        <span class="iconify" data-icon="solar:filter-bold" data-width="18" data-height="18"></span>
                     </button>
+
+                    <div id="sortMenu" class="is-hidden absolute right-0 top-[calc(100%+0.5rem)] w-64 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-lg dark:border-slate-700 dark:bg-slate-900" role="menu" aria-label="{{ _('Sort') }}">
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800/60" data-sort-value="date_desc" role="menuitem">
+                            <span class="iconify" data-icon="solar:calendar-date-outline" data-width="18" data-height="18"></span>
+                            {{ _('Newest') }}
+                        </button>
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800/60" data-sort-value="date_asc" role="menuitem">
+                            <span class="iconify" data-icon="solar:calendar-outline" data-width="18" data-height="18"></span>
+                            {{ _('Oldest') }}
+                        </button>
+                        <div class="h-px bg-slate-200/70 dark:bg-slate-700/70"></div>
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800/60" data-sort-value="votes_desc" role="menuitem">
+                            <span class="iconify" data-icon="solar:like-bold" data-width="18" data-height="18"></span>
+                            {{ _('Votes (High)') }}
+                        </button>
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800/60" data-sort-value="votes_asc" role="menuitem">
+                            <span class="iconify" data-icon="solar:like-outline" data-width="18" data-height="18"></span>
+                            {{ _('Votes (Low)') }}
+                        </button>
+                        <div class="h-px bg-slate-200/70 dark:bg-slate-700/70"></div>
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800/60" data-sort-value="severity_desc" role="menuitem">
+                            <span class="iconify" data-icon="solar:danger-triangle-bold" data-width="18" data-height="18"></span>
+                            {{ _('Severity (High)') }}
+                        </button>
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-slate-800 hover:bg-slate-50 dark:text-slate-100 dark:hover:bg-slate-800/60" data-sort-value="severity_asc" role="menuitem">
+                            <span class="iconify" data-icon="solar:shield-check-outline" data-width="18" data-height="18"></span>
+                            {{ _('Severity (Low)') }}
+                        </button>
+                        <div class="h-px bg-slate-200/70 dark:bg-slate-700/70"></div>
+                        <button type="button" class="flex w-full items-center gap-2 px-4 py-3 text-left text-sm font-semibold text-rose-700 hover:bg-rose-50 dark:text-rose-300 dark:hover:bg-rose-900/20" onclick="clearFilters()" role="menuitem">
+                            <span class="iconify" data-icon="solar:close-circle-bold" data-width="18" data-height="18"></span>
+                            {{ _('Clear') }}
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop toolbar: keep existing controls -->
+                <div class="hidden flex-col gap-3 sm:flex sm:flex-row sm:items-center sm:justify-end">
+                    <input type="text" id="searchInputDesktop" class="minimal-input w-full sm:w-64" placeholder="{{ _('Search reports...') }}">
+                    <select id="sortSelect" class="minimal-input hidden w-full sm:block sm:w-56">
+                        <option value="date_desc">{{ _('Sort: Newest') }}</option>
+                        <option value="date_asc">{{ _('Sort: Oldest') }}</option>
+                        <option value="votes_desc">{{ _('Sort: Votes (High)') }}</option>
+                        <option value="votes_asc">{{ _('Sort: Votes (Low)') }}</option>
+                        <option value="severity_desc">{{ _('Sort: Severity (High)') }}</option>
+                        <option value="severity_asc">{{ _('Sort: Severity (Low)') }}</option>
+                    </select>
+                    <div class="flex gap-2">
+                        <button id="filtersToggleDesktop" type="button" class="minimal-btn">
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:filter-bold" data-width="18" data-height="18"></span>
+                            {{ _('Filters') }}
+                        </button>
+                        <button type="button" class="minimal-btn" onclick="clearFilters()">
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-bold" data-width="18" data-height="18"></span>
+                            {{ _('Clear') }}
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div id="filtersPanel" class="px-5 py-4 is-hidden">
+        <div id="filtersPanel" class="px-4 py-4 is-hidden sm:px-5">
             <div class="grid gap-3 sm:grid-cols-4">
-                <select id="categoryFilter" class="minimal-input">
+                <div>
+                    <div class="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        <span class="iconify" data-icon="solar:tag-outline" data-width="16" data-height="16"></span>
+                        <span>{{ _('Category') }}</span>
+                    </div>
+                    <select id="categoryFilter" class="minimal-input">
                     <option value="">{{ _('All Categories') }}</option>
                     <option value="infrastructure_roads">{{ _('Infrastructure & Roads') }}</option>
                     <option value="sanitation_waste">{{ _('Sanitation & Waste') }}</option>
@@ -91,25 +159,40 @@
                     <option value="education_public_spaces">{{ _('Education') }}</option>
                     <option value="emergency_disaster">{{ _('Emergency') }}</option>
                     <option value="citizen_rights_governance">{{ _('Citizen Rights') }}</option>
-                </select>
-                <select id="statusFilter" class="minimal-input">
+                    </select>
+                </div>
+
+                <div>
+                    <div class="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        <span class="iconify" data-icon="solar:checklist-minimalistic-outline" data-width="16" data-height="16"></span>
+                        <span>{{ _('Status') }}</span>
+                    </div>
+                    <select id="statusFilter" class="minimal-input">
                     <option value="">{{ _('All Status') }}</option>
                     <option value="reported">{{ _('Reported') }}</option>
                     <option value="verified">{{ _('Verified') }}</option>
                     <option value="in_progress">{{ _('In Progress') }}</option>
                     <option value="completed">{{ _('Completed') }}</option>
-                </select>
-                <select id="severityFilter" class="minimal-input">
+                    </select>
+                </div>
+
+                <div>
+                    <div class="mb-2 flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        <span class="iconify" data-icon="solar:danger-triangle-outline" data-width="16" data-height="16"></span>
+                        <span>{{ _('Severity') }}</span>
+                    </div>
+                    <select id="severityFilter" class="minimal-input">
                     <option value="">{{ _('All Severity') }}</option>
                     <option value="low">{{ _('Low') }}</option>
                     <option value="medium">{{ _('Medium') }}</option>
                     <option value="high">{{ _('High') }}</option>
                     <option value="critical">{{ _('Critical') }}</option>
-                </select>
+                    </select>
+                </div>
             </div>
         </div>
 
-        <div class="p-5">
+        <div class="p-4 sm:p-5">
             {% if reports %}
                 {% set status_badges = {
                     'reported': 'ds-badge',
@@ -149,19 +232,19 @@
                                 </div>
                             </button>
 
-                            <div class="flex flex-wrap items-center justify-end gap-2" data-quick-actions>
+                            <div class="flex w-full flex-wrap items-center justify-start gap-2 sm:w-auto sm:justify-end" data-quick-actions>
                                 <span class="ds-badge-primary" id="vote-count-{{ report.id }}">{{ vote_counts[report.id] }}</span>
                                 {% if current_user.is_authenticated and current_user.role == 'citizen' %}
-                                    <button type="button" class="minimal-btn vote-btn" data-report-id="{{ report.id }}" {% if report.id in user_votes %}data-voted="true"{% endif %}>
+                                    <button type="button" class="minimal-btn vote-btn px-3 py-2 text-xs" data-report-id="{{ report.id }}" {% if report.id in user_votes %}data-voted="true"{% endif %}>
                                         <span class="iconify inline-block align-[-0.125em]" data-icon="solar:like-bold" data-width="16" data-height="16"></span>
                                         {% if report.id in user_votes %}Voted{% else %}Vote{% endif %}
                                     </button>
                                 {% endif %}
-                                <a href="{{ url_for('track_report_status', report_id=report.id) }}" class="minimal-btn">
+                                <a href="{{ url_for('track_report_status', report_id=report.id) }}" class="minimal-btn px-3 py-2 text-xs">
                                     <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span>
                                     {{ _('Track') }}
                                 </a>
-                                <button type="button" class="minimal-btn" data-tile-toggle aria-label="Toggle details">
+                                <button type="button" class="minimal-btn px-3 py-2 text-xs" data-tile-toggle aria-label="Toggle details">
                                     <span class="iconify text-slate-500 dark:text-slate-400" data-icon="solar:alt-arrow-down-outline" data-width="18" data-height="18" data-tile-chevron></span>
                                 </button>
                             </div>
@@ -241,16 +324,46 @@
     </div>
 
     <div class="minimal-card">
-        <div class="flex items-center gap-2 border-b border-slate-200/70 dark:border-slate-700/70 px-5 py-4">
+        <div class="flex items-center gap-2 border-b border-slate-200/70 dark:border-slate-700/70 px-4 py-4 sm:px-5">
             <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:map-bold" data-width="18" data-height="18"></span>
             <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('All Reports Map') }}</h2>
         </div>
-        <div class="p-5">
+        <div class="p-4 sm:p-5">
             <div id="publicReportsMap" class="map-container"></div>
         </div>
     </div>
 </div>
 
+{% if current_user.is_authenticated and current_user.role == 'citizen' %}
+<nav class="fixed inset-x-0 bottom-0 z-[1200] border-t border-slate-200 bg-white/85 px-3 pb-[calc(env(safe-area-inset-bottom,0)+0.5rem)] pt-2 backdrop-blur md:hidden dark:border-slate-700 dark:bg-slate-900/70" aria-label="{{ _('Mobile navigation') }}" data-citizen-bottom-nav>
+    <div class="mx-auto grid max-w-md grid-cols-5 gap-2">
+        <a href="{{ url_for('citizen_dashboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:widget-4-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Dashboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('track_report') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:magnifer-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Track') }}</span>
+        </a>
+
+        <a href="{{ url_for('public_reports') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-slate-100 px-2 py-2 text-[11px] font-semibold text-slate-900 dark:bg-slate-800/70 dark:text-slate-100">
+            <span class="iconify" data-icon="solar:map-point-wave-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Nearby') }}</span>
+        </a>
+
+        <a href="{{ url_for('citizen_leaderboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:cup-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Leaderboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('account_settings') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:user-circle-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Account') }}</span>
+        </a>
+    </div>
+</nav>
+{% endif %}
 <div id="imageModal" class="minimal-modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="imageModalTitle">
     <div class="minimal-modal-panel">
         <div class="minimal-modal-header">
@@ -270,16 +383,58 @@
 let pageState = { page: 1, pageSize: 10 };
 
 document.addEventListener('DOMContentLoaded', function() {
-    const filtersToggle = document.getElementById('filtersToggle');
+    const filtersToggle = document.getElementById('filtersToggleMobile');
+    const filtersToggleDesktop = document.getElementById('filtersToggleDesktop');
     const filtersPanel = document.getElementById('filtersPanel');
-    if (filtersToggle && filtersPanel) {
-        filtersToggle.addEventListener('click', function() {
-            filtersPanel.classList.toggle('is-hidden');
+    const toggleFiltersPanel = function() {
+        if (!filtersPanel) return;
+        filtersPanel.classList.toggle('is-hidden');
+    };
+    if (filtersToggle && filtersPanel) filtersToggle.addEventListener('click', toggleFiltersPanel);
+    if (filtersToggleDesktop && filtersPanel) filtersToggleDesktop.addEventListener('click', toggleFiltersPanel);
+
+    const sortToggle = document.getElementById('sortToggle');
+    const sortMenu = document.getElementById('sortMenu');
+    const closeSortMenu = function() {
+        if (sortMenu) sortMenu.classList.add('is-hidden');
+        if (sortToggle) sortToggle.setAttribute('aria-expanded', 'false');
+    };
+    if (sortToggle && sortMenu) {
+        sortToggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            sortMenu.classList.toggle('is-hidden');
+            sortToggle.setAttribute('aria-expanded', sortMenu.classList.contains('is-hidden') ? 'false' : 'true');
+        });
+        document.addEventListener('click', function(e) {
+            if (!sortMenu.classList.contains('is-hidden') && !sortMenu.contains(e.target) && !sortToggle.contains(e.target)) {
+                closeSortMenu();
+            }
+        });
+        sortMenu.addEventListener('click', function(e) {
+            const item = e.target.closest('[data-sort-value]');
+            if (!item) return;
+            const value = item.getAttribute('data-sort-value') || '';
+            const sortSelect = document.getElementById('sortSelect');
+            if (sortSelect && value) {
+                sortSelect.value = value;
+                sortReports(value);
+            }
+            closeSortMenu();
         });
     }
 
     // Search functionality
-    document.getElementById('searchInput').addEventListener('input', filterReports);
+    const searchMobile = document.getElementById('searchInputMobile');
+    const searchDesktop = document.getElementById('searchInputDesktop');
+    const onSearchInput = function(e) {
+        const val = e && e.target ? (e.target.value || '') : '';
+        if (searchMobile && e && e.target === searchDesktop) searchMobile.value = val;
+        if (searchDesktop && e && e.target === searchMobile) searchDesktop.value = val;
+        filterReports();
+    };
+    if (searchMobile) searchMobile.addEventListener('input', onSearchInput);
+    if (searchDesktop) searchDesktop.addEventListener('input', onSearchInput);
     
     // Filter functionality
     document.getElementById('categoryFilter').addEventListener('change', filterReports);
@@ -389,6 +544,10 @@ function initializeMap() {
         attributionControl: true
     }).setView([28.6139, 77.2090], 10);
 
+    if (window.qsApplyLeafletGestureGuards) {
+        window.qsApplyLeafletGestureGuards(map);
+    }
+
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
         attribution: ' OpenStreetMap contributors'
     }).addTo(map);
@@ -439,7 +598,7 @@ function initializeMap() {
 }
 
 function filterReports() {
-    const searchTerm = (document.getElementById('searchInput')?.value || '').toLowerCase();
+    const searchTerm = ((document.getElementById('searchInputMobile')?.value || document.getElementById('searchInputDesktop')?.value || '')).toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter')?.value || '';
     const statusFilter = document.getElementById('statusFilter')?.value || '';
     const severityFilter = document.getElementById('severityFilter')?.value || '';
@@ -478,7 +637,10 @@ function filterReports() {
 }
 
 function clearFilters() {
-    document.getElementById('searchInput').value = '';
+    const searchMobile = document.getElementById('searchInputMobile');
+    const searchDesktop = document.getElementById('searchInputDesktop');
+    if (searchMobile) searchMobile.value = '';
+    if (searchDesktop) searchDesktop.value = '';
     document.getElementById('categoryFilter').value = '';
     document.getElementById('statusFilter').value = '';
     document.getElementById('severityFilter').value = '';

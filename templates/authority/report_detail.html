@@ -431,6 +431,10 @@ document.addEventListener('DOMContentLoaded', function() {
             attributionControl: true
         }).setView([reportLat, reportLng], 15);
 
+        if (window.qsApplyLeafletGestureGuards) {
+            window.qsApplyLeafletGestureGuards(map);
+        }
+
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: ' OpenStreetMap contributors'
         }).addTo(map);

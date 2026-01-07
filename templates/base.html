@@ -102,7 +102,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
     <link href="{{ url_for('static', filename='css/custom.css', v=3) }}" rel="stylesheet">
 </head>
-<body class="min-h-screen">
+<body class="min-h-screen{% if request.args.get('embed') %} qs-embed{% endif %}">
+    {% set is_embed = request.args.get('embed') %}
     <script>
         (function() {
             try {
@@ -114,6 +115,7 @@
         })();
     </script>
     <!-- Splash Screen -->
+    {% if not is_embed %}
     <div id="splashScreen" class="splash-screen">
         <div class="splash-content">
             <div class="splash-logo">
@@ -124,6 +126,8 @@
             <div class="splash-loader"></div>
         </div>
     </div>
+    {% endif %}
+    {% if not is_embed %}
     <nav class="site-nav sticky top-0 z-50 border-b border-slate-200/70 dark:border-slate-700/70">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div class="flex h-16 items-center justify-between">
@@ -238,8 +242,9 @@
             </div>
         </div>
     </nav>
+    {% endif %}
 
-    <main class="mx-auto w-full max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
+    <main class="mx-auto w-full max-w-7xl px-4 pt-6 pb-0 sm:px-6 lg:px-8 md:py-6">
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}
                 <div class="space-y-3">
@@ -293,11 +298,87 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="mt-10 border-t border-slate-200/70 bg-white/60 py-6 dark:border-slate-700/70 dark:bg-slate-900/40">
+    {% if current_user.is_authenticated and current_user.role == 'citizen' and not is_embed %}
+    <div class="qs-fab-wrap md:hidden">
+        <button type="button" class="qs-fab" aria-label="{{ _('Quick actions') }}" aria-expanded="false" data-qs-toggle>
+            <span class="iconify" data-icon="solar:widget-2-outline" data-width="22" data-height="22" aria-hidden="true"></span>
+        </button>
+
+        <div class="qs-menu is-hidden" role="menu" aria-label="{{ _('Quick actions') }}" data-qs-menu>
+            <button type="button" class="qs-menu-item" role="menuitem" data-qs-theme>
+                <span class="iconify" data-icon="solar:moon-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                <span>{{ _('Theme') }}</span>
+            </button>
+
+            <button type="button" class="qs-menu-item" role="menuitem" data-qs-language>
+                <span class="iconify" data-icon="solar:global-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                <span>{{ _('Language') }}</span>
+            </button>
+
+            <button type="button" class="qs-menu-item qs-menu-item-primary" role="menuitem" data-qs-report>
+                <span class="iconify" data-icon="solar:add-circle-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                <span>{{ _('Report New Issue') }}</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="qs-lang-sheet is-hidden" data-qs-lang-sheet>
+        <div class="qs-lang-panel" role="dialog" aria-modal="true" aria-label="{{ _('Change language') }}">
+            <div class="qs-lang-header">
+                <div class="text-sm font-semibold text-slate-900 dark:text-slate-100">{{ _('Language') }}</div>
+                <button type="button" class="minimal-btn" data-qs-lang-close aria-label="{{ _('Close') }}">
+                    <span class="iconify" data-icon="solar:close-circle-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                </button>
+            </div>
+            <div class="qs-lang-body">
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='en') }}">English</a>
+                <div class="my-2 h-px bg-slate-200/70 dark:bg-slate-700/70"></div>
+                <div class="px-3 pb-1 text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Indian Languages') }}</div>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='hi') }}">हिन्दी (Hindi)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='as') }}">অসমীয়া (Assamese)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='bn') }}">বাংলা (Bengali)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='brx') }}">बर' (Bodo)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='doi') }}">डोगरी (Dogri)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='gu') }}">ગુજરાતી (Gujarati)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='kn') }}">ಕನ್ನಡ (Kannada)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='ks') }}">کٲشُر (Kashmiri)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='kok') }}">कोंकणी (Konkani)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='mai') }}">मैथिली (Maithili)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='ml') }}">മലയാളം (Malayalam)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='mni') }}">মৈতৈলোন্ (Manipuri)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='mr') }}">मराठी (Marathi)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='ne') }}">नेपाली (Nepali)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='or') }}">ଓଡ଼ିଆ (Odia)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='pa') }}">ਪੰਜਾਬੀ (Punjabi)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='sa') }}">संस्कृतम् (Sanskrit)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='sat') }}">ᱥᱟᱱᱛᱟᱲᱤ (Santhali)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='sd') }}">سنڌي (Sindhi)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='ta') }}">தமிழ் (Tamil)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='te') }}">తెలుగు (Telugu)</a>
+                <a class="qs-lang-link" href="{{ url_for('set_language', language='ur') }}">اردو (Urdu)</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="qs-sheet-backdrop is-hidden" data-qs-sheet-backdrop></div>
+    <div class="qs-sheet is-hidden" role="dialog" aria-modal="true" aria-label="{{ _('Report new issue') }}" data-qs-sheet>
+        <div class="qs-sheet-handle" data-qs-sheet-handle>
+            <div class="qs-sheet-grip" aria-hidden="true"></div>
+            <button type="button" class="qs-sheet-close" aria-label="{{ _('Close') }}" data-qs-sheet-close>
+                <span class="iconify" data-icon="solar:close-circle-outline" data-width="20" data-height="20" aria-hidden="true"></span>
+            </button>
+        </div>
+        <iframe class="qs-sheet-frame" title="{{ _('Report New Issue') }}" loading="lazy" referrerpolicy="no-referrer" data-qs-sheet-frame></iframe>
+    </div>
+    {% endif %}
+
+    {% if not is_embed %}
+    <footer class="mt-10 hidden border-t border-slate-200/70 bg-white/60 py-6 md:block dark:border-slate-700/70 dark:bg-slate-900/40">
         <div class="mx-auto max-w-7xl px-4 text-center text-sm text-slate-500 sm:px-6 lg:px-8 dark:text-slate-400">
             <p>&copy; {{ current_year }} CivicSetu & Paradox Team. Improving infrastructure through citizen engagement.</p>
         </div>
     </footer>
+    {% endif %}
 
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
     <script>
@@ -421,10 +502,12 @@
             root.setAttribute('data-theme', theme);
             root.classList.toggle('dark', theme === 'dark');
 
-            if (theme === 'dark') {
-                themeIcon.setAttribute('data-icon', 'solar:sun-outline');
-            } else {
-                themeIcon.setAttribute('data-icon', 'solar:moon-outline');
+            if (themeIcon) {
+                if (theme === 'dark') {
+                    themeIcon.setAttribute('data-icon', 'solar:sun-outline');
+                } else {
+                    themeIcon.setAttribute('data-icon', 'solar:moon-outline');
+                }
             }
 
             localStorage.setItem('theme', theme);
@@ -433,10 +516,224 @@
         // Check for saved theme preference or default to 'light'
         applyTheme(localStorage.getItem('theme') || 'light');
 
+        // Leaflet scroll / gesture guard (global helper)
+        // - Touch devices: require two fingers to pan (so one-finger scroll works)
+        // - Desktop: require Ctrl/⌘ + wheel to zoom (so normal wheel scroll works)
+        window.qsApplyLeafletGestureGuards = function(map) {
+            try {
+                if (!map || !map.getContainer) return;
+                const container = map.getContainer();
+                const isTouch = ('ontouchstart' in window) || (navigator.maxTouchPoints && navigator.maxTouchPoints > 0);
+
+                // Desktop: disable scroll wheel zoom unless ctrl/cmd is held
+                if (map.scrollWheelZoom && map.scrollWheelZoom.disable) {
+                    map.scrollWheelZoom.disable();
+                    container.addEventListener('wheel', function(e) {
+                        const wantsZoom = !!(e.ctrlKey || e.metaKey);
+                        if (!map.scrollWheelZoom) return;
+                        if (wantsZoom) {
+                            if (!map.scrollWheelZoom.enabled || !map.scrollWheelZoom.enabled()) {
+                                map.scrollWheelZoom.enable();
+                            }
+                        } else {
+                            if (map.scrollWheelZoom.enabled && map.scrollWheelZoom.enabled()) {
+                                map.scrollWheelZoom.disable();
+                            }
+                        }
+                    }, { passive: true });
+                }
+
+                // Touch: disable one-finger dragging; enable only while 2+ fingers are down
+                if (isTouch && map.dragging && map.dragging.disable) {
+                    map.dragging.disable();
+                    const setDraggingForTouchCount = function(touchCount) {
+                        if (!map.dragging) return;
+                        if (touchCount >= 2) {
+                            if (!map.dragging.enabled || !map.dragging.enabled()) map.dragging.enable();
+                        } else {
+                            if (map.dragging.enabled && map.dragging.enabled()) map.dragging.disable();
+                        }
+                    };
+
+                    container.addEventListener('touchstart', function(e) {
+                        setDraggingForTouchCount(e.touches ? e.touches.length : 0);
+                    }, { passive: true });
+                    container.addEventListener('touchmove', function(e) {
+                        setDraggingForTouchCount(e.touches ? e.touches.length : 0);
+                    }, { passive: true });
+                    container.addEventListener('touchend', function(e) {
+                        setDraggingForTouchCount(e.touches ? e.touches.length : 0);
+                    }, { passive: true });
+                    container.addEventListener('touchcancel', function() {
+                        setDraggingForTouchCount(0);
+                    }, { passive: true });
+                }
+            } catch (e) {
+                // ignore
+            }
+        };
+
         // Theme toggle functionality
-        themeToggle.addEventListener('click', function() {
-            const currentTheme = body.getAttribute('data-theme') || 'light';
-            applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+        if (themeToggle) {
+            themeToggle.addEventListener('click', function() {
+                const currentTheme = body.getAttribute('data-theme') || 'light';
+                applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const qsToggle = document.querySelector('[data-qs-toggle]');
+            const qsMenu = document.querySelector('[data-qs-menu]');
+            const qsTheme = document.querySelector('[data-qs-theme]');
+            const qsLanguage = document.querySelector('[data-qs-language]');
+            const qsReport = document.querySelector('[data-qs-report]');
+
+            const langSheet = document.querySelector('[data-qs-lang-sheet]');
+            const langClose = document.querySelector('[data-qs-lang-close]');
+
+            const sheet = document.querySelector('[data-qs-sheet]');
+            const sheetBackdrop = document.querySelector('[data-qs-sheet-backdrop]');
+            const sheetClose = document.querySelector('[data-qs-sheet-close]');
+            const sheetHandle = document.querySelector('[data-qs-sheet-handle]');
+            const sheetFrame = document.querySelector('[data-qs-sheet-frame]');
+
+            const isHidden = (el) => !el || el.classList.contains('is-hidden');
+            const hide = (el) => { if (el) el.classList.add('is-hidden'); };
+            const show = (el) => { if (el) el.classList.remove('is-hidden'); };
+
+            const closeMenu = function() {
+                hide(qsMenu);
+                if (qsToggle) qsToggle.setAttribute('aria-expanded', 'false');
+            };
+
+            if (qsToggle && qsMenu) {
+                qsToggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    if (isHidden(qsMenu)) {
+                        show(qsMenu);
+                        qsToggle.setAttribute('aria-expanded', 'true');
+                    } else {
+                        closeMenu();
+                    }
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (qsMenu && !qsMenu.contains(e.target) && !qsToggle.contains(e.target)) closeMenu();
+                });
+            }
+
+            if (qsTheme) {
+                qsTheme.addEventListener('click', function() {
+                    const currentTheme = body.getAttribute('data-theme') || 'light';
+                    applyTheme(currentTheme === 'dark' ? 'light' : 'dark');
+                    closeMenu();
+                });
+            }
+
+            const closeLang = function() { hide(langSheet); };
+            if (qsLanguage && langSheet) {
+                qsLanguage.addEventListener('click', function() {
+                    show(langSheet);
+                    closeMenu();
+                });
+            }
+            if (langClose) langClose.addEventListener('click', closeLang);
+            if (langSheet) {
+                langSheet.addEventListener('click', function(e) {
+                    if (e.target === langSheet) closeLang();
+                });
+            }
+
+            let sheetOpen = false;
+            const openSheet = function() {
+                if (!sheet || !sheetBackdrop || !sheetFrame) return;
+                sheetOpen = true;
+                const src = "{{ url_for('create_report') }}?embed=1";
+                if (sheetFrame.getAttribute('src') !== src) sheetFrame.setAttribute('src', src);
+                show(sheetBackdrop);
+                show(sheet);
+                document.body.classList.add('qs-no-scroll');
+            };
+
+            const closeSheet = function() {
+                if (!sheet || !sheetBackdrop) return;
+                sheetOpen = false;
+                hide(sheetBackdrop);
+                hide(sheet);
+                document.body.classList.remove('qs-no-scroll');
+                if (sheetFrame) sheetFrame.setAttribute('src', 'about:blank');
+            };
+
+            if (qsReport) {
+                qsReport.addEventListener('click', function() {
+                    closeMenu();
+                    openSheet();
+                });
+            }
+            if (sheetClose) sheetClose.addEventListener('click', closeSheet);
+            if (sheetBackdrop) sheetBackdrop.addEventListener('click', closeSheet);
+
+            if (sheetHandle) {
+                let startY = 0;
+                let currentY = 0;
+                let dragging = false;
+
+                const setTranslate = function(y) {
+                    if (!sheet) return;
+                    sheet.style.transform = y > 0 ? `translate3d(0, ${y}px, 0)` : '';
+                };
+
+                const onStart = function(clientY) {
+                    if (!sheetOpen) return;
+                    dragging = true;
+                    startY = clientY;
+                    currentY = 0;
+                    sheet.style.transition = 'none';
+                };
+
+                const onMove = function(clientY) {
+                    if (!dragging) return;
+                    currentY = Math.max(0, clientY - startY);
+                    setTranslate(currentY);
+                };
+
+                const onEnd = function() {
+                    if (!dragging) return;
+                    dragging = false;
+                    sheet.style.transition = '';
+                    if (currentY > 120) {
+                        sheet.style.transform = '';
+                        closeSheet();
+                    } else {
+                        setTranslate(0);
+                    }
+                };
+
+                sheetHandle.addEventListener('touchstart', function(e) {
+                    if (!e.touches || !e.touches.length) return;
+                    onStart(e.touches[0].clientY);
+                }, { passive: true });
+                sheetHandle.addEventListener('touchmove', function(e) {
+                    if (!e.touches || !e.touches.length) return;
+                    onMove(e.touches[0].clientY);
+                }, { passive: true });
+                sheetHandle.addEventListener('touchend', function() {
+                    onEnd();
+                });
+
+                sheetHandle.addEventListener('mousedown', function(e) {
+                    onStart(e.clientY);
+                    const move = function(ev) { onMove(ev.clientY); };
+                    const up = function() {
+                        document.removeEventListener('mousemove', move);
+                        document.removeEventListener('mouseup', up);
+                        onEnd();
+                    };
+                    document.addEventListener('mousemove', move);
+                    document.addEventListener('mouseup', up);
+                });
+            }
         });
     </script>
     

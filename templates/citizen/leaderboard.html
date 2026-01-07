@@ -3,21 +3,30 @@
 {% block title %}{{ _('Citizen Leaderboard') }} - CivicSetu{% endblock %}
 
 {% block content %}
-<div id="citizenLeaderboard" class="leaderboard-page mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-6">
-    <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between mb-6">
-        <div class="flex items-center gap-3">
-            <span class="iconify inline-block align-[-0.125em] text-slate-700 dark:text-slate-200" data-icon="solar:cup-star-bold" data-width="26" data-height="26"></span>
-            <h1 class="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">{{ _('Citizen Leaderboard') }}</h1>
+<div id="citizenLeaderboard" class="leaderboard-page mx-auto max-w-7xl px-4 py-4 pb-24 sm:px-6 sm:py-6 lg:px-8 md:pb-0">
+    <div class="minimal-card relative mb-6 hidden overflow-hidden p-4 sm:p-6 md:block">
+        <span class="pointer-events-none absolute right-4 top-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-800/35 ring-1 ring-slate-900/5 dark:bg-white/5 dark:text-white/35 dark:ring-white/10">
+            <span class="iconify" data-icon="solar:cup-star-bold" data-width="26" data-height="26" aria-hidden="true"></span>
+        </span>
+
+        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+            <div class="flex items-start">
+                <div class="min-w-0">
+                    <h1 class="text-2xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-3xl dark:text-slate-100">{{ _('Citizen Leaderboard') }}</h1>
+                    <p class="mt-1 text-sm leading-snug text-slate-600 dark:text-slate-300">{{ _('Track your points and see the top contributors in your community.') }}</p>
+                </div>
+            </div>
+
+            <a href="{{ url_for('citizen_dashboard') }}" class="minimal-btn w-full md:hidden sm:w-auto">
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:arrow-left-outline" data-width="18" data-height="18" aria-hidden="true"></span>
+                {{ _('Back to Dashboard') }}
+            </a>
         </div>
-        <a href="{{ url_for('citizen_dashboard') }}" class="minimal-btn">
-            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:arrow-left-outline" data-width="18" data-height="18"></span>
-            {{ _('Back to Dashboard') }}
-        </a>
     </div>
 
     {% if current_user.points_record %}
     <div class="minimal-card mb-6">
-        <div class="flex items-center justify-between gap-4 border-b border-slate-200/70 dark:border-slate-700/70 px-5 py-4">
+        <div class="flex items-center justify-between gap-4 border-b border-slate-200/70 dark:border-slate-700/70 px-4 py-4 sm:px-5">
             <div class="flex items-center gap-2">
                 <span class="iconify inline-block align-[-0.125em] ds-text-success" data-icon="solar:user-rounded-bold" data-width="18" data-height="18"></span>
                 <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('Your Ranking') }}</h2>
@@ -27,23 +36,23 @@
             </span>
         </div>
 
-        <div class="p-5">
-            <div class="grid grid-cols-2 gap-4 sm:grid-cols-4">
-                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center dark:border-slate-700 dark:bg-slate-900/40">
-                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400">{{ _('Current Rank') }}</div>
-                    <div class="mt-1 text-2xl font-semibold text-slate-900 dark:text-slate-100">{{ user_rank or 'N/A' }}</div>
+        <div class="p-4 sm:p-5">
+            <div class="grid grid-cols-2 gap-3 sm:grid-cols-4 sm:gap-4">
+                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-3 py-3 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900/40 sm:px-4 sm:py-4">
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Current Rank') }}</div>
+                    <div class="mt-1 text-xl font-semibold text-slate-900 dark:text-slate-100 sm:text-2xl">{{ user_rank or 'N/A' }}</div>
                 </div>
-                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center dark:border-slate-700 dark:bg-slate-900/40">
-                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400">{{ _('Total Points') }}</div>
-                    <div class="mt-1 text-2xl font-semibold ds-text-success">{{ current_user.points_record.points }}</div>
+                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-3 py-3 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900/40 sm:px-4 sm:py-4">
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Total Points') }}</div>
+                    <div class="mt-1 text-xl font-semibold ds-text-success sm:text-2xl">{{ current_user.points_record.points }}</div>
                 </div>
-                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center dark:border-slate-700 dark:bg-slate-900/40">
-                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400">{{ _('Reports Submitted') }}</div>
-                    <div class="mt-1 text-2xl font-semibold ds-text-primary">{{ current_user.points_record.reports_submitted }}</div>
+                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-3 py-3 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900/40 sm:px-4 sm:py-4">
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Reports Submitted') }}</div>
+                    <div class="mt-1 text-xl font-semibold ds-text-primary sm:text-2xl">{{ current_user.points_record.reports_submitted }}</div>
                 </div>
-                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-4 py-4 text-center dark:border-slate-700 dark:bg-slate-900/40">
-                    <div class="text-xs font-medium text-slate-500 dark:text-slate-400">{{ _('Votes Cast') }}</div>
-                    <div class="mt-1 text-2xl font-semibold ds-text-warning">{{ current_user.points_record.votes_cast }}</div>
+                <div class="lb-tile rounded-2xl border border-slate-200 bg-white px-3 py-3 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900/40 sm:px-4 sm:py-4">
+                    <div class="text-[11px] font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Votes Cast') }}</div>
+                    <div class="mt-1 text-xl font-semibold ds-text-warning sm:text-2xl">{{ current_user.points_record.votes_cast }}</div>
                 </div>
             </div>
         </div>
@@ -51,14 +60,14 @@
     {% endif %}
 
     <div class="minimal-card mb-6">
-        <div class="flex items-center gap-2 border-b border-slate-200/70 dark:border-slate-700/70 px-5 py-4">
+        <div class="flex items-center gap-2 border-b border-slate-200/70 dark:border-slate-700/70 px-4 py-4 sm:px-5">
             <span class="iconify inline-block align-[-0.125em] text-slate-700 dark:text-slate-200" data-icon="solar:medal-ribbon-bold" data-width="18" data-height="18"></span>
             <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('Top Citizens') }}</h2>
         </div>
 
-        <div class="p-5">
+        <div class="p-4 sm:p-5">
             {% if top_citizens %}
-                <div class="lb-table overflow-x-auto rounded-2xl border border-slate-200 dark:border-slate-700">
+                <div class="lb-table overflow-x-auto rounded-2xl border border-slate-200 bg-white/70 dark:border-slate-700 dark:bg-slate-900/20">
                     <table class="min-w-full divide-y divide-slate-200 dark:divide-slate-700">
                         <thead class="lb-thead bg-slate-50 dark:bg-slate-900/40">
                             <tr>
@@ -261,6 +270,35 @@
     </div>
     {% endif %}
 </div>
+
+<nav class="fixed inset-x-0 bottom-0 z-[1200] border-t border-slate-200 bg-white/85 px-3 pb-[calc(env(safe-area-inset-bottom,0)+0.5rem)] pt-2 backdrop-blur md:hidden dark:border-slate-700 dark:bg-slate-900/70" aria-label="{{ _('Mobile navigation') }}" data-citizen-bottom-nav>
+    <div class="mx-auto grid max-w-md grid-cols-5 gap-2">
+        <a href="{{ url_for('citizen_dashboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:widget-4-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Dashboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('track_report') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:magnifer-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Track') }}</span>
+        </a>
+
+        <a href="{{ url_for('public_reports') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:map-point-wave-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Nearby') }}</span>
+        </a>
+
+        <a href="{{ url_for('citizen_leaderboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-slate-100 px-2 py-2 text-[11px] font-semibold text-slate-900 dark:bg-slate-800/70 dark:text-slate-100">
+            <span class="iconify" data-icon="solar:cup-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Leaderboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('account_settings') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:user-circle-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Account') }}</span>
+        </a>
+    </div>
+</nav>
 {% endblock %}
 
 {% block scripts %}

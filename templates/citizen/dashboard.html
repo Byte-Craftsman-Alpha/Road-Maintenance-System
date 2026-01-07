@@ -3,50 +3,113 @@
 {% block title %}{{ _('Citizen Dashboard') }} - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="citizen-dashboard-page">
-<div class="scroll-reveal-left mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-    <h1 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">
-        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="22" data-height="22"></span> {{ _('My Dashboard') }}
-    </h1>
-    <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary inline-flex items-center gap-2">
-        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-bold" data-width="20" data-height="20"></span> {{ _('Report New Issue') }}
+<div class="citizen-dashboard-page pb-24 pt-2 md:pb-0 md:pt-0">
+<div class="scroll-reveal-left mb-5 hidden flex-col gap-3 sm:mb-6 sm:flex-row sm:items-center sm:justify-between md:flex">
+    <div class="flex items-center gap-2">
+        <span class="inline-flex h-10 w-10 items-center justify-center rounded-2xl bg-slate-100 text-slate-700 dark:bg-slate-900/40 dark:text-slate-200">
+            <span class="iconify" data-icon="solar:widget-4-outline" data-width="20" data-height="20"></span>
+        </span>
+        <h1 class="text-2xl font-semibold leading-tight text-slate-900 sm:text-2xl dark:text-slate-100">{{ _('My Dashboard') }}</h1>
+    </div>
+    <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary inline-flex w-full items-center justify-center gap-2 sm:w-auto sm:self-center">
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-outline" data-width="20" data-height="20"></span> {{ _('Report New Issue') }}
     </a>
 </div>
 
-<div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+<div class="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-4">
     <div class="minimal-card scroll-reveal scroll-reveal-delay-1">
-        <div class="p-5">
-            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('Total Reports') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|length }}</div>
+        <div class="p-4 sm:p-5">
+            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Total Reports') }}</div>
+            <div class="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl dark:text-slate-100">{{ reports|length }}</div>
         </div>
     </div>
     <div class="minimal-card scroll-reveal scroll-reveal-delay-2">
-        <div class="p-5">
-            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('Pending') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</div>
+        <div class="p-4 sm:p-5">
+            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Pending') }}</div>
+            <div class="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl dark:text-slate-100">{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</div>
         </div>
     </div>
     <div class="minimal-card scroll-reveal scroll-reveal-delay-3">
-        <div class="p-5">
-            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('In Progress') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</div>
+        <div class="p-4 sm:p-5">
+            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('In Progress') }}</div>
+            <div class="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl dark:text-slate-100">{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</div>
         </div>
     </div>
     <div class="minimal-card scroll-reveal scroll-reveal-delay-4">
-        <div class="p-5">
-            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('Completed') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|selectattr("status", "equalto", "completed")|list|length }}</div>
+        <div class="p-4 sm:p-5">
+            <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Completed') }}</div>
+            <div class="mt-2 text-2xl font-semibold text-slate-900 sm:text-3xl dark:text-slate-100">{{ reports|selectattr("status", "equalto", "completed")|list|length }}</div>
         </div>
     </div>
 </div>
 
 <div class="minimal-card scroll-reveal">
-    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
-        <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('My Reports') }}</h2>
+    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-4 py-3 sm:px-6 sm:py-4 dark:border-slate-700/70">
+        <h2 class="text-sm font-semibold text-slate-900 sm:text-base dark:text-slate-100"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('My Reports') }}</h2>
     </div>
-    <div class="px-6 py-4">
+    <div class="px-4 py-4 sm:px-6">
         {% if reports %}
-            <div class="overflow-x-auto">
+            <div class="space-y-3 md:hidden">
+                {% for report in reports %}
+                    <details class="rounded-2xl border border-slate-200 bg-white/80 p-4 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/30">
+                        <summary class="list-none">
+                            <div class="flex items-start justify-between gap-3">
+                                <div class="min-w-0">
+                                    <div class="text-sm font-semibold text-slate-900 dark:text-slate-100 truncate">{{ report.title }}</div>
+                                    <div class="mt-2 flex flex-wrap items-center gap-2">
+                                        <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 dark:bg-slate-900/40 dark:text-slate-200">{{ report.category.replace('_', ' ').title() }}</span>
+                                        <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 dark:bg-slate-900/40 dark:text-slate-200 severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                                        <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-[11px] font-medium text-slate-700 dark:bg-slate-900/40 dark:text-slate-200">{{ report.status.replace('_', ' ').title() }}</span>
+                                        {% if report.photo_path %}
+                                            <span class="inline-flex items-center gap-1 text-[11px] font-medium text-slate-600 dark:text-slate-300">
+                                                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:camera-outline" data-width="16" data-height="16"></span>
+                                                {{ _('Photo') }}
+                                            </span>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                <span class="shrink-0 inline-flex h-9 w-9 items-center justify-center rounded-xl border border-slate-200 bg-white text-slate-700 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-200">
+                                    <span class="iconify" data-icon="solar:alt-arrow-down-linear" data-width="18" data-height="18"></span>
+                                </span>
+                            </div>
+                            <div class="mt-3 text-[11px] text-slate-500 dark:text-slate-400">{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</div>
+                        </summary>
+
+                        <div class="mt-4 space-y-3">
+                            {% if report.description %}
+                                <div class="text-sm text-slate-700 dark:text-slate-200">{{ report.description }}</div>
+                            {% endif %}
+
+                            {% if report.photo_path %}
+                                <div class="flex items-center justify-between gap-3">
+                                    <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                         class="h-20 w-20 rounded-2xl border border-slate-200 object-cover dark:border-slate-700"
+                                         style="cursor: pointer;"
+                                         data-modal="image"
+                                         data-image-url="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                         data-image-title="{{ report.title }}"
+                                         title="{{ _('Click to view full image') }}">
+                                    <a href="{{ url_for('view_citizen_report', report_id=report.id) }}" class="minimal-btn minimal-btn-primary inline-flex items-center justify-center gap-2 px-3 py-2 text-sm">
+                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span>
+                                        {{ _('View') }}
+                                    </a>
+                                </div>
+                            {% else %}
+                                <a href="{{ url_for('view_citizen_report', report_id=report.id) }}" class="minimal-btn minimal-btn-primary inline-flex items-center gap-2 px-3 py-2 text-sm">
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span>
+                                    {{ _('View') }}
+                                </a>
+                                <div class="text-xs text-slate-500 dark:text-slate-400">
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span>
+                                    {{ _('No image available') }}
+                                </div>
+                            {% endif %}
+                        </div>
+                    </details>
+                {% endfor %}
+            </div>
+
+            <div class="hidden md:block overflow-x-auto">
                 <table class="min-w-full text-left text-sm">
                     <thead class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
                         <tr class="border-b border-slate-200/70 dark:border-slate-700/70">
@@ -123,14 +186,43 @@
     </div>
 </div>
 
-<div class="mt-6 minimal-card">
-    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
-        <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:map-point-bold" data-width="18" data-height="18"></span> {{ _('My Reports Map') }}</h2>
+<div class="mt-6 md:mb-0 minimal-card">
+    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-4 py-3 sm:px-6 sm:py-4 dark:border-slate-700/70">
+        <h2 class="text-sm font-semibold text-slate-900 sm:text-base dark:text-slate-100"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:map-point-bold" data-width="18" data-height="18"></span> {{ _('My Reports Map') }}</h2>
     </div>
-    <div class="px-6 py-4">
-        <div id="citizenReportsMap" class="map-container" style="height: 400px;"></div>
+    <div class="px-4 py-4 sm:px-6">
+        <div id="citizenReportsMap" class="map-container h-[320px] sm:h-[400px]"></div>
     </div>
 </div>
+
+<nav class="fixed inset-x-0 bottom-0 z-[1200] border-t border-slate-200 bg-white/85 px-3 pb-[calc(env(safe-area-inset-bottom,0)+0.5rem)] pt-2 backdrop-blur md:hidden dark:border-slate-700 dark:bg-slate-900/70" aria-label="{{ _('Mobile navigation') }}" data-citizen-bottom-nav>
+    <div class="mx-auto grid max-w-md grid-cols-5 gap-2">
+        <a href="{{ url_for('citizen_dashboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-slate-100 px-2 py-2 text-[11px] font-semibold text-slate-900 dark:bg-slate-800/70 dark:text-slate-100">
+            <span class="iconify" data-icon="solar:widget-4-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Dashboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('track_report') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:magnifer-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Track') }}</span>
+        </a>
+
+        <a href="{{ url_for('public_reports') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:map-point-wave-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Nearby') }}</span>
+        </a>
+
+        <a href="{{ url_for('citizen_leaderboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:cup-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Leaderboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('account_settings') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:user-circle-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Account') }}</span>
+        </a>
+    </div>
+</nav>
 
 <div id="reportModal" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
     <div class="absolute inset-0 bg-slate-900/50" onclick="closeModal('reportModal')"></div>
@@ -281,6 +373,10 @@ function initializeCitizenMap() {
             zoomControl: true,
             attributionControl: true
         }).setView([28.6139, 77.2090], 10);
+
+        if (window.qsApplyLeafletGestureGuards) {
+            window.qsApplyLeafletGestureGuards(map);
+        }
         console.log('Map object created successfully');
         
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

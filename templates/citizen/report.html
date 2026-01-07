@@ -3,21 +3,23 @@
 {% block title %}{{ _('Report Issue') }} - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="mx-auto w-full max-w-4xl py-6">
-    <div class="minimal-card p-6 sm:p-8">
-        <div class="flex items-start justify-between gap-4">
-            <div>
-                <div class="flex items-center gap-2">
-                    <span class="iconify" data-icon="solar:add-circle-bold" aria-hidden="true"></span>
-                    <h1 class="text-lg font-semibold">{{ _('Report New Issue') }}</h1>
+<div class="mx-auto w-full max-w-4xl px-4 py-4 pb-24 sm:px-0 sm:py-6 md:pb-0">
+    <div class="minimal-card relative overflow-hidden p-4 sm:p-8">
+        <span class="pointer-events-none absolute right-4 top-4 inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-slate-900/5 text-slate-800/40 ring-1 ring-slate-900/5 dark:bg-white/5 dark:text-white/40 dark:ring-white/10" data-wizard-heading>
+            <span class="iconify" data-icon="solar:add-circle-outline" data-width="26" data-height="26" aria-hidden="true"></span>
+        </span>
+        <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between" data-wizard-heading>
+            <div class="flex items-start gap-3">
+                <div class="min-w-0">
+                    <h1 class="text-2xl font-semibold leading-snug tracking-tight text-slate-900 sm:text-3xl dark:text-slate-100">{{ _('Report New Issue') }}</h1>
+                    <p class="mt-1 text-sm leading-snug text-slate-600 dark:text-slate-300">{{ _('Submit details so authorities can resolve the issue faster.') }}</p>
                 </div>
-                <p class="mt-1 text-sm minimal-muted">{{ _('Submit details so authorities can resolve the issue faster.') }}</p>
             </div>
         </div>
 
-        <div id="wizardNotice" class="mt-5 hidden"></div>
+        <div id="wizardNotice" class="mt-4 hidden"></div>
 
-        <div class="mt-6 wizard-steps" aria-label="Report steps">
+        <div class="mt-5 wizard-steps" aria-label="Report steps">
             <div class="wizard-stepper">
                 <div class="step active" id="step-1-indicator">
                     <div class="step-number">1</div>
@@ -35,8 +37,10 @@
         </div>
 
                     <!-- Step 1: Basic Information -->
-        <div id="step-1" class="wizard-step active">
-            <h2 class="text-base font-semibold">{{ _('Step 1: Basic Information') }}</h2>
+        <div id="step-1" class="wizard-step active rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/30 sm:p-6">
+            <div class="flex items-center justify-between gap-3">
+                <h2 class="text-sm font-semibold text-slate-900 sm:text-base dark:text-slate-100">{{ _('Step 1: Basic Information') }}</h2>
+            </div>
             <form id="basic-info-form" class="mt-4 space-y-4">
                 <div>
                     <label for="category" class="block text-xs font-semibold uppercase tracking-wider minimal-muted mb-2">{{ _('Issue Category') }} <span class="text-rose-600">*</span></label>
@@ -100,8 +104,8 @@
                     <input type="hidden" id="longitude" name="longitude">
                 </div>
 
-                <div class="flex justify-end">
-                    <button type="button" class="minimal-btn minimal-btn-primary" id="check-duplicates-btn" data-loading-text="{{ _('Checking...') }}">
+                <div class="flex flex-col gap-2 sm:flex-row sm:justify-end">
+                    <button type="button" class="minimal-btn minimal-btn-primary w-full sm:w-auto" id="check-duplicates-btn" data-loading-text="{{ _('Checking...') }}">
                         <span>{{ _('Check for Similar Issues') }}</span>
                         <span class="iconify" data-icon="solar:arrow-right-outline" aria-hidden="true"></span>
                     </button>
@@ -110,17 +114,17 @@
         </div>
 
                     <!-- Step 2: Duplicate Check Results -->
-        <div id="step-2" class="wizard-step" style="display: none;">
-            <h2 class="text-base font-semibold">{{ _('Step 2: Similar Issues Found') }}</h2>
+        <div id="step-2" class="wizard-step rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/30 sm:p-6" style="display: none;">
+            <h2 class="text-sm font-semibold text-slate-900 sm:text-base dark:text-slate-100">{{ _('Step 2: Similar Issues Found') }}</h2>
             <div id="duplicate-results" class="mt-4">
                 <!-- Duplicate reports will be loaded here -->
             </div>
             <div class="mt-6 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <button type="button" class="minimal-btn" id="back-to-step1">
+                <button type="button" class="minimal-btn w-full sm:w-auto" id="back-to-step1">
                     <span class="iconify" data-icon="solar:arrow-left-outline" aria-hidden="true"></span>
                     <span>{{ _('Back') }}</span>
                 </button>
-                <button type="button" class="minimal-btn minimal-btn-primary" id="proceed-to-final">
+                <button type="button" class="minimal-btn minimal-btn-primary w-full sm:w-auto" id="proceed-to-final">
                     <span>{{ _('Continue with New Report') }}</span>
                     <span class="iconify" data-icon="solar:arrow-right-outline" aria-hidden="true"></span>
                 </button>
@@ -128,8 +132,8 @@
         </div>
 
                     <!-- Step 3: Complete Report -->
-        <div id="step-3" class="wizard-step" style="display: none;">
-            <h2 class="text-base font-semibold">{{ _('Step 3: Complete Your Report') }}</h2>
+        <div id="step-3" class="wizard-step rounded-2xl border border-slate-200 bg-white/70 p-4 shadow-sm backdrop-blur dark:border-slate-700 dark:bg-slate-900/30 sm:p-6" style="display: none;">
+            <h2 class="text-sm font-semibold text-slate-900 sm:text-base dark:text-slate-100">{{ _('Step 3: Complete Your Report') }}</h2>
             <form id="final-report-form" method="POST" enctype="multipart/form-data" class="mt-4 space-y-4">
                 {{ form.hidden_tag() }}
                             
@@ -165,11 +169,11 @@
                 </div>
 
                 <div class="mt-2 flex flex-col-reverse gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <button type="button" class="minimal-btn" id="back-to-step2">
+                    <button type="button" class="minimal-btn w-full sm:w-auto" id="back-to-step2">
                         <span class="iconify" data-icon="solar:arrow-left-outline" aria-hidden="true"></span>
                         <span>{{ _('Back') }}</span>
                     </button>
-                    <button type="submit" class="minimal-btn minimal-btn-primary" id="submitReportBtn" data-loading-text="{{ _('Submitting...') }}">
+                    <button type="submit" class="minimal-btn minimal-btn-primary w-full sm:w-auto" id="submitReportBtn" data-loading-text="{{ _('Submitting...') }}">
                         <span class="iconify" data-icon="solar:paper-plane-outline" aria-hidden="true"></span>
                         <span>{{ _('Submit Report') }}</span>
                     </button>
@@ -200,7 +204,7 @@
             </button>
         </div>
         <div class="minimal-modal-body">
-            <div id="map" class="map-container" style="height: 400px;"></div>
+            <div id="map" class="h-[55vh] w-full overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 sm:h-[60vh]"></div>
         </div>
         <div class="minimal-modal-footer">
             <button type="button" class="minimal-btn" data-modal-close="mapModal">{{ _('Cancel') }}</button>
@@ -208,6 +212,35 @@
         </div>
     </div>
 </div>
+
+<nav class="fixed inset-x-0 bottom-0 z-[1200] border-t border-slate-200 bg-white/85 px-3 pb-[calc(env(safe-area-inset-bottom,0)+0.5rem)] pt-2 backdrop-blur md:hidden dark:border-slate-700 dark:bg-slate-900/70" aria-label="{{ _('Mobile navigation') }}" data-citizen-bottom-nav>
+    <div class="mx-auto grid max-w-md grid-cols-5 gap-2">
+        <a href="{{ url_for('citizen_dashboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:widget-4-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Dashboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('track_report') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:magnifer-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Track') }}</span>
+        </a>
+
+        <a href="{{ url_for('public_reports') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:map-point-wave-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Nearby') }}</span>
+        </a>
+
+        <a href="{{ url_for('citizen_leaderboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:cup-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Leaderboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('account_settings') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:user-circle-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Account') }}</span>
+        </a>
+    </div>
+</nav>
 
 <script id="report-i18n" type="application/json">{{ {
     "fill_required": _("Please fill in all required fields before checking for duplicates."),
@@ -636,8 +669,18 @@ function showMapModal() {
 
         if (!map) {
             map = L.map('map', {
-                zoomControl: true
+                zoomControl: true,
+                scrollWheelZoom: true,
+                touchZoom: true,
+                doubleClickZoom: true,
+                boxZoom: true,
+                keyboard: true,
+                dragging: true
             }).setView([startLat, startLng], startZoom);
+
+            if (window.qsApplyLeafletGestureGuards) {
+                window.qsApplyLeafletGestureGuards(map);
+            }
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 maxZoom: 19
             }).addTo(map);

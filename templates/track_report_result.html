@@ -11,13 +11,38 @@
     'rejected': 'ds-badge-danger'
 } %}
 
-<div class="track-report-result-page mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
-    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+<div class="track-report-result-page mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 pb-24 md:pb-0">
+    <div class="toast toast-info toast-show md:hidden" role="status" aria-live="polite" data-toast>
+        <div class="toast-inner">
+            <span class="iconify toast-icon" data-icon="solar:clipboard-check-bold" data-width="18" data-height="18"></span>
+            <div class="toast-message">
+                <div class="flex flex-wrap items-center gap-3">
+                    <div class="inline-flex items-center gap-2">
+                        <span class="iconify" data-icon="solar:flag-outline" data-width="16" data-height="16" aria-hidden="true"></span>
+                        <span class="{{ status_badges.get(report.status, 'ds-badge') }}">{{ report.status.replace('_', ' ').title() }}</span>
+                    </div>
+                    <div class="inline-flex items-center gap-2">
+                        <span class="iconify" data-icon="solar:danger-triangle-outline" data-width="16" data-height="16" aria-hidden="true"></span>
+                        <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                    </div>
+                    <div class="inline-flex items-center gap-2">
+                        <span class="iconify" data-icon="solar:map-point-outline" data-width="16" data-height="16" aria-hidden="true"></span>
+                        <span class="text-sm font-semibold text-slate-900 dark:text-slate-100">{{ report.postal_code or '-' }}</span>
+                    </div>
+                </div>
+            </div>
+            <button class="toast-close" type="button" aria-label="Close" data-toast-close>
+                <span class="iconify" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="mb-6 hidden flex-col gap-3 sm:flex sm:flex-row sm:items-center sm:justify-between">
         <h1 class="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
             <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:clipboard-check-bold" data-width="22" data-height="22"></span>
             {{ _('Report') }} #{{ report.id }} {{ _('Status') }}
         </h1>
-        <a href="{{ url_for('track_report') }}" class="minimal-btn inline-flex items-center gap-2">
+        <a href="{{ url_for('track_report') }}" class="minimal-btn inline-flex w-full items-center justify-center gap-2 sm:w-auto">
             <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
             {{ _('Track Another Report') }}
         </a>
@@ -25,58 +50,72 @@
 
     <!-- Report Details -->
     <div class="minimal-card mb-6">
-        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-4 py-3 sm:px-6 sm:py-4 dark:border-slate-700/70">
             <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:info-circle-outline" data-width="18" data-height="18"></span>
                 {{ _('Report Details') }}
             </h2>
         </div>
-        <div class="px-6 py-5">
+        <div class="px-4 py-4 sm:px-6 sm:py-5">
             <div class="grid gap-6 lg:grid-cols-3">
                 <div class="lg:col-span-2">
-                    <div class="text-lg font-semibold text-slate-900 dark:text-slate-100">{{ report.title }}</div>
-                    <div class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-200">
-                        <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Description') }}:</span> {{ report.description }}</div>
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Category') }}:</span>
-                            <span class="ds-badge">{{ report.category.replace('_', ' ').title() }}</span>
-                        </div>
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Severity') }}:</span>
-                            <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
-                        </div>
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Current Status') }}:</span>
-                            <span class="{{ status_badges.get(report.status, 'ds-badge') }}">{{ report.status.replace('_', ' ').title() }}</span>
-                        </div>
-                        <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Location') }}:</span> {{ report.address or 'Location coordinates provided' }}</div>
-                        <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Reported On') }}:</span> {{ report.created_at.strftime('%B %d, %Y at %I:%M %p') }}</div>
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Reported by') }}:</span>
-                            {% if report.is_anonymous %}
-                                <span class="text-slate-600 dark:text-slate-300">{{ _('Anonymous') }}</span>
-                            {% else %}
-                                {{ report.reporter.username }}
-                            {% endif %}
-                        </div>
-                        <div>
-                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Community Votes') }}:</span>
-                            <span class="ds-badge-primary">{{ vote_count }} votes</span>
-                        </div>
+                    <div class="text-lg font-semibold text-slate-900 dark:text-slate-100 break-words">{{ report.title }}</div>
+                    <div class="mt-3 rounded-2xl border border-slate-200/70 bg-slate-50 px-4 py-4 text-sm text-slate-700 dark:border-slate-700/70 dark:bg-slate-900/40 dark:text-slate-200">
+                        <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Description') }}</div>
+                        <div class="mt-2 break-words">{{ report.description }}</div>
                     </div>
+
+                    <dl class="mt-4 grid gap-3 rounded-2xl border border-slate-200/70 bg-white px-4 py-4 text-sm dark:border-slate-700/70 dark:bg-slate-900/20 sm:grid-cols-2">
+                        <div class="flex items-start justify-between gap-3">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Category') }}</dt>
+                            <dd class="text-right"><span class="ds-badge">{{ report.category.replace('_', ' ').title() }}</span></dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-3">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Severity') }}</dt>
+                            <dd class="text-right"><span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span></dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-3">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Current Status') }}</dt>
+                            <dd class="text-right"><span class="{{ status_badges.get(report.status, 'ds-badge') }}">{{ report.status.replace('_', ' ').title() }}</span></dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-3">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Community Votes') }}</dt>
+                            <dd class="text-right"><span class="ds-badge-primary">{{ vote_count }} votes</span></dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-3 sm:col-span-2">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Location') }}</dt>
+                            <dd class="min-w-0 text-right break-words">{{ report.address or 'Location coordinates provided' }}</dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-3">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Reported On') }}</dt>
+                            <dd class="text-right">{{ report.created_at.strftime('%B %d, %Y at %I:%M %p') }}</dd>
+                        </div>
+                        <div class="flex items-start justify-between gap-3">
+                            <dt class="text-slate-500 dark:text-slate-400">{{ _('Reported by') }}</dt>
+                            <dd class="text-right">
+                                {% if report.is_anonymous %}
+                                    <span class="text-slate-600 dark:text-slate-300">{{ _('Anonymous') }}</span>
+                                {% else %}
+                                    {{ report.reporter.username }}
+                                {% endif %}
+                            </dd>
+                        </div>
+                    </dl>
                 </div>
 
                 <div>
                     <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Photo') }}</div>
                     <div class="mt-2">
                         {% if report.photo_path %}
-                            <img
-                                src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
-                                class="w-full max-w-sm rounded-2xl border border-slate-200 object-cover dark:border-slate-700"
-                                alt="Report photo"
-                                data-image-preview
-                                data-full-src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
-                                data-title="{{ report.title|e }}">
+                            <div class="w-full max-w-sm overflow-hidden rounded-2xl border border-slate-200 bg-slate-50 dark:border-slate-700 dark:bg-slate-900/40">
+                                <img
+                                    src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                    class="h-52 w-full object-contain"
+                                    alt="Report photo"
+                                    data-image-preview
+                                    data-full-src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                    data-title="{{ report.title|e }}">
+                            </div>
                         {% else %}
                             <div class="flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-10 text-center text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
                                 <div>
@@ -93,13 +132,13 @@
 
     <!-- Status Updates Timeline -->
     <div class="minimal-card mb-6">
-        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-4 py-3 sm:px-6 sm:py-4 dark:border-slate-700/70">
             <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:history-outline" data-width="18" data-height="18"></span>
                 {{ _('Status Updates Timeline') }}
             </h2>
         </div>
-        <div class="px-6 py-5">
+        <div class="px-4 py-4 sm:px-6 sm:py-5">
             {% if status_updates %}
                 <div class="space-y-4">
                     {% for update in status_updates %}
@@ -153,13 +192,13 @@
 
     <!-- Maintenance Tickets -->
     <div class="minimal-card mb-6">
-        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-4 py-3 sm:px-6 sm:py-4 dark:border-slate-700/70">
             <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:wrench-outline" data-width="18" data-height="18"></span>
                 {{ _('Maintenance Tickets') }}
             </h2>
         </div>
-        <div class="px-6 py-5">
+        <div class="px-4 py-4 sm:px-6 sm:py-5">
             {% if maintenance_tickets %}
                 <div class="space-y-4">
                     {% for ticket in maintenance_tickets %}
@@ -222,16 +261,47 @@
     </div>
 
     <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
-        <a href="{{ url_for('public_reports') }}" class="minimal-btn inline-flex items-center justify-center gap-2">
+        <a href="{{ url_for('public_reports') }}" class="minimal-btn inline-flex w-full items-center justify-center gap-2 sm:w-auto">
             <span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-check-outline" data-width="18" data-height="18"></span>
             {{ _('View All Public Reports') }}
         </a>
-        <a href="{{ url_for('track_report') }}" class="minimal-btn inline-flex items-center justify-center gap-2">
+        <a href="{{ url_for('track_report') }}" class="minimal-btn inline-flex w-full items-center justify-center gap-2 sm:w-auto">
             <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
             {{ _('Track Another Report') }}
         </a>
     </div>
 </div>
+
+{% if current_user.is_authenticated and current_user.role == 'citizen' %}
+<nav class="fixed inset-x-0 bottom-0 z-[1200] border-t border-slate-200 bg-white/85 px-3 pb-[calc(env(safe-area-inset-bottom,0)+0.5rem)] pt-2 backdrop-blur md:hidden dark:border-slate-700 dark:bg-slate-900/70" aria-label="{{ _('Mobile navigation') }}" data-citizen-bottom-nav>
+    <div class="mx-auto grid max-w-md grid-cols-5 gap-2">
+        <a href="{{ url_for('citizen_dashboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:widget-4-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Dashboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('track_report') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl bg-slate-100 px-2 py-2 text-[11px] font-semibold text-slate-900 dark:bg-slate-800/70 dark:text-slate-100">
+            <span class="iconify" data-icon="solar:magnifer-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Track') }}</span>
+        </a>
+
+        <a href="{{ url_for('public_reports') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:map-point-wave-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Nearby') }}</span>
+        </a>
+
+        <a href="{{ url_for('citizen_leaderboard') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:cup-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Leaderboard') }}</span>
+        </a>
+
+        <a href="{{ url_for('account_settings') }}" class="flex flex-col items-center justify-center gap-1 rounded-2xl px-2 py-2 text-[11px] font-medium text-slate-700 hover:bg-slate-100 dark:text-slate-200 dark:hover:bg-slate-800/60">
+            <span class="iconify" data-icon="solar:user-circle-outline" data-width="20" data-height="20"></span>
+            <span>{{ _('Account') }}</span>
+        </a>
+    </div>
+</nav>
+{% endif %}
 
 <div id="imageModal" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
     <div class="absolute inset-0 bg-slate-900/50" data-modal-close></div>
