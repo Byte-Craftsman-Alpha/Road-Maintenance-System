@@ -1887,6 +1887,18 @@ footer {
     color: #10b981;
 }
 
+.toast-danger .toast-icon {
+    color: rgba(244, 63, 94, 0.95);
+}
+
+.toast-warning .toast-icon {
+    color: rgba(245, 158, 11, 0.95);
+}
+
+.toast-info .toast-icon {
+    color: rgba(99, 102, 241, 0.95);
+}
+
 .toast-message {
     font-size: 0.95rem;
     font-weight: 600;

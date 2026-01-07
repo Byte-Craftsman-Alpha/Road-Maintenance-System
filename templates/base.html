@@ -201,6 +201,7 @@
                                     <div class="p-2">
                                         <div class="px-3 py-2 text-sm text-slate-600 dark:text-slate-300">{{ current_user.role.title() }}</div>
                                         <div class="my-2 h-px bg-slate-200 dark:bg-slate-700"></div>
+                                        <a class="minimal-nav-item" href="{{ url_for('account_settings') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:settings-outline" data-width="18" data-height="18"></span> {{ _('Settings') }}</a>
                                         <a class="minimal-nav-item" href="{{ url_for('logout') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:logout-outline" data-width="18" data-height="18"></span> {{ _('Logout') }}</a>
                                     </div>
                                 </div>
@@ -225,6 +226,7 @@
                             <a class="minimal-nav-item" href="{{ url_for('view_reports') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('All Reports') }}</a>
                             <a class="minimal-nav-item" href="{{ url_for('analytics_dashboard') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:chart-2-bold" data-width="18" data-height="18"></span> {{ _('Analytics') }}</a>
                         {% endif %}
+                        <a class="minimal-nav-item" href="{{ url_for('account_settings') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:settings-outline" data-width="18" data-height="18"></span> {{ _('Settings') }}</a>
                     {% endif %}
                     <a class="minimal-nav-item" href="{{ url_for('public_reports') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-bold" data-width="18" data-height="18"></span> {{ _('Public Reports') }}</a>
                     <a class="minimal-nav-item" href="{{ url_for('track_report') }}"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-bold" data-width="18" data-height="18"></span> {{ _('Track Report') }}</a>
@@ -253,11 +255,35 @@
                                 </div>
                             </div>
                         {% elif category == 'error' or category == 'danger' %}
-                            <div class="alert alert-danger">{{ message }}</div>
+                            <div class="toast toast-danger" role="status" aria-live="polite" data-toast>
+                                <div class="toast-inner">
+                                    <span class="iconify toast-icon" data-icon="solar:danger-triangle-bold" data-width="18" data-height="18"></span>
+                                    <div class="toast-message">{{ message }}</div>
+                                    <button class="toast-close" type="button" aria-label="Close notification" data-toast-close>
+                                        <span class="iconify" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                                    </button>
+                                </div>
+                            </div>
                         {% elif category == 'warning' %}
-                            <div class="alert alert-warning">{{ message }}</div>
+                            <div class="toast toast-warning" role="status" aria-live="polite" data-toast>
+                                <div class="toast-inner">
+                                    <span class="iconify toast-icon" data-icon="solar:shield-warning-bold" data-width="18" data-height="18"></span>
+                                    <div class="toast-message">{{ message }}</div>
+                                    <button class="toast-close" type="button" aria-label="Close notification" data-toast-close>
+                                        <span class="iconify" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                                    </button>
+                                </div>
+                            </div>
                         {% else %}
-                            <div class="alert alert-info">{{ message }}</div>
+                            <div class="toast toast-info" role="status" aria-live="polite" data-toast>
+                                <div class="toast-inner">
+                                    <span class="iconify toast-icon" data-icon="solar:info-circle-bold" data-width="18" data-height="18"></span>
+                                    <div class="toast-message">{{ message }}</div>
+                                    <button class="toast-close" type="button" aria-label="Close notification" data-toast-close>
+                                        <span class="iconify" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                                    </button>
+                                </div>
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>

@@ -97,3 +97,21 @@ class ResetPasswordForm(FlaskForm):
 class ReportTrackingForm(FlaskForm):
     report_id = StringField('Report ID', validators=[DataRequired()], render_kw={"placeholder": "Enter Report ID (e.g., 123)"})
     submit = SubmitField('Track Report')
+
+
+class ChangePasswordForm(FlaskForm):
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    new_password = PasswordField('New Password', validators=[DataRequired(), Length(min=6)])
+    confirm_password = PasswordField('Confirm New Password', validators=[DataRequired(), Length(min=6)])
+    submit_password = SubmitField('Update Password')
+
+
+class ChangeEmailRequestForm(FlaskForm):
+    new_email = StringField('New Email', validators=[DataRequired(), Email()])
+    current_password = PasswordField('Current Password', validators=[DataRequired()])
+    submit_email = SubmitField('Send Verification Code')
+
+
+class VerifyEmailChangeForm(FlaskForm):
+    otp_code = StringField('Enter 6-digit OTP', validators=[DataRequired(), Length(min=6, max=6)])
+    submit_verify = SubmitField('Verify & Update Email')

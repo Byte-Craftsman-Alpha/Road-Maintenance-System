@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block title %}{{ _('Verify Email Change') }} - CivicSetu{% endblock %}
+
+{% block content %}
+<div class="mx-auto w-full max-w-md px-4 py-6 sm:px-6 lg:px-8">
+    <div class="minimal-card p-6 sm:p-8">
+        <div class="mb-6 text-center">
+            <h1 class="text-xl font-semibold text-slate-900 dark:text-slate-100">
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:mailbox-bold" data-width="22" data-height="22"></span>
+                {{ _('Verify Email Change') }}
+            </h1>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">
+                {{ _('We sent a verification code to:') }}
+                <span class="font-semibold">{{ new_email }}</span>
+            </p>
+            <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">{{ _('Enter the code below to confirm the change.') }}</p>
+        </div>
+
+        <form method="POST" class="space-y-4">
+            {{ form.hidden_tag() }}
+
+            <div>
+                {{ form.otp_code.label(class="block text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400 mb-2") }}
+                {{ form.otp_code(class="minimal-input", placeholder="000000", maxlength="6") }}
+                {% if form.otp_code.errors %}
+                    <div class="mt-2 text-sm text-rose-700 dark:text-rose-300">
+                        {% for error in form.otp_code.errors %}
+                            <div>{{ error }}</div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+
+            <div class="pt-1">
+                {{ form.submit_verify(class="minimal-btn minimal-btn-primary w-full") }}
+            </div>
+        </form>
+
+        <div class="mt-6 border-t border-slate-200/70 pt-4 text-center text-sm text-slate-600 dark:border-slate-700/70 dark:text-slate-300">
+            <a class="font-medium text-indigo-700 hover:text-indigo-800 dark:text-indigo-300 dark:hover:text-indigo-200" href="{{ url_for('account_settings') }}">{{ _('Back to Settings') }}</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

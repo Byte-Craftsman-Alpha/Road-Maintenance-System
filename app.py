@@ -95,7 +95,7 @@ except:
     print("Warning: Email credentials not configured. OTP functionality will not work.")
 
 from models import db, User, Report, MaintenanceTicket, StatusUpdate, Analytics, OTPVerification, Vote, CitizenPoints
-from forms import LoginForm, RegisterForm, ReportForm, TicketForm, OTPVerificationForm, ForgotPasswordForm, ResetPasswordForm, StatusUpdateForm, ReportTrackingForm
+from forms import LoginForm, RegisterForm, ReportForm, TicketForm, OTPVerificationForm, ForgotPasswordForm, ResetPasswordForm, StatusUpdateForm, ReportTrackingForm, ChangePasswordForm, ChangeEmailRequestForm, VerifyEmailChangeForm
 
 db.init_app(app)
 login_manager = LoginManager()
@@ -135,7 +135,7 @@ def login():
             login_user(user)
             next_page = request.args.get('next')
             return redirect(next_page) if next_page else redirect(url_for('index'))
-        flash('Invalid email or password')
+        flash('Invalid email or password', 'danger')
     return render_template('auth/login.html', form=form)
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -309,6 +309,105 @@ def reset_password():
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
+
+@app.route('/account/settings', methods=['GET', 'POST'])
+@login_required
+def account_settings():
+    password_form = ChangePasswordForm()
+    email_form = ChangeEmailRequestForm()
+
+    if password_form.submit_password.data and password_form.validate_on_submit():
+        if not check_password_hash(current_user.password_hash, password_form.current_password.data):
+            flash('Current password is incorrect.', 'error')
+            return render_template('account/settings.html', password_form=password_form, email_form=email_form)
+
+        if password_form.new_password.data != password_form.confirm_password.data:
+            flash('Passwords do not match.', 'error')
+            return render_template('account/settings.html', password_form=password_form, email_form=email_form)
+
+        user = User.query.get(current_user.id)
+        if not user:
+            flash('User not found.', 'error')
+            return redirect(url_for('index'))
+
+        user.password_hash = generate_password_hash(password_form.new_password.data)
+        db.session.commit()
+        flash('Password updated successfully.', 'success')
+        return redirect(url_for('account_settings'))
+
+    if email_form.submit_email.data and email_form.validate_on_submit():
+        if not check_password_hash(current_user.password_hash, email_form.current_password.data):
+            flash('Current password is incorrect.', 'error')
+            return render_template('account/settings.html', password_form=password_form, email_form=email_form)
+
+        new_email = (email_form.new_email.data or '').strip().lower()
+
+        if new_email == (current_user.email or '').strip().lower():
+            flash('That is already your current email.', 'info')
+            return redirect(url_for('account_settings'))
+
+        if User.query.filter_by(email=new_email).first():
+            flash('Email already registered.', 'error')
+            return render_template('account/settings.html', password_form=password_form, email_form=email_form)
+
+        try:
+            otp_code = OTPVerification.create_otp(new_email, 'email_change')
+            otp_sent = send_otp_email(email_notifier, new_email, current_user.username, otp_code, 'email_change')
+            if otp_sent:
+                session['email_change_user_id'] = current_user.id
+                session['email_change_new_email'] = new_email
+                flash('Verification code sent to your new email. Please check and verify.', 'success')
+                return redirect(url_for('verify_email_change'))
+            else:
+                flash('Failed to send verification code. Please try again later.', 'danger')
+        except Exception as e:
+            flash('Failed to send verification code. Please try again.', 'error')
+            print(f"Email change OTP sending error: {e}")
+
+    return render_template('account/settings.html', password_form=password_form, email_form=email_form)
+
+
+@app.route('/account/verify-email-change', methods=['GET', 'POST'])
+@login_required
+def verify_email_change():
+    if 'email_change_user_id' not in session or 'email_change_new_email' not in session:
+        flash('Email change session expired. Please try again.', 'error')
+        return redirect(url_for('account_settings'))
+
+    if session.get('email_change_user_id') != current_user.id:
+        flash('Email change session is invalid.', 'error')
+        session.pop('email_change_user_id', None)
+        session.pop('email_change_new_email', None)
+        return redirect(url_for('account_settings'))
+
+    new_email = session.get('email_change_new_email')
+    form = VerifyEmailChangeForm()
+
+    if form.validate_on_submit():
+        if OTPVerification.verify_otp(new_email, form.otp_code.data, 'email_change'):
+            if User.query.filter_by(email=new_email).first():
+                flash('Email already registered.', 'error')
+                return redirect(url_for('account_settings'))
+
+            user = User.query.get(current_user.id)
+            if not user:
+                flash('User not found.', 'error')
+                return redirect(url_for('index'))
+
+            user.email = new_email
+            user.email_verified = True
+            db.session.commit()
+
+            session.pop('email_change_user_id', None)
+            session.pop('email_change_new_email', None)
+
+            flash('Email updated successfully.', 'success')
+            return redirect(url_for('account_settings'))
+        else:
+            flash('Invalid or expired verification code. Please try again.', 'error')
+
+    return render_template('account/verify_email_change.html', form=form, new_email=new_email)
 
 @app.route('/citizen/dashboard')
 @login_required
