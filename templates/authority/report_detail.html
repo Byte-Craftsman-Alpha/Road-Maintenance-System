@@ -4,9 +4,13 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2><i class="fas fa-file-alt"></i> {{ _('Report') }} #{{ report.id }}</h2>
+    <h2>
+        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:file-text-bold" data-width="22" data-height="22"></span>
+        {{ _('Report') }} #{{ report.id }}
+    </h2>
     <a href="{{ url_for('view_reports') }}" class="btn btn-outline-primary">
-        <i class="fas fa-arrow-left"></i> {{ _('Back to Reports') }}
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:alt-arrow-left-outline" data-width="18" data-height="18"></span>
+        {{ _('Back to Reports') }}
     </a>
 </div>
 
@@ -86,7 +90,7 @@
                             </div>
                         {% else %}
                             <div class="text-center text-muted">
-                                <i class="fas fa-image fa-3x mb-2"></i>
+                                <span class="iconify inline-block align-[-0.125em] text-muted" data-icon="solar:gallery-minimalistic-outline" data-width="34" data-height="34"></span>
                                 <p>{{ _('No photo uploaded') }}</p>
                             </div>
                         {% endif %}
@@ -98,7 +102,10 @@
         <!-- Status Update Form -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-edit"></i> {{ _('Update Status') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:pen-2-outline" data-width="18" data-height="18"></span>
+                    {{ _('Update Status') }}
+                </h5>
             </div>
             <div class="card-body">
                 <form id="statusUpdateForm" enctype="multipart/form-data">
@@ -126,7 +133,8 @@
                             <input type="file" class="form-control" id="statusImage" name="image" accept="image/*">
                             <div class="form-text">
                                 <span id="imageRequiredText" class="text-danger is-hidden">
-                                    <i class="fas fa-exclamation-triangle"></i> {{ _('Image is required for completed status') }}
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:danger-triangle-outline" data-width="16" data-height="16"></span>
+                                    {{ _('Image is required for completed status') }}
                                 </span>
                                 <span id="imageOptionalText">{{ _('Optional: Upload image to document the status update') }}</span>
                             </div>
@@ -138,7 +146,8 @@
                     </div>
                     <div class="d-grid">
                         <button type="submit" class="btn btn-primary" id="updateStatusBtn">
-                            <i class="fas fa-save"></i> {{ _('Update Status') }}
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:diskette-outline" data-width="18" data-height="18"></span>
+                            {{ _('Update Status') }}
                         </button>
                     </div>
                 </form>
@@ -149,7 +158,10 @@
         {% if report.updates %}
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-history"></i> {{ _('Status History') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:history-outline" data-width="18" data-height="18"></span>
+                    {{ _('Status History') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="timeline">
@@ -189,20 +201,24 @@
         <!-- Location Map -->
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-map-marker-alt"></i> {{ _('Location') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:map-point-outline" data-width="18" data-height="18"></span>
+                    {{ _('Location') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div id="reportLocationMap" class="map-container">
                     {% if not report.latitude and not report.longitude %}
                         <div class="text-center text-muted">
-                            <i class="fas fa-map fa-3x mb-2"></i>
+                            <span class="iconify inline-block align-[-0.125em] text-muted" data-icon="solar:map-outline" data-width="34" data-height="34"></span>
                             <p>{{ _('Location coordinates not available') }}</p>
                         </div>
                     {% endif %}
                 </div>
                 <div class="mt-2 text-center">
                     <button class="btn btn-sm btn-outline-primary" onclick="openInGoogleMaps()">
-                        <i class="fas fa-external-link-alt"></i> {{ _('Open in Google Maps') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:square-top-down-outline" data-width="18" data-height="18"></span>
+                        {{ _('Open in Google Maps') }}
                     </button>
                 </div>
             </div>
@@ -212,7 +228,10 @@
         {% if report.ticket %}
         <div class="card mb-4">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-ticket-alt"></i> {{ _('Maintenance Ticket') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:ticket-outline" data-width="18" data-height="18"></span>
+                    {{ _('Maintenance Ticket') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="mb-2">
@@ -253,7 +272,8 @@
                 
                 <div class="mt-3">
                     <button class="btn btn-sm btn-outline-primary w-100" onclick="editTicket()">
-                        <i class="fas fa-edit"></i> {{ _('Edit Ticket Details') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:pen-2-outline" data-width="18" data-height="18"></span>
+                        {{ _('Edit Ticket Details') }}
                     </button>
                 </div>
             </div>
@@ -263,27 +283,34 @@
         <!-- Quick Actions -->
         <div class="card">
             <div class="card-header">
-                <h5 class="mb-0"><i class="fas fa-bolt"></i> {{ _('Quick Actions') }}</h5>
+                <h5 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:bolt-outline" data-width="18" data-height="18"></span>
+                    {{ _('Quick Actions') }}
+                </h5>
             </div>
             <div class="card-body">
                 <div class="d-grid gap-2">
                     {% if report.status == 'reported' %}
                         <button class="btn btn-success" onclick="quickUpdate('verified')">
-                            <i class="fas fa-check"></i> {{ _('Verify Report') }}
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-outline" data-width="18" data-height="18"></span>
+                            {{ _('Verify Report') }}
                         </button>
                     {% elif report.status == 'verified' %}
                         <button class="btn btn-warning" onclick="quickUpdate('in_progress')">
-                            <i class="fas fa-tools"></i> {{ _('Start Work') }}
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:hammer-outline" data-width="18" data-height="18"></span>
+                            {{ _('Start Work') }}
                         </button>
                     {% elif report.status == 'in_progress' %}
                         <button class="btn btn-success" onclick="quickUpdate('completed')">
-                            <i class="fas fa-check-circle"></i> {{ _('Mark Complete') }}
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-outline" data-width="18" data-height="18"></span>
+                            {{ _('Mark Complete') }}
                         </button>
                     {% endif %}
                     
                     {% if report.status != 'rejected' %}
                         <button class="btn btn-danger" onclick="quickUpdate('rejected')">
-                            <i class="fas fa-times"></i> {{ _('Reject Report') }}
+                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                            {{ _('Reject Report') }}
                         </button>
                     {% endif %}
                 </div>
@@ -455,7 +482,7 @@ function updateStatus(status, comment, image) {
     
     // Show loading state
     updateBtn.disabled = true;
-    updateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+    updateBtn.innerHTML = '<span class="iconify inline-block align-[-0.125em]" data-icon="solar:refresh-outline" data-width="18" data-height="18"></span> Updating...';
     updateBtn.classList.remove('btn-primary');
     updateBtn.classList.add('btn-warning');
     
@@ -474,7 +501,7 @@ function updateStatus(status, comment, image) {
     .then(data => {
         if (data.success) {
             // Show success state
-            updateBtn.innerHTML = '<i class="fas fa-check"></i> Updated!';
+            updateBtn.innerHTML = '<span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-outline" data-width="18" data-height="18"></span> Updated!';
             updateBtn.classList.remove('btn-warning');
             updateBtn.classList.add('btn-success');
             

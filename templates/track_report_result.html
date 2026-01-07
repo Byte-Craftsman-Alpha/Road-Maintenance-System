@@ -3,236 +3,247 @@
 {% block title %}Report #{{ report.id }} Status - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="d-flex justify-content-between align-items-center mb-4">
-        <h2>
+{% set status_badges = {
+    'reported': 'ds-badge',
+    'verified': 'ds-badge-info',
+    'in_progress': 'ds-badge-warning',
+    'completed': 'ds-badge-success',
+    'rejected': 'ds-badge-danger'
+} %}
+
+<div class="track-report-result-page mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6">
+    <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <h1 class="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
             <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:clipboard-check-bold" data-width="22" data-height="22"></span>
             {{ _('Report') }} #{{ report.id }} {{ _('Status') }}
-        </h2>
-        <a href="{{ url_for('track_report') }}" class="btn btn-outline-secondary">
+        </h1>
+        <a href="{{ url_for('track_report') }}" class="minimal-btn inline-flex items-center gap-2">
             <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
             {{ _('Track Another Report') }}
         </a>
     </div>
 
     <!-- Report Details -->
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5>
+    <div class="minimal-card mb-6">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:info-circle-outline" data-width="18" data-height="18"></span>
                 {{ _('Report Details') }}
-            </h5>
+            </h2>
         </div>
-        <div class="card-body">
-            <div class="row">
-                <div class="col-md-8">
-                    <h6><strong>{{ report.title }}</strong></h6>
-                    <p class="mb-2"><strong>{{ _('Description') }}:</strong> {{ report.description }}</p>
-                    <p class="mb-2"><strong>{{ _('Category') }}:</strong> 
-                        <span class="badge bg-secondary">{{ report.category.replace('_', ' ').title() }}</span>
-                    </p>
-                    <p class="mb-2"><strong>{{ _('Severity') }}:</strong> 
-                        <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
-                    </p>
-                    <p class="mb-2"><strong>{{ _('Current Status') }}:</strong> 
-                        {% set status_colors = {
-                            'reported': 'secondary',
-                            'verified': 'info',
-                            'in_progress': 'warning',
-                            'completed': 'success',
-                            'rejected': 'danger'
-                        } %}
-                        <span class="badge bg-{{ status_colors[report.status] }}">
-                            {{ report.status.replace('_', ' ').title() }}
-                        </span>
-                    </p>
-                    <p class="mb-2"><strong>{{ _('Location') }}:</strong> {{ report.address or 'Location coordinates provided' }}</p>
-                    <p class="mb-2"><strong>{{ _('Reported On') }}:</strong> {{ report.created_at.strftime('%B %d, %Y at %I:%M %p') }}</p>
-                    <p class="mb-2"><strong>{{ _('Reported by') }}:</strong> 
-                        {% if report.is_anonymous %}
-                            <span class="text-muted">{{ _('Anonymous') }}</span>
-                        {% else %}
-                            {{ report.reporter.username }}
-                        {% endif %}
-                    </p>
-                    <p class="mb-0"><strong>{{ _('Community Votes') }}:</strong> 
-                        <span class="badge bg-primary">{{ vote_count }} votes</span>
-                    </p>
-                </div>
-                <div class="col-md-4">
-                    {% if report.photo_path %}
-                        <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}" 
-                             class="img-fluid rounded" 
-                             alt="Report photo"
-                             style="cursor: pointer;"
-                             data-image-preview
-                             data-full-src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
-                             data-title="{{ report.title|e }}">
-                    {% else %}
-                        <div class="text-center text-muted p-4 border rounded">
-                            <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="34" data-height="34"></span>
-                            <p class="mb-0">{{ _('No image available') }}</p>
+        <div class="px-6 py-5">
+            <div class="grid gap-6 lg:grid-cols-3">
+                <div class="lg:col-span-2">
+                    <div class="text-lg font-semibold text-slate-900 dark:text-slate-100">{{ report.title }}</div>
+                    <div class="mt-3 space-y-2 text-sm text-slate-700 dark:text-slate-200">
+                        <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Description') }}:</span> {{ report.description }}</div>
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Category') }}:</span>
+                            <span class="ds-badge">{{ report.category.replace('_', ' ').title() }}</span>
                         </div>
-                    {% endif %}
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Severity') }}:</span>
+                            <span class="badge severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                        </div>
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Current Status') }}:</span>
+                            <span class="{{ status_badges.get(report.status, 'ds-badge') }}">{{ report.status.replace('_', ' ').title() }}</span>
+                        </div>
+                        <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Location') }}:</span> {{ report.address or 'Location coordinates provided' }}</div>
+                        <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Reported On') }}:</span> {{ report.created_at.strftime('%B %d, %Y at %I:%M %p') }}</div>
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Reported by') }}:</span>
+                            {% if report.is_anonymous %}
+                                <span class="text-slate-600 dark:text-slate-300">{{ _('Anonymous') }}</span>
+                            {% else %}
+                                {{ report.reporter.username }}
+                            {% endif %}
+                        </div>
+                        <div>
+                            <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Community Votes') }}:</span>
+                            <span class="ds-badge-primary">{{ vote_count }} votes</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">{{ _('Photo') }}</div>
+                    <div class="mt-2">
+                        {% if report.photo_path %}
+                            <img
+                                src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                class="w-full max-w-sm rounded-2xl border border-slate-200 object-cover dark:border-slate-700"
+                                alt="Report photo"
+                                data-image-preview
+                                data-full-src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
+                                data-title="{{ report.title|e }}">
+                        {% else %}
+                            <div class="flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50 px-4 py-10 text-center text-slate-600 dark:border-slate-700 dark:bg-slate-900/40 dark:text-slate-300">
+                                <div>
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="34" data-height="34"></span>
+                                    <div class="mt-2 text-sm">{{ _('No image available') }}</div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Status Updates Timeline -->
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5>
+    <div class="minimal-card mb-6">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:history-outline" data-width="18" data-height="18"></span>
                 {{ _('Status Updates Timeline') }}
-            </h5>
+            </h2>
         </div>
-        <div class="card-body">
+        <div class="px-6 py-5">
             {% if status_updates %}
-                <div class="timeline">
+                <div class="space-y-4">
                     {% for update in status_updates %}
-                    <div class="timeline-item mb-4">
-                        <div class="row">
-                            <div class="col-md-2 text-center">
-                                <div class="timeline-date">
-                                    <small class="text-muted">{{ update.created_at.strftime('%b %d, %Y') }}</small><br>
-                                    <small class="text-muted">{{ update.created_at.strftime('%I:%M %p') }}</small>
+                    <div class="rounded-2xl border border-slate-200/60 bg-slate-50 px-4 py-4 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/40">
+                        <div class="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                            <div>
+                                <div class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                                    {{ update.created_at.strftime('%b %d, %Y') }} · {{ update.created_at.strftime('%I:%M %p') }}
                                 </div>
+                                <div class="mt-2 text-sm text-slate-700 dark:text-slate-200">
+                                    <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Status changed to') }}:</span>
+                                    <span class="{{ status_badges.get(update.status, 'ds-badge') }}">{{ update.status.replace('_', ' ').title() }}</span>
+                                </div>
+                                {% if update.comment %}
+                                    <div class="mt-2 text-sm text-slate-700 dark:text-slate-200">{{ update.comment }}</div>
+                                {% endif %}
+                                <div class="mt-2 text-xs text-slate-500 dark:text-slate-400">{{ _('Updated by') }}: {{ update.updated_by.username }}</div>
                             </div>
-                            <div class="col-md-10">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <div class="d-flex justify-content-between align-items-start">
-                                            <div>
-                                                <h6 class="mb-1">
-                                                    {{ _('Status changed to') }}: 
-                                                    <span class="badge bg-{{ status_colors[update.status] }}">
-                                                        {{ update.status.replace('_', ' ').title() }}
-                                                    </span>
-                                                </h6>
-                                                {% if update.comment %}
-                                                    <p class="mb-2">{{ update.comment }}</p>
-                                                {% endif %}
-                                                <small class="text-muted">{{ _('Updated by') }}: {{ update.updated_by.username }}</small>
-                                            </div>
-                                            {% if update.image_path %}
-                                                <div class="ms-3">
-                                                    <img src="{{ url_for('static', filename='uploads/' + update.image_path) }}" 
-                                                         class="img-thumbnail" 
-                                                         style="max-width: 100px; max-height: 100px; cursor: pointer;"
-                                                         data-image-preview
-                                                         data-full-src="{{ url_for('static', filename='uploads/' + update.image_path) }}"
-                                                         data-title="Status Update Image"
-                                                         title="Click to view full image"
-                                                         onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                                                    <div style="display: none;" class="text-muted small">
-                                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span>
-                                                        {{ _('Image not available') }}
-                                                    </div>
-                                                </div>
-                                            {% endif %}
-                                        </div>
+
+                            {% if update.image_path %}
+                                <div class="sm:ml-6">
+                                    <img
+                                        src="{{ url_for('static', filename='uploads/' + update.image_path) }}"
+                                        class="h-24 w-24 rounded-xl border border-slate-200 object-cover dark:border-slate-700"
+                                        data-image-preview
+                                        data-full-src="{{ url_for('static', filename='uploads/' + update.image_path) }}"
+                                        data-title="Status Update Image"
+                                        title="Click to view full image"
+                                        onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                                    <div style="display: none;" class="mt-2 text-xs text-slate-500 dark:text-slate-400">
+                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span>
+                                        {{ _('Image not available') }}
                                     </div>
                                 </div>
-                            </div>
+                            {% endif %}
                         </div>
                     </div>
                     {% endfor %}
                 </div>
             {% else %}
-                <div class="text-center py-4">
-                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:clock-circle-outline" data-width="34" data-height="34"></span>
-                    <h6>{{ _('No status updates yet') }}</h6>
-                    <p class="text-muted">{{ _('Status updates will appear here as authorities review your report.') }}</p>
+                <div class="py-10 text-center">
+                    <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 dark:bg-slate-900/40 dark:text-slate-300">
+                        <span class="iconify" data-icon="solar:clock-circle-outline" data-width="26" data-height="26"></span>
+                    </div>
+                    <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('No status updates yet') }}</h3>
+                    <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{{ _('Status updates will appear here as authorities review your report.') }}</p>
                 </div>
             {% endif %}
         </div>
     </div>
 
     <!-- Maintenance Tickets -->
-    <div class="card mb-4">
-        <div class="card-header">
-            <h5>
+    <div class="minimal-card mb-6">
+        <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
                 <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:wrench-outline" data-width="18" data-height="18"></span>
                 {{ _('Maintenance Tickets') }}
-            </h5>
+            </h2>
         </div>
-        <div class="card-body">
+        <div class="px-6 py-5">
             {% if maintenance_tickets %}
-                {% for ticket in maintenance_tickets %}
-                <div class="card mb-3">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col-md-6">
-                                <h6><strong>Ticket #{{ ticket.ticket_number }}</strong></h6>
-                                <p class="mb-1"><strong>{{ _('Priority') }}:</strong> 
-                                    <span class="badge bg-{{ 'danger' if ticket.priority == 'urgent' else 'warning' if ticket.priority == 'high' else 'info' if ticket.priority == 'medium' else 'secondary' }}">
-                                        {{ ticket.priority.title() }}
-                                    </span>
-                                </p>
+                <div class="space-y-4">
+                    {% for ticket in maintenance_tickets %}
+                    <div class="rounded-2xl border border-slate-200/60 bg-slate-50 px-4 py-4 shadow-sm dark:border-slate-700/70 dark:bg-slate-900/40">
+                        <div class="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                            <div class="text-sm text-slate-700 dark:text-slate-200">
+                                <div class="text-base font-semibold text-slate-900 dark:text-slate-100">Ticket #{{ ticket.ticket_number }}</div>
+                                <div class="mt-2">
+                                    <span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Priority') }}:</span>
+                                    <span class="ds-badge">{{ ticket.priority.title() }}</span>
+                                </div>
                                 {% if ticket.assigned_to %}
-                                    <p class="mb-1"><strong>{{ _('Assigned to') }}:</strong> {{ ticket.assigned_to.username }}</p>
+                                    <div class="mt-1"><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Assigned to') }}:</span> {{ ticket.assigned_to.username }}</div>
                                 {% endif %}
                                 {% if ticket.estimated_cost %}
-                                    <p class="mb-1"><strong>{{ _('Estimated Cost') }}:</strong> Rs. {{ "%.2f"|format(ticket.estimated_cost) }}</p>
+                                    <div class="mt-1"><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Estimated Cost') }}:</span> Rs. {{ "%.2f"|format(ticket.estimated_cost) }}</div>
                                 {% endif %}
                             </div>
-                            <div class="col-md-6">
+
+                            <div class="text-sm text-slate-700 dark:text-slate-200">
                                 {% if ticket.estimated_completion %}
-                                    <p class="mb-1"><strong>{{ _('Estimated Completion') }}:</strong> {{ ticket.estimated_completion.strftime('%B %d, %Y') }}</p>
+                                    <div><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Estimated Completion') }}:</span> {{ ticket.estimated_completion.strftime('%B %d, %Y') }}</div>
                                 {% endif %}
                                 {% if ticket.actual_completion %}
-                                    <p class="mb-1"><strong>{{ _('Completed On') }}:</strong> {{ ticket.actual_completion.strftime('%B %d, %Y') }}</p>
+                                    <div class="mt-1"><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Completed On') }}:</span> {{ ticket.actual_completion.strftime('%B %d, %Y') }}</div>
                                 {% endif %}
-                                <p class="mb-1"><strong>{{ _('Created') }}:</strong> {{ ticket.created_at.strftime('%B %d, %Y') }}</p>
+                                <div class="mt-1"><span class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Created') }}:</span> {{ ticket.created_at.strftime('%B %d, %Y') }}</div>
                             </div>
                         </div>
-                        {% if ticket.work_description %}
-                            <hr>
-                            <p class="mb-1"><strong>{{ _('Work Description') }}:</strong></p>
-                            <p class="mb-2">{{ ticket.work_description }}</p>
-                        {% endif %}
-                        {% if ticket.materials_used %}
-                            <p class="mb-1"><strong>{{ _('Materials Used') }}:</strong></p>
-                            <p class="mb-0">{{ ticket.materials_used }}</p>
+
+                        {% if ticket.work_description or ticket.materials_used %}
+                            <div class="mt-4 border-t border-slate-200/70 pt-4 dark:border-slate-700/70">
+                                {% if ticket.work_description %}
+                                    <div class="text-sm text-slate-700 dark:text-slate-200">
+                                        <div class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Work Description') }}:</div>
+                                        <div class="mt-1">{{ ticket.work_description }}</div>
+                                    </div>
+                                {% endif %}
+                                {% if ticket.materials_used %}
+                                    <div class="mt-3 text-sm text-slate-700 dark:text-slate-200">
+                                        <div class="font-semibold text-slate-900 dark:text-slate-100">{{ _('Materials Used') }}:</div>
+                                        <div class="mt-1">{{ ticket.materials_used }}</div>
+                                    </div>
+                                {% endif %}
+                            </div>
                         {% endif %}
                     </div>
+                    {% endfor %}
                 </div>
-                {% endfor %}
             {% else %}
-                <div class="text-center py-4">
-                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:tools-outline" data-width="34" data-height="34"></span>
-                    <h6>{{ _('No maintenance tickets yet') }}</h6>
-                    <p class="text-muted">{{ _('Maintenance tickets will be created once your report is verified by authorities.') }}</p>
+                <div class="py-10 text-center">
+                    <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 dark:bg-slate-900/40 dark:text-slate-300">
+                        <span class="iconify" data-icon="solar:tools-outline" data-width="26" data-height="26"></span>
+                    </div>
+                    <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('No maintenance tickets yet') }}</h3>
+                    <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{{ _('Maintenance tickets will be created once your report is verified by authorities.') }}</p>
                 </div>
             {% endif %}
         </div>
     </div>
 
-    <!-- Action Buttons -->
-    <div class="text-center mb-4">
-        <a href="{{ url_for('public_reports') }}" class="btn btn-outline-primary me-2">
+    <div class="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-center">
+        <a href="{{ url_for('public_reports') }}" class="minimal-btn inline-flex items-center justify-center gap-2">
             <span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-check-outline" data-width="18" data-height="18"></span>
             {{ _('View All Public Reports') }}
         </a>
-        <a href="{{ url_for('track_report') }}" class="btn btn-outline-secondary">
+        <a href="{{ url_for('track_report') }}" class="minimal-btn inline-flex items-center justify-center gap-2">
             <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
             {{ _('Track Another Report') }}
         </a>
     </div>
 </div>
 
-<!-- Image Modal -->
-<div class="modal fade" id="imageModal" tabindex="-1">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="imageModalTitle"></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+<div id="imageModal" class="fixed inset-0 z-[60] hidden" aria-hidden="true">
+    <div class="absolute inset-0 bg-slate-900/50" data-modal-close></div>
+    <div class="relative mx-auto my-6 w-[calc(100%-2rem)] max-w-4xl">
+        <div class="minimal-card overflow-hidden">
+            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+                <h5 class="text-base font-semibold text-slate-900 dark:text-slate-100" id="imageModalTitle"></h5>
+                <button type="button" class="minimal-btn px-3 py-2 text-sm" data-modal-close>
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                </button>
             </div>
-            <div class="modal-body" id="imageModalBody">
-                <!-- Content loaded dynamically -->
-            </div>
+            <div class="px-6 py-4" id="imageModalBody"></div>
         </div>
     </div>
 </div>
@@ -241,11 +252,36 @@
 {% block scripts %}
 <script>
 function showImageModal(imageUrl, title) {
-    var modalBody = document.getElementById('imageModalBody');
-    modalBody.innerHTML = '<img src="' + imageUrl + '" class="img-fluid" alt="' + title + '">';
+    const modal = document.getElementById('imageModal');
+    const modalBody = document.getElementById('imageModalBody');
+    if (!modal || !modalBody) return;
+    modalBody.innerHTML = '<img src="' + imageUrl + '" class="w-full max-h-[75vh] object-contain rounded-2xl border border-slate-200 dark:border-slate-700" alt="' + title + '">';
     document.getElementById('imageModalTitle').innerText = title;
-    new bootstrap.Modal(document.getElementById('imageModal')).show();
+    modal.classList.remove('hidden');
+    document.body.classList.add('overflow-hidden');
 }
+
+function closeImageModal() {
+    const modal = document.getElementById('imageModal');
+    if (!modal) return;
+    modal.classList.add('hidden');
+    document.body.classList.remove('overflow-hidden');
+}
+
+document.addEventListener('click', function(e) {
+    const closeEl = e.target.closest('[data-modal-close]');
+    if (closeEl) {
+        closeImageModal();
+    }
+});
+
+document.addEventListener('keydown', function(e) {
+    if (e.key !== 'Escape') return;
+    const modal = document.getElementById('imageModal');
+    if (modal && !modal.classList.contains('hidden')) {
+        closeImageModal();
+    }
+});
 
 document.addEventListener('click', function(e) {
     const img = e.target.closest('[data-image-preview]');

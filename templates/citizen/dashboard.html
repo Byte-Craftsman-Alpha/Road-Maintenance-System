@@ -3,8 +3,9 @@
 {% block title %}{{ _('Citizen Dashboard') }} - CivicSetu{% endblock %}
 
 {% block content %}
+<div class="citizen-dashboard-page">
 <div class="scroll-reveal-left mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-    <h1 class="text-2xl font-semibold text-slate-900">
+    <h1 class="text-2xl font-semibold text-slate-900 dark:text-slate-100">
         <span class="iconify inline-block align-[-0.125em]" data-icon="solar:widget-4-bold" data-width="22" data-height="22"></span> {{ _('My Dashboard') }}
     </h1>
     <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary inline-flex items-center gap-2">
@@ -15,40 +16,40 @@
 <div class="mb-6 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
     <div class="minimal-card scroll-reveal scroll-reveal-delay-1">
         <div class="p-5">
-            <div class="text-sm font-medium text-slate-600">{{ _('Total Reports') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|length }}</div>
+            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('Total Reports') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|length }}</div>
         </div>
     </div>
     <div class="minimal-card scroll-reveal scroll-reveal-delay-2">
         <div class="p-5">
-            <div class="text-sm font-medium text-slate-600">{{ _('Pending') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</div>
+            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('Pending') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|selectattr("status", "equalto", "reported")|list|length + reports|selectattr("status", "equalto", "verified")|list|length }}</div>
         </div>
     </div>
     <div class="minimal-card scroll-reveal scroll-reveal-delay-3">
         <div class="p-5">
-            <div class="text-sm font-medium text-slate-600">{{ _('In Progress') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</div>
+            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('In Progress') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|selectattr("status", "equalto", "in_progress")|list|length }}</div>
         </div>
     </div>
     <div class="minimal-card scroll-reveal scroll-reveal-delay-4">
         <div class="p-5">
-            <div class="text-sm font-medium text-slate-600">{{ _('Completed') }}</div>
-            <div class="mt-2 text-3xl font-semibold text-slate-900">{{ reports|selectattr("status", "equalto", "completed")|list|length }}</div>
+            <div class="text-sm font-medium text-slate-600 dark:text-slate-300">{{ _('Completed') }}</div>
+            <div class="mt-2 text-3xl font-semibold text-slate-900 dark:text-slate-100">{{ reports|selectattr("status", "equalto", "completed")|list|length }}</div>
         </div>
     </div>
 </div>
 
 <div class="minimal-card scroll-reveal">
-    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4">
-        <h2 class="text-base font-semibold text-slate-900"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('My Reports') }}</h2>
+    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+        <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:list-bold" data-width="18" data-height="18"></span> {{ _('My Reports') }}</h2>
     </div>
     <div class="px-6 py-4">
         {% if reports %}
             <div class="overflow-x-auto">
                 <table class="min-w-full text-left text-sm">
-                    <thead class="text-xs font-semibold uppercase tracking-wider text-slate-500">
-                        <tr class="border-b border-slate-200/70">
+                    <thead class="text-xs font-semibold uppercase tracking-wider text-slate-500 dark:text-slate-400">
+                        <tr class="border-b border-slate-200/70 dark:border-slate-700/70">
                             <th class="py-3 pr-4">{{ _('Title') }}</th>
                             <th class="py-3 pr-4">{{ _('Category') }}</th>
                             <th class="py-3 pr-4">{{ _('Severity') }}</th>
@@ -58,20 +59,20 @@
                             <th class="py-3">{{ _('Actions') }}</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-slate-200/70">
+                    <tbody class="divide-y divide-slate-200/70 dark:divide-slate-800">
                         {% for report in reports %}
-                        <tr class="hover:bg-slate-50/70">
+                        <tr class="hover:bg-slate-50/70 dark:hover:bg-slate-900/40">
                             <td class="py-3 pr-4">
-                                <div class="font-medium text-slate-900">{{ report.title }}</div>
+                                <div class="font-medium text-slate-900 dark:text-slate-100">{{ report.title }}</div>
                                 {% if report.photo_path %}
-                                    <div class="mt-1 text-xs text-slate-500"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:camera-outline" data-width="16" data-height="16"></span> {{ _('Has photo') }}</div>
+                                    <div class="mt-1 text-xs text-slate-500 dark:text-slate-400"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:camera-outline" data-width="16" data-height="16"></span> {{ _('Has photo') }}</div>
                                 {% endif %}
                             </td>
                             <td class="py-3 pr-4">
-                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">{{ report.category.replace('_', ' ').title() }}</span>
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 dark:bg-slate-900/40 dark:text-slate-200">{{ report.category.replace('_', ' ').title() }}</span>
                             </td>
                             <td class="py-3 pr-4">
-                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 severity-{{ report.severity }}">{{ report.severity.title() }}</span>
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 dark:bg-slate-900/40 dark:text-slate-200 severity-{{ report.severity }}">{{ report.severity.title() }}</span>
                             </td>
                             <td class="py-3 pr-4">
                                 {% set status_colors = {
@@ -81,22 +82,22 @@
                                     'completed': 'success',
                                     'rejected': 'danger'
                                 } %}
-                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700">{{ report.status.replace('_', ' ').title() }}</span>
+                                <span class="inline-flex items-center rounded-full bg-slate-100 px-2 py-1 text-xs font-medium text-slate-700 dark:bg-slate-900/40 dark:text-slate-200">{{ report.status.replace('_', ' ').title() }}</span>
                             </td>
                             <td class="py-3 pr-4">
                                 {% if report.photo_path %}
                                     <img src="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
-                                         class="h-14 w-14 rounded-xl border border-slate-200 object-cover"
+                                         class="h-14 w-14 rounded-xl border border-slate-200 object-cover dark:border-slate-700"
                                          style="cursor: pointer;"
                                          data-modal="image"
                                          data-image-url="{{ url_for('static', filename=report.photo_path.replace('\\', '/').replace('static/', '')) }}"
                                          data-image-title="{{ report.title }}"
                                          title="{{ _('Click to view full image') }}">
                                 {% else %}
-                                    <span class="text-xs text-slate-500"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span> {{ _('No image available') }}</span>
+                                    <span class="text-xs text-slate-500 dark:text-slate-400"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:gallery-remove-outline" data-width="16" data-height="16"></span> {{ _('No image available') }}</span>
                                 {% endif %}
                             </td>
-                            <td class="py-3 pr-4 text-slate-700">{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
+                            <td class="py-3 pr-4 text-slate-700 dark:text-slate-200">{{ report.created_at.strftime('%Y-%m-%d %H:%M') }}</td>
                             <td class="py-3">
                                 <a href="{{ url_for('view_citizen_report', report_id=report.id) }}" class="minimal-btn inline-flex items-center gap-2 px-3 py-2 text-sm">
                                     <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span> {{ _('View') }}
@@ -109,11 +110,11 @@
             </div>
         {% else %}
             <div class="py-10 text-center">
-                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-600">
+                <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-600 dark:bg-slate-900/40 dark:text-slate-300">
                     <span class="iconify" data-icon="solar:clipboard-list-outline" data-width="26" data-height="26"></span>
                 </div>
-                <h3 class="mt-4 text-base font-semibold text-slate-900">{{ _('No reports yet') }}</h3>
-                <p class="mt-1 text-sm text-slate-600">{{ _('Start by reporting your first road issue!') }}</p>
+                <h3 class="mt-4 text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('No reports yet') }}</h3>
+                <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">{{ _('Start by reporting your first road issue!') }}</p>
                 <a href="{{ url_for('create_report') }}" class="minimal-btn minimal-btn-primary mt-4 inline-flex items-center gap-2">
                     <span class="iconify inline-block align-[-0.125em]" data-icon="solar:add-circle-bold" data-width="20" data-height="20"></span> {{ _('Report Issue') }}
                 </a>
@@ -123,8 +124,8 @@
 </div>
 
 <div class="mt-6 minimal-card">
-    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4">
-        <h2 class="text-base font-semibold text-slate-900"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:map-point-bold" data-width="18" data-height="18"></span> {{ _('My Reports Map') }}</h2>
+    <div class="flex items-center justify-between gap-3 border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+        <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100"><span class="iconify inline-block align-[-0.125em]" data-icon="solar:map-point-bold" data-width="18" data-height="18"></span> {{ _('My Reports Map') }}</h2>
     </div>
     <div class="px-6 py-4">
         <div id="citizenReportsMap" class="map-container" style="height: 400px;"></div>
@@ -135,8 +136,8 @@
     <div class="absolute inset-0 bg-slate-900/50" onclick="closeModal('reportModal')"></div>
     <div class="relative mx-auto my-6 w-[calc(100%-2rem)] max-w-3xl">
         <div class="minimal-card overflow-hidden">
-            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4">
-                <h5 class="text-base font-semibold text-slate-900">{{ _('Report Details') }}</h5>
+            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+                <h5 class="text-base font-semibold text-slate-900 dark:text-slate-100">{{ _('Report Details') }}</h5>
                 <button type="button" class="minimal-btn px-3 py-2 text-sm" onclick="closeModal('reportModal')">
                     <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
                 </button>
@@ -150,8 +151,8 @@
     <div class="absolute inset-0 bg-slate-900/50" onclick="closeModal('imageModal')"></div>
     <div class="relative mx-auto my-6 w-[calc(100%-2rem)] max-w-3xl">
         <div class="minimal-card overflow-hidden">
-            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4">
-                <h5 class="text-base font-semibold text-slate-900" id="imageModalTitle"></h5>
+            <div class="flex items-center justify-between border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+                <h5 class="text-base font-semibold text-slate-900 dark:text-slate-100" id="imageModalTitle"></h5>
                 <button type="button" class="minimal-btn px-3 py-2 text-sm" onclick="closeModal('imageModal')">
                     <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
                 </button>
@@ -159,6 +160,7 @@
             <div class="px-6 py-4" id="imageModalBody"></div>
         </div>
     </div>
+</div>
 </div>
 {% endblock %}
 
@@ -367,12 +369,12 @@ function viewReportDetails(reportId) {
     if (report) {
         var modalBody = document.getElementById('reportModalBody');
         var photoHtml = report.photo_path ? 
-            '<img src="/' + report.photo_path + '" class="w-full rounded-2xl border border-slate-200" alt="' + uiLabels.reportPhotoAlt + '">': 
-            '<p class="text-sm text-slate-600">' + uiLabels.noPhotoUploaded + '</p>';
+            '<img src="/' + report.photo_path + '" class="w-full rounded-2xl border border-slate-200 dark:border-slate-700" alt="' + uiLabels.reportPhotoAlt + '">': 
+            '<p class="text-sm text-slate-600 dark:text-slate-300">' + uiLabels.noPhotoUploaded + '</p>';
         
         var updatesHtml = '';
         if (report.updates && report.updates.length > 0) {
-            updatesHtml = '<hr class="my-4 border-slate-200/70"><h6 class="text-sm font-semibold text-slate-900">' + uiLabels.statusUpdates + ':</h6><div class="timeline">';
+            updatesHtml = '<hr class="my-4 border-slate-200/70 dark:border-slate-700/70"><h6 class="text-sm font-semibold text-slate-900 dark:text-slate-100">' + uiLabels.statusUpdates + ':</h6><div class="timeline">';
             report.updates.forEach(function(update) {
                 updatesHtml += '<div class="mb-2">';
                 updatesHtml += '<small class="text-muted">' + new Date(update.created_at).toLocaleString() + '</small><br>';
@@ -407,7 +409,7 @@ function viewReportDetails(reportId) {
 
 function showImageModal(imageUrl, title) {
     var modalBody = document.getElementById('imageModalBody');
-    modalBody.innerHTML = '<img src="' + imageUrl + '" class="w-full rounded-2xl border border-slate-200" alt="' + title + '">';
+    modalBody.innerHTML = '<img src="' + imageUrl + '" class="w-full rounded-2xl border border-slate-200 dark:border-slate-700" alt="' + title + '">';
     document.getElementById('imageModalTitle').innerText = title;
     openModal('imageModal');
 }

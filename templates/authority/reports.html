@@ -4,9 +4,13 @@
 
 {% block content %}
 <div class="d-flex justify-content-between align-items-center mb-4">
-    <h2><i class="fas fa-list"></i> {{ _('All Reports') }}</h2>
+    <h2>
+        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:documents-bold" data-width="22" data-height="22"></span>
+        {{ _('All Reports') }}
+    </h2>
     <a href="{{ url_for('authority_dashboard') }}" class="btn btn-outline-primary">
-        <i class="fas fa-arrow-left"></i> {{ _('Back to Dashboard') }}
+        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:alt-arrow-left-outline" data-width="18" data-height="18"></span>
+        {{ _('Back to Dashboard') }}
     </a>
 </div>
 
@@ -15,11 +19,15 @@
     <div class="card-header">
         <div class="row align-items-center">
             <div class="col-md-6">
-                <h6 class="mb-0"><i class="fas fa-filter"></i> {{ _('Filters & Search') }}</h6>
+                <h6 class="mb-0">
+                    <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:filter-outline" data-width="18" data-height="18"></span>
+                    {{ _('Filters & Search') }}
+                </h6>
             </div>
             <div class="col-md-6 text-end">
                 <button class="btn btn-sm btn-outline-secondary" type="button" data-bs-toggle="collapse" data-bs-target="#advancedFilters">
-                    <i class="fas fa-cog"></i> {{ _('Advanced Options') }}
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:settings-outline" data-width="18" data-height="18"></span>
+                    {{ _('Advanced Options') }}
                 </button>
             </div>
         </div>
@@ -70,7 +78,8 @@
                 <label class="form-label">&nbsp;</label>
                 <div class="d-grid">
                     <a href="{{ url_for('view_reports') }}" class="btn btn-outline-secondary">
-                        <i class="fas fa-times"></i> {{ _('Clear Filters') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                        {{ _('Clear Filters') }}
                     </a>
                 </div>
             </div>
@@ -101,7 +110,8 @@
                 <div class="col-md-2">
                     <label class="form-label">&nbsp;</label>
                     <button class="btn btn-primary d-block w-100" onclick="performSearch()">
-                        <i class="fas fa-search"></i> {{ _('Search') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
+                        {{ _('Search') }}
                     </button>
                 </div>
             </div>
@@ -110,7 +120,10 @@
             <hr>
             <div class="row">
                 <div class="col-12">
-                    <label class="form-label"><i class="fas fa-columns"></i> {{ _('Show/Hide Columns') }}</label>
+                    <label class="form-label">
+                        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:slider-minimalistic-horizontal-outline" data-width="18" data-height="18"></span>
+                        {{ _('Show/Hide Columns') }}
+                    </label>
                     <div class="row">
                         <div class="col-md-2">
                             <div class="form-check">
@@ -183,16 +196,19 @@
 <div class="card">
     <div class="card-header d-flex justify-content-between align-items-center">
         <h5 class="mb-0">
-            <i class="fas fa-table"></i> {{ _('Reports') }} 
+            <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:table-outline" data-width="18" data-height="18"></span>
+            {{ _('Reports') }} 
             <span class="badge bg-primary" id="reportCount">{{ reports|length }}</span>
             <span class="badge bg-info" id="filteredCount" style="display: none;"></span>
         </h5>
         <div class="btn-group btn-group-sm">
             <button class="btn btn-outline-success" onclick="bulkAction('verified')">
-                <i class="fas fa-check"></i> {{ _('Bulk Verify') }}
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-outline" data-width="18" data-height="18"></span>
+                {{ _('Bulk Verify') }}
             </button>
             <button class="btn btn-outline-info" onclick="bulkAction('in_progress')">
-                <i class="fas fa-tools"></i> {{ _('Bulk Start Work') }}
+                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:hammer-outline" data-width="18" data-height="18"></span>
+                {{ _('Bulk Start Work') }}
             </button>
         </div>
     </div>
@@ -206,34 +222,34 @@
                                 <input type="checkbox" id="selectAll" onchange="toggleAllCheckboxes()">
                             </th>
                             <th onclick="sortTable(1)" style="cursor: pointer;" data-column="1">
-                                {{ _('ID') }} <i class="fas fa-sort"></i>
+                                {{ _('ID') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(2)" style="cursor: pointer;" data-column="2">
-                                {{ _('Title') }} <i class="fas fa-sort"></i>
+                                {{ _('Title') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(3)" style="cursor: pointer;" data-column="3">
-                                {{ _('Category') }} <i class="fas fa-sort"></i>
+                                {{ _('Category') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(4)" style="cursor: pointer;" data-column="4">
-                                {{ _('Severity') }} <i class="fas fa-sort"></i>
+                                {{ _('Severity') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(5)" style="cursor: pointer;" data-column="5">
-                                {{ _('Status') }} <i class="fas fa-sort"></i>
+                                {{ _('Status') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(6)" style="cursor: pointer;" data-column="6">
-                                {{ _('Votes') }} <i class="fas fa-sort"></i>
+                                {{ _('Votes') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(7)" style="cursor: pointer;" data-column="7">
-                                {{ _('Reporter') }} <i class="fas fa-sort"></i>
+                                {{ _('Reporter') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(8)" style="cursor: pointer;" data-column="8">
-                                {{ _('PIN/Postal Code') }} <i class="fas fa-sort"></i>
+                                {{ _('PIN/Postal Code') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(9)" style="cursor: pointer;" data-column="9">
-                                {{ _('Address') }} <i class="fas fa-sort"></i>
+                                {{ _('Address') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th onclick="sortTable(10)" style="cursor: pointer;" data-column="10">
-                                {{ _('Date') }} <i class="fas fa-sort"></i>
+                                {{ _('Date') }} <span class="iconify inline-block align-[-0.125em]" data-icon="solar:sort-outline" data-width="16" data-height="16"></span>
                             </th>
                             <th>{{ _('Actions') }}</th>
                         </tr>
@@ -248,7 +264,7 @@
                             <td data-column="2">
                                 <strong>{{ report.title }}</strong>
                                 {% if report.photo_path %}
-                                    <i class="fas fa-camera text-muted ms-1" title="Has photo"></i>
+                                    <span class="iconify inline-block align-[-0.125em] text-muted ms-1" data-icon="solar:camera-outline" data-width="16" data-height="16" title="Has photo"></span>
                                 {% endif %}
                                 {% if report.ticket %}
                                     <br><small class="text-muted">Ticket: {{ report.ticket.ticket_number }}</small>
@@ -274,7 +290,8 @@
                             </td>
                             <td data-column="6">
                                 <span class="badge bg-primary">
-                                    <i class="fas fa-thumbs-up"></i> {{ report.votes|length }}
+                                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:like-outline" data-width="16" data-height="16"></span>
+                                    {{ report.votes|length }}
                                 </span>
                             </td>
                             <td data-column="7">
@@ -292,22 +309,29 @@
                                 <div class="btn-group btn-group-sm">
                                     <a href="{{ url_for('view_report_detail', report_id=report.id) }}" 
                                        class="btn btn-outline-primary" title="View Details">
-                                        <i class="fas fa-eye"></i>
+                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:eye-outline" data-width="18" data-height="18"></span>
                                     </a>
                                     <button class="btn btn-outline-success" 
-                                            onclick="quickStatusUpdate({{ report.id }}, getNextStatus('{{ report.status }}'))"
+                                            type="button"
+                                            data-report-id="{{ report.id }}"
+                                            data-current-status="{{ report.status }}"
+                                            data-action="quick-update"
                                             title="Quick Update"
                                             id="update-btn-{{ report.id }}">
-                                        <i class="fas fa-arrow-right"></i>
+                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:alt-arrow-right-outline" data-width="18" data-height="18"></span>
                                     </button>
                                     <button class="btn btn-outline-info" 
                                             {% if report.latitude and report.longitude %}
-                                            onclick="showLocationOnMap({{ report.latitude }}, {{ report.longitude }}, '{{ report.title }}')"
+                                            type="button"
+                                            data-action="view-map"
+                                            data-lat="{{ report.latitude }}"
+                                            data-lng="{{ report.longitude }}"
+                                            data-title="{{ report.title }}"
                                             {% else %}
                                             onclick="alert('Location not available for this report')" disabled
                                             {% endif %}
                                             title="View on Map">
-                                        <i class="fas fa-map-marker-alt"></i>
+                                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:map-point-outline" data-width="18" data-height="18"></span>
                                     </button>
                                 </div>
                             </td>
@@ -318,7 +342,7 @@
             </div>
         {% else %}
             <div class="text-center py-4">
-                <i class="fas fa-search fa-3x text-muted mb-3"></i>
+                <span class="iconify inline-block align-[-0.125em] text-muted mb-3" data-icon="solar:magnifer-outline" data-width="34" data-height="34"></span>
                 <h5>{{ _('No reports found') }}</h5>
                 <p class="text-muted">
                     {% if status_filter != 'all' or category_filter != 'all' %}
@@ -329,7 +353,8 @@
                 </p>
                 {% if status_filter != 'all' or category_filter != 'all' %}
                     <a href="{{ url_for('view_reports') }}" class="btn btn-outline-primary">
-                        <i class="fas fa-times"></i> {{ _('Clear Filters') }}
+                        <span class="iconify inline-block align-[-0.125em]" data-icon="solar:close-circle-outline" data-width="18" data-height="18"></span>
+                        {{ _('Clear Filters') }}
                     </a>
                 {% endif %}
             </div>
@@ -356,6 +381,25 @@
 {% block scripts %}
 <script>
 let locationMap;
+
+document.addEventListener('click', function(e) {
+    const quickBtn = e.target.closest('button[data-action="quick-update"]');
+    if (quickBtn) {
+        const reportId = quickBtn.getAttribute('data-report-id');
+        const currentStatus = quickBtn.getAttribute('data-current-status') || 'reported';
+        const nextStatus = getNextStatus(currentStatus);
+        quickStatusUpdate(reportId, nextStatus);
+        return;
+    }
+
+    const mapBtn = e.target.closest('button[data-action="view-map"]');
+    if (mapBtn) {
+        const lat = parseFloat(mapBtn.getAttribute('data-lat'));
+        const lng = parseFloat(mapBtn.getAttribute('data-lng'));
+        const title = mapBtn.getAttribute('data-title') || '';
+        showLocationOnMap(lat, lng, title);
+    }
+});
 
 function toggleAllCheckboxes() {
     const selectAll = document.getElementById('selectAll');
@@ -385,7 +429,7 @@ function bulkAction(status) {
         bulkButtons.forEach(btn => {
             btn.disabled = true;
             if (btn.textContent.includes(status.replace('_', ' '))) {
-                btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                btn.innerHTML = '<span class="iconify inline-block align-[-0.125em]" data-icon="solar:refresh-outline" data-width="18" data-height="18"></span> Processing...';
             }
         });
         
@@ -410,7 +454,7 @@ function bulkAction(status) {
                 // Show success feedback
                 bulkButtons.forEach(btn => {
                     if (btn.textContent.includes('Processing')) {
-                        btn.innerHTML = '<i class="fas fa-check"></i> Complete';
+                        btn.innerHTML = '<span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-outline" data-width="18" data-height="18"></span> Complete';
                     }
                 });
                 
@@ -453,7 +497,7 @@ function quickStatusUpdate(reportId, status) {
         
         // Show loading state immediately
         updateBtn.disabled = true;
-        updateBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Updating...';
+        updateBtn.innerHTML = '<span class="iconify inline-block align-[-0.125em]" data-icon="solar:refresh-outline" data-width="18" data-height="18"></span> Updating...';
         updateBtn.classList.remove('btn-outline-success');
         updateBtn.classList.add('btn-warning');
         
@@ -477,7 +521,7 @@ function quickStatusUpdate(reportId, status) {
             console.log('Update result:', data);
             if (data.success) {
                 // Show success state
-                updateBtn.innerHTML = '<i class="fas fa-check"></i> Updated!';
+                updateBtn.innerHTML = '<span class="iconify inline-block align-[-0.125em]" data-icon="solar:check-circle-outline" data-width="18" data-height="18"></span> Updated!';
                 updateBtn.classList.remove('btn-warning');
                 updateBtn.classList.add('btn-success');
                 

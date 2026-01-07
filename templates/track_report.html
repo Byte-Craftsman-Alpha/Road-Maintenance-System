@@ -3,51 +3,47 @@
 {% block title %}Track Report - CivicSetu{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <div class="row justify-content-center">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="card-header text-center">
-                    <h4>
-                        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:magnifer-outline" data-width="20" data-height="20"></span>
-                        {{ _('Track Your Report') }}
-                    </h4>
-                    <p class="mb-0 text-muted">{{ _('Enter your report ID to track its status') }}</p>
+<div class="track-report-page mx-auto max-w-xl px-4 sm:px-6 lg:px-8 py-6">
+    <div class="minimal-card">
+        <div class="border-b border-slate-200/70 px-6 py-5 text-center dark:border-slate-700/70">
+            <h1 class="text-xl sm:text-2xl font-semibold text-slate-900 dark:text-slate-100">
+                <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:magnifer-outline" data-width="22" data-height="22"></span>
+                {{ _('Track Your Report') }}
+            </h1>
+            <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">{{ _('Enter your report ID to track its status') }}</p>
+        </div>
+
+        <div class="px-6 py-5">
+            <form id="trackingForm" class="space-y-4">
+                <div>
+                    <label for="report_id" class="text-sm font-medium text-slate-700 dark:text-slate-200">{{ _('Report ID') }}</label>
+                    <input type="number" class="minimal-input mt-2 w-full" id="report_id" name="report_id"
+                           placeholder="{{ _('Enter Report ID (e.g., 123)') }}" required>
+                    <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">{{ _('You can find your report ID in the confirmation email or dashboard.') }}</p>
                 </div>
-                <div class="card-body">
-                    <form id="trackingForm">
-                        <div class="mb-3">
-                            <label for="report_id" class="form-label">{{ _('Report ID') }}</label>
-                            <input type="number" class="form-control" id="report_id" name="report_id" 
-                                   placeholder="{{ _('Enter Report ID (e.g., 123)') }}" required>
-                            <div class="form-text">{{ _('You can find your report ID in the confirmation email or dashboard.') }}</div>
-                        </div>
-                        <div class="d-grid">
-                            <button type="submit" class="btn btn-primary">
-                                <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
-                                {{ _('Track Report') }}
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            
-            <div class="card mt-4">
-                <div class="card-header">
-                    <h6>
-                        <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:info-circle-outline" data-width="18" data-height="18"></span>
-                        {{ _('How to Track') }}
-                    </h6>
-                </div>
-                <div class="card-body">
-                    <ol class="mb-0">
-                        <li>{{ _('Enter your report ID in the field above') }}</li>
-                        <li>{{ _('Click "Track Report" to view the current status') }}</li>
-                        <li>{{ _('See all status updates and maintenance tickets') }}</li>
-                        <li>{{ _('No login required - completely public') }}</li>
-                    </ol>
-                </div>
-            </div>
+
+                <button type="submit" class="minimal-btn minimal-btn-primary w-full inline-flex items-center justify-center gap-2">
+                    <span class="iconify inline-block align-[-0.125em]" data-icon="solar:magnifer-outline" data-width="18" data-height="18"></span>
+                    {{ _('Track Report') }}
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="minimal-card mt-6">
+        <div class="border-b border-slate-200/70 px-6 py-4 dark:border-slate-700/70">
+            <h2 class="text-base font-semibold text-slate-900 dark:text-slate-100">
+                <span class="iconify inline-block align-[-0.125em] ds-text-primary" data-icon="solar:info-circle-outline" data-width="18" data-height="18"></span>
+                {{ _('How to Track') }}
+            </h2>
+        </div>
+        <div class="px-6 py-5">
+            <ol class="list-decimal space-y-2 pl-5 text-sm text-slate-700 dark:text-slate-200">
+                <li>{{ _('Enter your report ID in the field above') }}</li>
+                <li>{{ _('Click "Track Report" to view the current status') }}</li>
+                <li>{{ _('See all status updates and maintenance tickets') }}</li>
+                <li>{{ _('No login required - completely public') }}</li>
+            </ol>
         </div>
     </div>
 </div>
